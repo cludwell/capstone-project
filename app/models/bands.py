@@ -6,7 +6,7 @@ class Band(db.Model):
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
-        
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     city = db.Column(db.String(255), nullable=False)
@@ -30,6 +30,7 @@ class Band(db.Model):
             'userId': self.user_id,
             'artistImage': self.artist_image,
             'bandUrl': self.band_url,
+            'description': self.description,
             'genres': self.genres,
             'bannerUrl': self.banner_url,
             'createdAt': self.created_at,

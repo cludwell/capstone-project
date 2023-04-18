@@ -14,7 +14,9 @@ class Album(db.Model):
     band_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     album_image = db.Column(db.String(255), nullable=False)
     genre = db.Column(db.String(255), nullable=True)
-
+    created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
+    
     def to_dict(self):
         return {
             'id': self.id,

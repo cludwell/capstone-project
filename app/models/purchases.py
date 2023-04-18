@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from sqlalchemy.sql import func
 
-class Purchases(db.Model):
+class Purchase(db.Model):
     __tablename__ = 'purchases'
 
     if environment == "production":

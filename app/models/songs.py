@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from sqlalchemy.sql import func
 
-class Songs(db.Model):
+class Song(db.Model):
     __tablename__ = 'songs'
 
     if environment == "production":
@@ -21,10 +21,11 @@ class Songs(db.Model):
         return {
             'id': self.id,
             'name': self.name,
+            'albumId': self.album_id,
             'lyrics': self.lyrics,
             'price': self.price,
-            'albumId': self.album_id,
             'trackNum': self.track_num,
+            'url': self.url,
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
         }
