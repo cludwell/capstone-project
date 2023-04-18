@@ -5,8 +5,8 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     user01 = User(
-        username='idontknowyou', email='butch@aa.io', password='password', name='bobby hill',
-        address='123 Rainey St', city='Arlen', state='Texas', country='USA',
+        username='BrittanyArchers', email='unleash@aa.io', password='password', name='Brittany Slayes',
+        address='123 Progressive Rd', city='Vancouver', state='British Columbia', country='Canada',
         genres='rock, rap', banner_url=None)
     user02 = User(
         username='peggyhill', email='butch@aa.io', password='password', name='Peggy Hill',
@@ -23,7 +23,7 @@ def seed_users():
 
 
     db.session.add_all([
-        user01, user02, user03, user4])
+        user01, user02, user03, user04])
     db.session.commit()
 
 
