@@ -4,16 +4,26 @@ from sqlalchemy.sql import text
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+    user01 = User(
+        username='idontknowyou', email='butch@aa.io', password='password', name='bobby hill',
+        address='123 Rainey St', city='Arlen', state='Texas', country='USA',
+        genres='rock, rap', banner_url=None)
+    user02 = User(
+        username='peggyhill', email='butch@aa.io', password='password', name='Peggy Hill',
+        address='123 Rainey St', city='Arlen', state='Texas', country='USA',
+        genres='rock, rap', banner_url=None)
+    user03 = User(
+        username='henry', email='henryrollins@aa.io', password='password', name='Henry Rollins',
+        address='2300 Nichols Canyon Rd', city='Los Angeles', state='CA', country='USA',
+        genres='punk,metal', banner_url='https://i.imgur.com/AugmhKB.jpg')
+    user04 = User(
+        username='melissabonnie', email='bonnie@aa.io', password='password', name='Melissa Bonnie',
+        address='123 Rainey St', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland',
+        genres='metal, opera-metal', banner_url=None)
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+
+    db.session.add_all([
+        user01, user02, user03, user4])
     db.session.commit()
 
 
@@ -28,5 +38,5 @@ def undo_users():
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM users"))
-        
+
     db.session.commit()
