@@ -1,21 +1,20 @@
-from app.models import db, Cart, environment, SCHEMA
+from app.models import db, Purchase, environment, SCHEMA
 from sqlalchemy.sql import text
 
-def seed_carts():
-    cart01 = Cart(
-        user_id=1, item_id=1
-    )
-    cart02 = Cart(
+def seed_purchases():
+    purchase01 = Purchase(
         user_id=3, item_id=2
     )
-    cart03 = Cart(
+    purchase02 = Purchase(
         user_id=3, item_id=3
     )
-
+    purchase03 = Purchase(
+        user_id=1, item_id=1
+    )
 
 
     db.session.add_all([
-        cart01, cart02, cart03])
+        purchase01, purchase02, purchase03])
     db.session.commit()
 
 
@@ -28,8 +27,8 @@ def seed_carts():
 
 def undo_carts():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.carts RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.purchases RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM carts"))
+        db.session.execute(text("DELETE FROM purchases"))
 
     db.session.commit()
