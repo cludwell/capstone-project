@@ -10,8 +10,8 @@ def seed_bands():
         genres='punk'
     )
     band02 = Band(
-        name= 'Black Flag', city='Los Angeles', state='CA', country='USA', userId=3, artist_image='https://i.imgur.com/jg2l0GT.png',
-        band_url='https://i.imgur.com/njk4Rcg.jpg',
+        name= 'Unleash The Archers', city='Los Angeles', state='CA', country='USA', userId=1, artist_image='https://i.imgur.com/RRHHqxc.jpg',
+        band_url='https://i.imgur.com/IIn1RA4.png',
         description= """
         Unleash The Archers were formed in 2007 by front-woman Brittney Slayes, together with her partner and the band's drummer Scott Buchanan, while attending the University of Victoria on Vancouver Island in British Columbia.  After moving to Vancouver in 2010 the band underwent several lineup changes, but were finally able to cement their unique, genre-blending style of heavy metal with the addition of Grant Truesdell in 2011 and Andrew Kingsley in 2013.  By weaving the aggression of the more extreme genres into the intricacies of traditional heavy metal, UTA have created a sound unlike anything else in the industry.  They embrace a commercial appeal that attracts music lovers of all types while maintaining a heavy edge that remains true to their death metal roots.  Since their inception UTA have always put an emphasis on touring, and travelled the roads by van booking their own North American tours for years before being picked up by an agent in 2016.  Their persistent, hard-working, down-to-earth attitude has garnered media attention all over the world, and their constant engagement on social platforms of all types has allowed for consistent growth and a dedicated, positively engaged fanbase that spans continents.
 
