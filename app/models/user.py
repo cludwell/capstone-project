@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-
+from sqlalchemy.sql import func
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -13,6 +13,16 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    name = db.Column(db.String(255), nullable=False)
+    address = db.Column(db.String(255), nullable=False)
+    city = db.Column(db.String(255), nullable=False)
+    state = db.Column(db.String(255), nullable=False)
+    country = db.Column(db.String(255), nullable=False)
+    genres = db.String(db.Text, nullable=True)
+    banner_url = db.String(db.String(255), nullable=True)
+    created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
     @property
     def password(self):
@@ -30,4 +40,20 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email
+        }
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'address': self.address,
+            'city': self.city,
+            'state': self.state,
+            'country': self.country,
+            'genres': self.genres,
+            'bannerUrl': self.banner_url,
+            'createdAt': self.created_at,
+            'updatedAt': self.updated_at
         }
