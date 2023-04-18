@@ -20,7 +20,7 @@ def seed_albums():
         genre='metal, power metal'
 
     )
-    album02 = Album(
+    album03 = Album(
         name= 'Apex', price=9.99,
         description=
         """Deluxe 2CD + 10" Earbook edition available here: lnk.to/ApexAnniversary/napalmrecords
@@ -33,7 +33,7 @@ def seed_albums():
         genre='metal, power metal'
 
     )
-    album02 = Album(
+    album04 = Album(
         name= 'Time Stands Still', price=9.99,
         description=
         """Available from Napalm Records!
@@ -52,7 +52,7 @@ def seed_albums():
 
     )
     db.session.add_all([
-        album01, album02])
+        album01, album02, album03, album04])
     db.session.commit()
 
 
@@ -62,7 +62,7 @@ def seed_albums():
 # incrementing primary key, CASCADE deletes any dependent entities.  With
 # sqlite3 in development you need to instead use DELETE to remove all data and
 # it will reset the primary keys for you as well.
-def undo_users():
+def undo_albums():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.albums RESTART IDENTITY CASCADE;")
     else:
