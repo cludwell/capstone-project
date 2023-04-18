@@ -4,6 +4,9 @@ from sqlalchemy.sql import func
 class Band(db.Model):
     __tablename__ = 'bands'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+        
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     city = db.Column(db.String(255), nullable=False)
