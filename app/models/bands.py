@@ -14,7 +14,7 @@ class Band(db.Model):
     country = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     artist_image = db.Column(db.Integer)
-    band_url = db.Column(db.Integer)
+    banner_url = db.Column(db.Integer)
     description = db.Column(db.Text)
     genres = db.String(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
@@ -29,7 +29,7 @@ class Band(db.Model):
             'country': self.country,
             'userId': self.user_id,
             'artistImage': self.artist_image,
-            'bandUrl': self.band_url,
+            'bannerUrl': self.banner_url,
             'description': self.description,
             'genres': self.genres,
             'bannerUrl': self.banner_url,

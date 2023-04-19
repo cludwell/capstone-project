@@ -3,18 +3,20 @@ from sqlalchemy.sql import text
 
 def seed_carts():
     cart01 = Cart(
-        user_id=1, item_id=1
+        user_id=1, item_id=6
     )
     cart02 = Cart(
-        user_id=3, item_id=2
+        user_id=3, item_id=4
     )
     cart03 = Cart(
-        user_id=3, item_id=3
+        user_id=3, item_id=5
     )
 
 
     db.session.add_all([
-        cart01, cart02, cart03, cart04, cart05])
+        cart01, cart02, cart03,
+        # cart04, cart05
+        ])
     db.session.commit()
 
 

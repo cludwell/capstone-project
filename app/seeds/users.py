@@ -7,27 +7,27 @@ def seed_users():
     user01 = User(
         username='BrittanyArchers', email='unleash@aa.io', password='password', name='Brittany Slayes',
         address='123 Progressive Rd', city='Vancouver', state='British Columbia', country='Canada',
-        genres='rock, rap', banner_url=None)
+        genres='rock, rap', profile_pic='https://i.imgur.com/nOUPZfs.jpg')
     user02 = User(
         username='accidente', email='blanca@aa.io', password='password', name='Blanca',
         address='123 Rainey St', city='Arlen', state='Texas', country='USA',
-        genres='punk, pop-punk', banner_url=None)
+        genres='punk, pop-punk', profile_pic='https://i.imgur.com/pdcqOM2.jpg')
     user03 = User(
         username='henry', email='henryrollins@aa.io', password='password', name='Henry Rollins',
         address='2300 Nichols Canyon Rd', city='Los Angeles', state='CA', country='USA',
-        genres='punk,metal', banner_url='https://i.imgur.com/AugmhKB.jpg')
+        genres='punk,metal', profile_pic='https://i.imgur.com/AugmhKB.jpg')
     user04 = User(
         username='melissabonnie', email='bonnie@aa.io', password='password', name='Melissa Bonnie',
         address='85 Monarch St', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland',
-        genres='metal, opera-metal, symphonic metal', banner_url='https://i.imgur.com/NsKW68u.jpg')
+        genres='metal, opera-metal, symphonic metal', profile_pic='https://i.imgur.com/NsKW68u.jpg')
     user05 = User(
         username='fellowship', email='mcorry@aa.io', password='password', name='Matthew Corry',
         address='243 Hanover Ct', city='Harwich', state='Essex', country='UK',
-        genres='metal, opera-metal, symphonic metal', banner_url='https://i.imgur.com/BSA9XQ8.jpg')
-    user04 = User(
-        username='melissabonnie', email='bonnie@aa.io', password='password', name='Melissa Bonnie',
-        address='', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland',
-        genres='metal, opera-metal, symphonic metal', banner_url='https://i.imgur.com/NsKW68u.jpg')
+        genres='metal, opera-metal, symphonic metal', profile_pic='https://i.imgur.com/BSA9XQ8.jpg')
+    # user04 = User(
+    #     username='melissabonnie', email='bonnie@aa.io', password='password', name='Melissa Bonnie',
+    #     address='', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland',
+    #     genres='metal, opera-metal, symphonic metal', profile_pic='https://i.imgur.com/NsKW68u.jpg')
 
 
     db.session.add_all([
