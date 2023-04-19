@@ -1,26 +1,21 @@
-from app.models import db, Purchase, environment, SCHEMA
+from app.models import db, WishList, environment, SCHEMA
 from sqlalchemy.sql import text
 
-def seed_purchases():
-    purchase01 = Purchase(
-        user_id=3, item_id=2
-    )
-    purchase02 = Purchase(
-        user_id=3, item_id=3
-    )
-    purchase03 = Purchase(
+def seed_wishlists():
+    wishlist01 = WishList(
         user_id=1, item_id=1
     )
-    purchase04 = Purchase(
-        user_id=1, item_id=4
+    wishlist02 = WishList(
+        user_id=1, item_id=2
     )
-    purchase05 = Purchase(
-        user_id=1, item_id=5
+    wishlist03 = WishList(
+        user_id=1, item_id=3
     )
+
 
 
     db.session.add_all([
-        purchase01, purchase02, purchase03, purchase04, purchase05])
+        wishlist01, wishlist02, wishlist03])
     db.session.commit()
 
 
@@ -31,10 +26,10 @@ def seed_purchases():
 # sqlite3 in development you need to instead use DELETE to remove all data and
 # it will reset the primary keys for you as well.
 
-def undo_carts():
+def undo_wishlists():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.purchases RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.wishlists RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM purchases"))
+        db.session.execute(text("DELETE FROM wishlists"))
 
     db.session.commit()

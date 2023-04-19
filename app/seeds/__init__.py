@@ -2,6 +2,7 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .albums import seed_albums, undo_albums
 from .carts import seed_carts, undo_carts
+from .songs import seed
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands

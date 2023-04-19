@@ -13,9 +13,8 @@ def seed_carts():
     )
 
 
-
     db.session.add_all([
-        cart01, cart02, cart03])
+        cart01, cart02, cart03, cart04, cart05])
     db.session.commit()
 
 

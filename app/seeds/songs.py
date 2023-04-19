@@ -1,7 +1,7 @@
 from app.models import db, Song, environment, SCHEMA
 from sqlalchemy.sql import text
 
-def seed_purchases():
+def seed_songs():
     song001 = Song(
         # first four years by black flag
         name= "Nervous Breakdown", album_id=1, price=.99, track_num= 1
@@ -1384,7 +1384,7 @@ Call me Immortal"""
 # sqlite3 in development you need to instead use DELETE to remove all data and
 # it will reset the primary keys for you as well.
 
-def undo_carts():
+def undo_songs():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.purchases RESTART IDENTITY CASCADE;")
     else:
