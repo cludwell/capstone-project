@@ -18,8 +18,8 @@ class User(db.Model, UserMixin):
     city = db.Column(db.String(255), nullable=False)
     state = db.Column(db.String(255), nullable=False)
     country = db.Column(db.String(255), nullable=False)
-    genres = db.String(db.Text)
-    profile_pic = db.String(db.String(255))
+    genre = db.Column(db.String(255))
+    profile_pic = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
@@ -44,7 +44,7 @@ class User(db.Model, UserMixin):
             'city': self.city,
             'state': self.state,
             'country': self.country,
-            'genres': self.genres,
+            'genre': self.genre,
             'profilePic': self.profile_pic,
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
