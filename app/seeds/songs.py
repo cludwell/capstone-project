@@ -1370,9 +1370,68 @@ Call me Immortal"""
         name="Somewhere Better (Instrumental)", album_id=5, price=.99, track_num=14
     )
 
+    song071 = Song(
+    # The Saberlight Chronicles by Fellowship
+    name="Until The Fires Die", album_id=6, price=.99, track_num=1
+    )
+
+    song072 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="Atlas", album_id=6, price=.99, track_num=2
+    )
+
+    song073 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="Glory Days", album_id=6, price=.99, track_num=3
+    )
+
+    song074 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="Oak And Ash", album_id=6, price=.99, track_num=4
+    )
+
+    song075 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="Hearts Upon The Hill", album_id=6, price=.99, track_num=5
+    )
+
+    song076 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="Scars And Shrapnel Wounds", album_id=6, price=.99, track_num=6
+    )
+
+    song077 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="The Hours Of Wintertime", album_id=6, price=.99, track_num=7
+    )
+
+    song078 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="Glint", album_id=6, price=.99, track_num=8
+    )
+
+    song079 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="The Saint Beyond The River", album_id=6, price=.99, track_num=9
+    )
+
+    song080 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="Silhouette", album_id=6, price=.99, track_num=10
+    )
+
+    song081 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="Still Enough", album_id=6, price=.99, track_num=11
+    )
+
+    song082 = Song(
+        # The Saberlight Chronicles by Fellowship
+        name="Avalon", album_id=6, price=.99, track_num=12
+    )
 
     db.session.add_all([
-        song001, song002, song003, song004, song005, song006, song007, song008, song009, song010, song011, song012, song013, song014, song015, song016, song017, song018, song019, song020, song021, song022, song023, song024, song025, song026, song027, song028, song029, song030, song031, song032, song033, song034, song035, song036, song037, song038, song039, song040, song041, song042, song043, song044, song045, song046, song047, song048, song049, song050, song051, song052, song053, song054, song055, song056, song057, song058, song059, song060,  song061, song062, song063, song064, song065, song066, song067, song068, song069, song070, song071, song072, song073, song074, song075, song076, song077, song078, song079, song080, song081, song082, song083, song084, song085, song086, song087, song088, song089, song090,song091, song092, song093, song094, song095, song096, song097, song098, song099, song100
+        song001, song002, song003, song004, song005, song006, song007, song008, song009, song010, song011, song012, song013, song014, song015, song016, song017, song018, song019, song020, song021, song022, song023, song024, song025, song026, song027, song028, song029, song030, song031, song032, song033, song034, song035, song036, song037, song038, song039, song040, song041, song042, song043, song044, song045, song046, song047, song048, song049, song050, song051, song052, song053, song054, song055, song056, song057, song058, song059, song060,  song061, song062, song063, song064, song065, song066, song067, song068, song069, song070, song071, song072, song073, song074, song075, song076, song077, song078, song079, song080, song081, song082, song083, song084, song085, song086, song087, song088, song089, song090, song091, song092, song093, song094, song095, song096, song097, song098, song099, song100
 ])
     db.session.commit()
 

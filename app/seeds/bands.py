@@ -39,8 +39,22 @@ def seed_bands():
         band_url='https://i.imgur.com/3MdWhs9.jpg',
         description="""Ad Infinitum is a Swiss/German symphonic metal band. Originally a solo project of Swiss singer Melissa Bonny, it turned into a full band with arrival of drummer Niklas Müller, bassist Jonas Asplind and guitarist Adrian Theßenvitz. The band signed a deal with Napalm Records in July 2019 and released a debut album - Chapter I: Monarchy - in April 2020."""
     )
+    band05 = Band(
+        name='Fellowship', city='Harwich', state='Essex', country='UK', user_id=5,
+        artist_url='https://i.imgur.com/XREf79t.png',
+        band_url='https://i.imgur.com/BSA9XQ8.jpg',
+        description=
+        """
+        Hailing from Harwich, England, Fellowship is a four-piece on a mission to take melodic power metal to new heights.
+
+        Continuing in the magical tradition of Twilight Force, Rhapsody and Majestica, and bringing the genre's emotional stakes to new heights, our debut album 'The Saberlight Chronicles' is equal parts high fantasy narrative concept record and heartfelt collection of absolute bangers… at least that's how we think of it!
+
+        Taking on the subject of mental health at a time in our lives where we all need a pick-me-up, the album tells a mythical story of self-worth, self-discovery and the quest for courage, all through songs so catchy you'll be singing along on the very first listen.
+
+        Metal has never felt so good!""",
+    )
     db.session.add_all([
-       band01, band02, band03, band04])
+       band01, band02, band03, band04, band05])
     db.session.commit()
 
 

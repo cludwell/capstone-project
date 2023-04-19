@@ -12,8 +12,6 @@ def seed_wishlists():
         user_id=1, item_id=3
     )
 
-
-
     db.session.add_all([
         wishlist01, wishlist02, wishlist03])
     db.session.commit()

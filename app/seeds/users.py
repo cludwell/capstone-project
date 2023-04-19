@@ -18,12 +18,20 @@ def seed_users():
         genres='punk,metal', banner_url='https://i.imgur.com/AugmhKB.jpg')
     user04 = User(
         username='melissabonnie', email='bonnie@aa.io', password='password', name='Melissa Bonnie',
-        address='123 Rainey St', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland',
-        genres='metal, opera-metal', banner_url=None)
+        address='85 Monarch St', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland',
+        genres='metal, opera-metal, symphonic metal', banner_url='https://i.imgur.com/NsKW68u.jpg')
+    user05 = User(
+        username='fellowship', email='mcorry@aa.io', password='password', name='Matthew Corry',
+        address='243 Hanover Ct', city='Harwich', state='Essex', country='UK',
+        genres='metal, opera-metal, symphonic metal', banner_url='https://i.imgur.com/BSA9XQ8.jpg')
+    user04 = User(
+        username='melissabonnie', email='bonnie@aa.io', password='password', name='Melissa Bonnie',
+        address='', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland',
+        genres='metal, opera-metal, symphonic metal', banner_url='https://i.imgur.com/NsKW68u.jpg')
 
 
     db.session.add_all([
-        user01, user02, user03, user04])
+        user01, user02, user03, user04, user05])
     db.session.commit()
 
 

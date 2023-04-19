@@ -87,11 +87,24 @@ def seed_albums():
                 """,
         band_id=4, album_image='https://i.imgur.com/Gfh06v4.jpg',
         genre='metal, symphonic metal'
+    )
+    album06 = Album(
+        name= 'The Saberlight Chronicles', price=9.99,
+        description=
+        """
+        Hailing from Harwich, England, Fellowship is a four-piece on a mission to take melodic power metal to new heights.
 
+        Continuing in the magical tradition of Twilight Force, Rhapsody and Majestica, and bringing the genre's emotional stakes to new heights, our debut album 'The Saberlight Chronicles' is equal parts high fantasy narrative concept record and heartfelt collection of absolute bangers… at least that's how we think of it!
+
+        Taking on the subject of mental health at a time in our lives where we all need a pick-me-up, the album tells a mythical story of self-worth, self-discovery and the quest for courage, all through songs so catchy you'll be singing along on the very first listen.
+
+        Metal has never felt so good!""",
+        band_id=5, album_image='https://i.imgur.com/Gfh06v4.jpg',
+        genre='metal, symphonic metal'
     )
 
     db.session.add_all([
-        album01, album02, album03, album04, album05])
+        album01, album02, album03, album04, album05, album06])
     db.session.commit()
 
 
