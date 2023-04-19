@@ -16,7 +16,7 @@ class Band(db.Model):
     artist_image = db.Column(db.Integer)
     banner_url = db.Column(db.Integer)
     description = db.Column(db.Text)
-    genres = db.String(db.String(255))
+    genres = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
