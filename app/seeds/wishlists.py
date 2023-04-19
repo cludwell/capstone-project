@@ -3,31 +3,31 @@ from sqlalchemy.sql import text
 
 def seed_wishlists():
     wishlist001 = WishList(
-        user_id=2, item_id=1
+        user_id=2, album_id=1
     )
     wishlist002 = WishList(
-        user_id=2, item_id=2
+        user_id=2, album_id=2
     )
     wishlist003 = WishList(
-        user_id=2, item_id=3
+        user_id=2, album_id=3
     )
     wishlist004 = WishList(
-        user_id=2, item_id=5
+        user_id=2, album_id=5
     )
     wishlist005 = WishList(
-        user_id=2, item_id=6
+        user_id=2, album_id=6
     )
     wishlist006 = WishList(
-        user_id=3, item_id=2
+        user_id=3, album_id=2
     )
     wishlist007 = WishList(
-        user_id=3, item_id=3
+        user_id=3, album_id=3
     )
     wishlist008 = WishList(
-        user_id=3, item_id=4
+        user_id=3, album_id=4
     )
     wishlist009 = WishList(
-        user_id=3, item_id=5
+        user_id=3, album_id=5
     )
 
     db.session.add_all([

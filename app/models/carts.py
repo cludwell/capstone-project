@@ -10,7 +10,7 @@ class Cart(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
-    item_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id')))
+    album_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id')))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
@@ -18,7 +18,7 @@ class Cart(db.Model):
         return {
             'id': self.id,
             'userId': self.user_id,
-            'itemId': self.item_id,
+            'albumId': self.album_id,
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
         }

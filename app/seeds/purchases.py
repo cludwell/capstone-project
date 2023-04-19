@@ -3,19 +3,19 @@ from sqlalchemy.sql import text
 
 def seed_purchases():
     purchase01 = Purchase(
-        user_id=3, item_id=2
+        user_id=3, album_id=2
     )
     purchase02 = Purchase(
-        user_id=3, item_id=3
+        user_id=3, album_id=3
     )
     purchase03 = Purchase(
-        user_id=1, item_id=1
+        user_id=1, album_id=1
     )
     purchase04 = Purchase(
-        user_id=1, item_id=4
+        user_id=1, album_id=4
     )
     purchase05 = Purchase(
-        user_id=1, item_id=5
+        user_id=1, album_id=5
     )
 
 

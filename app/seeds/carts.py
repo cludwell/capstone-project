@@ -3,13 +3,13 @@ from sqlalchemy.sql import text
 
 def seed_carts():
     cart01 = Cart(
-        user_id=1, item_id=6
+        user_id=1, album_id=6
     )
     cart02 = Cart(
-        user_id=3, item_id=4
+        user_id=3, album_id=4
     )
     cart03 = Cart(
-        user_id=3, item_id=5
+        user_id=3, album_id=5
     )
 
 
