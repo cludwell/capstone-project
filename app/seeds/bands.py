@@ -10,7 +10,7 @@ def seed_bands():
         genres='punk'
     )
     band02 = Band(
-        name= 'Unleash The Archers', city='Los Angeles', state='CA', country='USA', userId=1, artist_image='https://i.imgur.com/RRHHqxc.jpg',
+        name= 'Unleash The Archers', city='Los Angeles', state='CA', country='USA', userId=2, artist_image='https://i.imgur.com/RRHHqxc.jpg',
         band_url='https://i.imgur.com/IIn1RA4.png',
         description= """
         Unleash The Archers were formed in 2007 by front-woman Brittney Slayes, together with her partner and the band's drummer Scott Buchanan, while attending the University of Victoria on Vancouver Island in British Columbia.  After moving to Vancouver in 2010 the band underwent several lineup changes, but were finally able to cement their unique, genre-blending style of heavy metal with the addition of Grant Truesdell in 2011 and Andrew Kingsley in 2013.  By weaving the aggression of the more extreme genres into the intricacies of traditional heavy metal, UTA have created a sound unlike anything else in the industry.  They embrace a commercial appeal that attracts music lovers of all types while maintaining a heavy edge that remains true to their death metal roots.  Since their inception UTA have always put an emphasis on touring, and travelled the roads by van booking their own North American tours for years before being picked up by an agent in 2016.  Their persistent, hard-working, down-to-earth attitude has garnered media attention all over the world, and their constant engagement on social platforms of all types has allowed for consistent growth and a dedicated, positively engaged fanbase that spans continents.
@@ -27,9 +27,20 @@ def seed_bands():
         """,
         genres='punk'
     )
-
+    band03 = Band(
+        name='Accidente', city='Madrid', state='Madrid', country='Espana', user_id=2,
+        artist_url='https://i.imgur.com/3MdWhs9.jpg',
+        band_url='https://i.imgur.com/3MdWhs9.jpg',
+        description="""Accidente is a pop punk band from Madrid Spain that sings about politics and friendship."""
+    )
+    band04 = Band(
+        name='Ad Infinitum', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland', user_id=4,
+        artist_url='https://i.imgur.com/3MdWhs9.jpg',
+        band_url='https://i.imgur.com/3MdWhs9.jpg',
+        description="""Ad Infinitum is a Swiss/German symphonic metal band. Originally a solo project of Swiss singer Melissa Bonny, it turned into a full band with arrival of drummer Niklas Müller, bassist Jonas Asplind and guitarist Adrian Theßenvitz. The band signed a deal with Napalm Records in July 2019 and released a debut album - Chapter I: Monarchy - in April 2020."""
+    )
     db.session.add_all([
-       band01, band02])
+       band01, band02, band03, band04])
     db.session.commit()
 
 

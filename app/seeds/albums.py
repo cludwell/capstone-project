@@ -51,8 +51,47 @@ def seed_albums():
         genre='metal, power metal'
 
     )
+    album04 = Album(
+        name= 'Canibal ', price=.99,
+        description=
+        """Si esto ha salido adelante es por el cariño de todxs lxs que remáis cuando las cosas se ponen feas. Este disco es también vuestro. Gracias a Oli y Edu, por salvar la banda. A Mario, por el currazo que ha puesto en el diseño. A Paco, que nos presta su casa y su consejo. A Karlitos, que es familia. A cada uno de los sellos que seguís apostando por nosotrxs porque sois importantes y nos flipa lo que hacéis. A todxs las que seguís dando vida al punk contestatario y honesto desde el margen. A quienes ponéis lo común en el centro para desde ahí combatir a este monstruo caníbal que acecha dentro y fuera de nuestros círculos.
+
+        La derrota es sólo de quien se rinde.
+
+        Accidente
+        credits
+        released July 7, 2020
+
+        Grabado, mezclado y producido por Pablo Martínez en los estudios Musigrama (www.musigrama.com), Madrid, entre mayo de 2019 y mayo de 2020.
+        Masterizado en Sonic Iguana Studio por Mass Giorgini.
+        Arte, diseño: Mario Riviere (www.marioriviere.com).
+        Todos los temas por Accidente: Ranzio (bajo y coros), Edu (batería), Oli (batería), Miguel (guitarra y coros), Pablo (guitarra, teclados y coros) y Blanca (voz).
+        """,
+        band_id=3, album_image='https://i.imgur.com/FVH3QRR.jpg',
+        genre='pop, pop punk, leftist'
+
+    )
+    album05 = Album(
+        name= 'Chapter III Downfall ', price=9.99,
+        description=
+        """Physical editions available here:
+        lnk.to/ChapterIIIDownfall/napalmrecords
+
+
+        In 2023, rising modern symphonic metal outfit AD INFINITUM reenter the scene with their electrifying third studio album, Chapter III – Downfall, out March 31 via Napalm Records. AD INFINITUM's signature sound - consisting of punching, modern, even progressive riffs, addictive symphonic nuances, hooky choruses and Melissa Bonny's inimitably versatile vocal skills - has positioned them for unstoppable ascension in the metal world, and is now perfected with ease on Chapter III – Downfall. This next offering provides another wave of proof of the band’s breakout success, which the energizing four-piece - consisting of Melissa Bonny (vocals), Adrian Thessenvitz (guitars), Korbinian Benedict (bass) and Niklas Müller (drums) - garnered almost immediately, with millions of video views and streams worldwide since the release of their debut in 2020.
+        Chapter III – Downfall bewitches with an innovative sound full of soaring melodic splendor, juxtaposed against brooding, dark, even gothic heaviness. Exploring concepts of Ancient Egyptian history and mythology, AD INFINITUM melds a perfect balance of storytelling and technically sophisticated songwriting, spreading their...  more
+        credits
+        released March 31, 2023
+        license
+        all rights reserved
+                """,
+        band_id=4, album_image='https://i.imgur.com/Gfh06v4.jpg',
+        genre='metal, symphonic metal'
+
+    )
+
     db.session.add_all([
-        album01, album02, album03, album04])
+        album01, album02, album03, album04, album05])
     db.session.commit()
 
 

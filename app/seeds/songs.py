@@ -1232,50 +1232,148 @@ Call me Immortal"""
         # Apex by Unleash The Archers
         name="Apex", album_id=3, price=0.99, track_num=10,
         lyrics="""
-Hello mountain, remember me
-Child of your womb
-I return from a perilous place
-To the warmth of your hollow
-Embrace me
-Steady giant, monolith
-Lend me your heart
-I am weakened again, tired
-Mend my scars
+        Hello mountain, remember me
+        Child of your womb
+        I return from a perilous place
+        To the warmth of your hollow
+        Embrace me
+        Steady giant, monolith
+        Lend me your heart
+        I am weakened again, tired
+        Mend my scars
 
-As your power, it sinks into me
-Your roots take their hold
-My body as one with the earth
-My blood as the stone
-The mountain, my home
+        As your power, it sinks into me
+        Your roots take their hold
+        My body as one with the earth
+        My blood as the stone
+        The mountain, my home
 
-Heavy walls enclose me; cover me in endless warmth
-And now the dreams will come
-Lucid freedom takes me, to a world no longer run by the laws of relativity
+        Heavy walls enclose me; cover me in endless warmth
+        And now the dreams will come
+        Lucid freedom takes me, to a world no longer run by the laws of relativity
 
-Fly out beyond the stars, where the wind takes me
-Away and leads me through the dark, defying gravity
+        Fly out beyond the stars, where the wind takes me
+        Away and leads me through the dark, defying gravity
 
-Can you follow me? Follow me to apex
+        Can you follow me? Follow me to apex
 
-Through a meadow running, feel the sun upon my face
-And the air in intoxicates
-Rushing like a river, toward a waterfall that takes me out beyond reality
+        Through a meadow running, feel the sun upon my face
+        And the air in intoxicates
+        Rushing like a river, toward a waterfall that takes me out beyond reality
 
-Away, you lead me through dark, defying gravity
+        Away, you lead me through dark, defying gravity
 
-[2x]
-Can you follow me? Follow me to apex
+        [2x]
+        Can you follow me? Follow me to apex
 
-Brother mountain, now we sleep
-For a thousand years
-I will see you again
-Something is coming…
-Coming for me…"""
+        Brother mountain, now we sleep
+        For a thousand years
+        I will see you again
+        Something is coming…
+        Coming for me…"""
+            )
+    song047 = Song(
+        # Caníbal by Accidente
+        name="Desmesura", album_id=4, price=.99, track_num=1
+    )
+    song048 = Song(
+        # Caníbal by Accidente
+        name="Hablar de lxs muertxs", album_id=4, price=.99, track_num=2
+    )
+    song049 = Song(
+        # Caníbal by Accidente
+        name="Demonio", album_id=4, price=.99, track_num=3
+    )
+    song050 = Song(
+        # Caníbal by Accidente
+        name="Colze a colze", album_id=4, price=.99, track_num=4
+    )
+    song051 = Song(
+        # Caníbal by Accidente
+        name="Caníbal", album_id=4, price=.99, track_num=5
+    )
+    song052 = Song(
+        # Caníbal by Accidente
+        name="Lo que importa", album_id=4, price=.99, track_num=6
+    )
+    song053 = Song(
+        # Caníbal by Accidente
+        name="La mataron", album_id=4, price=.99, track_num=7
+    )
+    song054 = Song(
+        # Caníbal by Accidente
+        name="Luchar", album_id=4, price=.99, track_num=8
+    )
+    song055 = Song(
+        # Caníbal by Accidente
+        name="La culpa", album_id=4, price=.99, track_num=9
+    )
+    song056 = Song(
+        # Caníbal by Accidente
+        name="Vuestra historia", album_id=4, price=.99, track_num=10
+    )
+
+    song057 = Song(
+    # Chapter III: Downfall by Ad Infinitum
+    name="Eternal Rains", album_id=5, price=.99, track_num=1
+)
+    song058 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="Upside Down", album_id=5, price=.99, track_num=2
+    )
+    song059 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="Seth", album_id=5, price=.99, track_num=3
+    )
+    song060 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="From The Ashes", album_id=5, price=.99, track_num=4
+    )
+    song061 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="Somewhere Better", album_id=5, price=.99, track_num=5
+    )
+    song062 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="The Underworld", album_id=5, price=.99, track_num=6
+    )
+    song063 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="Ravenous", album_id=5, price=.99, track_num=7
+    )
+    song064 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="Under The Burning Skies", album_id=5, price=.99, track_num=8
+    )
+    song065 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="Architect Of Paradise", album_id=5, price=.99, track_num=9
+    )
+    song066 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="The Serpent's Downfall", album_id=5, price=.99, track_num=10
+    )
+    song067 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="New Dawn", album_id=5, price=.99, track_num=11
+    )
+    song068 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="Legends (Featuring Chrigel Glanzmann)", album_id=5, price=.99, track_num=12
+    )
+    song069 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="Upside Down (Instrumental)", album_id=5, price=.99, track_num=13
+    )
+    song070 = Song(
+        # Chapter III: Downfall by Ad Infinitum
+        name="Somewhere Better (Instrumental)", album_id=5, price=.99, track_num=14
     )
 
 
     db.session.add_all([
-        song001, song002, song003, song004, song005, song006, song007, song008, song009, song010, song011, song012, song013, song014, song015, song016, song017, song018, song019, song020, song021, song022, song023, song024, song025, song026, song027, song028, song029, song030, song031, song032, song033, song034, song035, song036, song037, song038, song039, song040, song041, song042, song043, song044, song045, song046, song047, song048, song049, song050, song051, song052, song053, song054, song055, song056, song057, song058, song059, song060])
+        song001, song002, song003, song004, song005, song006, song007, song008, song009, song010, song011, song012, song013, song014, song015, song016, song017, song018, song019, song020, song021, song022, song023, song024, song025, song026, song027, song028, song029, song030, song031, song032, song033, song034, song035, song036, song037, song038, song039, song040, song041, song042, song043, song044, song045, song046, song047, song048, song049, song050, song051, song052, song053, song054, song055, song056, song057, song058, song059, song060,  song061, song062, song063, song064, song065, song066, song067, song068, song069, song070, song071, song072, song073, song074, song075, song076, song077, song078, song079, song080, song081, song082, song083, song084, song085, song086, song087, song088, song089, song090,song091, song092, song093, song094, song095, song096, song097, song098, song099, song100
+])
     db.session.commit()
 
 

@@ -9,9 +9,9 @@ def seed_users():
         address='123 Progressive Rd', city='Vancouver', state='British Columbia', country='Canada',
         genres='rock, rap', banner_url=None)
     user02 = User(
-        username='peggyhill', email='butch@aa.io', password='password', name='Peggy Hill',
+        username='accidente', email='blanca@aa.io', password='password', name='Blanca',
         address='123 Rainey St', city='Arlen', state='Texas', country='USA',
-        genres='rock, rap', banner_url=None)
+        genres='punk, pop-punk', banner_url=None)
     user03 = User(
         username='henry', email='henryrollins@aa.io', password='password', name='Henry Rollins',
         address='2300 Nichols Canyon Rd', city='Los Angeles', state='CA', country='USA',
