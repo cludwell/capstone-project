@@ -1316,7 +1316,7 @@ Call me Immortal"""
     song057 = Song(
     # Chapter III: Downfall by Ad Infinitum
     name="Eternal Rains", album_id=5, price=.99, track_num=1
-)
+    )
     song058 = Song(
         # Chapter III: Downfall by Ad Infinitum
         name="Upside Down", album_id=5, price=.99, track_num=2
@@ -1445,8 +1445,8 @@ Call me Immortal"""
 
 def undo_songs():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.purchases RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.songs RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM purchases"))
+        db.session.execute(text("DELETE FROM songs"))
 
     db.session.commit()

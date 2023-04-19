@@ -5,7 +5,7 @@ def seed_albums():
     album01 = Album(
         name= 'The First Four Years', price=4.99,
         description="The First Four Years is a compilation album by the American hardcore punk band Black Flag. It was released in 1983 on SST Records. The compilation consists of all of the group's material released before Henry Rollins became the band's vocalist in 1981. It essentially collects the extended plays Nervous Breakdown (1979), Jealous Again (1980), Six Pack (1981), and the single Louie Louie, with two tracks from various artists' compilation albums. \nTracks 1-4 are taken from Nervous Breakdown, tracks 5-9 are taken from Jealous Again, tracks 11-13 are from Six Pack, and tracks 15-16 are taken from the Louie Louie single. Tracks 10 and 14 were originally released on the New Alliance Records compilation albums Cracks in the Sidewalk (1980) and Chunks (1981).",
-        band_id=2, album_image='https://i.imgur.com/qoDd5GQ.jpg',
+        band_id=1, album_image='https://i.imgur.com/qoDd5GQ.jpg',
         genre='Punk'
     )
     album02 = Album(
@@ -16,7 +16,7 @@ def seed_albums():
         © NAPALM RECORDS
         credits
         released August 21, 2020 """,
-        band_id=1, album_image='https://i.imgur.com/q1tRxn6.jpg',
+        band_id=2, album_image='https://i.imgur.com/q1tRxn6.jpg',
         genre='metal, power metal'
 
     )
@@ -29,7 +29,7 @@ def seed_albums():
 
         credits
         released November 18, 2022  """,
-        band_id=1, album_image='https://i.imgur.com/q1tRxn6.jpg',
+        band_id=2, album_image='https://i.imgur.com/q1tRxn6.jpg',
         genre='metal, power metal'
 
     )
@@ -47,12 +47,12 @@ def seed_albums():
         Guitar/Screams: Grant Truesdell
         Guitar/Screams: Andrew Kingsley
         Bass: Kyle Sheppard  """,
-        band_id=1, album_image='https://i.imgur.com/R4eITe1.jpg',
+        band_id=2, album_image='https://i.imgur.com/R4eITe1.jpg',
         genre='metal, power metal'
 
     )
     album04 = Album(
-        name= 'Canibal ', price=.99,
+        name= 'Canibal', price=.99,
         description=
         """Si esto ha salido adelante es por el cariño de todxs lxs que remáis cuando las cosas se ponen feas. Este disco es también vuestro. Gracias a Oli y Edu, por salvar la banda. A Mario, por el currazo que ha puesto en el diseño. A Paco, que nos presta su casa y su consejo. A Karlitos, que es familia. A cada uno de los sellos que seguís apostando por nosotrxs porque sois importantes y nos flipa lo que hacéis. A todxs las que seguís dando vida al punk contestatario y honesto desde el margen. A quienes ponéis lo común en el centro para desde ahí combatir a este monstruo caníbal que acecha dentro y fuera de nuestros círculos.
 
@@ -104,7 +104,8 @@ def seed_albums():
     )
 
     db.session.add_all([
-        album01, album02, album03, album04, album05, album06])
+        album01, album02, album03, album04, album05, album06
+        ])
     db.session.commit()
 
 

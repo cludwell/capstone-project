@@ -2,18 +2,37 @@ from app.models import db, WishList, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_wishlists():
-    wishlist01 = WishList(
-        user_id=1, item_id=1
+    wishlist001 = WishList(
+        user_id=2, item_id=1
     )
-    wishlist02 = WishList(
-        user_id=1, item_id=2
+    wishlist002 = WishList(
+        user_id=2, item_id=2
     )
-    wishlist03 = WishList(
-        user_id=1, item_id=3
+    wishlist003 = WishList(
+        user_id=2, item_id=3
+    )
+    wishlist004 = WishList(
+        user_id=2, item_id=5
+    )
+    wishlist005 = WishList(
+        user_id=2, item_id=6
+    )
+    wishlist006 = WishList(
+        user_id=3, item_id=2
+    )
+    wishlist007 = WishList(
+        user_id=3, item_id=3
+    )
+    wishlist008 = WishList(
+        user_id=3, item_id=4
+    )
+    wishlist009 = WishList(
+        user_id=3, item_id=5
     )
 
     db.session.add_all([
-        wishlist01, wishlist02, wishlist03])
+        wishlist001, wishlist002, wishlist003, wishlist004, wishlist005, wishlist006, wishlist007, wishlist008, wishlist009
+        ])
     db.session.commit()
 
 
