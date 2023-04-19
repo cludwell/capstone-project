@@ -31,7 +31,7 @@ def seed_purchases():
 # sqlite3 in development you need to instead use DELETE to remove all data and
 # it will reset the primary keys for you as well.
 
-def undo_carts():
+def undo_purchases():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.purchases RESTART IDENTITY CASCADE;")
     else:

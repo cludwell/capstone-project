@@ -1,9 +1,12 @@
 from flask.cli import AppGroup
+from app.models.db import db, environment, SCHEMA
 from .users import seed_users, undo_users
 from .albums import seed_albums, undo_albums
 from .carts import seed_carts, undo_carts
-from .songs import seed
-from app.models.db import db, environment, SCHEMA
+from .wishlists import seed_wishlists, undo_wishlists
+from .purchases import seed_purchases, undo_purchases
+from .bands import seed_bands, undo_bands
+from .songs import seed_songs, undo_songs
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -20,8 +23,18 @@ def seed():
         # Make sure to add all your other model's undo functions below
         undo_users()
         undo_albums()
+        undo_carts()
+        undo_wishlists()
+        undo_purchases()
+        undo_bands()
+        undo_songs()
     seed_users()
     seed_albums()
+    seed_carts()
+    seed_wishlists()
+    seed_purchases()
+    seed_bands()
+    seed_songs()
     # Add other seed functions here
 
 
@@ -30,4 +43,9 @@ def seed():
 def undo():
     undo_users()
     undo_albums()
+    undo_carts()
+    undo_wishlists()
+    undo_purchases()
+    undo_bands()
+    undo_songs()
     # Add other undo functions here

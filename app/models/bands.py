@@ -13,10 +13,10 @@ class Band(db.Model):
     state = db.Column(db.String(255), nullable=False)
     country = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    artist_image = db.Column(db.Integer, nullable=True)
-    band_url = db.Column(db.Integer, nullable=True)
+    artist_image = db.Column(db.Integer)
+    band_url = db.Column(db.Integer)
     description = db.Column(db.Text)
-    genres = db.String(db.String(255), nullable=False)
+    genres = db.String(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
