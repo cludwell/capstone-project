@@ -17,3 +17,6 @@ def bands_albums(band_id):
     copy = band.to_dict()
     copy['Albums'] = get_albums_by_band(band.id)
     return copy
+
+# @band_routes.route()
+# def create
