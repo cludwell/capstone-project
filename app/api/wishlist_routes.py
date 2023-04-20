@@ -22,8 +22,10 @@ def get_wishlist():
 def delete_from_wishlist(wishlist_id):
     """remove a single item from a wishlist"""
     item = WishList.query.get(wishlist_id)
-    if not current_user or current_user.id:
-        return {"error": "Unauthorized request"}
     if not item:
         return {"error": "The requested record could not be found"}
+    if current_user.id != item.user_id:
+        return {"error": "Unauthorized request"}
+    db.session.delete(item)
+    db.session.commit()
     return item.to_dict()
