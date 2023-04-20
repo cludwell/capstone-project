@@ -11,7 +11,7 @@ class Album(db.Model):
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
     price = db.Column(db.Integer)
-    band_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("bands.id")))
+    band_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("bands.id")), nullable=False)
     album_image = db.Column(db.String(255), nullable=False)
     genre = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
