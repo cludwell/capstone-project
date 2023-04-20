@@ -19,7 +19,7 @@ class Album(db.Model):
 
     shopped_by = db.relationship('User', backref='in_progress', secondary='carts', lazy='dynamic', cascade='all, delete', secondaryjoin='Album.id==carts.c.album_id')
     supported_by = db.relationship('User', backref='supporting_users', secondary='purchases', lazy=True, secondaryjoin='Album.id==purchases.c.album_id')
-    wishing_users = db.relationship('User', backref='wished_albums', secondary='wish_lists', econdaryjoin='Album.id==wish_lists.c.album_id')
+    wishing_users = db.relationship('User', backref='wished_albums', secondary='wish_lists', secondaryjoin='Album.id==wish_lists.c.album_id')
     songs = db.relationship('Song', backref='albums', lazy=True)
 
     def to_dict(self):
