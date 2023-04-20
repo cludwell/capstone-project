@@ -21,6 +21,9 @@ def get_wishlist():
 @wishlist_routes.route('/<int:wishlist_id>', methods=['DELETE'])
 def delete_from_wishlist(wishlist_id):
     """remove a single item from a wishlist"""
+    item = WishList.query.get(wishlist_id)
     if not current_user or current_user.id:
         return {"error": "Unauthorized request"}
-    
+    if not item:
+        return {"error": "The requested record could not be found"}
+    return item.to_dict()
