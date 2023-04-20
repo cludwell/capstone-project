@@ -23,11 +23,11 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
-    users_cart = db.relationship('Album', backref='in_carts', secondary='carts', lazy='dynamic')
-    purchased_albums = db.relationship('Album', backref='supporters', secondary='purchases', lazy=True)
+    users_cart = db.relationship('Album', backref='in_carts', secondary='carts.album_id', lazy='dynamic')
+    purchased_albums = db.relationship('Album', backref='supporters', secondary='purchases.album_id', lazy=True)
     bands = db.relationship('Band', backref='users', lazy=True, cascade="all, delete")
     # albums_released = db.relationship('Album', backref='users_releases', secondary='bands')
-    wished_for_albums = db.relationship('Album', backref='wished_by_users', secondary='wish_lists', lazy='dynamic')
+    wished_for_albums = db.relationship('Album', backref='wished_by_users', secondary='wish_lists.album_id', lazy='dynamic')
 
     @property
     def password(self):
