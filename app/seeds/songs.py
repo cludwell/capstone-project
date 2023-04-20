@@ -1663,62 +1663,62 @@ Valdese by revenge your soul can be at one. No longer must you stalk among the n
     )
     song105 = Song(
     # Nueva Numancia by Juanita y Los Feos
-    name="Vallecas", album_id=10, price=.99, track_num=1
+    name="Vallecas", album_id=9, price=.99, track_num=1
 )
 
     song106 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="Escupe en la tumba", album_id=10, price=.99, track_num=2
+        name="Escupe en la tumba", album_id=9, price=.99, track_num=2
     )
 
     song107 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="Vacío", album_id=10, price=.99, track_num=3
+        name="Vacío", album_id=9, price=.99, track_num=3
     )
 
     song108 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="1816", album_id=10, price=.99, track_num=4
+        name="1816", album_id=9, price=.99, track_num=4
     )
 
     song109 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="Cien puñaladas", album_id=10, price=.99, track_num=5
+        name="Cien puñaladas", album_id=9, price=.99, track_num=5
     )
 
     song110 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="Nunca volverán", album_id=10, price=.99, track_num=6
+        name="Nunca volverán", album_id=9, price=.99, track_num=6
     )
 
     song111 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="Me arrancaría los ojos", album_id=10, price=.99, track_num=7
+        name="Me arrancaría los ojos", album_id=9, price=.99, track_num=7
     )
 
     song112 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="No debería", album_id=10, price=.99, track_num=8
+        name="No debería", album_id=9, price=.99, track_num=8
     )
 
     song113 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="En la casa de tu madre", album_id=10, price=.99, track_num=9
+        name="En la casa de tu madre", album_id=9, price=.99, track_num=9
     )
 
     song114 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="Revolución caníbal", album_id=10, price=.99, track_num=10
+        name="Revolución caníbal", album_id=9, price=.99, track_num=10
     )
 
     song115 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="Noche más negra", album_id=10, price=.99, track_num=11
+        name="Noche más negra", album_id=9, price=.99, track_num=11
     )
 
     song116 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="Se ha acabado", album_id=10, price=.99, track_num=12
+        name="Se ha acabado", album_id=9, price=.99, track_num=12
     )
 
     db.session.add_all([
