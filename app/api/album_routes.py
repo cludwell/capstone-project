@@ -32,35 +32,43 @@ def get_all_albums():
                 del s['User']['address']
         return discog
 
-@album_routes.route('/<int:album_id>', methods=['GET'])
+@album_routes.route('/<int:album_id>', methods=['GET', 'DELETE'])
 def get_album_by_id(album_id):
     """return album details for use on album page"""
+    album = Album.query.get(album_id)
+    if not album:
+        return {"error": "The requested album could not be found."}
+    band = Band.query.get(album.band_id)
     if request.method == 'GET':
-        album = Album.query.get(album_id)
         copy = album.to_dict()
-        band = Band.query.get(album.band_id)
         copy['Band'] = band.to_dict()
         copy['Songs'] = get_album_songs(copy['id'])
         copy['Sales'] = get_sales(copy['id'])
         for s in copy['Sales']:
             s['User'] = get_sale_user(s)
         return copy
-
-@album_routes.route('/<int:album_id>', methods=['DELETE'])
-@login_required
-def post_or_delete_by_id(album_id):
-    album = Album.query.get(album_id)
-    band = Band.query.get(album.band_id)
-    if not album:
-        return {"error": "The requested album could not be found."}
     if request.method == 'DELETE':
-        if current_user.id != band.user_id:
+        if current_user == None or current_user.id != band.user_id:
             return {"error": "You are not authorized to delete this item."}
         else:
-            return album.to_dict()
             db.session.delete(album)
             db.session.commit()
             return album.to_dict()
+
+# @album_routes.route('/<int:album_id>', methods=['DELETE'])
+# def post_or_delete_by_id(album_id):
+#     album = Album.query.get(album_id)
+#     if not album:
+#         return {"error": "The requested album could not be found."}
+#     band = Band.query.get(album.band_id)
+#     if request.method == 'DELETE':
+#         if current_user.id != band.user_id:
+#             return {"error": "You are not authorized to delete this item."}
+#         else:
+#             # return album.to_dict()
+#             db.session.delete(album)
+#             db.session.commit()
+#             return album.to_dict()
 
 
 # @album_routes.route('/', methods=['POST'])
