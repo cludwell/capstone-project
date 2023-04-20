@@ -10,7 +10,7 @@ def seed_users():
         genre='rock, rap', profile_pic='https://i.imgur.com/nOUPZfs.jpg')
     user02 = User(
         username='accidente', email='blanca@aa.io', password='password', name='Blanca',
-        address='123 Rainey St', city='Arlen', state='Texas', country='USA',
+        address='123 Rainey St', city='Madrid', state='Madrid', country='Espana',
         genre='punk, pop-punk', profile_pic='https://i.imgur.com/pdcqOM2.jpg')
     user03 = User(
         username='henry', email='henryrollins@aa.io', password='password', name='Henry Rollins',
