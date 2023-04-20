@@ -15,7 +15,7 @@ class Purchase(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
     # users = db.relationship('User', back_populates='purchases')
-    albums = db.relationship('Album', backref='purchases', lazy=True)
+    # albums = db.relationship('Album', backref='purchases', lazy=True)
 
     def to_dict(self):
         return {
