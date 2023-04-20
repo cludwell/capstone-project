@@ -14,6 +14,9 @@ class Purchase(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
+    # users = db.relationship('User', back_populates='purchases')
+    albums = db.relationship('Album', backref='purchases', lazy=True)
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -23,3 +26,15 @@ class Purchase(db.Model):
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
         }
+
+# purchass =db.Table(
+#     'purchases',
+#     db.Model.metadata,
+#     db.Column('id', db.Integer, primary_key = True),
+#     db.Column('user_id', db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'))),
+#     db.Column('album_id', db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id'))),
+#     db.Column('price', db.Integer, nullable=True),
+#     db.Column('created_at', db.DateTime(timezone=True), server_default=func.now()),
+#     db.Column('updated_at', db.DateTime(timezone=True), onupdate=func.now())
+
+#     )

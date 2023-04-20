@@ -1429,10 +1429,301 @@ Call me Immortal"""
         # The Saberlight Chronicles by Fellowship
         name="Avalon", album_id=6, price=.99, track_num=12
     )
+    song083 = Song(
+        # The Armor of Ire by Eternal Champion
+        name="I Am The Hammer", album_id=7, price=.99, track_num=1,
+        lyrics="""I AM THE HAMMER
+
+From the west I hear the riders of Tarsul have gone into the north, they join Haiklan in war. Let both rise up to meet my army, they are battle-starved and I promised them feast upon two nations blood.
+
+For I am not to be crossed.
+I command the Guards of Lourn.
+I am The Hammer.
+
+In the south Kynara forms her ranks 8000 strong, to meet the demon priests of ill Nitaar. I've warned them once I am The Hammer, they are like glowing iron. No sorcery can force the Pyre Forge!
+
+I am not to be crossed.
+I command the Guards of Lourn.
+I am The Hammer.
+
+Over the peaks frost-bitten riders of Tarsul have come. Haiklan has joined them at their own demise. Farick, I ask my steel is tempered true and armor-strong, I've forged our brands in rites of Pyre Forge.
+
+I am not to be crossed.
+I command the Guards of Lourn.
+I am The Hammer."""
+    )
+
+    song084 = Song(
+        # The Armor of Ire by Eternal Champion
+        name="The Armor of Ire", album_id=7, price=.99, track_num=2,
+        lyrics="""THE ARMOR OF IRE
+
+Tyrant!
+Suffer now for the crime an age before. In your shadowed keep you fear the gathering storm. For your slander I repay. An ocean I'd cross, through sands I would ride for my right to bring my wrath upon...
+Tenfold.
+The pain you serve will be brought upon your own. Forseers warned a false and guarded tongue would serve you well, they're right! They are the harbors of peace but no peace will be had tonight. An oath is sworn in blood and scorn.
+
+Nightmares.
+Your pillared halls offer quarter in the night, but no rest, it haunts those when their honor falls. By the dawn you'll pay the price, for an ocean I've crossed, through sands I have rode for my right to bring my wrath upon.....
+Blinded, there is a fire but I cannot see the light. It's burned to ash all that which lived before. For the fallen I repay, reborn in revenge, justice for bonds betrayed. An oath is sworn in blood and scorn.
+
+No force will heed my pace, and no iron will rend my flesh before I can deal you a traitor's fate. My ire is my armor.
+
+No force will heed my pace, and no iron will rend my flesh before I can deal you this traitor's fate. My ire is my armor."""
+    )
+
+    song085 = Song(
+        # The Armor of Ire by Eternal Champion
+        name="The Last King Of Pictdom", album_id=7, price=.99, track_num=3,
+        lyrics="""
+THE LAST KING OF PICTDOM
+
+They know who they've tread upon, and they still meet our battle call.
+Atlantean wolves, they fight, let hawks clean their bones!
+
+Crossed blades of iron await their faulting weary hordes.
+We've claimed the Highlands, ours by right and ours alone.
+The light is falling, no dawn for Roman dogs.
+The last king of Pictdom leads a clan across the moor.
+
+Bring forth those who'd conquer.
+Light flames for them to see.
+Their heads will hang from my hand.
+This reign can never be.
+
+Forced south they're hiding. They have heard our drums of war.
+They'd claim the island, but can't take our northern hold.
+The light is falling, no dawn for Roman dogs.
+The last king of Pictdom leads his clan across the moor!
+
+Bring forth those who'd conquer.
+Light flames for them to see.
+Their heads will hang from my hand!
+This reign can never be.
+
+Cry in the night. The last of them dies and I feel the calm hush in the night.
+The silence is broken by wolves of the fight.
+Dark turns to light, and the blood of the fools is stained to the stone. Hush in the night...the silence is broken by wolves of the fight.
+
+The know who they've tread upon. And they still meet our battle call.
+Atlantean wolves, they fight and let hawks clean their bones."""
+    )
+
+    song086 = Song(
+        # The Armor of Ire by Eternal Champion
+        name="Blood Ice", album_id=7, price=.99, track_num=4
+    )
+
+    song087 = Song(
+        # The Armor of Ire by Eternal Champion
+        name="The Cold Sword", album_id=7, price=.99, track_num=5, lyrics="""THE COLD SWORD
+
+A name is called and I'm thrown into a world draped in ice. The Frozen Keep is my dominion? The Champion's fate, to wake in worlds anew.
+
+The Southern Ice, the white unbroken. The cardinal red sun is dying. To Rowenarc, the obsidian citadel.
+
+"The hilt of the sword and the hand are as one."
+The chalice screams, and demands of me what I loathe.
+"The blade of the sword has the blood of the Sun."
+Pawn of Fate, your glory and doom are one.
+
+A maddened king will lead his men to ruin, the warriors of silver are caught. For their queen, they'll battle, but they've no hope from The Black Sword.
+
+Always a price, always a burden. The balance right, the chalice now full. Many names, Fate's Soldier, I will find Tanelorn!
+
+"The hilt of the sword and the hand are as one."
+The chalice screams, and demands of me what I loathe.
+"The blade of the sword has the blood of the Sun."
+Pawn of Fate, your glory and doom are one.
+
+From the fallen Moon they will ride. Under the blade the queen she will die.
+From the Scarlet Fjord they will ride. Under the blade the queen she will die.
+The fief of the sword is your life."""
+    )
+
+    song088 = Song(
+        # The Armor of Ire by Eternal Champion
+        name="Invoker", album_id=7, price=.99, track_num=6, lyrics="""
+INVOKER
+
+
+It's by mercy alone, that I cannot recount. The memories fade and I weaken. A glimpse of old things, vile and cruel, haunting my dreams when I doze. The Spawn of Stars, Cthulhu and kin, invoked by a cult. In their folly they called the ones who would trample and crawl upon Earth, now their own.
+
+Then I beheld Kadath and it's cloud-hidden peak.
+And I beheld the Crawling Chaos beneath.
+They kneel 'fore the invoker.
+The Old Ones, awakened again.
+
+The days are a fog, the misty unreal. I wait for the night and my ruin. Of vistas strange and lands passing below the shantak I ride when I doze. I hear Atal and Nyarlathotep, and the chanting of one I would slaughter. He speaks the name, from Leng he invokes the Old Gods, the Old Ones.
+
+Then I beheld Kadath and it's cloud-hidden peak.
+And I beheld the Crawling Chaos beneath.
+
+Before he raises The Goat and Her Thousand. Before he calls the ones he cannot put back, I will attack. Before The Deep Ones come rising and crawling, Before he calls the ones he cannot put back, I will attack. They kneel 'fore the invoker.
+The Old Ones, awakened again.
+
+The moment has come, the horror unreal. They wait at the gate, but I see them. And in my mind I will always recall the sound of the Gods as they rose. I hear him call and a horrendous reply, the chanting will bring his own slaughter. The dagger shines in the hand of the fool, and I throw my own in his heart.
+
+They kneel 'fore the invoker.
+The Old Ones, awakened again.
+Smite the invoker!"""
+    )
+
+    song089 = Song(
+        # The Armor of Ire by Eternal Champion
+        name="Sing A Last Song Of Valdese", album_id=7, price=.99, track_num=7, lyrics="""SING A LAST SONG OF VALDESE
+
+Into the vale beneath the autumn ridges flows the Cotras. It cuts it's way to Raven's Eyrie's door. Under the strange moon the night winds mock the Sun. The hound is baying for his master Demonlord.
+
+Ever the rider, ever the foe. The name of Kane forever known. By spell or by steel the brazen fall. Bear the curse and bear the time. The Seven Nameless hear thy cry. The Grey Lord and not Thoem will have your soul.
+
+Valdese by revenge your soul can be as one. No longer must you stalk among the nighted boles. Seven times seven, the Grey Lord will return, and carry back with him the soul which he has won.
+
+Wherever Kane has walked, a trail of crimson would follow now. Cursed by Theom! He will tread through the ages until the treasures of kings turn to dust, and the flesh of all men falls from their time-eaten bones. Lord Tloluvin, Sathonys, wait an age for the one that will not die!
+
+In a tower of stone there burns a fire. The pain of steel for any who'd cross. The fatal eyes, weaken the brave. Horror met by the rushing of his blade. Lord Tloluvin, Sathonys, wait an age for the one that would not die. The hunting hound, the Demonlord, mark him by the strange hilt of his sword.
+
+Ever the rider, ever the foe, the name of Kane forever known. By spell, or by steel, the brazen fall.
+
+Valdese by revenge your soul can be at one. No longer must you stalk among the nighted boles. Seven times seven, the Grey Lord will return....."""
+    )
+
+    song090 = Song(
+        # The Armor of Ire by Eternal Champion
+        name="Shade Gate", album_id=7, price=.99, track_num=8
+    )
+    song091 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="El Final", album_id=8, price=.99, track_num=1
+    )
+
+    song092 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="500 Muertos", album_id=8, price=.99, track_num=2
+    )
+
+    song093 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="La Bomba del Islami", album_id=8, price=.99, track_num=3
+    )
+
+    song094 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Sigue Vivo", album_id=8, price=.99, track_num=4
+    )
+
+    song095 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Autolesionarse", album_id=8, price=.99, track_num=5
+    )
+
+    song096 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Circo Roma", album_id=8, price=.99, track_num=6
+    )
+
+    song097 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Mujer Rubia, Hombre Moreno*", album_id=8, price=.99, track_num=7
+    )
+
+    song098 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Lobos", album_id=8, price=.99, track_num=8
+    )
+
+    song099 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Hostal Osona", album_id=8, price=.99, track_num=9
+    )
+
+    song100 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Traga, Mastica, Vomita", album_id=8, price=.99, track_num=10
+    )
+
+    song101 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Lunes Otra Vez", album_id=8, price=.99, track_num=11
+    )
+
+    song102 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Triste Pero Cierto", album_id=8, price=.99, track_num=12
+    )
+
+    song103 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Kurva", album_id=8, price=.99, track_num=13
+    )
+
+    song104 = Song(
+        # Pesadilla Adulta by Juanita y Los Feos
+        name="Paleto", album_id=8, price=.99, track_num=14
+    )
+    song105 = Song(
+    # Nueva Numancia by Juanita y Los Feos
+    name="Vallecas", album_id=10, price=.99, track_num=1
+)
+
+    song106 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="Escupe en la tumba", album_id=10, price=.99, track_num=2
+    )
+
+    song107 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="Vacío", album_id=10, price=.99, track_num=3
+    )
+
+    song108 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="1816", album_id=10, price=.99, track_num=4
+    )
+
+    song109 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="Cien puñaladas", album_id=10, price=.99, track_num=5
+    )
+
+    song110 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="Nunca volverán", album_id=10, price=.99, track_num=6
+    )
+
+    song111 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="Me arrancaría los ojos", album_id=10, price=.99, track_num=7
+    )
+
+    song112 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="No debería", album_id=10, price=.99, track_num=8
+    )
+
+    song113 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="En la casa de tu madre", album_id=10, price=.99, track_num=9
+    )
+
+    song114 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="Revolución caníbal", album_id=10, price=.99, track_num=10
+    )
+
+    song115 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="Noche más negra", album_id=10, price=.99, track_num=11
+    )
+
+    song116 = Song(
+        # Nueva Numancia by Juanita y Los Feos
+        name="Se ha acabado", album_id=10, price=.99, track_num=12
+    )
 
     db.session.add_all([
-        song001, song002, song003, song004, song005, song006, song007, song008, song009, song010, song011, song012, song013, song014, song015, song016, song017, song018, song019, song020, song021, song022, song023, song024, song025, song026, song027, song028, song029, song030, song031, song032, song033, song034, song035, song036, song037, song038, song039, song040, song041, song042, song043, song044, song045, song046, song047, song048, song049, song050, song051, song052, song053, song054, song055, song056, song057, song058, song059, song060,  song061, song062, song063, song064, song065, song066, song067, song068, song069, song070, song071, song072, song073, song074, song075, song076, song077, song078, song079, song080, song081, song082,
-        # song083, song084, song085, song086, song087, song088, song089, song090, song091, song092, song093, song094, song095, song096, song097, song098, song099, song100
+        song001, song002, song003, song004, song005, song006, song007, song008, song009, song010, song011, song012, song013, song014, song015, song016, song017, song018, song019, song020, song021, song022, song023, song024, song025, song026, song027, song028, song029, song030, song031, song032, song033, song034, song035, song036, song037, song038, song039, song040, song041, song042, song043, song044, song045, song046, song047, song048, song049, song050, song051, song052, song053, song054, song055, song056, song057, song058, song059, song060,  song061, song062, song063, song064, song065, song066, song067, song068, song069, song070, song071, song072, song073, song074, song075, song076, song077, song078, song079, song080, song081, song082, song083, song084, song085, song086, song087, song088, song089, song090, song091, song092, song093, song094, song095, song096, song097, song098, song099, song100, song101, song102, song103, song104, song105, song106, song107, song108, song109, song110, song111, song112, song113, song114, song115, song116,
+        # song117, song118, song119, song120, song121, song122, song123, song124, song125, song126, song127, song128, song129, song130, song131, song132, song133, song134, song135, song136, song137, song138, song139, song140, song141, song142, song143, song144, song145, song146, song147, song148, song149, song150, song151, song152, song153, song154, song155, song156, song157, song158, song159, song160, song161, song162, song163, song164, song165, song166, song167, song168, song169, song170, song171, song172, song173, song174, song175, song176, song177, song178, song179, song180, song181, song182, song183, song184, song185, song186, song187, song188, song189, song190, song191, song192, song193, song194, song195, song196, song197, song198, song199, song200
 ])
     db.session.commit()
 

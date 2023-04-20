@@ -11,16 +11,31 @@ class Album(db.Model):
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
     price = db.Column(db.Integer)
-    band_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    band_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("bands.id")))
     album_image = db.Column(db.String(255), nullable=False)
     genre = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
-    shopped_by = db.relationship('User', backref='in_progress', secondary='carts', lazy='dynamic', cascade='all, delete', secondaryjoin='Album.id==carts.c.album_id')
-    supported_by = db.relationship('User', backref='supporting_users', secondary='purchases', lazy=True, secondaryjoin='Album.id==purchases.c.album_id')
-    wishing_users = db.relationship('User', backref='wished_albums', secondary='wish_lists', secondaryjoin='Album.id==wish_lists.c.album_id')
-    songs = db.relationship('Song', backref='albums', lazy=True)
+    # in_cart= db.relationship(
+    #     'User',
+    #     back_populates='carts',
+    #     secondary=users_cart,
+    #     lazy='dynamic')
+    # supporters = db.relationship(
+    #     'User',
+    #     back_populates='purchases',
+    #     secondary=purchased_albums,
+    #     lazy=True)
+    # wishing_users = db.relationship(
+    #     'User',
+    #     back_populates='wish_lists',
+    #     secondary=wished_for,
+    #     lazy=True)
+    # wish_lists = db.relationship('WishList', back_populates='albums', lazy=True,cascade='all, delete')
+    # carts = db.relationship('Cart', back_populates='albums', lazy=True, cascade='all, delete')
+    # bands = db.relationship('Band', back_populates='albums', lazy=True)
+    songs = db.relationship('Song', backref='albums', lazy=True, cascade='all, delete')
 
     def to_dict(self):
         return {
