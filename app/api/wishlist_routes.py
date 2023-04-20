@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request, redirect
 from app.models import Album, User, WishList, db
 from flask_login import current_user, login_required
+from .router_helpers import get_band_info, get_album_info
 
 wishlist_routes = Blueprint('/wishlists', __name__)
 
@@ -11,7 +12,11 @@ def get_wishlist():
         return {"error": "Please sign in to keep track of your wishlist"}
     wishlist = WishList.query.filter(WishList.user_id == current_user.id).all()
     if request.method == 'GET':
-        return [w.to_dict() for w in wishlist]
+        copy = [w.to_dict() for w in wishlist]
+        for c in copy:
+            c['Album'] = get_album_info(c['albumId'])
+            c['Band'] = get_band_info(c['Album']['bandId'])
+        return copy
     if request.method =='DELETE':
         for i in wishlist:
             db.session.delete(i)

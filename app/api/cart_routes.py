@@ -1,17 +1,23 @@
 from flask import Blueprint, jsonify, request, redirect
-from app.models import Album, User, Cart, db
+from app.models import Album, User, Cart, db, Band
 from flask_login import current_user, login_required
+from .router_helpers import get_album_info, get_band_info
 
 cart_routes = Blueprint('/carts', __name__)
 
-@cart_routes.route('/', methods=['GET', 'DELETE'])
+
+@cart_routes.route('/', methods=['GET', 'DELETE', 'POST'])
 def get_users_cart():
     """get the logged in users cart"""
     if not current_user:
         return {"error": "Please sign in to keep track of your cart"}
     cart = Cart.query.filter(Cart.user_id == current_user.id).all()
     if request.method == 'GET':
-        return [c.to_dict() for c in cart]
+        copy =[c.to_dict() for c in cart]
+        for c in copy:
+            c['Album'] = get_album_info(c['albumId'])
+            c['Band'] = get_band_info(c['Album']['bandId'])
+        return copy
     if request.method == 'DELETE':
         for c in cart:
             db.session.delete(c)
