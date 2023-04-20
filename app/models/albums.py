@@ -17,7 +17,7 @@ class Album(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
-    shopped_by = db.relationship('User', backref='in_progress', secondary='carts', lazy='dynamic')
+    shopped_by = db.relationship('User', backref='in_progress', secondary='carts', lazy='dynamic', cascade='all, delete')
     supported_by = db.relationship('User', backref='supporting_users', secondary='purchases', lazy=True)
     wishing_users = db.relationship('User', backref='wished_albums', secondary='wish_lists')
     songs = db.relationship('Song', backref='albums', lazy=True)
