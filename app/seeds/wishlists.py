@@ -29,9 +29,11 @@ def seed_wishlists():
     wishlist009 = WishList(
         user_id=3, album_id=5
     )
-
+    wishlist010 = WishList(
+        user_id=1, album_id=6
+    )
     db.session.add_all([
-        wishlist001, wishlist002, wishlist003, wishlist004, wishlist005, wishlist006, wishlist007, wishlist008, wishlist009
+        wishlist001, wishlist002, wishlist003, wishlist004, wishlist005, wishlist006, wishlist007, wishlist008, wishlist009, wishlist010
         ])
     db.session.commit()
 
