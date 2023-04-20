@@ -42,7 +42,7 @@ class User(db.Model, UserMixin):
         backref='users', lazy=True, cascade="all, delete")
 
     # albums_released = db.relationship('Album', backref='users_releases', secondary='bands')
-    wished_for_albums = db.relationship('Album', backref='wished_by_users', secondary='wish_lists', lazy='dynamic')
+    # wished_for_albums = db.relationship('Album', backref='wished_by_users', secondary='wish_lists', lazy='dynamic')
 
     @property
     def password(self):
