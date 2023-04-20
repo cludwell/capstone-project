@@ -54,24 +54,3 @@ def get_album_by_id(album_id):
             db.session.delete(album)
             db.session.commit()
             return album.to_dict()
-
-# @album_routes.route('/<int:album_id>', methods=['DELETE'])
-# def post_or_delete_by_id(album_id):
-#     album = Album.query.get(album_id)
-#     if not album:
-#         return {"error": "The requested album could not be found."}
-#     band = Band.query.get(album.band_id)
-#     if request.method == 'DELETE':
-#         if current_user.id != band.user_id:
-#             return {"error": "You are not authorized to delete this item."}
-#         else:
-#             # return album.to_dict()
-#             db.session.delete(album)
-#             db.session.commit()
-#             return album.to_dict()
-
-
-# @album_routes.route('/', methods=['POST'])
-# @login_required
-# def post_album():
-#     """route that allows a band to post their album to server"""

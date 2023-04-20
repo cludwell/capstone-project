@@ -7,7 +7,7 @@ def seed_bands():
         name= 'Black Flag', city='Los Angeles', state='CA', country='USA', user_id=3, artist_image='https://i.imgur.com/jg2l0GT.png',
         banner_url='https://i.imgur.com/njk4Rcg.jpg',
         description= """Black Flag is an American punk rock band formed in 1976 in Hermosa Beach, California. Initially called Panic, the band was established by Greg Ginn, the guitarist, primary songwriter, and sole continuous member through multiple personnel changes in the band. They are widely considered to be one of the first hardcore punk bands, as well as one of the pioneers of post-hardcore. After breaking up in 1986, Black Flag reunited in 2003 and again in 2013. The second reunion lasted well over a year, during which they released their first studio album in nearly three decades, What The... (2013). The band announced their third reunion in January 2019. """,
-        genres='punk'
+        genres='punk, hardcore, old school hardcore, 80s punk'
     )
     band02 = Band(
         name= 'Unleash The Archers', city='Los Angeles', state='CA', country='USA', user_id=1, artist_image='https://i.imgur.com/RRHHqxc.jpg',
@@ -25,19 +25,21 @@ def seed_bands():
         Guitar / Andrew Kingsley
         Bass / Nick Miller
         """,
-        genres='punk'
+        genres='metal, power metal, fantasy metal'
     )
     band03 = Band(
         name='Accidente', city='Madrid', state='Madrid', country='Espana', user_id=2,
         artist_image='https://i.imgur.com/3MdWhs9.jpg',
         banner_url='https://i.imgur.com/3MdWhs9.jpg',
-        description="""Accidente is a pop punk band from Madrid Spain that sings about politics and friendship."""
+        description="""Accidente is a pop punk band from Madrid Spain that sings about politics and friendship.""",
+        genres='punk, pop, pop punk, spanish punk, spanish'
     )
     band04 = Band(
         name='Ad Infinitum', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland', user_id=4,
         artist_image='https://i.imgur.com/3MdWhs9.jpg',
         banner_url='https://i.imgur.com/3MdWhs9.jpg',
-        description="""Ad Infinitum is a Swiss/German symphonic metal band. Originally a solo project of Swiss singer Melissa Bonny, it turned into a full band with arrival of drummer Niklas Müller, bassist Jonas Asplind and guitarist Adrian Theßenvitz. The band signed a deal with Napalm Records in July 2019 and released a debut album - Chapter I: Monarchy - in April 2020."""
+        description="""Ad Infinitum is a Swiss/German symphonic metal band. Originally a solo project of Swiss singer Melissa Bonny, it turned into a full band with arrival of drummer Niklas Müller, bassist Jonas Asplind and guitarist Adrian Theßenvitz. The band signed a deal with Napalm Records in July 2019 and released a debut album - Chapter I: Monarchy - in April 2020.""",
+        genres='metal, power metal, fantasy metal'
     )
     band05 = Band(
         name='Fellowship', city='Harwich', state='Essex', country='UK', user_id=5,
@@ -52,6 +54,7 @@ def seed_bands():
         Taking on the subject of mental health at a time in our lives where we all need a pick-me-up, the album tells a mythical story of self-worth, self-discovery and the quest for courage, all through songs so catchy you'll be singing along on the very first listen.
 
         Metal has never felt so good!""",
+        genres='metal, power metal, fantasy metal'
     )
 
     band06 = Band(
