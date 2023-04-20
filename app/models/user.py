@@ -35,14 +35,13 @@ class User(db.Model, UserMixin):
     #     back_populates='wish_lists',
         # secondary=wished_for,
         # lazy='dynamic')
+    # albums_released = db.relationship('Album', backref='users_releases', secondary='bands')
+    # wished_for_albums = db.relationship('Album', backref='wished_by_users', secondary='wish_lists', lazy='dynamic')
     carts = db.relationship('Cart', backref='users', lazy=True)
     wish_lists = db.relationship('WishList', backref='users', lazy=True)
     purchases = db.relationship('Purchase', backref='users', lazy=True)
-    bands = db.relationship('Band',
-        backref='users', lazy=True, cascade="all, delete")
+    bands = db.relationship('Band', backref='users', lazy=True, cascade="all, delete")
 
-    # albums_released = db.relationship('Album', backref='users_releases', secondary='bands')
-    # wished_for_albums = db.relationship('Album', backref='wished_by_users', secondary='wish_lists', lazy='dynamic')
 
     @property
     def password(self):

@@ -12,7 +12,7 @@ class Band(db.Model):
     city = db.Column(db.String(255), nullable=False)
     state = db.Column(db.String(255), nullable=False)
     country = db.Column(db.String(255), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     artist_image = db.Column(db.Integer)
     banner_url = db.Column(db.Integer)
     description = db.Column(db.Text)
