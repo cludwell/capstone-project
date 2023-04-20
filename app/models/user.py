@@ -2,6 +2,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+from .albums import Album
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -23,11 +24,24 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
-    users_cart = db.relationship('Album', backref='in_carts', secondary='carts', lazy='dynamic')
-    purchased_albums = db.relationship('Album', backref='supporters', secondary='purchases', lazy=True)
-    bands = db.relationship('Band', backref='users', lazy=True, cascade="all, delete")
+    # cart = db.relationship('Cart',
+    #     back_populates='users',
+    #     lazy='dynamic')
+    # purchased_albums = db.relationship('Album',
+    #     back_populates='purchases',
+    #     secondary=supporters,
+    #     lazy=True)
+    # wished_for_albums = db.relationship('Album',
+    #     back_populates='wish_lists',
+    #     secondary=wished_for,
+    #     lazy='dynamic')
+    carts = db.relationship('Cart', backref='users', lazy=True)
+    wish_lists = db.relationship('WishList', backref='users', lazy=True)
+    purchases = db.relationship('Purchase', backref='users', lazy=True)
+    bands = db.relationship('Band',
+        backref='users', lazy=True, cascade="all, delete")
+
     # albums_released = db.relationship('Album', backref='users_releases', secondary='bands')
-    wished_for_albums = db.relationship('Album', backref='wished_by_users', secondary='wish_lists', lazy='dynamic')
 
     @property
     def password(self):

@@ -57,6 +57,7 @@ def post_or_delete_by_id(album_id):
         if current_user.id != band.user_id:
             return {"error": "You are not authorized to delete this item."}
         else:
+            return album.to_dict()
             db.session.delete(album)
             db.session.commit()
             return album.to_dict()

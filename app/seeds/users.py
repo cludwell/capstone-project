@@ -27,7 +27,7 @@ def seed_users():
     user06 = User(
         username='losfeos', email='losfeos@aa.io', password='password', name='Juanita',
         address='4 Pesadilla Ave', city='Madrid', state='Madrid', country='Espana',
-        genres='pop, punk, pop punk', profile_pic='https://i.imgur.com/A3tYSct.png')
+        genre='pop, punk, pop punk', profile_pic='https://i.imgur.com/A3tYSct.png')
 
 
 
