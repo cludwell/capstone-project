@@ -17,3 +17,15 @@ def get_users_cart():
             db.session.delete(c)
         db.session.commit()
         return {"message": "Your cart has been emptied"}
+
+@cart_routes.route('/<int:cart_id>', methods=['DELETE'])
+def remove_from_cart(cart_id):
+    """removes an item from the users cart"""
+    cart_item = Cart.query.get(cart_id)
+    if not cart_item:
+        return {"error": "The requested record couldn't be found"}
+    if current_user.id != cart_item.user_id:
+        return {"error": "Unauthorized request"}
+    db.session.delete(cart_item)
+    db.session.commit()
+    return cart_item.to_dict()
