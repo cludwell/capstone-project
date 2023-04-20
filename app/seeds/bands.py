@@ -53,8 +53,27 @@ def seed_bands():
 
         Metal has never felt so good!""",
     )
+
+    band06 = Band(
+        name='Eternal Champion', city='Austin', state='TX', country='USA', user_id=6,
+        artist_image='https://i.imgur.com/bvmKetU.jpg',
+        banner_url='https://i.imgur.com/Ah3ena6.jpg',
+        description=
+        """
+        Not to be confused with Eternal Champion from Charleston, Illinois.
+
+        In Michael Moorcock's fantasy universe, the Eternal Champion is a reincarnating hero who's lived many lives in the multiverse and whose deeds are part of a larger interdimensional struggle for cosmic balance between the forces of Law and Chaos.""",
+    )
+    band06 = Band(
+        name='Juanita y los Feos', city='Madrid', state='Madrid', country='Espana', user_id=7,
+        artist_image='https://i.imgur.com/7aNj7eM.jpg',
+        banner_url='https://i.imgur.com/cwUi6Pt.png',
+        description=
+        """
+        Juanita y los Feos es una banda de punk nueva ola formada a finales de 2004 en Madrid por músicos de la escena independiente. Su actual formación está compuesta por Juanita a la voz, Adolfo Párraga a la batería, Ángel al bajo, Héctor al órgano y Fa a la guitarra. """,
+    )
     db.session.add_all([
-       band01, band02, band03, band04, band05])
+       band01, band02, band03, band04, band05, band06])
     db.session.commit()
 
 

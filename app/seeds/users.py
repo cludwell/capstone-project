@@ -24,14 +24,15 @@ def seed_users():
         username='fellowship', email='mcorry@aa.io', password='password', name='Matthew Corry',
         address='243 Hanover Ct', city='Harwich', state='Essex', country='UK',
         genre='metal, opera-metal, symphonic metal', profile_pic='https://i.imgur.com/BSA9XQ8.jpg')
-    # user04 = User(
-    #     username='melissabonnie', email='bonnie@aa.io', password='password', name='Melissa Bonnie',
-    #     address='', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland',
-    #     genres='metal, opera-metal, symphonic metal', profile_pic='https://i.imgur.com/NsKW68u.jpg')
+    user06 = User(
+        username='losfeos', email='losfeos@aa.io', password='password', name='Juanita',
+        address='4 Pesadilla Ave', city='Madrid', state='Madrid', country='Espana',
+        genres='pop, punk, pop punk', profile_pic='https://i.imgur.com/A3tYSct.png')
+
 
 
     db.session.add_all([
-        user01, user02, user03, user04, user05])
+        user01, user02, user03, user04, user05, user06])
     db.session.commit()
 
 

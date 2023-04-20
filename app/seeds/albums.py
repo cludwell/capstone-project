@@ -102,9 +102,87 @@ def seed_albums():
         band_id=5, album_image='https://i.imgur.com/Gfh06v4.jpg',
         genre='metal, symphonic metal'
     )
+    album07 = Album(
+        name= 'The Armor of Ire', price=9.99,
+        description=
+        """
+         8th vinyl pressing by No Remorse Records, limited to 500 copies on “Blood of my Enemies” 180 gram colored vinyl.
+
+        Includes unlimited streaming of THE ARMOR OF IRE via the free Bandcamp app, plus high-quality download in MP3, FLAC and more.
+        Sold Out
+        """,
+        band_id=6, album_image='https://i.imgur.com/9c2Td5K.jpg',
+        genre='metal, fantasy metal'
+    )
+    album08 = Album(
+        name= 'Pesadilla Adulta', price=9.99,
+        description=
+        """
+         Grabado en 'Tigruss Estudios' en abril de 2011 Por Pepe Tigruss. Mezclado en 'El Castillo Alemán' por Carlos Hernández en octubre de 2011. Masterizado por Carlos Hernández y Ruben Suarez.
+
+        Todas las canciones por Juanita y Los Feos excepto * por Paco Frutos y Esposa. Foto portada María Blanco.
+
+        El Final
+        youtu.be/PcjyAo0TqyE
+
+        Traga, Mastica, Vomita
+        youtu.be/3iy-B0aYqJg
+
+        Diseño: www.lacamorra.com
+
+        JYLF: juanitaylosfeos(a)gmail.com
+        juanitaylosfeos.bandcamp.com
+
+        © 2011 Juanita y Los Feos.
+
+        ---
+
+        """,
+        band_id=6, album_image='https://i.imgur.com/9kGxTeO.jpg',
+        genre='pop, pop-punk'
+    )
+    album09 = Album(
+        name= 'Nueva Numancia', price=9.99,
+        description=
+        """
+         Beat Generation BEAT 47
+        La Vida es un mus MUS83
+
+        Grabado en 'Tigruss Estudios' en enero de 2014 Por Pepe Tigruss. Mezclado y masterizado en los estudios 'Red Led' por Joaquín Pizarro en marzo de 2014.
+
+        Todas las canciones por Juanita y Los Feos.
+
+        Diseño e ilustración: Fadrique Gonzalez
+        JYLF: juanitaylosfeos(a)gmail.com
+        www.lavidaesunmus.com
+
+        ---
+
+        Recorded in january 2014 at "Tigruss Estudios" by Pepe Tigruss, mixed an mastered in march 2014 at 'Red Led Studio' by Joaquín Pizarro.
+
+        All songs by Juanita y los Feos.
+
+        Design and Illustration by Fadrique González
+        JYLF: juanitaylosfeos(a)gmail.com
+        www.lavidaesunmus.com
+        credits
+        released April 25, 2014
+
+        Juanita - Voz
+        Fa - Guitarra
+        Ángel - Bajo
+        Anibal - Órgano
+        Adolfo - Batería
+        license
+        all rights reserved
+
+        """,
+        band_id=6, album_image='https://i.imgur.com/b9yL1En.jpg',
+        genre='pop, pop-punk'
+    )
 
     db.session.add_all([
-        album01, album02, album03, album04, album05, album06
+        album01, album02, album03, album04, album05, album06, album07, album08, album09
         ])
     db.session.commit()
 
