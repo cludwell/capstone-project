@@ -33,10 +33,10 @@ class User(db.Model, UserMixin):
     #     lazy=True)
     # wished_for_albums = db.relationship('Album',
     #     back_populates='wish_lists',
-    #     secondary=wished_for,
-    #     lazy='dynamic')
+        # secondary=wished_for,
+        # lazy='dynamic')
     carts = db.relationship('Cart', backref='users', lazy=True)
-    wish_lists = db.relationship('WishList', backref='users', lazy=True)
+    wish_lists = db.relationship('WishList', back_populates='wish_lists', lazy=True)
     purchases = db.relationship('Purchase', backref='users', lazy=True)
     bands = db.relationship('Band',
         backref='users', lazy=True, cascade="all, delete")

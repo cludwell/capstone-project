@@ -13,8 +13,8 @@ class WishList(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
-    # users = db.relationship('User', back_populates='wish_lists')
     # albums = db.relationship('Album', backref='wish_lists', lazy=True)
+    user = db.relationship('User', back_populates='wish_lists')
 
     def to_dict(self):
         return {
