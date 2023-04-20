@@ -32,9 +32,9 @@ class Album(db.Model):
     #     back_populates='wish_lists',
     #     secondary=wished_for,
     #     lazy=True)
-    # wish_lists = db.relationship('WishList', back_populates='albums', lazy=True,cascade='all, delete')
-    # carts = db.relationship('Cart', back_populates='albums', lazy=True, cascade='all, delete')
-    # bands = db.relationship('Band', back_populates='albums', lazy=True)
+    wish_lists = db.relationship('WishList', backref='albums', lazy=True,cascade='all, delete')
+    carts = db.relationship('Cart', backref='albums', lazy=True, cascade='all, delete')
+    purchases = db.relationship('Purchase', backref='albums', lazy=True)
     songs = db.relationship('Song', backref='albums', lazy=True, cascade='all, delete')
 
     def to_dict(self):
