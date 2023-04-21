@@ -1,6 +1,6 @@
 .new-notable-title {
     color:  skyblue;
-    margin-top: -3rem;
+    /* margin-top: -3rem; */
 }
 .new-and-notable-container {
     display: flex;
@@ -21,4 +21,9 @@
 .fans-have-paid {
     text-align: center;
     margin-bottom: 5rem;
+}
+.upcoming-live-streams-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
 }

@@ -1,0 +1,12 @@
+.livestream-container {
+    height: 24rem;
+    width: 13rem;
+    border-radius: .2rem;
+    overflow: hidden;
+}
+.livestream-band-img {
+    height: 13rem;
+    width: 13rem;
+    object-fit: cover;
+    border-radius: .2rem;
+}
