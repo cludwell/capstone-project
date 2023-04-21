@@ -17,16 +17,19 @@ export default function Header({ isLoaded }) {
 
             <div className='navi-corner'>
 
-            <div className='user-activity-feed'>
-            <i className="fa-regular fa-bolt-lightning"></i>
+            <div className='user-activity-feed navi-items'>
+            <i class="fa-solid fa-bolt-lightning navi-icons"></i>
             </div>
 
-            <div className='user-collection'>
-            <i class="fa-sharp fa-regular fa-heart"></i>
-             </div>
-            
+            <div className='user-collection navi-items'>
+            <i className="fa-regular fa-heart navi-icons"/>
+            </div>
+
+            <div className='navi-items navi-items'>
             <Navigation isLoaded={isLoaded} />
-                        </div>
+            </div>
+
+            </div>
 
         </div>
     )
