@@ -1,22 +1,22 @@
 from flask import Blueprint, jsonify, request, redirect
 from app.models import db, Album, Song, Purchase, User, Band
 from flask_login import current_user, login_required
-
+from .router_helpers import get_sales, get_sale_user, get_album_songs, get_band_info
 album_routes = Blueprint('/albums', __name__)
 
-def get_album_songs(album_id):
-    songs = Song.query.filter(Song.album_id==album_id).all()
-    # print('===================', songs.to_dict())
-    return [s.to_dict() for s in songs]
+# def get_album_songs(album_id):
+#     songs = Song.query.filter(Song.album_id==album_id).all()
+#     # print('===================', songs.to_dict())
+#     return [s.to_dict() for s in songs]
 
-def get_sales(album_id):
-    sales = Purchase.query.filter(Purchase.album_id == album_id).all()
-    copy = [s.to_dict() for s in sales]
-    return copy
+# def get_sales(album_id):
+#     sales = Purchase.query.filter(Purchase.album_id == album_id).all()
+#     copy = [s.to_dict() for s in sales]
+#     return copy
 
-def get_sale_user(sale):
-    user = User.query.get(sale['userId'])
-    return user.to_dict()
+# def get_sale_user(sale):
+#     user = User.query.get(sale['userId'])
+#     return user.to_dict()
 
 @album_routes.route('/')
 def get_all_albums():
@@ -25,7 +25,9 @@ def get_all_albums():
         albums = Album.query.all()
         discog = { a.id: a.to_dict() for a in albums}
         for a in discog:
-            discog[a]['Songs'] = get_album_songs(a)
+            print('===================', discog[a]['bandId'])
+            discog[a]['Band'] = get_band_info(discog[a]['bandId'])
+            discog[a]['Songs'] = get_album_songs(discog[a]['bandId'])
             discog[a]['Sales'] = get_sales(a)
             for s in discog[a]['Sales']:
                 s['User'] = get_sale_user(s)
