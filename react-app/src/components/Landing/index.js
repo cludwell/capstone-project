@@ -37,6 +37,8 @@ export default function Landing() {
                 <UpcomingLiveStream ele={livestreamTimes[i]} album={a} />
             )).reverse().slice(5, 10)}
             </div>
+
+
             <h5 className='new-notable-title'>NEW AND NOTABLE</h5>
             <div className='new-and-notable-container'>
             {Object.values(albums).map((album,i)=> (
