@@ -3,6 +3,9 @@
     width: 13rem;
     border-radius: .2rem;
     overflow: hidden;
+    display:  flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .livestream-band-img {
     height: 13rem;

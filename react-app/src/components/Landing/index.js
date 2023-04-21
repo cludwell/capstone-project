@@ -29,7 +29,7 @@ export default function Landing() {
     return (
         <div className='landing-container'>
 
-            <h3 className='fans-have-paid'>Fans have paid artists billions using fancamp, and $190 in the last year</h3>
+            <h3 className='fans-have-paid'>Fans have paid artists billions using fancamp, and $190 billion in the last year</h3>
 
             <h5 className='new-notable-title'>UPCOMING FANCAMP LIVE STREAMS</h5>
             <div className='upcoming-live-streams-container'>
