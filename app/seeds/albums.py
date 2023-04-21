@@ -29,7 +29,7 @@ def seed_albums():
 
         credits
         released November 18, 2022  """,
-        band_id=2, album_image='https://i.imgur.com/q1tRxn6.jpg',
+        band_id=2, album_image='https://i.imgur.com/XEEdAjI.jpg',
         genre='metal, power metal'
 
     )
@@ -99,7 +99,7 @@ def seed_albums():
         Taking on the subject of mental health at a time in our lives where we all need a pick-me-up, the album tells a mythical story of self-worth, self-discovery and the quest for courage, all through songs so catchy you'll be singing along on the very first listen.
 
         Metal has never felt so good!""",
-        band_id=5, album_image='https://i.imgur.com/Gfh06v4.jpg',
+        band_id=5, album_image='https://i.imgur.com/3nMIX6n.jpg',
         genre='metal, symphonic metal'
     )
     album07 = Album(
