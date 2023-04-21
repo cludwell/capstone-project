@@ -2,7 +2,7 @@
     /* box-shadow: 0rem 0rem .5rem rgb(118, 118, 118); */
     height: 24rem;
     width: 13rem;
-    background-color: rgb(80, 92, 103);
+    /* background-color: rgb(80, 92, 103); */
     border-radius: .2rem;
     overflow: hidden;
 }
@@ -20,8 +20,39 @@
     width: 13rem;
     font-size: .8rem;
     overflow: wrap;
-    background-color: rgb(80, 92, 103);
+    background-color: rgb(215, 222, 229);
+    color: black;
 }
 .new-notable-genre {
-    color: skyblue;
+    color: purple;
+}
+.album-details-social-media {
+    font-size: .8rem;
+    text-decoration: none;
+}
+.album-details-social-media:hover {
+    text-decoration: underline;
+}
+.details-discog-image {
+    height: 5rem;
+    width: 5rem;
+
+}
+.detail-discog-card {
+    margin-bottom: 2rem;
+}
+.detail-discog-link {
+    text-decoration: none;
+}
+.details-more-releases {
+    text-decoration: none;
+}
+.details-supporters {
+    margin-top: 2rem;
+}
+.details-supporter {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    margin: .3rem;
 }

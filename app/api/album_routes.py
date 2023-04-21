@@ -12,7 +12,6 @@ def get_all_albums():
         albums = Album.query.all()
         discog = { a.id: a.to_dict() for a in albums}
         for a in discog:
-            print('===================', discog[a]['bandId'])
             discog[a]['Band'] = get_band_info(discog[a]['bandId'])
             discog[a]['Songs'] = get_album_songs(discog[a]['bandId'])
             discog[a]['Sales'] = get_sales(a)

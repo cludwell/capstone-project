@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './AlbumDetails.css'
 import { useEffect, useRef, useState } from 'react'
-import { fetchSingleAlbum } from '../../store/albums'
+import { fetchAlbums, fetchSingleAlbum } from '../../store/albums'
 import { useParams } from 'react-router-dom'
 import { fetchUserPurchases } from '../../store/purchases'
 import OpenModalButton from '../OpenModalButton'
 import LyricsModal from '../LyricsModal'
+import { NavLink } from 'react-router-dom'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -29,11 +30,13 @@ export default function AlbumDetails() {
     useEffect(() => {
         dispatch(fetchSingleAlbum(albumId))
         dispatch(fetchUserPurchases())
+        dispatch(fetchAlbums())
     }, [dispatch])
 
     const album = useSelector(state => state.albums.singleAlbum)
+    const albums = useSelector(state => state.albums.allAlbums)
     console.log('================', album)
-    if (!album || !Object.values(album).length) return null
+    if (!album || !Object.values(album).length || !albums || !Object.values(albums).length) return null
     return (
         <div className='album-details-page'>
             {album.Band.bannerUrl ? (
@@ -52,6 +55,7 @@ export default function AlbumDetails() {
                 <table className='album-track-table'>
                     {album.Songs.map(s => (
                         <tr>
+
                             <td>{s.trackNum}. </td>
                             <td>{s.name}</td>
                             <td>{s.lyrics ? (
@@ -80,6 +84,12 @@ export default function AlbumDetails() {
                 <span>
                 <i className="fa-regular fa-heart navi-icons"/>Wishlist</span>
             </div>
+            <div className='details-supporters'>
+                {album.Sales.length ? album.Sales.map((s,i) => (
+
+            <img src={`${s.User.profilePic}`} alt={`usersupporter${i}`} className='details-supporter'></img>
+                )) : null}
+            </div>
             </div>
 
 
@@ -88,7 +98,25 @@ export default function AlbumDetails() {
                 <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />
                 <p>{album.Band.city}</p>
                 <p>{album.Band.country}</p>
-                <a href=''
+               <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${album.Band.name.split(' ').join('%20')}`} >Facebook</a> </p>
+
+                <p><a className='album-details-social-media' href={`https://www.instagram.com/explore/search/keyword/?q=${album.Band.name.split(' ').join('%20')}`}>Instagram</a></p>
+                <p><a className='album-details-social-media' href={`https://www.youtube.com/results?search_query=${album.Band.name.split(' ').join('+')}`} >YouTube</a></p>
+
+
+                <h4>discography</h4>
+
+                {Object.values(albums).filter(a=>a.bandId === album.bandId && a.id !== album.id).map((a,i) =>(
+                        <div className='detail-discog-card'>
+                        <img src={`${a.albumImage}`} alt='otheralbums' key={`albumart${i}`} className='details-discog-image'></img>
+
+                        <div className='detail-discog-link'><NavLink to={`/albums/${a.id}`}
+                        style={{textDecoration: "none"}}>{a.name}</NavLink></div>
+                        <div className='details-discog-created'>{a.createdAt.slice(0, -12)}</div>
+                        </div>
+                    )
+                ).slice(0,2)}
+                <NavLink to={`/bands/${album.bandId}`}><p className='details-more-releases'>more releases...</p></NavLink>
             </div>
 
         </div>

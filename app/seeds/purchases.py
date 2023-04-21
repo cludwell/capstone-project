@@ -2,6 +2,7 @@ from app.models import db, Purchase, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_purchases():
+
     purchase01 = Purchase(
         user_id=3, album_id=2
     )
@@ -17,10 +18,34 @@ def seed_purchases():
     purchase05 = Purchase(
         user_id=1, album_id=5
     )
+    purchase06 = Purchase(
+        user_id=6, album_id=1
+    )
+    purchase07 = Purchase(
+        user_id=6, album_id=2
+    )
+    purchase08 = Purchase(
+        user_id=6, album_id=3
+    )
+    purchase09 = Purchase(
+        user_id=6, album_id=5
+    )
+    purchase10 = Purchase(
+        user_id=6, album_id=6
+    )
+    purchase11 = Purchase(
+        user_id=6, album_id=7
+    )
+    purchase12 = Purchase(
+        user_id=6, album_id=9
+    )
+    purchase13 = Purchase(
+        user_id=6, album_id=10
+    )
 
 
     db.session.add_all([
-        purchase01, purchase02, purchase03, purchase04, purchase05])
+        purchase01, purchase02, purchase03, purchase04, purchase05, purchase06, purchase07, purchase08, purchase09, purchase10, purchase11, purchase12, purchase13, ])
     db.session.commit()
 
 

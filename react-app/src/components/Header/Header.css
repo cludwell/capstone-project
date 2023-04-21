@@ -11,7 +11,8 @@
     margin-left: 2rem;
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    /* color: white; */
+    text-decoration: none;
 }
 .navi-corner {
     display: flex;
@@ -26,7 +27,7 @@
     top: 5rem;
     background-color: rgb(39, 39, 39);
     border-radius: .5rem;
-    box-shadow: 0rem 0rem .3rem white;
+    box-shadow: 0rem 0rem .3rem rgb(145, 145, 145);
     padding: 2rem;
     line-height: 1rem;
 }

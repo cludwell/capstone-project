@@ -1,8 +1,11 @@
+import { NavLink } from 'react-router-dom'
 import './NewAndNotable.css'
 
 export default function NewAndNotable({ album }) {
 
     return (
+    <NavLink to={`/albums/${album.id}`}
+    style={{textDecoration: "none"}}>
     <div className='new-and-notable'>
         <img src={`${album.albumImage}`} alt='album-im' className='new-notable-image'/>
         <div className='new-notable-text'>
@@ -11,5 +14,6 @@ export default function NewAndNotable({ album }) {
             <section className='new-notable-desc'>{album.description.slice(0,250)}</section>
         </div>
     </div>
+    </NavLink>
     )
 }

@@ -22,6 +22,9 @@ export default function Landing() {
     return (
         <div className='landing-container'>
 
+            <h3 className='fans-have-paid'>Fans have paid artists billions using fancamp, and $190 in the last year</h3>
+
+            
             <h5 className='new-notable-title'>NEW AND NOTABLE</h5>
             <div className='new-and-notable-container'>
             {Object.values(albums).map((album,i)=> (

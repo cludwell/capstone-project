@@ -10,14 +10,15 @@
     align-items: flex-start;
 }
 .landing-container {
-    background-color: rgb(49, 49, 49);
+    /* background-color: rgb(49, 49, 49); */
     justify-content: center;
     margin-top: 5rem;
 }
-.new-notable-title {
+/* .new-notable-title {
     margin-bottom: 0.8rem;
     margin-left: 1rem;
-
-    /* left:50%;
-    transform: translate(-50%); */
+} */
+.fans-have-paid {
+    text-align: center;
+    margin-bottom: 5rem;
 }

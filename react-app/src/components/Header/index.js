@@ -1,5 +1,6 @@
 import './Header.css'
 import Navigation from '../Navigation'
+import { NavLink } from 'react-router-dom'
 // import { useDispatch } from 'react-redux'
 // import { useEffect } from 'react'
 // import { authenticate } from '../../store/session'
@@ -13,7 +14,11 @@ export default function Header({ isLoaded }) {
 
     return (
         <div className='header-container'>
-            <div className='logo-text'>fanca🤘p</div>
+            <div className='logo-text'>
+            <NavLink to={'/'}
+            style={{textDecoration: "none",
+            color: "black"}}>fanca🤘p</NavLink>
+            </div>
 
             <div className='navi-corner'>
 
