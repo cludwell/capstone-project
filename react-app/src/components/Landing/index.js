@@ -9,7 +9,6 @@ export default function Landing() {
 
     useEffect(() => {
         dispatch(fetchAlbums())
-        dispatch(fetchSingleAlbum(1))
     }, [dispatch])
 
     const albums = useSelector(state => state.albums.allAlbums)

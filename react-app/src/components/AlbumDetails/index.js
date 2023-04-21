@@ -12,7 +12,7 @@ export default function AlbumDetails() {
     useEffect(() => {
         dispatch(fetchSingleAlbum(albumId))
         dispatch(fetchUserPurchases())
-    })
+    }, [dispatch])
 
     const album = useSelector(state => state.albums.singleAlbum)
     console.log('================', album)

@@ -30,21 +30,21 @@ def seed_bands():
     band03 = Band(
         name='Accidente', city='Madrid', state='Madrid', country='Espana', user_id=2,
         artist_image='https://i.imgur.com/3MdWhs9.jpg',
-        banner_url='https://i.imgur.com/3MdWhs9.jpg',
+        banner_url='https://i.imgur.com/ktP2bDg.png',
         description="""Accidente is a pop punk band from Madrid Spain that sings about politics and friendship.""",
         genres='punk, pop, pop punk, spanish punk, spanish'
     )
     band04 = Band(
         name='Ad Infinitum', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland', user_id=4,
-        artist_image='https://i.imgur.com/3MdWhs9.jpg',
-        banner_url='https://i.imgur.com/3MdWhs9.jpg',
+        artist_image='https://i.imgur.com/okSLGZX.jpg',
+        banner_url=None,
         description="""Ad Infinitum is a Swiss/German symphonic metal band. Originally a solo project of Swiss singer Melissa Bonny, it turned into a full band with arrival of drummer Niklas Müller, bassist Jonas Asplind and guitarist Adrian Theßenvitz. The band signed a deal with Napalm Records in July 2019 and released a debut album - Chapter I: Monarchy - in April 2020.""",
         genres='metal, power metal, fantasy metal'
     )
     band05 = Band(
         name='Fellowship', city='Harwich', state='Essex', country='UK', user_id=5,
-        artist_image='https://i.imgur.com/XREf79t.png',
-        banner_url='https://i.imgur.com/BSA9XQ8.jpg',
+        artist_image='https://i.imgur.com/BSA9XQ8.jpg',
+        banner_url='https://i.imgur.com/XREf79t.png',
         description=
         """
         Hailing from Harwich, England, Fellowship is a four-piece on a mission to take melodic power metal to new heights.
@@ -67,7 +67,7 @@ def seed_bands():
 
         In Michael Moorcock's fantasy universe, the Eternal Champion is a reincarnating hero who's lived many lives in the multiverse and whose deeds are part of a larger interdimensional struggle for cosmic balance between the forces of Law and Chaos.""",
     )
-    band06 = Band(
+    band07 = Band(
         name='Juanita y los Feos', city='Madrid', state='Madrid', country='Espana', user_id=6,
         artist_image='https://i.imgur.com/7aNj7eM.jpg',
         banner_url='https://i.imgur.com/cwUi6Pt.png',
@@ -76,7 +76,7 @@ def seed_bands():
         Juanita y los Feos es una banda de punk nueva ola formada a finales de 2004 en Madrid por músicos de la escena independiente. Su actual formación está compuesta por Juanita a la voz, Adolfo Párraga a la batería, Ángel al bajo, Héctor al órgano y Fa a la guitarra. """,
     )
     db.session.add_all([
-       band01, band02, band03, band04, band05, band06])
+       band01, band02, band03, band04, band05, band06, band07])
     db.session.commit()
 
 

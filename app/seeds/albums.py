@@ -138,7 +138,7 @@ def seed_albums():
         ---
 
         """,
-        band_id=6, album_image='https://i.imgur.com/9kGxTeO.jpg',
+        band_id=7, album_image='https://i.imgur.com/9kGxTeO.jpg',
         genre='pop, pop-punk'
     )
     album09 = Album(
@@ -177,7 +177,7 @@ def seed_albums():
         all rights reserved
 
         """,
-        band_id=6, album_image='https://i.imgur.com/b9yL1En.jpg',
+        band_id=7, album_image='https://i.imgur.com/b9yL1En.jpg',
         genre='pop, pop-punk'
     )
 
