@@ -5,8 +5,8 @@ from .router_helpers import get_album_info, get_band_info
 
 purchase_routes = Blueprint('/purchase_routes', __name__)
 
-@purchase_routes.route('/')
-def get_purchases():
+@purchase_routes.route('/user')
+def get_user_purchases():
     """get all of users purchases for collections page"""
     if not current_user:
         return {"error": "Please sign in to keep track of your purchases"}
