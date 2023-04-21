@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './Landing.css'
 import { useEffect } from 'react'
-import { fetchAlbums } from '../../store/albums'
+import { fetchAlbums, fetchSingleAlbum } from '../../store/albums'
 import NewAndNotable from '../NewAndNotable'
 
 export default function Landing() {
@@ -9,12 +9,14 @@ export default function Landing() {
 
     useEffect(() => {
         dispatch(fetchAlbums())
+        dispatch(fetchSingleAlbum(1))
     }, [dispatch])
 
-    const albums = useSelector(state => state.albums)
-    // console.log('===================', albums)
+    const albums = useSelector(state => state.albums.allAlbums)
+    const state = useSelector(state => state)
+    console.log('===================', state)
 
-    if (!Object.values(albums).length) return null
+    if (!albums || !Object.values(albums).length) return null
 
     return (
         <div className='landing-container'>
