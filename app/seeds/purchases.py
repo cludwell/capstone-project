@@ -42,10 +42,34 @@ def seed_purchases():
     purchase13 = Purchase(
         user_id=6, album_id=10
     )
+    purchase14 = Purchase(
+        # matthew corry, singer of fellowship album 6
+        user_id=5, album_id=1
+    )
+    purchase15 = Purchase(
+        # matthew corry, singer of fellowship album 6
+        user_id=5, album_id=2
+    )
+    purchase16 = Purchase(
+        # matthew corry, singer of fellowship album 6
+        user_id=5, album_id=3
+    )
+    purchase17 = Purchase(
+        # matthew corry, singer of fellowship album 6
+        user_id=5, album_id=4
+    )
+    purchase18 = Purchase(
+        # matthew corry, singer of fellowship album 6
+        user_id=5, album_id=10
+    )
+    purchase19 = Purchase(
+        # matthew corry, singer of fellowship album 6
+        user_id=5, album_id=9
+    )
 
 
     db.session.add_all([
-        purchase01, purchase02, purchase03, purchase04, purchase05, purchase06, purchase07, purchase08, purchase09, purchase10, purchase11, purchase12, purchase13, ])
+        purchase01, purchase02, purchase03, purchase04, purchase05, purchase06, purchase07, purchase08, purchase09, purchase10, purchase11, purchase12, purchase13, purchase14, purchase15, purchase16, purchase17, purchase18, purchase19 ])
     db.session.commit()
 
 
