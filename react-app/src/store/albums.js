@@ -19,6 +19,7 @@ export const fetchAlbums = () => async dispatch => {
     if (response.ok) {
         const albums = await response.json()
         dispatch(loadAlbums(albums))
+        return albums
     }
 }
 //load single album details
@@ -27,6 +28,7 @@ export const fetchSingleAlbum = albumId => async dispatch => {
     if (response.ok) {
         const album = await response.json()
         dispatch(loadOneAlbum(album))
+        return album
     }
 }
 const initialState = {}
