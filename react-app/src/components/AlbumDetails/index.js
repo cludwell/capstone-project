@@ -16,19 +16,21 @@ export default function AlbumDetails() {
     if (!album || !Object.values(album).length) return null
     return (
         <div className='album-details-container'>
-            <h1>lets get this started</h1>
-            <h1>lets get this started</h1>
-            <h1>lets get this started</h1>
-            <h1>lets get this started</h1>
-            <h1>lets get this started</h1>
-            <h1>lets get this started</h1>
-            <h1>lets get this started</h1>
-            <div className='tracks-column'>
 
+            <div className='tracks-column'>
+            <h2 className='album-details-title'>{album.name}</h2>
+            <hp>by {album.Band.name}</hp>
+            <div className='details-react-player'>placeholder</div>
+            <div className='details-streaming-info'>
+                <h4 className='details-info'>Digital Album</h4>
+                <p className='details-grey-text'>Streaming + Download</p>
+                <p className='details-ownership-info'>Includes unlimited streaming via the free Bandcamp app, plus high-quality download in MP3, FLAC and more.</p>
+                
+            </div>
             </div>
             <div className='album-column'>
 
-            {/* <img src={`${album.albumImage}`} alt='albumartwork' /> */}
+            <img src={`${album.albumImage}`} alt='albumartwork' className='album-details-artwork'/>
             <div className='share-wishlist'>
                 <span>Share/Embed</span>
                 <span>

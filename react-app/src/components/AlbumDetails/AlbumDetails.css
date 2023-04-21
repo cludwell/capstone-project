@@ -1,3 +1,27 @@
 .album-details-container {
-    margin-top: 5rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.album-details-artwork{
+    width: 25rem;
+    height: 25rem;
+}
+
+.album-details-title {
+    margin-bottom: 0rem;
+}
+.details-grey-text {
+    color: peachpuff;
+}
+.details-info {
+    margin-bottom: 0rem;
+}
+.details-grey-text {
+    margin-top: 0rem;
+    font-size: .8rem;
+}
+.details-ownership-info {
+    font-size: .8rem;
 }
