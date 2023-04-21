@@ -3,6 +3,7 @@ import './AlbumDetails.css'
 import { useEffect } from 'react'
 import { fetchSingleAlbum } from '../../store/albums'
 import { useParams } from 'react-router-dom'
+import { fetchUserPurchases } from '../../store/purchases'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -10,11 +11,17 @@ export default function AlbumDetails() {
 
     useEffect(() => {
         dispatch(fetchSingleAlbum(albumId))
+        dispatch(fetchUserPurchases())
     })
+
     const album = useSelector(state => state.albums.singleAlbum)
     console.log('================', album)
     if (!album || !Object.values(album).length) return null
     return (
+        <div className='album-details-page'>
+            {album.Band.bannerUrl ? (
+                <img src={`${album.Band.bannerUrl}`} alt='bandbannerimage' className='album-details-banner'/>
+            ) : null}
         <div className='album-details-container'>
 
             <div className='tracks-column'>
@@ -25,9 +32,11 @@ export default function AlbumDetails() {
                 <h4 className='details-info'>Digital Album</h4>
                 <p className='details-grey-text'>Streaming + Download</p>
                 <p className='details-ownership-info'>Includes unlimited streaming via the free Bandcamp app, plus high-quality download in MP3, FLAC and more.</p>
-                
+
             </div>
             </div>
+
+
             <div className='album-column'>
 
             <img src={`${album.albumImage}`} alt='albumartwork' className='album-details-artwork'/>
@@ -37,9 +46,14 @@ export default function AlbumDetails() {
                 <i className="fa-regular fa-heart navi-icons"/>Wishlist</span>
             </div>
             </div>
+
+
+
             <div className='band-info-column'>
 
             </div>
+
+        </div>
         </div>
     )
 }
