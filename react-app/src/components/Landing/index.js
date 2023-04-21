@@ -22,11 +22,11 @@ export default function Landing() {
             <h5 className='new-notable-title'>NEW AND NOTABLE</h5>
             <div className='new-and-notable-container'>
             {Object.values(albums).map((album,i)=> (
-                <NewAndNotable album={album} key={`a${i}`}/>
+                <NewAndNotable album={album} key={`a${i}`}
+                className={`new-notable-card${i}`}/>
                 // <p>{album.id}</p>
-            ))}
+            )).reverse().slice(0,5)}
             </div>
-            whats going on
         </div>
     )
 }

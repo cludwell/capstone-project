@@ -18,7 +18,7 @@ export const fetchAlbums = () => async dispatch => {
 }
 
 const initialState = {}
-
+//album reducer
 export default function albumReducer (state = initialState, action) {
     switch (action.type) {
         case LOAD_ALBUMS:

@@ -1,3 +1,23 @@
 .new-notable-title {
     color:  skyblue;
+    margin-top: -3rem;
+}
+.new-and-notable-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+.landing-container {
+    background-color: rgb(49, 49, 49);
+    justify-content: center;
+    margin-top: 5rem;
+}
+.new-notable-title {
+    margin-bottom: 0.8rem;
+    margin-left: 1rem;
+
+    /* left:50%;
+    transform: translate(-50%); */
 }

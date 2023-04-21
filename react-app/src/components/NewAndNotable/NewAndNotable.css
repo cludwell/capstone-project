@@ -1,0 +1,27 @@
+.new-and-notable{
+    /* box-shadow: 0rem 0rem .5rem rgb(118, 118, 118); */
+    height: 24rem;
+    width: 13rem;
+    background-color: rgb(80, 92, 103);
+    border-radius: .2rem;
+    overflow: hidden;
+}
+.new-notable-image {
+    height: 13rem;
+    width: 13rem;
+    object-fit: cover;
+    border-radius: .2rem;
+}
+.new-notable-text {
+    line-height: normal;
+    padding: 0rem;
+    margin-block-end: 0rem;
+    margin-inline-end: 0rem;
+    width: 13rem;
+    font-size: .8rem;
+    overflow: wrap;
+    background-color: rgb(80, 92, 103);
+}
+.new-notable-genre {
+    color: skyblue;
+}
