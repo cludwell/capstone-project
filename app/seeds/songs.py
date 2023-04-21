@@ -499,12 +499,12 @@ def seed_songs():
 
     song027 = Song(
         # time stands still by unleash the archers
-        name= "Northern Passage", album_id= 4, price= .99, track_num= 1
+        name= "Northern Passage", album_id= 10, price= .99, track_num= 1
     )
 
     song028 = Song(
         # time stands still by unleash the archers
-        name= "Frozen Steel", album_id= 4, price= .99, track_num= 2,
+        name= "Frozen Steel", album_id= 10, price= .99, track_num= 2,
         lyrics="""Beyond the tundra and past the sea
         A people have risen tall
         Soaring past the barriers
@@ -540,7 +540,7 @@ def seed_songs():
 
     song029 = Song(
         # time stands still by unleash the archers
-        name= "Hail of the Tide", album_id= 4, price= .99, track_num= 3,
+        name= "Hail of the Tide", album_id= 10, price= .99, track_num= 3,
         lyrics="""Our vessel navigates over the ocean
 Forcing its way through the waves
 The wind has no command here, no
@@ -559,7 +559,7 @@ Seek passage safely through reefs to the harbor
 Mooring the ship in the bay
 The lights that welcome us burn bright
 No words can express our elation
-Oh how it’s good to be home, back in this town again
+Oh how it's good to be home, back in this town again
 
 Gone are all the memories of hardships
 Endured whilst roaming the seas
@@ -572,7 +572,7 @@ Legends are all that remain when we depart again"""
 
     song030 = Song(
         # time stands still by unleash the archers
-        name= "Tonight We Ride", album_id= 4, price= .99, track_num= 4,
+        name= "Tonight We Ride", album_id= 10, price= .99, track_num= 4,
         lyrics="""Hold on to this moment for all time
 This is the night we ride
 I hear them calling our name
@@ -612,7 +612,7 @@ Destroy, renounce your precious lives and ride"""
 
     song031 = Song(
         # time stands still by unleash the archers
-        name= "Test Your Metal", album_id= 4, price= .99, track_num= 5,
+        name= "Test Your Metal", album_id= 10, price= .99, track_num= 5,
         lyrics="""Test your metal
 
 You been around town with an original sound
@@ -649,7 +649,7 @@ It's time
 
     song032 = Song(
         # time stands still by unleash the archers
-        name= "Crypt", album_id= 4, price= .99, track_num= 6,
+        name= "Crypt", album_id= 10, price= .99, track_num= 6,
         lyrics="""Captured here within a quiet tomb
 Yet not surrounded by the dead
 Covered in a shroud of misery
@@ -688,7 +688,7 @@ The time for chains is ended
 
     song033 = Song(
         # time stands still by unleash the archers
-        name= "No More Heroes", album_id= 4, price= .99, track_num= 7,
+        name= "No More Heroes", album_id= 10, price= .99, track_num= 7,
         lyrics="""They who hope for a savior
 And stand idly by waiting for aid...
 Will never rise above this merciless fate
@@ -737,7 +737,7 @@ We already are
 
     song034 = Song(
         # time stands still by unleash the archers
-        name= "Dreamcrusher", album_id= 4, price= .99, track_num= 8,
+        name= "Dreamcrusher", album_id= 10, price= .99, track_num= 8,
         lyrics="""
 Come; follow your soul, onto hope
 Heed not the words others throw
@@ -807,7 +807,7 @@ This world is a Dreamcrusher"""
 
     song035 = Song(
         # time stands still by unleash the archers
-        name= "Going Down Fighting", album_id= 4, price= .99, track_num= 9,
+        name= "Going Down Fighting", album_id= 10, price= .99, track_num= 9,
         lyrics="""Come on
 You're the one that brought us here
 I can't believe what you say
@@ -852,7 +852,7 @@ Stop denying
 
     song036 = Song(
         # time stands still by unleash the archers
-        name= "Time Stands Still", album_id= 4, price= .99, track_num= 10,
+        name= "Time Stands Still", album_id= 10, price= .99, track_num= 10,
         lyrics="""
 [Chorus:]
 Abandon this sun

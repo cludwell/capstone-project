@@ -34,24 +34,6 @@ def seed_albums():
 
     )
     album04 = Album(
-        name= 'Time Stands Still', price=9.99,
-        description=
-        """Available from Napalm Records!
-        www.napalmrecordsamerica.com/store/unleashthearchers
-        shop.napalmrecords.com/unleashthearchers
-        credits
-        released June 26, 2015
-
-        Vocals: Brittney Slayes
-        Drums: Scott Buchanan
-        Guitar/Screams: Grant Truesdell
-        Guitar/Screams: Andrew Kingsley
-        Bass: Kyle Sheppard  """,
-        band_id=2, album_image='https://i.imgur.com/R4eITe1.jpg',
-        genre='metal, power metal'
-
-    )
-    album04 = Album(
         name= 'Canibal', price=.99,
         description=
         """Si esto ha salido adelante es por el cariño de todxs lxs que remáis cuando las cosas se ponen feas. Este disco es también vuestro. Gracias a Oli y Edu, por salvar la banda. A Mario, por el currazo que ha puesto en el diseño. A Paco, que nos presta su casa y su consejo. A Karlitos, que es familia. A cada uno de los sellos que seguís apostando por nosotrxs porque sois importantes y nos flipa lo que hacéis. A todxs las que seguís dando vida al punk contestatario y honesto desde el margen. A quienes ponéis lo común en el centro para desde ahí combatir a este monstruo caníbal que acecha dentro y fuera de nuestros círculos.
@@ -180,9 +162,27 @@ def seed_albums():
         band_id=7, album_image='https://i.imgur.com/b9yL1En.jpg',
         genre='pop, pop-punk'
     )
+    album10 = Album(
+        name= 'Time Stands Still', price=9.99,
+        description=
+        """Available from Napalm Records!
+        www.napalmrecordsamerica.com/store/unleashthearchers
+        shop.napalmrecords.com/unleashthearchers
+        credits
+        released June 26, 2015
+
+        Vocals: Brittney Slayes
+        Drums: Scott Buchanan
+        Guitar/Screams: Grant Truesdell
+        Guitar/Screams: Andrew Kingsley
+        Bass: Kyle Sheppard  """,
+        band_id=2, album_image='https://i.imgur.com/R4eITe1.jpg',
+        genre='metal, power metal'
+
+    )
 
     db.session.add_all([
-        album01, album02, album03, album04, album05, album06, album07, album08, album09
+        album01, album02, album03, album04, album05, album06, album07, album08, album09, album10
         ])
     db.session.commit()
 
