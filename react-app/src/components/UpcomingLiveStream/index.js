@@ -9,8 +9,8 @@ export default function UpcomingLiveStream({ album, ele }) {
             <div className='livestream-band-name'>{album.Band.name}</div>
             </div>
             <div>
-            <div className='livestream-date'>{ele[0]}</div>
-            <div className='livestream-time'>{ele[1]}</div>
+            <div className='livestream-date'><i className="fa-regular fa-calendar"></i> {ele[0]}</div>
+            <div className='livestream-time'><i className="fa-regular fa-clock"></i> {ele[1]}</div>
             </div>
         </div>
     )

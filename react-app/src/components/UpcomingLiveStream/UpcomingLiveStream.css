@@ -1,15 +1,25 @@
 .livestream-container {
-    height: 24rem;
+    height: 21rem;
     width: 13rem;
     border-radius: .2rem;
     overflow: hidden;
     display:  flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: rgb(215, 222, 229);
 }
 .livestream-band-img {
     height: 13rem;
     width: 13rem;
     object-fit: cover;
     border-radius: .2rem;
+}
+.livestream-album,
+.livestream-band-name,
+.livestream-date,
+.livestream-time {
+    padding-left: .3rem;
+}
+.livestream-time {
+    padding-bottom: .3rem;
 }
