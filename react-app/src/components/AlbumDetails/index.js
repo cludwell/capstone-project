@@ -1,13 +1,33 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './AlbumDetails.css'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { fetchSingleAlbum } from '../../store/albums'
 import { useParams } from 'react-router-dom'
 import { fetchUserPurchases } from '../../store/purchases'
+import OpenModalButton from '../OpenModalButton'
+import LyricsModal from '../LyricsModal'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
     const { albumId } = useParams()
+    //modal components
+    const [ showMenu, setShowMenu ] = useState(false)
+    const ulRef = useRef();
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true)
+    }
+    useEffect(() => {
+        if (!showMenu) return;
+        const closeMenu = e => {
+            if (!ulRef.current.contains(e.target)) {
+                setShowMenu(false);
+            }
+        }
+        document.addEventListener('click', closeMenu);
+        return () => document.removeEventListener('click', closeMenu);
+    }, [showMenu])
+    const closeMenu = e => setShowMenu(false)
 
     useEffect(() => {
         dispatch(fetchSingleAlbum(albumId))
@@ -37,7 +57,12 @@ export default function AlbumDetails() {
                         <tr>
                             <td>{s.trackNum}. </td>
                             <td>{s.name}</td>
-                            <td>{s.lyrics ? 'lyrics' : null}</td>
+                            <td>{s.lyrics ? (
+                                <OpenModalButton
+                                buttonText={'lyrics'}
+                                onItemClick={closeMenu}
+                                modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
+                            ) : null}</td>
                         </tr>
                     ))}
 
