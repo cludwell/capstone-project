@@ -1434,19 +1434,29 @@ Call me Immortal"""
         name="I Am The Hammer", album_id=7, price=.99, track_num=1,
         lyrics="""I AM THE HAMMER
 
-From the west I hear the riders of Tarsul have gone into the north, they join Haiklan in war. Let both rise up to meet my army, they are battle-starved and I promised them feast upon two nations blood.
+From the west I hear the riders of Tarsul have gone into the north,
+they join Haiklan in war.
+Let both rise up to meet my army,
+they are battle-starved and I promised them feast upon two nations blood.
 
 For I am not to be crossed.
 I command the Guards of Lourn.
 I am The Hammer.
 
-In the south Kynara forms her ranks 8000 strong, to meet the demon priests of ill Nitaar. I've warned them once I am The Hammer, they are like glowing iron. No sorcery can force the Pyre Forge!
+In the south Kynara forms her ranks 8000 strong,
+to meet the demon priests of ill Nitaar.
+I've warned them once I am The Hammer,
+they are like glowing iron.
+No sorcery can force the Pyre Forge!
 
 I am not to be crossed.
 I command the Guards of Lourn.
 I am The Hammer.
 
-Over the peaks frost-bitten riders of Tarsul have come. Haiklan has joined them at their own demise. Farick, I ask my steel is tempered true and armor-strong, I've forged our brands in rites of Pyre Forge.
+Over the peaks frost-bitten riders of Tarsul have come.
+Haiklan has joined them at their own demise.
+Farick, I ask my steel is tempered true and armor-strong,
+I've forged our brands in rites of Pyre Forge.
 
 I am not to be crossed.
 I command the Guards of Lourn.
@@ -1459,17 +1469,36 @@ I am The Hammer."""
         lyrics="""THE ARMOR OF IRE
 
 Tyrant!
-Suffer now for the crime an age before. In your shadowed keep you fear the gathering storm. For your slander I repay. An ocean I'd cross, through sands I would ride for my right to bring my wrath upon...
+Suffer now for the crime an age before.
+In your shadowed keep you fear the gathering storm.
+For your slander I repay.
+An ocean I'd cross,
+through sands I would ride for my right to bring my wrath upon...
 Tenfold.
-The pain you serve will be brought upon your own. Forseers warned a false and guarded tongue would serve you well, they're right! They are the harbors of peace but no peace will be had tonight. An oath is sworn in blood and scorn.
+The pain you serve will be brought upon your own.
+Forseers warned a false and guarded tongue would serve you well,
+they're right!
+They are the harbors of peace but no peace will be had tonight.
+An oath is sworn in blood and scorn.
 
 Nightmares.
-Your pillared halls offer quarter in the night, but no rest, it haunts those when their honor falls. By the dawn you'll pay the price, for an ocean I've crossed, through sands I have rode for my right to bring my wrath upon.....
-Blinded, there is a fire but I cannot see the light. It's burned to ash all that which lived before. For the fallen I repay, reborn in revenge, justice for bonds betrayed. An oath is sworn in blood and scorn.
+Your pillared halls offer quarter in the night,
+but no rest, it haunts those when their honor falls.
+By the dawn you'll pay the price, for an ocean I've crossed,
+through sands I have rode for my right to bring my wrath upon.....
+Blinded, there is a fire but I cannot see the light.
+It's burned to ash all that which lived before.
+For the fallen I repay, reborn in revenge,
+justice for bonds betrayed.
+An oath is sworn in blood and scorn.
 
-No force will heed my pace, and no iron will rend my flesh before I can deal you a traitor's fate. My ire is my armor.
+No force will heed my pace,
+and no iron will rend my flesh before I can deal you a traitor's fate.
+My ire is my armor.
 
-No force will heed my pace, and no iron will rend my flesh before I can deal you this traitor's fate. My ire is my armor."""
+No force will heed my pace,
+and no iron will rend my flesh before I can deal you this traitor's fate.
+My ire is my armor."""
     )
 
     song085 = Song(
@@ -1491,9 +1520,11 @@ Light flames for them to see.
 Their heads will hang from my hand.
 This reign can never be.
 
-Forced south they're hiding. They have heard our drums of war.
+Forced south they're hiding.
+They have heard our drums of war.
 They'd claim the island, but can't take our northern hold.
-The light is falling, no dawn for Roman dogs.
+The light is falling,
+no dawn for Roman dogs.
 The last king of Pictdom leads his clan across the moor!
 
 Bring forth those who'd conquer.
@@ -1501,7 +1532,8 @@ Light flames for them to see.
 Their heads will hang from my hand!
 This reign can never be.
 
-Cry in the night. The last of them dies and I feel the calm hush in the night.
+Cry in the night.
+The last of them dies and I feel the calm hush in the night.
 The silence is broken by wolves of the fight.
 Dark turns to light, and the blood of the fools is stained to the stone. Hush in the night...the silence is broken by wolves of the fight.
 
@@ -1518,26 +1550,37 @@ Atlantean wolves, they fight and let hawks clean their bones."""
         # The Armor of Ire by Eternal Champion
         name="The Cold Sword", album_id=7, price=.99, track_num=5, lyrics="""THE COLD SWORD
 
-A name is called and I'm thrown into a world draped in ice. The Frozen Keep is my dominion? The Champion's fate, to wake in worlds anew.
+A name is called and I'm thrown into a world draped in ice.
+The Frozen Keep is my dominion?
+The Champion's fate, to wake in worlds anew.
 
-The Southern Ice, the white unbroken. The cardinal red sun is dying. To Rowenarc, the obsidian citadel.
-
-"The hilt of the sword and the hand are as one."
-The chalice screams, and demands of me what I loathe.
-"The blade of the sword has the blood of the Sun."
-Pawn of Fate, your glory and doom are one.
-
-A maddened king will lead his men to ruin, the warriors of silver are caught. For their queen, they'll battle, but they've no hope from The Black Sword.
-
-Always a price, always a burden. The balance right, the chalice now full. Many names, Fate's Soldier, I will find Tanelorn!
+The Southern Ice, the white unbroken.
+The cardinal red sun is dying.
+To Rowenarc, the obsidian citadel.
 
 "The hilt of the sword and the hand are as one."
 The chalice screams, and demands of me what I loathe.
 "The blade of the sword has the blood of the Sun."
 Pawn of Fate, your glory and doom are one.
 
-From the fallen Moon they will ride. Under the blade the queen she will die.
-From the Scarlet Fjord they will ride. Under the blade the queen she will die.
+A maddened king will lead his men to ruin,
+ the warriors of silver are caught.
+ For their queen, they'll battle,
+ but they've no hope from The Black Sword.
+
+Always a price, always a burden.
+The balance right, the chalice now full.
+Many names, Fate's Soldier, I will find Tanelorn!
+
+"The hilt of the sword and the hand are as one."
+The chalice screams, and demands of me what I loathe.
+"The blade of the sword has the blood of the Sun."
+Pawn of Fate, your glory and doom are one.
+
+From the fallen Moon they will ride.
+Under the blade the queen she will die.
+From the Scarlet Fjord they will ride.
+Under the blade the queen she will die.
 The fief of the sword is your life."""
     )
 
