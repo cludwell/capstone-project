@@ -40,9 +40,29 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      {user ? (
+              <img
+              onClick={openMenu}
+              className="profile-button-picture profile-button" src={`${user.profilePic}`} alt="user-profile-pic" />
+             ) : (
+        <>
+        <OpenModalButton
+        buttonText="log In"
+        onItemClick={closeMenu}
+        modalComponent={<LoginFormModal
+        />}
+      />
+      <OpenModalButton
+        buttonText="sign Up"
+        onItemClick={closeMenu}
+        modalComponent={<SignupFormModal />}
+      />
+      </>
+      )}
+
+      {/* <button onClick={openMenu} className="profile-button">
         <i className="fas fa-user-circle" />
-      </button>
+      </button> */}
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
