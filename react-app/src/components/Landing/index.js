@@ -1,19 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './Landing.css'
 import { useEffect } from 'react'
-import { fetchAlbums, fetchSingleAlbum } from '../../store/albums'
+import { fetchAlbums } from '../../store/albums'
 import NewAndNotable from '../NewAndNotable'
+import { fetchAllPurchases, loadAllPurchases } from '../../store/purchases'
 
 export default function Landing() {
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(fetchAlbums())
+        dispatch(fetchAllPurchases())
     }, [dispatch])
 
     const albums = useSelector(state => state.albums.allAlbums)
     const state = useSelector(state => state)
-    console.log('===================', state)
+    console.log('STATE', state)
 
     if (!albums || !Object.values(albums).length) return null
 

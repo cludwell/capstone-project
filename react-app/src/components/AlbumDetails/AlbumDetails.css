@@ -35,3 +35,16 @@ justify-content: center;
     max-height: 25rem;
     object-fit: cover;
 }
+.details-band-name {
+    margin-top: 0rem;
+}
+.album-details-description {
+    line-height: 1.5rem;
+    font-size: .9rem;
+}
+.album-details-band-img {
+    width: 7rem;
+}
+.tracks-column {
+    width: 25rem;
+}

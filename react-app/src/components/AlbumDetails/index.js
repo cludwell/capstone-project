@@ -26,14 +26,27 @@ export default function AlbumDetails() {
 
             <div className='tracks-column'>
             <h2 className='album-details-title'>{album.name}</h2>
-            <hp>by {album.Band.name}</hp>
-            <div className='details-react-player'>placeholder</div>
-            <div className='details-streaming-info'>
+            <p className='details-band-name'>by {album.Band.name}</p>
+            <div className='details-react-player'>REACT placeholder</div>
+            <div className='album-details-streaming-info'>
                 <h4 className='details-info'>Digital Album</h4>
                 <p className='details-grey-text'>Streaming + Download</p>
+
+                <table className='album-track-table'>
+                    {album.Songs.map(s => (
+                        <tr>
+                            <td>{s.trackNum}. </td>
+                            <td>{s.name}</td>
+                            <td>{s.lyrics ? 'lyrics' : null}</td>
+                        </tr>
+                    ))}
+
+                </table>
                 <p className='details-ownership-info'>Includes unlimited streaming via the free Bandcamp app, plus high-quality download in MP3, FLAC and more.</p>
 
             </div>
+
+            <p className='album-details-description'>{album.description}</p>
             </div>
 
 
@@ -50,7 +63,7 @@ export default function AlbumDetails() {
 
 
             <div className='band-info-column'>
-
+                <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />
             </div>
 
         </div>
