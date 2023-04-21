@@ -13,10 +13,7 @@ export default function AlbumDetails() {
     //modal components
     const [ showMenu, setShowMenu ] = useState(false)
     const ulRef = useRef();
-    const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true)
-    }
+
     useEffect(() => {
         if (!showMenu) return;
         const closeMenu = e => {
@@ -89,6 +86,9 @@ export default function AlbumDetails() {
 
             <div className='band-info-column'>
                 <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />
+                <p>{album.Band.city}</p>
+                <p>{album.Band.country}</p>
+                <a href=''
             </div>
 
         </div>
