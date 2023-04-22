@@ -21,10 +21,10 @@ function App() {
       <Header isLoaded={isLoaded} />
         <Switch>
           <Route path={`/`} exact={true} component={Landing}/>
-          <Route path='/albums/:albumId' exact={true} component={AlbumDetails
-          } />
+          <Route path='/albums/:albumId' exact={true} component={AlbumDetails} />
           <Route path="/login" component={LoginFormPage} />
           <Route path="/signup" component={SignupFormPage}/>
+          {/* <Route path="/user" component={} */}
         </Switch>
     </>
   );

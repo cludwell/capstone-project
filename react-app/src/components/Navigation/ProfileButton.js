@@ -46,7 +46,7 @@ function ProfileButton({ user }) {
               className="profile-button-picture profile-button" src={`${user.profilePic}`} alt="user-profile-pic" />
              ) : (
         <div className="sign-or-login">
-        
+
         <OpenModalButton
         buttonText="log In"
         onItemClick={closeMenu}
@@ -62,7 +62,7 @@ function ProfileButton({ user }) {
       {/* <button onClick={openMenu} className="profile-button">
         <i className="fas fa-user-circle" />
       </button> */}
-      <ul className={ulClassName} ref={ulRef}>
+      <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
             <p>{user.username}</p>
@@ -88,7 +88,7 @@ function ProfileButton({ user }) {
             />
           </>
         )}
-      </ul>
+      </div>
     </>
   );
 }

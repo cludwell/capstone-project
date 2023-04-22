@@ -10,3 +10,6 @@
     background-color: none;
     border-radius: 5rem;
 }
+.profile-dropdown {
+    z-index: 101;
+}

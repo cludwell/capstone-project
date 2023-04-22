@@ -7,4 +7,5 @@
 .modal-rep{
     color: blue;
     text-decoration: underline;
+    cursor: pointer;
 }

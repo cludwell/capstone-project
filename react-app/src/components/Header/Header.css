@@ -25,9 +25,9 @@
     position: absolute;
     right: 5rem;
     top: 5rem;
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(255, 255, 255);
     border-radius: .5rem;
-    box-shadow: 0rem 0rem .3rem rgb(145, 145, 145);
+    box-shadow: 0rem 0rem 1rem black;
     padding: 2rem;
     line-height: 1rem;
 }
