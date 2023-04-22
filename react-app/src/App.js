@@ -8,6 +8,7 @@ import { authenticate } from "./store/session";
 import Header from "./components/Header";
 import Landing from "./components/Landing";
 import AlbumDetails from "./components/AlbumDetails";
+import BandDetails from "./components/BandDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function App() {
           <Route path='/albums/:albumId' exact={true} component={AlbumDetails} />
           <Route path="/login" component={LoginFormPage} />
           <Route path="/signup" component={SignupFormPage}/>
-          {/* <Route path="/user" component={} */}
+          <Route path='/bands/:bandId' exact={true} component={BandDetails} />
         </Switch>
     </>
   );

@@ -1,0 +1,27 @@
+.band-deets-page {
+    display: flex;
+    justify-content: center;
+}
+.band-deets-iterated-albums {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 2rem;
+    margin-left: 4rem;
+}
+.band-deets-albumart{
+    height: 13rem;
+    width: 13rem;
+    object-fit: cover;
+    border-radius: .2rem;
+}
+.band-details-container {
+    display: flex;
+    flex-direction: row;
+    width: 75rem;
+    justify-content: space-between;
+}
+.band-details-col{
+    margin: 2rem;
+    margin-left: 0rem;
+}

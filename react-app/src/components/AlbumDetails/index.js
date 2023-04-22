@@ -35,6 +35,7 @@ export default function AlbumDetails() {
 
     const album = useSelector(state => state.albums.singleAlbum)
     const albums = useSelector(state => state.albums.allAlbums)
+    
     console.log('================', album)
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length) return null
     return (

@@ -25,6 +25,7 @@
     justify-content: center;
     position: absolute;
     width: 98vw;
+    z-index: 100;
 }
 .landing-container {
     /* background-color: rgb(49, 49, 49); */
