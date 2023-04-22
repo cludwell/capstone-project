@@ -30,23 +30,25 @@ export default function Landing() {
         <div className='landing-container'>
             {!state.session.user ? (<div className='updated-use-terms'>We've updated our terms of use. Please sign in.</div>
             ) : null}
-            <h1 className='landing-banner-title'>Introducing Juanita y los Feos</h1>
-            <h2 className='landing-banner-subtitle'>New Wave Punk Rockers from Madrid</h2>
 
             <h4 className='landing-banner-mid-col'>Fellowship carries DragonForce's torch</h4>
             {/* <h5 className='landing-banner-mid-sub'>DnD inspired fantasy metal</h5> */}
+
+
             <div className='landing-banner'>
             <div className='landing-banner-main'>
+            <h1 className='landing-banner-title'>Introducing Juanita y los Feos</h1>
+            <h2 className='landing-banner-subtitle'>New Wave Punk Rockers from Madrid</h2>
+
             <img className='landing-banner-main-photo' src={`${albums['8'].Band.artistImage}`} alt='main-banner-land'></img>
             </div>
 
-            <div className='landing-banner-main-column'>
+            <div className='landing-banner-column'>
             <img src={`${albums['9'].albumImage}`} alt='first column' className='landing-banner-col'></img>
             <img src={`${albums['6'].albumImage}`} alt='second col item' className='landing-banner-col'></img>
             <img src={`${albums['10'].Band.artistImage}`} alt='second col item' className='landing-banner-col'></img>
-
-
             </div>
+
             </div>
 
             <h3 className='fans-have-paid'>✨Fans have paid artists billions using fancamp, and $190 billion in the last year✨</h3>
