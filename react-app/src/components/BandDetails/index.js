@@ -33,26 +33,14 @@ export default function BandDetails() {
         <div className='band-details-col'>
 
         <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${band.artistImage}`} />
-            <p>{band.city}</p>
-            <p>{band.country}</p>
-            <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${band.name.split(' ').join('%20')}`} >Facebook</a> </p>
+        <p className='album-deets-country'>{band.country}</p>
+        <p className='album-deets-city'>{band.city}</p>
+        <p className='band-deets-desc'>{band.description}</p>
+        <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${band.name.split(' ').join('%20')}`} >Facebook</a> </p>
 
-            <p><a className='album-details-social-media' href={`https://www.instagram.com/explore/search/keyword/?q=${band.name.split(' ').join('%20')}`}>Instagram</a></p>
-            <p><a className='album-details-social-media' href={`https://www.youtube.com/results?search_query=${band.name.split(' ').join('+')}`} >YouTube</a></p>
+        <p><a className='album-details-social-media' href={`https://www.instagram.com/explore/search/keyword/?q=${band.name.split(' ').join('%20')}`}>Instagram</a></p>
+        <p><a className='album-details-social-media' href={`https://www.youtube.com/results?search_query=${band.name.split(' ').join('+')}`} >YouTube</a></p>
 
-
-                {/* <h4>discography</h4>
-
-                {Object.values(albums).filter(a=>a.bandId === album.bandId && a.id !== album.id).map((a,i) =>(
-                        <div className='detail-discog-card'>
-                        <img src={`${a.albumImage}`} alt='otheralbums' key={`albumart${i}`} className='details-discog-image'></img>
-
-                        <div className='detail-discog-link'><NavLink to={`/albums/${a.id}`}
-                        style={{textDecoration: "none"}}>{a.name}</NavLink></div>
-                        <div className='details-discog-created'>{a.createdAt.slice(0, -12)}</div>
-                        </div>
-                    )
-                ).slice(0,2)} */}
 
         </div>
         </div>

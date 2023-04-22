@@ -7,6 +7,9 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    background-color: slategray;
+    margin: 2rem;
+    padding: 2rem;
 }
 .album-details-artwork{
     width: 25rem;
@@ -47,4 +50,12 @@ justify-content: center;
 }
 .tracks-column {
     width: 25rem;
+}
+.album-deets-country {
+    font-weight: bold;
+    margin-bottom: 0rem;
+}
+.album-deets-city {
+    margin-top: 0rem;
+    color:rgb(69, 69, 69);
 }

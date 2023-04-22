@@ -17,4 +17,5 @@ font-family: 'Marcellus', serif;
 font-family: 'Montserrat', sans-serif;
 font-family: 'Mulish', sans-serif;
 font-family: 'Secular One', sans-serif;
-font-family: 'Thasadith', sans-serif;font-family: 'Thasadith', sans-serif;
+font-family: 'Thasadith', sans-serif;
+font-family: 'Thasadith', sans-serif;

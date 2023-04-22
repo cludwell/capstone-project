@@ -10,8 +10,8 @@
     margin-left: 4rem;
 }
 .band-deets-albumart{
-    height: 13rem;
-    width: 13rem;
+    height: 16rem;
+    width: 16rem;
     object-fit: cover;
     border-radius: .2rem;
 }
@@ -20,8 +20,13 @@
     flex-direction: row;
     width: 75rem;
     justify-content: space-between;
+    background-color: burlywood;
 }
 .band-details-col{
     margin: 2rem;
     margin-left: 0rem;
+    width: 10rem;
+}
+.band-deets-desc{
+    font-size: .8rem;
 }

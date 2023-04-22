@@ -35,7 +35,7 @@ export default function AlbumDetails() {
 
     const album = useSelector(state => state.albums.singleAlbum)
     const albums = useSelector(state => state.albums.allAlbums)
-    
+
     console.log('================', album)
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length) return null
     return (
@@ -57,6 +57,7 @@ export default function AlbumDetails() {
                     {album.Songs.map(s => (
                         <tr>
 
+                            <td></td>
                             <td>{s.trackNum}. </td>
                             <td>{s.name}</td>
                             <td>{s.lyrics ? (
@@ -96,25 +97,28 @@ export default function AlbumDetails() {
 
 
             <div className='band-info-column'>
-                <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />
-                <p>{album.Band.city}</p>
-                <p>{album.Band.country}</p>
-               <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${album.Band.name.split(' ').join('%20')}`} >Facebook</a> </p>
+            <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />
+            <p className='album-deets-country'>{album.Band.country}</p>
+            <p className='album-deets-city'>{album.Band.city}</p>
+
+            <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${album.Band.name.split(' ').join('%20')}`} >Facebook</a> </p>
 
                 <p><a className='album-details-social-media' href={`https://www.instagram.com/explore/search/keyword/?q=${album.Band.name.split(' ').join('%20')}`}>Instagram</a></p>
                 <p><a className='album-details-social-media' href={`https://www.youtube.com/results?search_query=${album.Band.name.split(' ').join('+')}`} >YouTube</a></p>
 
 
-                <h4>discography</h4>
+                <h4>
+                <NavLink to={`/bands/${album.bandId}`}>discography</NavLink>
+                </h4>
 
                 {Object.values(albums).filter(a=>a.bandId === album.bandId && a.id !== album.id).map((a,i) =>(
-                        <div className='detail-discog-card'>
-                        <img src={`${a.albumImage}`} alt='otheralbums' key={`albumart${i}`} className='details-discog-image'></img>
+                    <div className='detail-discog-card'>
+                    <img src={`${a.albumImage}`} alt='otheralbums' key={`albumart${i}`} className='details-discog-image'></img>
 
-                        <div className='detail-discog-link'><NavLink to={`/albums/${a.id}`}
+                    <div className='detail-discog-link'><NavLink to={`/albums/${a.id}`}
                         style={{textDecoration: "none"}}>{a.name}</NavLink></div>
-                        <div className='details-discog-created'>{a.createdAt.slice(0, -12)}</div>
-                        </div>
+                    <div className='details-discog-created'>{a.createdAt.slice(0, -12)}</div>
+                    </div>
                     )
                 ).slice(0,2)}
                 <NavLink to={`/bands/${album.bandId}`}><p className='details-more-releases'>more releases...</p></NavLink>
