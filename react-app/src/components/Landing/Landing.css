@@ -9,15 +9,84 @@
     justify-content: center;
     align-items: flex-start;
 }
+.updated-use-terms{
+    background-color: skyblue;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 98vw;
+}
 .landing-container {
     /* background-color: rgb(49, 49, 49); */
     justify-content: center;
-    margin-top: 5rem;
+    margin-top: .3rem;
 }
 /* .new-notable-title {
     margin-bottom: 0.8rem;
     margin-left: 1rem;
 } */
+.landing-banner{
+    display: flex;
+    flex-direction: row;
+}
+.landing-banner-main-photo {
+    width: 65vw;
+    height: 40vh;
+    object-fit: cover;
+    object-position: top center;
+}
+.landing-banner-main-column{
+    margin: .2rem;
+}
+.landing-banner-col {
+    width: 32.5vw;
+    height: 8.812rem;
+    object-fit: none;
+    object-fit: cover;
+    object-position: top center;
+}
+.landing-banner-main-column {
+    height: 40vh;
+    overflow: hidden;
+}
+.landing-banner-mid-col{
+    position: absolute;
+    color:white;
+    margin-top: 15vh;
+    margin-left: 67vw;
+    font-weight: bolder;
+    font-weight: 900;
+    font-family: 'Thasadith', sans-serif;
+    font-style: italic;
+    background-color:hsl(180, 100%, 50%, .4)
+}
+/* titles for banner */
+.landing-banner-title{
+    position: absolute;
+    color:white;
+    margin-top: 31vh;
+    margin-left: 10vw;
+    font-weight: 900;
+    font-family: 'Thasadith', sans-serif;
+    font-style: italic;
+    background-color:hsl(180, 100%, 50%, .4)
+}
+.landing-banner-subtitle {
+    position: absolute;
+    color:white;
+    margin-top: 35vh;
+    margin-left: 10vw;
+    font-weight: bolder;
+    font-family: 'Thasadith', sans-serif;
+    font-style: italic;
+    background-color:hsl(180, 100%, 50%, .4)
+}
+
 .fans-have-paid {
     text-align: center;
     margin-bottom: 5rem;
@@ -38,4 +107,9 @@
 .album-details-container {
     width: 64rem;
     /* background-color: aqua; */
+}
+.centering-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

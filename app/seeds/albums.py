@@ -180,9 +180,34 @@ def seed_albums():
         genre='metal, power metal'
 
     )
+    album11 = Album(
+        name= 'Pulso', price=9.99,
+        description=
+        """Torpes pero intensos… define bien la actitud con la que muchos de nosotros encaramos la vida cuando empezábamos a caminar… Y así, igual que J., hemos chocado con toda esta mierda: inseguros, vulnerables, y aterrados por haber sido despojados poco a poco de nuestra espontaneidad, de nuestra energía infinita y esa rabia incendiaria de la que sacas la fuerza cuando eres un crío. Ya no somos niños, y a menudo nos atrapa el cinismo y el miedo, pero esto no ha acabado. La misma mísera realidad que nos motivó a rebelarnos entonces, sigue asfixiándonos hoy. La guerra es la paz, ya lo decían Orwell, y los RIP, y este pulso estará presente en nuestras vidas, hasta que palmemos. Le dedicamos este disco a todos los que se juegan la libertad y el pellejo luchando, sin purezas, sin egos, con perseverancia y entereza y por amor a la libertad. A los más de 40 anarquistas detenidos en los últimos meses por el Estado.
+
+        Este disco es de mucha gente. De los que nos apoyáis incondicionalmente en lo técnico y en lo anímico desde hace ya 5 años, de Mar por darnos el lujazo de ocuparse y preocuparse de ilustrar y darle ojos y tacto a este proyecto, de Paco y Frutos por darle oídos y cariño. De Dieguito, el sexto miembro de Accidente. Raúl por las correcciones. De todas las distris, centros sociales, personas y colectivos por su fuerza y corazón. De quienes apoyan y y no dejan que muera el punk autogestionado, combativo e irreverente.
+        credits
+        released February 14, 2016
+
+        Grabado en los Estudios Musigrama, Madrid en invierno de 2015 y 1016.
+        Grabado y mezclado por Pablo Martínez.
+        Ayudante de grabación: Dani Frutos
+        Masterizado en Sonic Iguana Studio, USA por Mass Giorgini.
+        Arte: Mar Estrama www.marestrama.com
+        Diseño y adaptación: Miguel Martínez
+        Todos los temas por Accidente: Blanca, Miguel, Ranzio, Carlos y Pablo.
+        Solo de guitarra en "Jueces" por Frutos.
+
+        ESTE DISCO ES GRATIS, PERO LA PLATAFORMA PERMITE SÓLO 200 DESCARGAS SIN COSTE. NO PAGUES POR ÉL, BÁJALO LIBREMENTE DE AQUÍ: accidentepunk.blogspot.com.es / THIS RECORD IS FREE FOR YOU DOWNLOAD IT. DO NOT PAY FOR IT. GET IT HERE: accidentepunk.blogspot.com.es
+        license
+        some rights reserved  """,
+        band_id=3, album_image='https://i.imgur.com/ooi5Ubv.jpg',
+        genre='pop, pop punk, positive'
+
+    )
 
     db.session.add_all([
-        album01, album02, album03, album04, album05, album06, album07, album08, album09, album10
+        album01, album02, album03, album04, album05, album06, album07, album08, album09, album10, album11
         ])
     db.session.commit()
 

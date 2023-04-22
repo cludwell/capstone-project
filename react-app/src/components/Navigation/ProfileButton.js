@@ -45,19 +45,18 @@ function ProfileButton({ user }) {
               onClick={openMenu}
               className="profile-button-picture profile-button" src={`${user.profilePic}`} alt="user-profile-pic" />
              ) : (
-        <>
+        <div className="sign-or-login">
+        
         <OpenModalButton
         buttonText="log In"
         onItemClick={closeMenu}
         modalComponent={<LoginFormModal
-        />}
-      />
+        />} />
       <OpenModalButton
-        buttonText="sign Up"
+        buttonText="sign up"
         onItemClick={closeMenu}
-        modalComponent={<SignupFormModal />}
-      />
-      </>
+        modalComponent={<SignupFormModal />} />
+      </div>
       )}
 
       {/* <button onClick={openMenu} className="profile-button">

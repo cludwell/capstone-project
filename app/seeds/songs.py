@@ -1763,10 +1763,285 @@ Valdese by revenge your soul can be at one. No longer must you stalk among the n
         # Nueva Numancia by Juanita y Los Feos
         name="Se ha acabado", album_id=9, price=.99, track_num=12
     )
+    song117 = Song(
+        # Pulso by Accidente
+    name="Pulso", album_id=11, price=.99, track_num=1,
+    lyrics="""Dignidad no significa
+que no grites cuando duele
+cuando hayas mordido el polvo
+y tus demonios te superen
+es ver el fuego en tus ojos
+es verte apretar los dientes
+eres tú... convencido hacia delante,
+pasión en tu semblante, es vivir.
+Es esa tensión entre deseo y realidad,
+es tropezar y no temer fracasar
+levanta el vuelo y a por más
+La respiración violenta,
+la angustia, la adrenalina
+heridas de la carrera
+por darle fuego a esta vida
+Para mi la vida es pulso
+convivir junto al problema
+y quizá... Quizá no ganaremos
+tampoco perderemos...
+Porque no hay para mi
+mejor manera de enfrentar el vendaval,
+de acorralarlo y saltar,
+Saber que puedo confiar"""
+    )
 
+    song118 = Song(
+        # Pulso by Accidente
+    name="Otro amanecer", album_id=11, price=.99, track_num=2,
+    lyrics="""Otro amanecer, llega sin aliento
+Se tambalean sus cimientos
+Rota en el sofá aguarda su amiga
+Nada pregunta, solo la abriga
+Y sueña que, desaparece de una vez
+y al despertar,
+la muerte regresa y no va a soltar
+Otro amanecer, vomita en el baño
+Todo el licor que esconde el daño
+Y su amante fiel, sujeta el cabello
+Para que nunca toque el suelo
+Y sueña que, corre y escapa de una vez
+Y que al saltar, el abismo es fácil de salvar
+Y puede planear y siente el viento
+en la piel al bajar
+Y vuela hasta el final,
+ya no hay dolor, solo libertad
+Un golpe atronador,
+diez mil sirenas a su alrededor
+Paciente en el sofá su amiga espera
+un nuevo amanecer
+"""
+    )
+
+    song119 = Song(
+        # Pulso by Accidente
+    name="Escupe el mar", album_id=11, price=.99, track_num=3,
+    lyrics="""Y cayeron al mar dos mil cuerpos y un vals
+nadie recuerda ya sus tripas llenas de sal
+Y una noche cada abril de la oscuridad
+sus cuerpos vuelven a surgir
+y con la orilla dan
+Y bailan buscando el camino
+hasta acorralar a sus verdugos
+¿y ahora qué?
+Y a sus puertas están
+dos mil cuerpos y un vals
+ya no vale suplicar
+es la venganza del mar
+Y cada ola es un lamento
+en la valla o en el puerto
+es el precio del Estado y son sus muertos
+no hay fronteras que detengan tanto mar
+Y escupe el mar un cuerpo cada primavera
+Y pagaréis,  en vuestra piel esa condena
+Y escupe el mar un cuerpo cada primavera
+Y escupe el mar…"""
+    )
+
+    song120 = Song(
+        # Pulso by Accidente
+    name="Yo misma", album_id=11, price=.99, track_num=4,
+    lyrics="""
+No pasaré…
+Nunca encajé en vuestro corsé
+Mi cuerpo no se amoldó a vuestra fe
+Mil expectativas que no cumpliré
+No me seduce provocar
+No quiero circos, sólo dignidad
+Que revuelva tu mundo la diversidad
+¿Es que no comprendéis?
+no soy varón, no soy mujer,
+soy sentimiento, soy piel
+Y no hay definición
+sólo rechazo y frustración
+Mi realidad, tu ficción
+Sin roles, sin ley
+seré yo misma o no seré
+Nunca encajé en vuestro corsé
+Mi cuerpo no se amoldó a vuestra fe
+Mil expectativas que no cumpliré
+Porque en mi vida, en mi identidad
+Decido yo como quiero jugar
+y el escondite no me va
+Y todo este dolor convierte el género
+en prisión, en crueldad, en exclusión
+Rompamos de una vez
+dicotomías de papel
+Respeta quién quiero ser
+Sin roles, sin ley
+seré yo misma o no seré
+"""
+    )
+
+    song121 = Song(
+        # Pulso by Accidente
+    name="Bandada", album_id=11, price=.99, track_num=5,
+    lyrics="""
+La bandada vuela unida,
+no puedes pararte ahora,
+sabes bien que son las normas,
+no te pierdas, por ir sola.
+Si ella quiso desviarse,
+y tener su propia guía,
+ya sabía que hay un precio,
+se paga la iniciativa…
+Pero yo no soy bandada,
+soy un único ejemplar,
+y esos lazos protectores,
+no me dejan respirar
+Y ahora yo elijo el camino para andar
+No la esperes, no la llames,
+¿y si te llevara a ti?
+Sabes bien que son las normas,
+sólo tienes que seguir
+a aquellas que te preceden,
+y modelan tu destino
+no cuestiones, somos muchas,
+juntas ante el enemigo"""
+    )
+
+    song122 = Song(
+        # Pulso by Accidente
+    name="Vuestra voz", album_id=11, price=.99, track_num=6,
+    lyrics="""
+Sin tiempo de despertar un golpe
+Sin aliento un sueño que se rompe
+Sin tiempo de despedir os llevaron lejos,
+creyeron que ese era el fin
+Aún recuerdo ir a vuestro encuentro
+la tensión dentro, mil rostros y un sentir
+El dolor nos hizo arder y no estabais solos… al caer
+Nuestras voces sumaron cientos
+pisando el miedo volvimos a latir
+Ya sabemos que así es el juego,
+que este es el duelo que quisimos batir
+El dolor nos hizo arder
+y no estabais solas
+vuestra fuerza en nuestra piel
+Y a cada herida crece el fuego, el valor
+Derriba el muro vuestra voz
+No cesamos, nos implicamos,
+solo peleando puede sobrevivir
+Vuestra llama, vuestra luz
+hasta estar en casa… otra vez
+El dolor nos hizo arder
+y no estabais solos
+Vuestra fuerza en nuestra piel
+Y a cada herida crece el fuego, el valor
+Derriba el muro vuestra voz"""
+    )
+
+    song123 = Song(
+        # Pulso by Accidente
+    name="Jueces", album_id=11, price=.99, track_num=7,
+    lyrics="""
+Tu mirada todopoderosa
+Pone al rebaño a temblar
+Unos trepan,
+otros se doblegan
+por su estatus personal
+El punk no es un pódium
+ni una pasarela más, es crítica
+contracultura, es humildad
+Tu decides, quién merece un puesto
+en el preciado pedestal
+Escaparates, élites y divos
+conquistando su lugar
+El punk no es un pódium
+ni una pasarela más, es libertad
+contracultura, es humildad
+Autocrítico, genuino, rebelde, creativo,
+macarra, activo
+Autocrítico, genuino, rebelde,
+¡una amenaza real!
+"""
+    )
+
+    song124 = Song(
+        # Pulso by Accidente
+    name="Complicidad", album_id=11, price=.99, track_num=8,
+    lyrics="""
+Me dijeron que era un reto
+que era insípido, inodoro
+Me contaron que dos cuerpos
+se encontraban y era todo
+Me mostraron los perfumes
+y tamaños adecuados
+Pieles sin pelos, impolutas,
+músculos perfectos
+Y me explicaron los “dos” roles
+Y me escribieron cada paso del guión
+Se olvidaron de momentos
+imprevisibles, inciertos
+De las dudas, de las risas
+torpes pero intensos*
+No me hablaron del respeto,
+el calor, la intimidad,
+de la química imperfecta,
+de perder el miedo
+Y se olvidaron del placer
+que produce compartirlo
+de cuando arden los complejos
+y sobran  reglas cuando hay complicidad
+"""
+    )
+
+    song125 = Song(
+        # Pulso by Accidente
+    name="Respira", album_id=11, price=.99, track_num=9,
+    lyrics="""
+Despiertas, respira, oprime el pecho, respira
+Una sirena y se hace de día, respira
+Angustia, respira, te asfixia,
+respira, luces azules en cada esquina, respira
+Diez guerras y un día en esta ciudad
+y solo una vida para devorar
+Sueñas con el final
+buscar una salida digna a este caos
+Trabajas, respira, no hay tiempo
+pero palpita un compromiso todos los días, respira
+Te acuestas, respira, anhelas, respira
+Dentro del pecho una utopía, respira
+Mil retos sin guía para conquistar
+y solo una vida para devorar"""
+    )
+
+    song126 = Song(
+        # Pulso by Accidente
+    name="La revuelta real", album_id=11, price=.99, track_num=10,
+    lyrics="""
+Te veo frente a mí
+me inyectas energía
+has vuelto del infierno
+y volverías a ir
+Ejemplos a los que aspirar
+me aferran a la realidad
+Un día decidiste
+abrir todas las jaulas
+cada minuto cuenta
+si es por la libertad
+Guerreros del mundo real
+que me alientan a no abandonar**
+Tres años a la sombra
+Por pasar a la acción
+Dar vida a unas ideas
+con rabia y con pasión
+Tu arma es la empatía
+Palabras humildad
+Ni rastro de consignas
+La revuelta real
+
+** "averigua en qué destacas y usa esa habilidad para dar lo máximo de ti... porque no se trata sólo de la liberación animal, no se trata sólo de la liberación del medio ambiente, no se trata sólo de la liberación humana, se trata de la liberación colectiva. Porque mientras no seamos todos libres, ninguno de nosotros seremos libres". [Palabras de Jake Conroy, activista por los derechos animales, en la charla organizada por ochodoscuatro ediciones en otoño de 2015: "De activista a terrorista".]
+"""
+    )
     db.session.add_all([
-        song001, song002, song003, song004, song005, song006, song007, song008, song009, song010, song011, song012, song013, song014, song015, song016, song017, song018, song019, song020, song021, song022, song023, song024, song025, song026, song027, song028, song029, song030, song031, song032, song033, song034, song035, song036, song037, song038, song039, song040, song041, song042, song043, song044, song045, song046, song047, song048, song049, song050, song051, song052, song053, song054, song055, song056, song057, song058, song059, song060,  song061, song062, song063, song064, song065, song066, song067, song068, song069, song070, song071, song072, song073, song074, song075, song076, song077, song078, song079, song080, song081, song082, song083, song084, song085, song086, song087, song088, song089, song090, song091, song092, song093, song094, song095, song096, song097, song098, song099, song100, song101, song102, song103, song104, song105, song106, song107, song108, song109, song110, song111, song112, song113, song114, song115, song116,
-        # song117, song118, song119, song120, song121, song122, song123, song124, song125, song126, song127, song128, song129, song130, song131, song132, song133, song134, song135, song136, song137, song138, song139, song140, song141, song142, song143, song144, song145, song146, song147, song148, song149, song150, song151, song152, song153, song154, song155, song156, song157, song158, song159, song160, song161, song162, song163, song164, song165, song166, song167, song168, song169, song170, song171, song172, song173, song174, song175, song176, song177, song178, song179, song180, song181, song182, song183, song184, song185, song186, song187, song188, song189, song190, song191, song192, song193, song194, song195, song196, song197, song198, song199, song200
+        song001, song002, song003, song004, song005, song006, song007, song008, song009, song010, song011, song012, song013, song014, song015, song016, song017, song018, song019, song020, song021, song022, song023, song024, song025, song026, song027, song028, song029, song030, song031, song032, song033, song034, song035, song036, song037, song038, song039, song040, song041, song042, song043, song044, song045, song046, song047, song048, song049, song050, song051, song052, song053, song054, song055, song056, song057, song058, song059, song060,  song061, song062, song063, song064, song065, song066, song067, song068, song069, song070, song071, song072, song073, song074, song075, song076, song077, song078, song079, song080, song081, song082, song083, song084, song085, song086, song087, song088, song089, song090, song091, song092, song093, song094, song095, song096, song097, song098, song099, song100, song101, song102, song103, song104, song105, song106, song107, song108, song109, song110, song111, song112, song113, song114, song115, song116, song117, song118, song119, song120, song121, song122, song123, song124, song125, song126,
+        # song127, song128, song129, song130, song131, song132, song133, song134, song135, song136, song137, song138, song139, song140, song141, song142, song143, song144, song145, song146, song147, song148, song149, song150, song151, song152, song153, song154, song155, song156, song157, song158, song159, song160, song161, song162, song163, song164, song165, song166, song167, song168, song169, song170, song171, song172, song173, song174, song175, song176, song177, song178, song179, song180, song181, song182, song183, song184, song185, song186, song187, song188, song189, song190, song191, song192, song193, song194, song195, song196, song197, song198, song199, song200
 ])
     db.session.commit()
 
