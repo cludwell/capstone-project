@@ -5,6 +5,7 @@ import { fetchAlbums } from '../../store/albums'
 import NewAndNotable from '../NewAndNotable'
 import { fetchAllPurchases } from '../../store/purchases'
 import UpcomingLiveStream from '../UpcomingLiveStream'
+import { fetchUsers } from '../../store/users'
 
 export default function Landing() {
     const dispatch = useDispatch()
@@ -12,6 +13,7 @@ export default function Landing() {
     useEffect(() => {
         dispatch(fetchAlbums())
         dispatch(fetchAllPurchases())
+        dispatch(fetchUsers())
     }, [dispatch])
 
     const albums = useSelector(state => state.albums.allAlbums)
@@ -58,7 +60,7 @@ export default function Landing() {
             <h5 className='new-notable-title'>UPCOMING FANCAMP LIVE STREAMS</h5>
             <div className='upcoming-live-streams-container'>
             {Object.values(albums).map((a,i) => (
-                <UpcomingLiveStream ele={livestreamTimes[i]} album={a} />
+                <UpcomingLiveStream ele={livestreamTimes[i]} album={a} key={`livestream${i}`}/>
             )).reverse().slice(6, 11)}
             </div>
             </div>

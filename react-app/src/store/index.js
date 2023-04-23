@@ -4,11 +4,13 @@ import session from './session'
 import albumReducer from './albums';
 import purchasesReducer from './purchases';
 import bandReducer from './bands';
+import userReducer from './users';
 const rootReducer = combineReducers({
   session,
   albums: albumReducer,
   purchases: purchasesReducer,
-  bands: bandReducer
+  bands: bandReducer,
+  users: userReducer
 });
 
 
