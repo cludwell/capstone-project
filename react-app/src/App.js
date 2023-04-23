@@ -9,6 +9,8 @@ import Header from "./components/Header";
 import Landing from "./components/Landing";
 import AlbumDetails from "./components/AlbumDetails";
 import BandDetails from "./components/BandDetails";
+import UserDetails from "./components/UserDetails";
+import BandFormPOST from "./components/BandFormPOST";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +27,9 @@ function App() {
           <Route path='/albums/:albumId' exact={true} component={AlbumDetails} />
           <Route path="/login" component={LoginFormPage} />
           <Route path="/signup" component={SignupFormPage}/>
+          <Route path='/bands/new' exact={true} component={BandFormPOST} />
           <Route path='/bands/:bandId' exact={true} component={BandDetails} />
+          <Route path='/users/:userId' exact={true} component={UserDetails} />
         </Switch>
     </>
   );

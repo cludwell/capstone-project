@@ -2,7 +2,6 @@ from flask import Blueprint, jsonify, request, redirect
 from app.models import Album, Song, Purchase, User, Band, db
 from flask_login import current_user, login_required
 from app.forms import PostBandForm
-
 band_routes = Blueprint('/bands', __name__)
 
 def get_albums_by_band(band_id):
@@ -40,14 +39,14 @@ def post_band():
             return form.errors, 404
         if form.validate_on_submit():
             new_band = Band(
-                name = form.date['name'],
-                city = form.date['city'],
-                state = form.date['state'],
-                country = form.date['country'],
-                artist_image = form.date['artist_image'],
-                banner_url = form.date['banner_url'],
-                description = form.date['description'],
-                genres = form.date['genres'],
+                name = form.data['name'],
+                city = form.data['city'],
+                state = form.data['state'],
+                country = form.data['country'],
+                artist_image = form.data['artist_image'],
+                banner_url = form.data['banner_url'],
+                description = form.data['description'],
+                genres = form.data['genres'],
                 user_id = current_user.id,
             )
             db.session.add(new_band)
