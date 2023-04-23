@@ -3,6 +3,7 @@ import './BandDetails.css'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBandInfo } from '../../store/bands'
+import { authenticate } from '../../store/session'
 
 export default function BandDetails() {
     const { bandId } = useParams()
@@ -10,9 +11,10 @@ export default function BandDetails() {
 
     useEffect(() => {
         dispatch(fetchBandInfo(bandId))
+        dispatch(authenticate())
     }, [dispatch])
     const band = useSelector(state => state.bands.singleBand)
-
+    const user = useSelector(state => state.session.user)
     console.log('BANDPAGE', band)
     if (!band) return null
     return (
@@ -23,8 +25,8 @@ export default function BandDetails() {
 
         <div className='band-deets-album-card' key={`card${i}`}>
         <img src={`${a.albumImage}`} alt='albumart' key={`albumart${i}`} className='band-deets-albumart'></img>
-        <p></p>
-        <NavLink to={`/albums/${a.id}`}>{a.name}</NavLink>
+        <NavLink to={`/albums/${a.id}`}><p className='band-deets-album-name'>
+        {a.name}</p></NavLink>
         {/* <p className='band-deets-album-title'></p> */}
         </div>
 
@@ -35,6 +37,12 @@ export default function BandDetails() {
         <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${band.artistImage}`} />
         <p className='album-deets-country'>{band.country}</p>
         <p className='album-deets-city'>{band.city}</p>
+        {band.userId === user.id ? (
+            <>
+            <button className='band-deets-user-auth'>Edit Band</button>
+            <button className='band-deets-user-auth'>Add Album</button>
+            </>
+        ) : null}
         <p className='band-deets-desc'>{band.description}</p>
         <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${band.name.split(' ').join('%20')}`} >Facebook</a> </p>
 

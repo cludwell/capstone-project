@@ -30,3 +30,17 @@
 .band-deets-desc{
     font-size: .8rem;
 }
+.band-deets-album-name {
+    margin-top: 0rem;
+    font-weight: bold;
+}
+.band-details-col > button {
+    background-color: rgb(97, 149, 170);
+    padding: .3rem;
+    font-weight: bold;
+    width: 8rem;
+    border-radius: .3rem;
+    border: none;
+    color: white;
+    margin: .5rem;
+}
