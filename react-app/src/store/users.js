@@ -21,7 +21,7 @@ const intitialState = {}
 export default function userReducer (state= intitialState, action) {
     switch (action.type) {
         case LOAD_USERS:
-            return {...state, users: {...action.users} }
+            return {...state, ...action.users }
         default:
             return state
     }

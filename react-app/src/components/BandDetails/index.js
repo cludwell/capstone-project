@@ -12,7 +12,7 @@ export default function BandDetails() {
     useEffect(() => {
         dispatch(fetchBandInfo(bandId))
         dispatch(authenticate())
-    }, [dispatch])
+    }, [dispatch, bandId])
     const band = useSelector(state => state.bands.singleBand)
     const user = useSelector(state => state.session.user)
     // console.log('BANDPAGE', band)

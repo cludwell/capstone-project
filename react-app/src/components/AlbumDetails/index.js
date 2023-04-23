@@ -31,7 +31,7 @@ export default function AlbumDetails() {
         dispatch(fetchSingleAlbum(albumId))
         dispatch(fetchUserPurchases())
         dispatch(fetchAlbums())
-    }, [dispatch])
+    }, [dispatch, albumId])
 
     const album = useSelector(state => state.albums.singleAlbum)
     const albums = useSelector(state => state.albums.allAlbums)
