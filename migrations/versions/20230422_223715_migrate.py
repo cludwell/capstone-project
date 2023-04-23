@@ -1,8 +1,8 @@
-"""mig
+"""migrate
 
-Revision ID: eb6ec40188c5
+Revision ID: 073af0252798
 Revises:
-Create Date: 2023-04-20 15:29:26.119073
+Create Date: 2023-04-22 22:37:15.568017
 
 """
 from alembic import op
@@ -12,7 +12,7 @@ import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 # revision identifiers, used by Alembic.
-revision = 'eb6ec40188c5'
+revision = '073af0252798'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -76,10 +76,8 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
 
-
     if environment == "production":
         op.execute(f"ALTER TABLE albums SET SCHEMA {SCHEMA};")
-
 
     op.create_table('carts',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -123,7 +121,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['album_id'], ['albums.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
 
     if environment == "production":
         op.execute(f"ALTER TABLE songs SET SCHEMA {SCHEMA};")

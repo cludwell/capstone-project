@@ -2,7 +2,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom'
 import './BandDetails.css'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchBandInfo } from '../../store/bands'
+import { deleteBandCommand, fetchBandInfo } from '../../store/bands'
 import { authenticate } from '../../store/session'
 
 export default function BandDetails() {
@@ -16,8 +16,9 @@ export default function BandDetails() {
     const band = useSelector(state => state.bands.singleBand)
     const user = useSelector(state => state.session.user)
     // console.log('BANDPAGE', band)
-    if (!band) return null
+    if (!band || !band.Albums.length) return null
     const deleteBand = () => {
+        dispatch(deleteBandCommand(bandId))
         history.push(`/users/${user.id}`)
     }
     return (

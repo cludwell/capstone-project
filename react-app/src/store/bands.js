@@ -50,9 +50,10 @@ export const startBand = bandInfo => async dispatch => {
         return newBand
     }
 }
-export const fetchDeleteBand = bandId => async dispatch => {
+export const deleteBandCommand = bandId => async dispatch => {
     const response = await fetch(`api/bands/${bandId}`,
         {"method": "DELETE", "headers": {"Content-Type": "application/json"}})
+    console.log('=============DELETE==============')
     const deleted = await response.json()
     if (response.ok) {
         dispatch(deleteBand(bandId))
