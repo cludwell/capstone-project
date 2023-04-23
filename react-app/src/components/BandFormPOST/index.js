@@ -35,10 +35,10 @@ export default function BandFormPOST() {
         e.preventDefault();
         if (Object.values(errors).length) return;
         const newBand = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
-        await dispatch(something(newBand))
+        // await dispatch(something(newBand))
     }
 
-    
+
     return (
     <div className='post-band-form-page'>
     <h3 className='post-band-title'>Unnamed Band</h3>

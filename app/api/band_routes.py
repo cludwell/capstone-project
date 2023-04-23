@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request, redirect
 from app.models import Album, Song, Purchase, User, Band, db
 from flask_login import current_user, login_required
 from app.forms import PostBandForm
+
 band_routes = Blueprint('/bands', __name__)
 
 def get_albums_by_band(band_id):
@@ -28,7 +29,7 @@ def bands_albums(band_id):
             db.session.commit()
             return band.to_dict()
 
-@band_routes('/', methods=['POST'])
+@band_routes.route('/', methods=['POST'])
 def post_band():
     """post a band"""
     if request.method == 'POST' and current_user.id:
@@ -48,7 +49,6 @@ def post_band():
                 description = form.date['description'],
                 genres = form.date['genres'],
                 user_id = current_user.id,
-                name = form.date['name'],
             )
             db.session.add(new_band)
             db.session.commit()
