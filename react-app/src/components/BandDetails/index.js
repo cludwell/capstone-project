@@ -17,7 +17,7 @@ export default function BandDetails() {
     const user = useSelector(state => state.session.user)
     // console.log('BANDPAGE', band)
     if (!band || !band.Albums.length) return null
-    const deleteBand = () => {
+    const deleteBand = async e => {
         dispatch(deleteBandCommand(bandId))
         history.push(`/users/${user.id}`)
     }

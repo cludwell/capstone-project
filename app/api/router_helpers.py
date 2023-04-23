@@ -25,3 +25,12 @@ def get_sale_user(sale):
 def get_user_info(user_id):
     user = User.query.get(user_id)
     return user.to_dict()
+
+
+def get_user_buys(user_id):
+    buys = Purchase.query.filter(Purchase.user_id == user_id )
+    return [b.to_dict() for b in buys]
+
+def get_user_wishlist(user_id):
+    wished = WishList.query.filter(WishList.user_id == user_id)
+    return [w.to_dict() for w in wished]

@@ -51,9 +51,8 @@ export const startBand = bandInfo => async dispatch => {
     }
 }
 export const deleteBandCommand = bandId => async dispatch => {
-    const response = await fetch(`api/bands/${bandId}`,
+    const response = await fetch(`/api/bands/${bandId}`,
         {"method": "DELETE", "headers": {"Content-Type": "application/json"}})
-    console.log('=============DELETE==============')
     const deleted = await response.json()
     if (response.ok) {
         dispatch(deleteBand(bandId))
@@ -69,5 +68,8 @@ export default function bandReducer (state = intitialState, action) {
         default: return state
         case POST_BAND:
             return {...state, singleBand: {...action.bandInfo}, allBands: {...action.bandInfo}}
+        case DELETE_BAND:
+            const filtered = Object.values(state.allBands).filter(b=> b.id !== action.deleted.id)
+            return {...state, allBands: {...filtered}}
     }
 }
