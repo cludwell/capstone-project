@@ -13,17 +13,19 @@ export default function UserDetails() {
     useEffect(() => {
         dispatch(fetchUserPurchases(userId))
         dispatch(fetchUsers())
-    })
+    }, [dispatch, userId])
     const users = useSelector(state => state.users)
     const user = users[userId]
+
+    if (!user || !Object.values(user).length) return null
     return (
     <div className='user-details-container'>
 
+    <div className='user-details-header-accent'></div>
     <div className='user-details-header'>
 
-    <div className='user-details-header-accent'></div>
 
-    <img src={`${user.profilePic}`} className='user-details-profile=pic' alt='user-details-user' ></img>
+    <img src={`${user.profilePic}`} className='user-details-profile-pic' alt='user-details-user' ></img>
 
     <div className='user-details-business-card'>
         <h2 className='user-details-business-title'>{user.username}</h2>

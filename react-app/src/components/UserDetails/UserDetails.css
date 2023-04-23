@@ -1,0 +1,57 @@
+.user-details-header {
+    height: 20rem;
+    align-items: center;
+    /* margin: 5rem; */
+}
+.user-details-header-accent {
+    position: absolute;
+    background-color: skyblue;
+    height: 10rem;
+    width: 100%;
+    margin-top: .3rem;
+    z-index: 1;
+}
+.user-details-profile-pic {
+    height: 13rem;
+    width: 13rem;
+    left: 8rem;
+    top: 5rem;
+    object-fit: cover;
+    z-index: 100;
+    margin: 5rem;
+    border-radius: .3rem;
+}
+.user-details-header {
+    display: flex;
+    flex-direction: row;
+}
+.user-details-business-card {
+    z-index: 100;
+    /* margin-left: 5rem; */
+}
+.user-details-location{
+    color:rgb(88, 88, 88);
+    font-weight: bold;
+}
+.user-details-collection-body {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-left: 3rem;
+}
+.user-details-tabs {
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: .1rem solid grey;
+    color: rgb(88, 88, 88);
+}
+.user-details-collection,
+.user-details-wishlist {
+    font-weight: bold;
+    margin-left: 3rem;
+}
+.user-details-collection:hover,
+.user-details-wishlist:hover {
+    border-bottom: .3rem royalblue solid;
+
+}
