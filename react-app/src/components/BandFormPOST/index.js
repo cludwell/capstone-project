@@ -51,36 +51,68 @@ export default function BandFormPOST() {
     <form className='post-band-form'>
 
     <label className='post-band-label'>Name</label>
+<div className='band-post-input-col'>
+
     <input type='text' className='post-band-text-input'
     value={name} onChange={e => setName(e.target.value)}></input>
+    <div className='errors'>{errors.name}</div>
+</div>
 
     <label className='post-band-label'>City</label>
+    <div className='band-post-input-col'>
+
     <input type='text' className='post-band-text-input'
     value={city} onChange={e=> setCity(e.target.value)}></input>
+    <div className='errors'>{errors.city}</div>
+    </div>
 
     <label className='post-band-label'>State</label>
+    <div className='band-post-input-col'>
+
     <input type='text' className='post-band-text-input'
     value={state} onChange={e => setState(e.target.value)}></input>
+    <div className='errors'>{errors.state}</div>
+    </div>
 
     <label className='post-band-label'>Country</label>
+    <div className='band-post-input-col'>
+
     <input type='text' className='post-band-text-input'
     value={country} onChange={e=> setCountry(e.target.value)}></input>
+    <div className='errors'>{errors.country}</div>
+    </div>
 
     <label className='post-band-label'>Band Photo</label>
+    <div className='band-post-input-col'>
+
     <input type='text' className='post-band-text-input'
     value={bannerUrl} onChange={e => setBannerUrl(e.target.value)}></input>
+    <div className='errors'>{errors.bannerUrl}</div>
+    </div>
 
     <label className='post-band-label'>Banner or Logo</label>
+    <div className='band-post-input-col'>
+
     <input type='text' className='post-band-text-input'
     value={artistImage} onChange={e => setArtistImage(e.target.value)}></input>
+    <div className='errors'>{errors.artistImage}</div>
+    </div>
 
     <label className='post-band-label'>description</label>
+    <div className='band-post-input-col'>
+
     <textarea className='post-band-input textarea'
     value={description} onChange={e=> setDescription(e.target.value)}></textarea>
+    <div className='errors'>{errors.description}</div>
+    </div>
 
     <label className='post-band-label'>Genre</label>
+    <div className='band-post-input-col'>
+
     <input type='text' className='post-band-text-input'
     value={genres} onChange={e => setGenres(e.target.value)}></input>
+    <div className='errors'>{errors.genres}</div>
+    </div>
 
     <button className='post-band-submit' type='submit' onClick={handleSubmit}>Submit Band</button>
     </form>

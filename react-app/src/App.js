@@ -32,6 +32,7 @@ function App() {
           <Route path='/bands/:bandId' exact={true} component={BandDetails} />
           <Route path='/users/:userId' exact={true} component={UserDetails} />
           <Route path='/bands/edit/:bandId' exact={true} component={BandFormPut} />
+          <Route path='/bands/new' exact={true} component={BandFormPOST} />
         </Switch>
     </>
   );
