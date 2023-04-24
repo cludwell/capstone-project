@@ -88,8 +88,9 @@ export default function AlbumDetails() {
             </div>
             <div className='details-supporters'>
                 {album.Sales.length ? album.Sales.map((s,i) => (
-
+            <NavLink to={`/users/${s.userId}`} key={`${i}`}>
             <img src={`${s.User.profilePic}`} alt={`usersupporter${i}`} className='details-supporter'></img>
+            </NavLink>
                 )) : null}
             </div>
             </div>

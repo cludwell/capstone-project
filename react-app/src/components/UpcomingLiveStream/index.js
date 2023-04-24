@@ -1,7 +1,10 @@
 import './UpcomingLiveStream.css'
+import { NavLink } from 'react-router-dom'
 
 export default function UpcomingLiveStream({ album, ele }) {
     return (
+        <NavLink to={`/bands/${album.bandId}`}
+            style={{textDecoration: "none"}}>
         <div className='livestream-container'>
             <div>
             <img src={`${album.Band.artistImage}`} alt='livestream-band' className='livestream-band-img'></img>
@@ -13,5 +16,6 @@ export default function UpcomingLiveStream({ album, ele }) {
             <div className='livestream-time'><i className="fa-regular fa-clock"></i> {ele[1]}</div>
             </div>
         </div>
+        </NavLink>
     )
 }

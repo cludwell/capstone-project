@@ -153,7 +153,7 @@
 
 .fans-have-paid {
     text-align: center;
-    margin-bottom: 5rem;
+    /* margin-bottom: 5rem; */
 }
 .upcoming-live-streams-container {
     display: flex;
@@ -170,7 +170,6 @@
 }
 .album-details-container {
     width: 64rem;
-    /* background-color: aqua; */
 }
 .centering-div{
     display: flex;

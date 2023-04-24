@@ -6,6 +6,7 @@ import NewAndNotable from '../NewAndNotable'
 import { fetchAllPurchases } from '../../store/purchases'
 import UpcomingLiveStream from '../UpcomingLiveStream'
 import { fetchUsers } from '../../store/users'
+import { NavLink } from 'react-router-dom'
 
 export default function Landing() {
     const dispatch = useDispatch()
@@ -42,8 +43,9 @@ export default function Landing() {
 
             <h1 className='landing-banner-title'>Introducing Juanita y los Feos</h1>
             <h2 className='landing-banner-subtitle'>New Wave Punk Rockers from Madrid</h2>
-
+            <NavLink to={`/bands/${albums['8'].bandId}`}>
             <img className='landing-banner-main-photo' src={`${albums['8'].Band.artistImage}`} alt='main-banner-land'></img>
+            </NavLink>
             </div>
 
             <div className='landing-banner-column'>
@@ -51,9 +53,15 @@ export default function Landing() {
             <h4 className='landing-banner-bottom-col'>Vancouver's Champions of Metal</h4>
             <h4 className='landing-banner-bottom-col-b'>UNLEASH THE ARCHERS</h4>
             <h4 className='landing-banner-top'>Juanita y los Feos' Last Album</h4>
+            <NavLink to={`/albums/${albums['9'].id}`}>
             <img src={`${albums['9'].albumImage}`} alt='first column' className='landing-banner-col'></img>
+            </NavLink>
+            <NavLink to={`/albums/${albums['6'].id}`}>
             <img src={`${albums['6'].albumImage}`} alt='second col item' className='landing-banner-col'></img>
+            </NavLink>
+            <NavLink to={`/bands/${albums['10'].Band.id}`} >
             <img src={`${albums['10'].Band.artistImage}`} alt='second col item' className='landing-banner-col'></img>
+            </NavLink>
             </div>
 
             </div>

@@ -28,8 +28,9 @@ export default function BandDetails() {
         {band && band.Albums.length ? band.Albums.map(( a, i) => (
 
         <div className='band-deets-album-card' key={`card${i}`}>
+        <NavLink to={`/albums/${a.id}`}>
         <img src={`${a.albumImage}`} alt='albumart' key={`albumart${i}`} className='band-deets-albumart'></img>
-        <NavLink to={`/albums/${a.id}`}><p className='band-deets-album-name'>
+        <p className='band-deets-album-name'>
         {a.name}</p></NavLink>
         {/* <p className='band-deets-album-title'></p> */}
         </div>
