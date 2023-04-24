@@ -21,12 +21,11 @@ export default function Landing() {
     const state = useSelector(state => state)
     console.log('STATE', state)
     const livestreamTimes = [
-        // ['time,', 'time'],
-        ['in two days', '7:00 PM PST'],
-        ['tomorrow', '8:00 PM PST'],
-        ['tomorrow', '2:00 PM PST'],
+        ['today', '6:00 PM PST'],
         ['today', '10:00 PM PST'],
-        ['today', '6:00 PM PST']
+        ['tomorrow', '2:00 PM PST'],
+        ['tomorrow', '8:00 PM PST'],
+        ['in two days', '7:00 PM PST'],
     ]
     if (!albums || !Object.values(albums).length) return null
 
@@ -73,9 +72,11 @@ export default function Landing() {
 
             <h5 className='new-notable-title'>UPCOMING FANCAMP LIVE STREAMS</h5>
             <div className='upcoming-live-streams-container'>
-            {Object.values(albums).map((a,i) => (
-                <UpcomingLiveStream ele={livestreamTimes[i]} album={a} key={`livestream${i}`}/>
-            )).reverse().slice(2, 6)}
+            {[albums['14'], albums['5'],  albums['7'], albums['11'], albums['15']].map((a,i) => (
+                a ? (
+                    <UpcomingLiveStream ele={livestreamTimes[i]} album={a} key={`livestream${i}`}/>
+                ) : null
+            ))}
             </div>
             </div>
 

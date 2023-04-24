@@ -81,8 +81,14 @@ def seed_bands():
         banner_url='https://i.imgur.com/eds1k0J.png',
         description="""DragonForce are a British power metal band from London, England. The band was formed in 1999 by guitarists Herman Li and Sam Totman, and are known for their long and fast guitar solos, fantasy-themed lyrics and retro video game-influenced sound. DragonForce's current lineup comprises Li, Totman, vocalist Marc Hudson, drummer Gee Anzalone and bassist Alicia Vigil. The band have been through several lineup changes throughout their career; longtime members in vocalist ZP Theart, keyboardist Vadim Pruzhanov, drummer Dave Mackintosh and bassist Frédéric Leclercq are among the former members of the band. """
     )
+    band09 = Band (
+        name='Hexvessel', city='Somewhere', state='in the woods', country='Finland', user_id=8,
+        artist_image='https://i.imgur.com/GrXRz7s.jpg',
+        banner_url='https://i.imgur.com/VMH7evm.png',
+        description="""Founded in the magical forests of Finland, via the green and pleasant lands of England and Ireland, enigmatic “spirit-trafficking” Finnish forest-psych weirdos Hexvessel are wyrd folk. Formed in 2009 by English/Irish singer/songwriter Mat "Kvohst" McNerney, also known for his work with Beastmilk (now known as Grave Pleasures), The Deathtrip, guest spots with Carpenter Brut and Me & That Man and his earlier work with Norwegian Black Metal bands Code & Dødheimsgard, Hexvessel has truly become a melting cauldron or “vessel,” a potent “hex” of spellwork. Hexvessel spin songs in the oral tradition of the old balladeers, conjuring wild psychedelic rituals and hypnotic pagan prayers. By drawing on older folk acts like Shirley Collins, Vashti Bunyan, later psych rock bands and 90s Black Metal to more recent artists such as Current93, Nick Cave and Coil, imbued with Karelian and Nordic folklore rhythms, Hexvessel have created a sound that is both ancient, heavy, modern and genre-less. Hexvessel have been previously nominated for 2 Finnish Emma (Grammy) awards, 2 Metal Hammer awards and 3 Prog Magazine awards, winning 2 Finnish Femma awards and landed several times in both the national and alternative charts in Finland. Rock-A-Rolla Magazine dubbed them “an ever-shifting beast, floating between unhurried bliss and fevered rapture.” Hexvessel's sound expands outward from their eerie, signature, ritual-esque folk into a genre-twisting cauldron of otherworldly rock that Prog Magazine identifies containing nods towards “the Beatles, HP Lovecraft and King Crimson.” """
+    )
     db.session.add_all([
-       band01, band02, band03, band04, band05, band06, band07, band08
+       band01, band02, band03, band04, band05, band06, band07, band08, band09
        ])
     db.session.commit()
 

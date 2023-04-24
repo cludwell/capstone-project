@@ -223,9 +223,16 @@ def seed_albums():
         band_id=8, album_image='https://i.imgur.com/MqOojTu.jpg',
         genre='metal, power metal, fantasy metal'
     )
-
+    album15 = Album(
+        name='No Holier Temple', price=9.99,
+        description=""" released September 20, 2012
+        license
+        all rights reserved """,
+        band_id=9, album_image='https://i.imgur.com/zhaR0Ln.jpg',
+        genre='rock, folk rock, occult, psychedelic folk'
+    )
     db.session.add_all([
-        album01, album02, album03, album04, album05, album06, album07, album08, album09, album10, album11, album12, album13, album14
+        album01, album02, album03, album04, album05, album06, album07, album08, album09, album10, album11, album12, album13, album14, album15
         ])
     db.session.commit()
 
