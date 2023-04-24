@@ -1,17 +1,19 @@
 import './Header.css'
 import Navigation from '../Navigation'
 import { NavLink } from 'react-router-dom'
-// import { useDispatch } from 'react-redux'
-// import { useEffect } from 'react'
-// import { authenticate } from '../../store/session'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { authenticate } from '../../store/session'
 
 export default function Header({ isLoaded }) {
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-    // useEffect(() => {
-    //     dispatch(authenticate())
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(authenticate())
+    }, [dispatch])
 
+    const user = useSelector(state => state.session.user)
     return (
         <div className='header-container'>
             <div className='logo-text'>
@@ -27,7 +29,13 @@ export default function Header({ isLoaded }) {
             </div>
 
             <div className='user-collection navi-items'>
+            {user && user.id ? (
+            <NavLink to={`/users/${user.id}`}>
             <i className="fa-regular fa-heart navi-icons"/>
+            </NavLink>
+            ) : (
+            <i className="fa-regular fa-heart navi-icons"/>
+            )}
             </div>
 
             <div className='navi-items navi-items'>
