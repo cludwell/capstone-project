@@ -18,7 +18,7 @@ export default function BandFormPOST() {
     const [ errors, setErrors] = useState({})
     const user = useSelector(state => state.session.user)
     const history = useHistory()
-    useEffect(() => {
+    const validate = () => {
         const err = {}
         if (!name || name.length < 3) err.name = 'Please enter a valid name, and of at least 3 characters.'
         if (!city || city.length < 3) err.city = 'Please enter a valid city. It helps local fans find you'
@@ -29,91 +29,92 @@ export default function BandFormPOST() {
         if (!description || description.length < 30) err.description = 'Please enter a description of your band'
         if (!genres || genres.length < 3) err.genres = 'Please enter some genres you could be categorized under'
         setErrors(err)
-    }, [name, city, state, country, artistImage, bannerUrl, description, genres])
+        return;
+    }
 
     const handleSubmit = async e => {
         e.preventDefault();
-        if (Object.values(errors).length) {
-            console.log(errors)
-            return;
+        validate()
+        if (Object.values(errors).length) return errors;
+        else {
+            const newBand = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
+            await dispatch(startBand(newBand))
+            history.push(`/users/${user.id}`)
         }
-        const newBand = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
-        await dispatch(startBand(newBand))
-        history.push(`/users/${user.id}`)
     }
 
 
     return (
     <div className='post-band-form-page'>
-    <h3 className='post-band-title'>Unnamed Band</h3>
+    <h3 className='post-band-title'>your new band</h3>
 
     <div className='post-band-form-container'>
     <form className='post-band-form'>
 
-    <label className='post-band-label'>Name</label>
-<div className='band-post-input-col'>
+    <label className='post-band-label'>name</label>
 
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={name} onChange={e => setName(e.target.value)}></input>
-    <div className='errors'>{errors.name}</div>
-</div>
+    <p className='errors'>{errors.name}</p>
+    </div>
 
-    <label className='post-band-label'>City</label>
+    <label className='post-band-label'>city</label>
+
     <div className='band-post-input-col'>
-
     <input type='text' className='post-band-text-input'
     value={city} onChange={e=> setCity(e.target.value)}></input>
-    <div className='errors'>{errors.city}</div>
+    <p className='errors'>{errors.city}</p>
     </div>
 
-    <label className='post-band-label'>State</label>
-    <div className='band-post-input-col'>
+    <label className='post-band-label'>state</label>
 
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={state} onChange={e => setState(e.target.value)}></input>
-    <div className='errors'>{errors.state}</div>
+    <p className='errors'>{errors.state}</p>
     </div>
 
-    <label className='post-band-label'>Country</label>
-    <div className='band-post-input-col'>
+    <label className='post-band-label'>country</label>
 
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={country} onChange={e=> setCountry(e.target.value)}></input>
-    <div className='errors'>{errors.country}</div>
+    <p className='errors'>{errors.country}</p>
     </div>
 
-    <label className='post-band-label'>Band Photo</label>
-    <div className='band-post-input-col'>
+    <label className='post-band-label'>band photo</label>
 
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={bannerUrl} onChange={e => setBannerUrl(e.target.value)}></input>
-    <div className='errors'>{errors.bannerUrl}</div>
+    <p className='errors'>{errors.bannerUrl}</p>
     </div>
 
-    <label className='post-band-label'>Banner or Logo</label>
-    <div className='band-post-input-col'>
+    <label className='post-band-label'>banner or logo</label>
 
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={artistImage} onChange={e => setArtistImage(e.target.value)}></input>
-    <div className='errors'>{errors.artistImage}</div>
+    <p className='errors'>{errors.artistImage}</p>
     </div>
 
     <label className='post-band-label'>description</label>
-    <div className='band-post-input-col'>
 
+    <div className='band-post-input-col'>
     <textarea className='post-band-input textarea'
     value={description} onChange={e=> setDescription(e.target.value)}></textarea>
-    <div className='errors'>{errors.description}</div>
+    <p className='errors'>{errors.description}</p>
     </div>
 
     <label className='post-band-label'>Genre</label>
-    <div className='band-post-input-col'>
 
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={genres} onChange={e => setGenres(e.target.value)}></input>
-    <div className='errors'>{errors.genres}</div>
+    <p className='errors'>{errors.genres}</p>
     </div>
-
+        <div></div>
     <button className='post-band-submit' type='submit' onClick={handleSubmit}>Submit Band</button>
     </form>
     </div>

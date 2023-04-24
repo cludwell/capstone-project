@@ -205,9 +205,27 @@ def seed_albums():
         genre='pop, pop punk, positive'
 
     )
+    album12 = Album(
+        name='Inhuman Rampage', price=9.99,
+        description="""Inhuman Rampage is the third studio album by British power metal band DragonForce, released first on 28 December 2005[4] in Japan, and 9 January 2006 elsewhere, through Victor Entertainment and Roadrunner Records, respectively. Its first single, "Through the Fire and Flames", has received rock radio and Fuse TV airplay, and has appeared as a playable track on the video games Guitar Hero III: Legends of Rock and Rocksmith 2014 Edition - Remastered. It is the band's first album to feature harsh vocals, which were recorded by Demoniac vocalist Lindsay Dawson; the album is also the last to feature bassist Adrian Lambert, who left the band in 2005 and was replaced by Frédéric Leclercq before the album's release.  """,
+        band_id=8, album_image='https://i.imgur.com/yDR2Q5w.png',
+        genre='metal, power metal, fantasy metal'
+    )
+    album13 = Album(
+        name='Sonic Firestorm', price=9.99,
+        description="""Sonic Firestorm is the second studio album by British power metal band DragonForce, released through Noise Records on 11 May 2004. It is the first album to feature bassist Adrian Lambert and drummer Dave Mackintosh. The reissue of this album was released on 22 February 2010, along with a remixed and remastered version of the band's first album, Valley of the Damned. The re-release also came with the bonus track "Cry of the Brave", which was a Japanese bonus track on the original release.  """,
+        band_id=8, album_image='https://i.imgur.com/9Aswxnh.jpg',
+        genre='metal, power metal, fantasy metal'
+    )
+    album14 = Album(
+        name='Valley of the Damned', price=9.99,
+        description="""Valley of the Damned is the debut studio album by British power metal band DragonForce. In 2000, while the band was still known as DragonHeart, a demo of the same name was recorded and sent to Noise Records, subsequently gaining the band a deal with the label. It was then re-recorded in late 2002 and released as a full-length studio album on 25 February 2003, following the band's obtainance of the deal with Noise and change in name to DragonForce. The album was set to be remastered and released with a bonus DVD on 24 September 2007, but was subsequently delayed and eventually released on 22 February 2010, along with the re-release of the band's second album, Sonic Firestorm.  """,
+        band_id=8, album_image='https://i.imgur.com/MqOojTu.jpg',
+        genre='metal, power metal, fantasy metal'
+    )
 
     db.session.add_all([
-        album01, album02, album03, album04, album05, album06, album07, album08, album09, album10, album11
+        album01, album02, album03, album04, album05, album06, album07, album08, album09, album10, album11, album12, album13, album14
         ])
     db.session.commit()
 

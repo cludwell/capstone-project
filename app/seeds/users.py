@@ -28,11 +28,14 @@ def seed_users():
         username='losfeos', email='losfeos@aa.io', password='password', name='Juanita',
         address='4 Pesadilla Ave', city='Madrid', state='Madrid', country='Espana',
         genre='pop, punk, pop punk', profile_pic='https://i.imgur.com/A3tYSct.png')
-
+    user07 = User(
+        username='hermanli', email='hermanli@aa.io', password='password', name='Herman Li', address='21781 Ventura Blvd. #115', city='Woodland Hills', state='CA', country='USA',
+        genre='metal, power metal, fantasy metal', profile_pic='https://i.imgur.com/RdBku9N.jpg'
+    )
 
 
     db.session.add_all([
-        user01, user02, user03, user04, user05, user06])
+        user01, user02, user03, user04, user05, user06, user07])
     db.session.commit()
 
 

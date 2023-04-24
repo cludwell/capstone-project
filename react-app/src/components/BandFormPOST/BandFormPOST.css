@@ -1,0 +1,42 @@
+.post-band-form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.post-band-form {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.errors {
+    color: red;
+}
+.post-band-label {
+    color: rgb(0, 200, 200);
+    font-weight: bold;
+    margin-right: 3rem;
+}
+.post-band-title {
+    color: rgb(0, 200, 200);
+    font-size: 1.5rem;
+    text-align: center;
+}
+.post-band-text-input {
+    font-size: 1.4rem;
+    width: 20rem;
+}
+.textarea {
+    font-size: 1.4rem;
+    width: 20rem;
+    height: 10rem;
+}
+.post-band-submit {
+    font-weight: bold;
+    background-color: aqua;
+    width: 9rem;
+    padding: .3rem;
+    border: none;
+    border-radius: .3rem;
+}
+.post-band-submit:hover {
+    box-shadow: 0rem 0rem .5rem black;
+}

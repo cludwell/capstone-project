@@ -2039,9 +2039,139 @@ La revuelta real
 ** "averigua en qué destacas y usa esa habilidad para dar lo máximo de ti... porque no se trata sólo de la liberación animal, no se trata sólo de la liberación del medio ambiente, no se trata sólo de la liberación humana, se trata de la liberación colectiva. Porque mientras no seamos todos libres, ninguno de nosotros seremos libres". [Palabras de Jake Conroy, activista por los derechos animales, en la charla organizada por ochodoscuatro ediciones en otoño de 2015: "De activista a terrorista".]
 """
     )
+    song127 = Song(
+        # Inhuman Rampage by Dragonforce
+        name="Through the Fire and Flames", album_id=12, price=1.29, track_num=1
+    )
+
+    song128 = Song(
+        # Inhuman Rampage by Dragonforce
+        name="Revolution Deathsquad", album_id=12, price=.99, track_num=2
+    )
+
+    song129 = Song(
+        # Inhuman Rampage by Dragonforce
+        name="Storming the Burning Fields", album_id=12, price=.99, track_num=3
+    )
+
+    song130 = Song(
+        # Inhuman Rampage by Dragonforce
+        name="Operation Ground and Pound", album_id=12, price=1.29, track_num=4
+    )
+
+    song131 = Song(
+        # Inhuman Rampage by Dragonforce
+        name="Body Breakdown", album_id=12, price=.99, track_num=5
+    )
+
+    song132 = Song(
+        # Inhuman Rampage by Dragonforce
+        name="Cry for Eternity", album_id=12, price=1.29, track_num=6
+    )
+
+    song133 = Song(
+        # Inhuman Rampage by Dragonforce
+        name="The Flame of Youth", album_id=12, price=.99, track_num=7
+    )
+
+    song134 = Song(
+        # Inhuman Rampage by Dragonforce
+        name="Trail of Broken Hearts", album_id=12, price=.99, track_num=8
+    )
+    song135 = Song(
+    # Sonic Firestorm by Dragonforce
+    name="My Spirit Will Go On", album_id=13, price=.99, track_num=1
+)
+
+    song136 = Song(
+        # Sonic Firestorm by Dragonforce
+        name="Fury of the Storm", album_id=13, price=.99, track_num=2
+    )
+
+    song137 = Song(
+        # Sonic Firestorm by Dragonforce
+        name="Fields of Despair", album_id=13, price=.99, track_num=3
+    )
+
+    song138 = Song(
+        # Sonic Firestorm by Dragonforce
+        name="Dawn Over a New World", album_id=13, price=.99, track_num=4
+    )
+
+    song139 = Song(
+        # Sonic Firestorm by Dragonforce
+        name="Above the Winter Moonlight", album_id=13, price=1.29, track_num=5
+    )
+
+    song140 = Song(
+        # Sonic Firestorm by Dragonforce
+        name="Soldiers of the Wasteland", album_id=13, price=1.29, track_num=6
+    )
+
+    song141 = Song(
+        # Sonic Firestorm by Dragonforce
+        name="Prepare for War", album_id=13, price=.99, track_num=7
+    )
+
+    song142 = Song(
+        # Sonic Firestorm by Dragonforce
+        name="Once in a Lifetime", album_id=13, price=1.29, track_num=8
+    )
+
+    song143 = Song(
+        # Sonic Firestorm by Dragonforce
+        name="Cry of the Brave", album_id=13, price=.99, track_num=9
+    )
+
+    song144 = Song(
+        # Valley of the Damned by Dragonforce
+        name="Revelations", album_id=13, price=.99, track_num=7
+    )
+
+    song145 = Song(
+        # Valley of the Damned by Dragonforce
+        name="Evening Star", album_id=13, price=.99, track_num=8
+    )
+
+    song146 = Song(
+        # Valley of the Damned by Dragonforce
+        name="Heart of a Dragon", album_id=13, price=.99, track_num=9
+    )
+
+    song147 = Song(
+        # Valley of the Damned by Dragonforce
+        name="Black Fire", album_id=13, price=.99, track_num=3
+    )
+
+    song148 = Song(
+        # Valley of the Damned by Dragonforce
+        name="Black Winter Night", album_id=13, price=.99, track_num=4
+    )
+
+    song149 = Song(
+        # Valley of the Damned by Dragonforce
+        name="Disciples of Babylon", album_id=13, price=.99, track_num=6
+    )
+
+    song150 = Song(
+        # Valley of the Damned by Dragonforce
+        name="Invocation of the Apocalyptic Evil", album_id=13, price=.99, track_num=1
+    )
+
+    song151 = Song(
+        # Valley of the Damned by Dragonforce
+        name="Starfire", album_id=13, price=.99, track_num=5
+    )
+
+    song152 = Song(
+        # Valley of the Damned by Dragonforce
+        name="Valley of the Damned", album_id=13, price=.99, track_num=2
+    )
+
+
     db.session.add_all([
-        song001, song002, song003, song004, song005, song006, song007, song008, song009, song010, song011, song012, song013, song014, song015, song016, song017, song018, song019, song020, song021, song022, song023, song024, song025, song026, song027, song028, song029, song030, song031, song032, song033, song034, song035, song036, song037, song038, song039, song040, song041, song042, song043, song044, song045, song046, song047, song048, song049, song050, song051, song052, song053, song054, song055, song056, song057, song058, song059, song060,  song061, song062, song063, song064, song065, song066, song067, song068, song069, song070, song071, song072, song073, song074, song075, song076, song077, song078, song079, song080, song081, song082, song083, song084, song085, song086, song087, song088, song089, song090, song091, song092, song093, song094, song095, song096, song097, song098, song099, song100, song101, song102, song103, song104, song105, song106, song107, song108, song109, song110, song111, song112, song113, song114, song115, song116, song117, song118, song119, song120, song121, song122, song123, song124, song125, song126,
-        # song127, song128, song129, song130, song131, song132, song133, song134, song135, song136, song137, song138, song139, song140, song141, song142, song143, song144, song145, song146, song147, song148, song149, song150, song151, song152, song153, song154, song155, song156, song157, song158, song159, song160, song161, song162, song163, song164, song165, song166, song167, song168, song169, song170, song171, song172, song173, song174, song175, song176, song177, song178, song179, song180, song181, song182, song183, song184, song185, song186, song187, song188, song189, song190, song191, song192, song193, song194, song195, song196, song197, song198, song199, song200
+        song001, song002, song003, song004, song005, song006, song007, song008, song009, song010, song011, song012, song013, song014, song015, song016, song017, song018, song019, song020, song021, song022, song023, song024, song025, song026, song027, song028, song029, song030, song031, song032, song033, song034, song035, song036, song037, song038, song039, song040, song041, song042, song043, song044, song045, song046, song047, song048, song049, song050, song051, song052, song053, song054, song055, song056, song057, song058, song059, song060,  song061, song062, song063, song064, song065, song066, song067, song068, song069, song070, song071, song072, song073, song074, song075, song076, song077, song078, song079, song080, song081, song082, song083, song084, song085, song086, song087, song088, song089, song090, song091, song092, song093, song094, song095, song096, song097, song098, song099, song100, song101, song102, song103, song104, song105, song106, song107, song108, song109, song110, song111, song112, song113, song114, song115, song116, song117, song118, song119, song120, song121, song122, song123, song124, song125, song126, song127, song128, song129, song130, song131, song132, song133, song134, song135, song136, song137, song138, song139, song140, song141, song142, song143, song144, song145, song146, song147, song148, song149, song150, song151, song152,
+        # song153, song154, song155, song156, song157, song158, song159, song160, song161, song162, song163, song164, song165, song166, song167, song168, song169, song170, song171, song172, song173, song174, song175, song176, song177, song178, song179, song180, song181, song182, song183, song184, song185, song186, song187, song188, song189, song190, song191, song192, song193, song194, song195, song196, song197, song198, song199, song200
 ])
     db.session.commit()
 

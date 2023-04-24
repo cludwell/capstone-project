@@ -75,8 +75,15 @@ def seed_bands():
         """
         Juanita y los Feos es una banda de punk nueva ola formada a finales de 2004 en Madrid por músicos de la escena independiente. Su actual formación está compuesta por Juanita a la voz, Adolfo Párraga a la batería, Ángel al bajo, Héctor al órgano y Fa a la guitarra. """,
     )
+    band08 = Band (
+        name='Dragonforce', city='London', state='London', country='UK', user_id=7,
+        artist_image='https://i.imgur.com/yLPylhb.jpg',
+        banner_url='https://i.imgur.com/eds1k0J.png',
+        description="""DragonForce are a British power metal band from London, England. The band was formed in 1999 by guitarists Herman Li and Sam Totman, and are known for their long and fast guitar solos, fantasy-themed lyrics and retro video game-influenced sound. DragonForce's current lineup comprises Li, Totman, vocalist Marc Hudson, drummer Gee Anzalone and bassist Alicia Vigil. The band have been through several lineup changes throughout their career; longtime members in vocalist ZP Theart, keyboardist Vadim Pruzhanov, drummer Dave Mackintosh and bassist Frédéric Leclercq are among the former members of the band. """
+    )
     db.session.add_all([
-       band01, band02, band03, band04, band05, band06, band07])
+       band01, band02, band03, band04, band05, band06, band07, band08
+       ])
     db.session.commit()
 
 
