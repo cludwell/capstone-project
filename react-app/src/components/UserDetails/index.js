@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import { fetchUserPurchases } from '../../store/purchases'
 import { fetchUsers } from '../../store/users'
 import UserDetailsAlbum from '../UserDetailsAlbum'
+import { fetchAlbums } from '../../store/albums'
 
 export default function UserDetails() {
     const { userId } = useParams()
@@ -32,7 +33,6 @@ export default function UserDetails() {
     }, [dispatch, userId])
     const users = useSelector(state => state.users)
     const user = users[userId]
-
     if (!user || !Object.values(user).length) return null
 
     return (

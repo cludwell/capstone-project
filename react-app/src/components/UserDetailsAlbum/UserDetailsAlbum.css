@@ -7,3 +7,17 @@
 .user-details-album-name {
     font-weight: bold;
 }
+.user-deets-blue-text {
+    color: blue;
+}
+.user-details-album-text {
+    display: flex;
+    flex-direction: column;
+}
+.user-details-album-card {
+    color: black;
+    height:  22rem;
+}
+.user-details-album-appears{
+    margin-top: 2rem;
+}
