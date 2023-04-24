@@ -33,12 +33,13 @@ export default function Landing() {
             {!state.session.user ? (<div className='updated-use-terms'>We've updated our terms of use. Please sign in.</div>
             ) : null}
 
-            <h4 className='landing-banner-mid-col'>Fellowship carries DragonForce's torch</h4>
             {/* <h5 className='landing-banner-mid-sub'>DnD inspired fantasy metal</h5> */}
 
 
             <div className='landing-banner'>
+
             <div className='landing-banner-main'>
+
             <h1 className='landing-banner-title'>Introducing Juanita y los Feos</h1>
             <h2 className='landing-banner-subtitle'>New Wave Punk Rockers from Madrid</h2>
 
@@ -46,6 +47,10 @@ export default function Landing() {
             </div>
 
             <div className='landing-banner-column'>
+            <h4 className='landing-banner-mid-col'>Fellowship carries DragonForce's torch</h4>
+            <h4 className='landing-banner-bottom-col'>Vancouver's Champions of Metal</h4>
+            <h4 className='landing-banner-bottom-col-b'>UNLEASH THE ARCHERS</h4>
+            <h4 className='landing-banner-top'>Juanita y los Feos' Last Album</h4>
             <img src={`${albums['9'].albumImage}`} alt='first column' className='landing-banner-col'></img>
             <img src={`${albums['6'].albumImage}`} alt='second col item' className='landing-banner-col'></img>
             <img src={`${albums['10'].Band.artistImage}`} alt='second col item' className='landing-banner-col'></img>

@@ -54,6 +54,7 @@
     margin: .2rem;
     margin-top: 0rem;
     width: 24rem;
+    position: relative;
 }
 .landing-banner-col {
     width: 23.5rem;
@@ -67,15 +68,56 @@
     overflow: hidden;
 }
 .landing-banner-mid-col{
+    position: relative;
     position: absolute;
     color:white;
-    margin-top: 15vh;
-    margin-left: 67vw;
+    top: 9rem;
+    right: 3rem;
+    font-weight: bolder;
+    font-family: 'Secular One', sans-serif;
+    font-style: italic;
+    z-index: 100;
+    background-color:hsl(180, 100%, 50%, .6)
+}
+.landing-banner-bottom-col {
+    position: relative;
+    position: absolute;
+    color:white;
+    top: 19rem;
+    left: 1rem;
+    font-weight: bolder;
+    font-family: 'Secular One', sans-serif;
+    font-style: italic;
+    z-index: 100;
+    background-color: rgb(0, 255, 255, .7) ;
+
+}
+.landing-banner-bottom-col-b {
+    position: relative;
+    position: absolute;
+    color:white;
+    top: 27rem;
+    right: 1rem;
     font-weight: bolder;
     font-weight: 900;
     font-family: 'Secular One', sans-serif;
     font-style: italic;
-    /* background-color:hsl(180, 100%, 50%, .4) */
+    z-index: 100;
+    background-color: rgb(0, 255, 255, .7) ;
+
+}
+.landing-banner-top {
+    position: relative;
+    position: absolute;
+    color:white;
+    top: 5.5rem;
+    right: 1rem;
+    font-weight: bolder;
+    font-family: 'Secular One', sans-serif;
+    font-style: italic;
+    z-index: 100;
+    font-size: 1.5rem;
+    background-color: rgb(0, 255, 255, .7) ;
 }
 /* titles for banner */
 .landing-banner-title{
@@ -89,11 +131,14 @@
     z-index: 100;
     margin: 0rem;
     padding: 0rem;
+    background-color: rgb(0, 255, 255, .7) ;
+    width: fit-content;
+
 }
 .landing-banner-subtitle {
     position: relative;
     color:white;
-    top: 23rem;
+    top: 23.5rem;
     left: 3rem;
     font-weight: bolder;
     font-family: 'Secular One', sans-serif;
@@ -101,6 +146,9 @@
     z-index: 100;
     margin: 0rem;
     padding: 0rem;
+    background-color: rgb(0, 255, 255, .7) ;
+    width: fit-content;
+
 }
 
 .fans-have-paid {
@@ -128,4 +176,5 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
