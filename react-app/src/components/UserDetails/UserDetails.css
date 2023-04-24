@@ -6,6 +6,7 @@
 .user-details-header-accent {
     position: absolute;
     background-color: skyblue;
+    left: 0rem;
     height: 10rem;
     width: 100%;
     margin-top: .3rem;
@@ -38,6 +39,8 @@
     flex-direction: row;
     gap: 2rem;
     margin-left: 3rem;
+    width: 75rem;
+    flex-wrap: wrap;
 }
 .user-details-tabs {
     margin-left: 3rem;
@@ -53,5 +56,5 @@
 .user-details-collection:hover,
 .user-details-wishlist:hover {
     border-bottom: .3rem royalblue solid;
-
+    cursor: pointer;
 }
