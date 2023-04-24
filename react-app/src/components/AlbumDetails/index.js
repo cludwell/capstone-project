@@ -40,7 +40,7 @@ export default function AlbumDetails() {
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length) return null
     return (
         <div className='album-details-page'>
-            {album.Band.bannerUrl ? (
+            {album.Band && album.Band.bannerUrl ? (
                 <img src={`${album.Band.bannerUrl}`} alt='bandbannerimage' className='album-details-banner'/>
             ) : null}
         <div className='album-details-container'>

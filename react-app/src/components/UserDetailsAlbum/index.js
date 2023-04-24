@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { fetchAlbums } from '../../store/albums'
 import { NavLink } from 'react-router-dom'
 
-export default function UserDetailsAlbum({album}) {
+export default function UserDetailsAlbum({ album }) {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchAlbums())
@@ -12,7 +12,7 @@ export default function UserDetailsAlbum({album}) {
     const albums = useSelector(state => state.albums.allAlbums)
     if (!albums) return null
     return (
-        <NavLink to={`/albums/${album.id}`}
+        <NavLink to={`/albums/${album.Album.id}`}
         style={{textDecoration: "none"}}>
         <div className='user-details-album-card'>
         <img src={`${album.Album.albumImage}`} alt='user-deets-album' className='user-deets-album'></img>
@@ -22,7 +22,7 @@ export default function UserDetailsAlbum({album}) {
         </div>
 
         <div className='user-details-album-appears'>appears in
-        <span className='user-deets-blue-text' > {albums[album.id].Sales.length} other collections</span></div>
+        <span className='user-deets-blue-text' > {albums[album.Album.id] && albums[album.Album.id].Sales && albums[album.Album.id].Sales.length ? albums[album.Album.id].Sales.length : 'no'} other collections</span></div>
 
         </div>
         </NavLink>

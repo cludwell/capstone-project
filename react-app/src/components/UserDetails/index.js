@@ -60,8 +60,10 @@ export default function UserDetails() {
     {user.Purchases && user.Purchases.length && !showBody? user.Purchases.map(( a, i) => (
     <UserDetailsAlbum album={a} />
     )) : null}
-    {user.WishList && user.WishList.length && showBody? user.WishList.map(( a, i) => (
-    <UserDetailsAlbum album={a} />
+    {user.WishList && user.WishList.length && showBody? user.WishList.map(( album, i) => (
+
+    <UserDetailsAlbum album={album} />
+
     )) : null}
     </div>
     </div>
