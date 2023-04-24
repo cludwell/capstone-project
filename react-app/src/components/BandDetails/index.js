@@ -21,6 +21,9 @@ export default function BandDetails() {
         dispatch(deleteBandCommand(bandId))
         history.push(`/users/${user.id}`)
     }
+    const editOnClick = async e => {
+        history.push(`/bands/edit/${band.id}`)
+    }
     return (
         <div className='band-deets-page'>
         <div className='band-details-container'>
@@ -44,7 +47,7 @@ export default function BandDetails() {
         <p className='album-deets-city'>{band.city}</p>
         {user && band.userId === user.id ? (
             <>
-            <button className='band-deets-user-auth'>Edit Band</button>
+            <button className='band-deets-user-auth' onClick={editOnClick}>Edit Band</button>
             <button className='band-deets-user-auth'>Add Album</button>
             <button className='band-deets-user-auth' onClick={deleteBand}>Break Up Band</button>
             </>

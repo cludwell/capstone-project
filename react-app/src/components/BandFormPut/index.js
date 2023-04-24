@@ -38,12 +38,13 @@ export default function BandFormPut() {
         setName(bandState && bandState.name ? bandState.name : '')
         setCity(bandState && bandState.city ? bandState.city : '')
         setState(bandState && bandState.state ? bandState.state : '')
+        setBannerUrl(bandState && bandState.bannerUrl ? bandState.bannerUrl : '')
         setCountry(bandState && bandState.country ? bandState.country : '')
         setArtistImage(bandState && bandState.artistImage ? bandState.artistImage : '')
         setDescription(bandState && bandState.description ? bandState.description : '')
         setGenres(bandState && bandState.genres ? bandState.genres : '')
 
-    })
+    }, [name, city, state, country, artistImage, description, genres, bandState])
     const handleSubmit = async e => {
         e.preventDefault();
         if (Object.values(errors).length) {
