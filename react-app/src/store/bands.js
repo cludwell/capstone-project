@@ -1,6 +1,7 @@
 const LOAD_BAND = 'bands/LOAD_BAND'
 const POST_BAND = 'bands/POST_BAND'
 const DELETE_BAND = 'bands/DELETE_BAND'
+const EDIT_BAND = 'bands/EDIT_BAND'
 //actions
 export const loadBandInfo = bandInfo => {
     return {
@@ -20,7 +21,12 @@ export const deleteBand = bandId => {
         bandId
     }
 }
-export const editBand = edittedBand => {}
+export const editBand = edittedBand => {
+    return {
+        type: EDIT_BAND,
+        edittedBand
+    }
+}
 //get bandinfo thunk
 export const fetchBandInfo = bandId => async dispatch => {
     const response = await fetch(`/api/bands/${bandId}`)
@@ -66,7 +72,8 @@ export const editBandRequest = (data, id) => async dispatch => {
         "body": JSON.stringify(data)})
         const edittedBand = await response.json()
     if (response.ok) {
-        dispatch()
+        dispatch(edittedBand)
+        return edittedBand
     }
 }
 const intitialState = {}
@@ -81,5 +88,7 @@ export default function bandReducer (state = intitialState, action) {
         case DELETE_BAND:
             const filtered = Object.values(state.allBands).filter(b=> b.id !== action.deleted.id)
             return {...state, allBands: {...filtered}}
+        case EDIT_BAND:
+            return {...state, singleBand: action.edittedBand, allBands: {...action.edittedBand}}
     }
 }
