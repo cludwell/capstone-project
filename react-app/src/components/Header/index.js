@@ -30,7 +30,8 @@ export default function Header({ isLoaded }) {
 
             <div className='user-collection navi-items'>
             {user && user.id ? (
-            <NavLink to={`/users/${user.id}`}>
+            <NavLink to={`/users/${user.id}`}
+            style={{textDecoration: "none"}}>
             <i className="fa-regular fa-heart navi-icons"/>
             </NavLink>
             ) : (
