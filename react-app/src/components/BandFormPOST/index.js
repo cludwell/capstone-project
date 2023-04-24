@@ -6,7 +6,6 @@ import { startBand } from '../../store/bands'
 
 export default function BandFormPOST() {
 
-    const hisotry = useHistory()
     const dispatch = useDispatch()
     const [ name, setName ] = useState('')
     const [ city, setCity ] = useState('')
@@ -30,7 +29,7 @@ export default function BandFormPOST() {
         if (!description || description.length < 30) err.description = 'Please enter a description of your band'
         if (!genres || genres.length < 3) err.genres = 'Please enter some genres you could be categorized under'
         setErrors(err)
-    }, [name, city, hisotry, state, country, artistImage, bannerUrl, description, genres])
+    }, [name, city, state, country, artistImage, bannerUrl, description, genres])
 
     const handleSubmit = async e => {
         e.preventDefault();
