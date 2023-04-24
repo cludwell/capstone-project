@@ -27,6 +27,26 @@ def bands_albums(band_id):
             db.session.delete(band)
             db.session.commit()
             return band.to_dict()
+    if request.method == 'PUT':
+        if current_user.id == band.user_id:
+            form = PostBandForm()
+            form['csrf_token'].data = request.cookies['csrf_token']
+            if form.validate_on_submit():
+                band.name = form.data['name']
+                band.city = form.data['city']
+                band.state = form.data['state']
+                band.country = form.data['country']
+                band.artist_image = form.data['artist_image']
+                band.banner_url = form.data['banner_url']
+                band.description = form.data['description']
+                band.genres = form.data['genres']
+                band.user_id = current_user.id
+                db.session.commit()
+                return band.to_dict(), 201
+        else:
+            return {"error": "Unauthorized request"}, 401
+
+
 
 @band_routes.route('/', methods=['POST'])
 def post_band():
