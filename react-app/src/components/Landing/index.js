@@ -21,6 +21,7 @@ export default function Landing() {
     const state = useSelector(state => state)
     console.log('STATE', state)
     const livestreamTimes = [
+        // ['time,', 'time'],
         ['in two days', '7:00 PM PST'],
         ['tomorrow', '8:00 PM PST'],
         ['tomorrow', '2:00 PM PST'],
@@ -74,7 +75,7 @@ export default function Landing() {
             <div className='upcoming-live-streams-container'>
             {Object.values(albums).map((a,i) => (
                 <UpcomingLiveStream ele={livestreamTimes[i]} album={a} key={`livestream${i}`}/>
-            )).reverse().slice(6, 11)}
+            )).reverse().slice(2, 6)}
             </div>
             </div>
 
