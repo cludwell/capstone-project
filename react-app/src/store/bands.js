@@ -20,6 +20,7 @@ export const deleteBand = bandId => {
         bandId
     }
 }
+export const editBand = edittedBand => {}
 //get bandinfo thunk
 export const fetchBandInfo = bandId => async dispatch => {
     const response = await fetch(`/api/bands/${bandId}`)
@@ -57,6 +58,15 @@ export const deleteBandCommand = bandId => async dispatch => {
     if (response.ok) {
         dispatch(deleteBand(bandId))
         return deleted
+    }
+}
+export const editBandRequest = (data, id) => async dispatch => {
+    const response = await fetch(`/api/bands/${id}`,
+        {"method": "PUT", "headers": {"Content-Type": "application/json"},
+        "body": JSON.stringify(data)})
+        const edittedBand = await response.json()
+    if (response.ok) {
+        dispatch()
     }
 }
 const intitialState = {}

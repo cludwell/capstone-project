@@ -9,7 +9,7 @@ def get_albums_by_band(band_id):
     discog = Album.query.filter(Album.band_id== band_id).all()
     return  [a.to_dict() for a in discog]
 
-@band_routes.route('/<int:band_id>', methods=['GET', 'DELETE'])
+@band_routes.route('/<int:band_id>', methods=['GET', 'DELETE', 'PUT'])
 def bands_albums(band_id):
     """get all band info by id"""
     band = Band.query.get(band_id)
