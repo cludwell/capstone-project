@@ -43,7 +43,8 @@ export default function BandDetails() {
         <div className='band-details-col'>
 
         <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${band.artistImage}`} />
-        <p className='album-deets-country'>{band.country}</p>
+        <div className='band-deets-bandname'>{band.name}</div>
+        <div className='album-deets-country'>{band.country}</div>
         <p className='album-deets-city'>{band.city}</p>
         {user && band.userId === user.id ? (
             <>

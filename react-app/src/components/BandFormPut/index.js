@@ -2,7 +2,7 @@ import './BandFormPut.css'
 import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { editBandRequest } from '../../store/bands'
+import { editBandRequest, fetchBandInfo } from '../../store/bands'
 
 export default function BandFormPut() {
 
@@ -44,7 +44,8 @@ export default function BandFormPut() {
         setDescription(bandState && bandState.description ? bandState.description : '')
         setGenres(bandState && bandState.genres ? bandState.genres : '')
 
-    }, [name, city, state, country, artistImage, description, genres, bandState])
+    }, [bandState])
+
     const handleSubmit = async e => {
         e.preventDefault();
         if (Object.values(errors).length) {
@@ -53,13 +54,14 @@ export default function BandFormPut() {
         }
         const data = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
         await dispatch(editBandRequest(data, bandId))
+        await dispatch(fetchBandInfo(bandId))
         history.push(`/users/${user.id}`)
     }
 
 
     return (
     <div className='post-band-form-page'>
-    <h3 className='post-band-title'>Unnamed Band</h3>
+    <h3 className='post-band-title'>Previously {bandState.name}</h3>
 
     <div className='post-band-form-container'>
     <form className='post-band-form'>

@@ -58,3 +58,21 @@
     border-bottom: .3rem royalblue solid;
     cursor: pointer;
 }
+.create-band-button {
+    z-index: 100;
+    background-color: rgb(97, 149, 170);
+    padding: .3rem;
+    font-weight: bold;
+    width: 8rem;
+    border-radius: .3rem;
+    border: none;
+    color: white;
+    margin: .5rem;
+    cursor: pointer;
+    position: relative;
+    right: 3rem;
+    transition: .2s ease-in-out;
+}
+.create-band-button:hover {
+    box-shadow: 0rem 0rem .5rem black;
+}

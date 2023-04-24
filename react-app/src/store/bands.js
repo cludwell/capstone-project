@@ -72,7 +72,7 @@ export const editBandRequest = (data, id) => async dispatch => {
         "body": JSON.stringify(data)})
         const edittedBand = await response.json()
     if (response.ok) {
-        dispatch(edittedBand)
+        dispatch(editBand(edittedBand))
         return edittedBand
     }
 }

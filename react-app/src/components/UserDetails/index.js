@@ -48,7 +48,7 @@ export default function UserDetails() {
     <h2 className='user-details-business-title'>{user.username}</h2>
     <p className='user-details-location'>{user.city}, {user.state}</p>
     </div>
-
+    <button className='band-deets-user-auth create-band-button'>Start Band</button>
     </div>
     <div className='user-details-tabs'>
     <span className='user-details-collection' onClick={openBody} >collection {user.Purchases.length}</span>
