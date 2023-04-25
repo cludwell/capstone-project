@@ -41,6 +41,7 @@ export default function AlbumFormPost() {
     const band = useSelector(state => state.bands.singleBand)
 
     if (!user || !band || user.id !== band.userId) return null
+    
     return (
         <div className='album-post-form-container'>
         <h1 className='album-post-title'>your new album</h1>
@@ -50,7 +51,8 @@ export default function AlbumFormPost() {
         <label className='post-album-label'>name</label>
 
         <div className='post-album-input-col'>
-        <input className='post-album-input' type='text'></input>
+        <input className='post-album-input' type='text'
+        value={name} onChange={e => setName(e.target.value)}></input>
         {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.name}</p>
             ) : (
@@ -62,7 +64,8 @@ export default function AlbumFormPost() {
         <label className='post-album-label'>description</label>
 
         <div className='post-album-input-col'>
-        <textarea className='post-album-input' type='textarea'></textarea>
+        <textarea className='post-album-input' type='textarea'
+        value={description} onChange={e => setDescription(e.target.value)}></textarea>
         {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.description}</p>
             ) : (
@@ -74,7 +77,8 @@ export default function AlbumFormPost() {
         <label className='post-album-label'>price</label>
 
         <div className='post-album-input-col'>
-        <input className='post-album-input' type='number'></input>
+        <input className='post-album-input' type='number'
+        value={price} onChange={e => setPrice(e.target.value)}></input>
         {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.price}</p>
             ) : (
@@ -86,7 +90,8 @@ export default function AlbumFormPost() {
         <label className='post-album-label'>album image</label>
 
         <div className='post-album-input-col'>
-        <input className='post-album-input' type='text'></input>
+        <input className='post-album-input' type='text'
+        value={albumImage} onChange={e => setAlbumImage(e.target.value)}></input>
         {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.albumImage}</p>
             ) : (
@@ -98,7 +103,8 @@ export default function AlbumFormPost() {
         <label className='post-album-label'>genre</label>
 
         <div className='post-album-input-col'>
-        <input className='post-album-input' type='text'></input>
+        <input className='post-album-input' type='text'
+        value={genre} onChange={e => setGenre(e.target.value)}></input>
         {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.genre}</p>
             ) : (
@@ -106,7 +112,7 @@ export default function AlbumFormPost() {
         )}
         </div>
 
-
+        <div></div>
         <button type='submit'>Submit Album</button>
         </form>
         </div>
