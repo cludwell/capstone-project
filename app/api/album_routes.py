@@ -39,7 +39,7 @@ def get_all_albums():
             print('===============END=OF=ROUTE')
             return new_album, 200
 
-@album_routes.route('/<int:album_id>', methods=['GET', 'DELETE'])
+@album_routes.route('/<int:album_id>', methods=['GET', 'DELETE', 'PUT'])
 def get_album_by_id(album_id):
     """return album details for use on album page"""
     album = Album.query.get(album_id)
@@ -61,3 +61,21 @@ def get_album_by_id(album_id):
             db.session.delete(album)
             db.session.commit()
             return album.to_dict()
+    if request.method == 'POST':
+        if current_user == None or current_user.id != band.user_id:
+            return {"error": "You are not authorized to edit this item."}
+        else:
+            form = PostAlbumForm()
+            form['csrf_token'].data = request.cookies['csrf_token']
+            if form.validate_on_submit():
+                album.name = form.data['name']
+                album.description = form.data['description']
+                album.price = form.data['price']
+                album.album_image = form.data['album_image']
+                album.genre = form.data['genre']
+                album.band_id = form.data['band_id']
+
+                db.session.commit()
+                return album.to_dict(), 201
+            else:
+                return {"error": "Unauthorized request."}
