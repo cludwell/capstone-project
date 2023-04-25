@@ -1,5 +1,5 @@
 const POST_WISH = 'wishLists/POST_WISH'
-
+const DELETE_WISH = 'wishLists/DELETE_WISH'
 
 //actions
 export const postWish = wish => {
@@ -8,7 +8,12 @@ export const postWish = wish => {
         wish
     }
 }
-
+export const deleteWish = wish => {
+    return {
+        type: DELETE_WISH,
+        wish
+    }
+}
 //thunk for posting wish
 export const fetchPostWish = wish => async dispatch => {
     const response = await fetch(`/api/wishlists/`,
@@ -21,12 +26,25 @@ export const fetchPostWish = wish => async dispatch => {
         return newWish
     }
 }
-
+export const deleteWishRequest = wishId => async dispatch => {
+    const response = await fetch(`/wishlists/${wishId}`,
+        {"method": "DELETE",
+        "headers": {"Content-Type": "application/json"}})
+    const deleted = await response.json()
+    if (response.ok) {
+        dispatch(deleteWish(deleted))
+        return deleted
+    }
+}
 const intitialState = {}
 export default function wishReducer (state = intitialState, action) {
     switch (action.type) {
         case POST_WISH:
             return { ...state, wishLists: { [action.wish.userId]: [ ...action.wish] } }
+        case DELETE_WISH:
+            const beforeDelete = { ...state}
+            const filtered = beforeDelete.wishLists[String(action.deleted.userId)].filter(w=> w.id !== action.deleted.id)
+            return { ...state, wishLists: { [action.deleted.userId]: filtered } }
         default: return state
     }
 }
