@@ -44,8 +44,8 @@ export default function wishReducer (state = intitialState, action) {
             return { ...state, wishLists: { [action.wish.userId]: [ ...action.wish] } }
         case DELETE_WISH:
             const beforeDelete = { ...state}
-            const filtered = beforeDelete.wishLists[String(action.deleted.userId)].filter(w=> w.id !== action.deleted.id)
-            return { ...state, wishLists: { [action.deleted.userId]: filtered } }
+            const filtered = beforeDelete.wishLists[String(action.wish.userId)].filter(w=> w.id !== action.wish.id)
+            return { ...state, wishLists: { [action.wish.userId]: filtered } }
         default: return state
     }
 }

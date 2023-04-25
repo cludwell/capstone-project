@@ -19,7 +19,7 @@ export default function UserDetails() {
     useEffect(() => {
         if (!showBody) return;
         const closeBody = e => {
-            if (!ulRef.current.contains(e.target)) setShowBody(false)
+            if (!ulRef.current?.contains(e.target)) setShowBody(false)
         }
         document.addEventListener('click', closeBody);
         return () => document.removeEventListener('click', closeBody)
