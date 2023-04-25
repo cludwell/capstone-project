@@ -7,6 +7,7 @@ import { editBandRequest, fetchBandInfo } from '../../store/bands'
 export default function BandFormPut() {
 
     const { bandId } = useParams();
+    const bandState = useSelector(state => state.bands.singleBand)
     const dispatch = useDispatch()
     const [ name, setName ] = useState('')
     const [ city, setCity ] = useState('')
@@ -17,11 +18,10 @@ export default function BandFormPut() {
     const [ description, setDescription ] = useState('')
     const [ genres, setGenres ] = useState('')
     const [ errors, setErrors] = useState({})
+    const [ hasSubmitted, setHasSubmitted ] = useState(false)
     const user = useSelector(state => state.session.user)
     const history = useHistory()
-
-    const bandState = useSelector(state => state.bands.singleBand)
-    useEffect(() => {
+    const validate = () => {
         const err = {}
         if (!name || name.length < 3) err.name = 'Please enter a valid name, and of at least 3 characters.'
         if (!city || city.length < 3) err.city = 'Please enter a valid city. It helps local fans find you'
@@ -32,7 +32,8 @@ export default function BandFormPut() {
         if (!description || description.length < 30) err.description = 'Please enter a description of your band'
         if (!genres || genres.length < 3) err.genres = 'Please enter some genres you could be categorized under'
         setErrors(err)
-    }, [name, city, state, country, artistImage, bannerUrl, description, genres])
+        return err
+    }
 
     useEffect(() => {
         setName(bandState && bandState.name ? bandState.name : '')
@@ -46,16 +47,19 @@ export default function BandFormPut() {
 
     }, [bandState])
 
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
-        if (Object.values(errors).length) {
-            console.log(errors)
-            return;
+        validate()
+        setHasSubmitted(true)
+        if (Object.values(errors).length) return alert('Please correct errors')
+        else {
+            const data = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
+            console.log('--------in form------------', data)
+            dispatch(editBandRequest(data, bandId))
+            dispatch(fetchBandInfo(bandId))
+            history.push(`/users/${user.id}`)
+
         }
-        const data = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
-        await dispatch(editBandRequest(data, bandId))
-        await dispatch(fetchBandInfo(bandId))
-        history.push(`/users/${user.id}`)
     }
 
 
@@ -66,38 +70,102 @@ export default function BandFormPut() {
     <div className='post-band-form-container'>
     <form className='post-band-form'>
 
-    <label className='post-band-label'>Name</label>
+    <label className='post-band-label'>name</label>
+
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={name} onChange={e => setName(e.target.value)}></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.name}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
 
-    <label className='post-band-label'>City</label>
+    <label className='post-band-label'>city</label>
+
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={city} onChange={e=> setCity(e.target.value)}></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.city}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
 
-    <label className='post-band-label'>State</label>
+    <label className='post-band-label'>state</label>
+
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={state} onChange={e => setState(e.target.value)}></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.state}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
 
-    <label className='post-band-label'>Country</label>
+    <label className='post-band-label'>country</label>
+
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={country} onChange={e=> setCountry(e.target.value)}></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.country}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
 
-    <label className='post-band-label'>Band Photo</label>
+    <label className='post-band-label'>band photo</label>
+
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={bannerUrl} onChange={e => setBannerUrl(e.target.value)}></input>
+    {hasSubmitted && Object.values(errors).length ? (
+    <p className='errors'>{errors.bannerUrl}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
 
-    <label className='post-band-label'>Banner or Logo</label>
+    <label className='post-band-label'>banner or logo</label>
+
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={artistImage} onChange={e => setArtistImage(e.target.value)}></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.artistImage}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
 
     <label className='post-band-label'>description</label>
+
+    <div className='band-post-input-col'>
     <textarea className='post-band-input textarea'
     value={description} onChange={e=> setDescription(e.target.value)}></textarea>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.description}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
 
     <label className='post-band-label'>Genre</label>
+
+    <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={genres} onChange={e => setGenres(e.target.value)}></input>
-
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.genres}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
+        <div></div>
     <button className='post-band-submit' type='submit' onClick={handleSubmit}>Submit Band</button>
     </form>
     </div>

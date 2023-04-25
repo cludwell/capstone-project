@@ -5,7 +5,7 @@ from .router_helpers import get_sales, get_sale_user, get_album_songs, get_band_
 
 album_routes = Blueprint('/albums', __name__)
 
-@album_routes.route('/')
+@album_routes.route('/', methods=['GET', 'POST'])
 def get_all_albums():
     """returns a list of all albums in the database, will be useful for landing page"""
     if request.method == 'GET':
@@ -19,6 +19,8 @@ def get_all_albums():
                 s['User'] = get_sale_user(s)
                 del s['User']['address']
         return discog
+    if request.method == 'POST' and current_user.id:
+        form = 
 
 @album_routes.route('/<int:album_id>', methods=['GET', 'DELETE'])
 def get_album_by_id(album_id):

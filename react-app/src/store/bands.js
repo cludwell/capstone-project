@@ -66,11 +66,13 @@ export const deleteBandCommand = bandId => async dispatch => {
         return deleted
     }
 }
-export const editBandRequest = (data, id) => async dispatch => {
-    const response = await fetch(`/api/bands/${id}`,
+export const editBandRequest = (data, bandId) => async dispatch => {
+    console.log("=========data thunk ===========", data)
+    const response = await fetch(`/api/bands/${bandId}`,
         {"method": "PUT", "headers": {"Content-Type": "application/json"},
         "body": JSON.stringify(data)})
         const edittedBand = await response.json()
+    console.log('###############THUNK#############')
     if (response.ok) {
         dispatch(editBand(edittedBand))
         return edittedBand

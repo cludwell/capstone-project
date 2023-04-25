@@ -58,11 +58,11 @@ export default function UserDetails() {
     <div className={ulClassName} ref={ulRef}>
 
     {user.Purchases && user.Purchases.length && !showBody? user.Purchases.map(( a, i) => (
-    <UserDetailsAlbum album={a} />
+    <UserDetailsAlbum album={a} key={`userdetail${i}`}/>
     )) : null}
     {user.WishList && user.WishList.length && showBody? user.WishList.map(( album, i) => (
 
-    <UserDetailsAlbum album={album} />
+    <UserDetailsAlbum album={album} key={`userdetail${i}`}/>
 
     )) : null}
     </div>

@@ -36,7 +36,8 @@ export default function BandFormPOST() {
     const handleSubmit = e => {
         e.preventDefault();
         validate()
-        if (Object.values(validate()).length) return alert('Please correct errors')
+        setHasSubmitted(true)
+        if (Object.values(errors).length) return alert('Please correct errors')
         else {
             const newBand = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
             dispatch(startBand(newBand))
