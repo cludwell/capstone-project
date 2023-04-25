@@ -27,6 +27,7 @@ function App() {
       <Header isLoaded={isLoaded} />
         <Switch>
           <Route path={`/`} exact={true} component={Landing}/>
+          <Route path='/albums/:albumId/edit' exact={true} component={AlbumFormPut} />
           <Route path='/albums/:albumId' exact={true} component={AlbumDetails} />
           <Route path="/login" component={LoginFormPage} />
           <Route path="/signup" component={SignupFormPage}/>
@@ -36,7 +37,6 @@ function App() {
           <Route path='/bands/edit/:bandId' exact={true} component={BandFormPut} />
           <Route path='/bands/new' exact={true} component={BandFormPOST} />
           <Route path='/bands/:bandId/newAlbum' exact={true} component={AlbumFormPost} />
-          <Route path='/albums/:albumId/edit' exact={true} component={AlbumFormPut} />
         </Switch>
     </>
   );

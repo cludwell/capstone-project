@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from 'react'
 import { fetchUserPurchases } from '../../store/purchases'
 import { fetchUsers } from '../../store/users'
 import UserDetailsAlbum from '../UserDetailsAlbum'
-import { fetchAlbums } from '../../store/albums'
 
 export default function UserDetails() {
     const { userId } = useParams()

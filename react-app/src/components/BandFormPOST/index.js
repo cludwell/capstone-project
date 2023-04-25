@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import './BandFormPOST.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { startBand } from '../../store/bands'
 
 export default function BandFormPOST() {

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { fetchBandInfo } from '../../store/bands';
-import { createAlbumRequest, editAlbumRequest } from '../../store/albums';
+import { editAlbumRequest } from '../../store/albums';
 
 export default function AlbumFormPut({ album }) {
     const { bandId } = useParams()
@@ -47,18 +47,18 @@ export default function AlbumFormPut({ album }) {
         }
     }
 
-    // useEffect(() => {
-    //     dispatch(fetchBandInfo(bandId))
-    // }, [dispatch, bandId])
+    useEffect(() => {
+        dispatch(fetchBandInfo(bandId))
+    }, [dispatch, bandId])
 
     const user = useSelector(state => state.session.user)
     const band = useSelector(state => state.bands.singleBand)
-
-    if (!user || !band || user.id !== band.userId) return null
+    console.log('band', band)
+    if (!user ) return null
 
     return (
         <div className='album-post-form-container'>
-        <h1 className='album-post-title'>your new album</h1>
+        <h1 className='album-post-title'>previously {album.name}</h1>
         <div className='album-post-wrapper'>
         <form className='album-post-form'>
 

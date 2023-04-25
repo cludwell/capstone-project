@@ -76,13 +76,13 @@ export const editBandRequest = (data, bandId) => async dispatch => {
         return edittedBand
     }
 }
+
 const intitialState = {}
 
 export default function bandReducer (state = intitialState, action) {
     switch (action.type) {
         case LOAD_BAND:
             return {...state, singleBand: {...action.bandInfo}}
-        default: return state
         case POST_BAND:
             return {...state, singleBand: {...action.bandInfo}, allBands: {...action.bandInfo}}
         case DELETE_BAND:
@@ -90,5 +90,6 @@ export default function bandReducer (state = intitialState, action) {
             return {...state, allBands: {...filtered}}
         case EDIT_BAND:
             return {...state, singleBand: action.edittedBand, allBands: {...action.edittedBand}}
+        default: return state
     }
 }
