@@ -51,7 +51,6 @@ export const createAlbumRequest = albumData => async dispatch => {
     "headers": {"Content-Type": "application/json"},
     "body": JSON.stringify(albumData)})
     const newAlbum = await response.json()
-    console.log('=============thunk=============')
     if (response.ok) {
         dispatch(postAlbum(newAlbum))
         return newAlbum
