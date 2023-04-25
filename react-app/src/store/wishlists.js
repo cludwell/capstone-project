@@ -11,7 +11,7 @@ export const postWish = wish => {
 
 //thunk for posting wish
 export const fetchPostWish = wish => async dispatch => {
-    const response = await fetch(`/api/wishlists`,
+    const response = await fetch(`/api/wishlists/`,
     {"method": "POST",
     "headers": {"Content-Type": "application/json"},
     "body": JSON.stringify(wish)})

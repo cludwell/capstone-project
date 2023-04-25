@@ -21,7 +21,7 @@ export default function AlbumDetails() {
     useEffect(() => {
         if (!showMenu) return;
         const closeMenu = e => {
-            if (!ulRef.current.contains(e.target)) {
+            if (!ulRef.current?.contains(e.target)) {
                 setShowMenu(false);
             }
         }
@@ -39,18 +39,18 @@ export default function AlbumDetails() {
 
     const album = useSelector(state => state.albums.singleAlbum)
     const albums = useSelector(state => state.albums.allAlbums)
-    // const band = useSelector(state => state.album.Band)
-    const user = useSelector(state => state.session.user)
-    console.log('================album', album)
-    // console.log('================band', band)
-    console.log('================user', user)
     const users = useSelector(state => state.users)
-    const userWishList = users && user && users[String(user.id)].WishList ?  users[String(user.id)].WishList : null
-    if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
+    const user = useSelector(state => state.session.user)
+    // console.log('================album', album)
+    // console.log('================band', band)
+    // console.log('================user', user.name)
+    // const userWishList = users && user && users[String(user.id)].WishList ?  users[String(user.id)].WishList : null
+    if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users || !user || !Object.values(user).length) return null
 
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
     }
+
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
@@ -68,18 +68,18 @@ export default function AlbumDetails() {
 
                 <table className='album-track-table'>
                     {album && album.Songs && album.Songs.length ? album.Songs.map(s => (
-                        <tr>
+                <tr>
 
-                            <td></td>
-                            <td>{s.trackNum}. </td>
-                            <td>{s.name}</td>
-                            <td>{s.lyrics ? (
-                                <OpenModalButton
-                                buttonText={'lyrics'}
-                                onItemClick={closeMenu}
-                                modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
-                            ) : null}</td>
-                        </tr>
+                <td></td>
+                <td>{s.trackNum}. </td>
+                <td>{s.name}</td>
+                <td>{s.lyrics ? (
+                <OpenModalButton
+                buttonText={'lyrics'}
+                onItemClick={closeMenu}
+                modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
+                ) : null}</td>
+                </tr>
                     )) : null}
 
                 </table>
@@ -95,12 +95,14 @@ export default function AlbumDetails() {
 
             <img src={`${album.albumImage}`} alt='albumartwork' className='album-details-artwork'/>
             <div className='share-wishlist'>
-                <span>Share/Embed</span>
-            {users && user && users[String(user.id)] && users[String(user.id)]['WishList'].some(w => w.albumId === album.id) ? (
-            <WishListFormPost album={album} />
+                <span></span>
+            {!users[user.id]?.WishList.some(w => w.albumId === album.id) ? (
+            <>
+            <WishListFormPost album={album} />WishList
+            </>
             ) : (
-                <span>
-                <i className="fa-regular fa-heart navi-icons"/>
+            <span>
+            <i className="fa-solid fa-heart wished-for-list"/>
                 Wishlist</span>
             )}
 

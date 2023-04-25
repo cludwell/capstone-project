@@ -24,7 +24,7 @@ def get_wishlist():
         db.session.commit()
         return {"message": "Your wishlist has been cleared"}
     if request.method == 'POST':
-        if not current_user or current_user.id:
+        if not current_user:
             return {"error": "You are not authorized for this request"}
         form = WishListForm()
         form['csrf_token'].data = request.cookies['csrf_token']

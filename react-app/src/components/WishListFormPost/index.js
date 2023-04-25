@@ -10,7 +10,7 @@ export default function WishListFormPost({ album }) {
 
     useEffect(() => {
         dispatch(authenticate())
-    })
+    }, [dispatch])
     const user = useSelector(state => state.session.user)
     const handleSubmit = e => {
         e.preventDefault()
@@ -21,9 +21,9 @@ export default function WishListFormPost({ album }) {
 
     return (
         <div className='wishlist-post-form'>
-            <button className='wish-list-post' onClick={handleSubmit}>
-            <i class="fa-solid fa-heart wishlist-heart"></i>
-            </button>
+            <span className='wish-list-post' onClick={handleSubmit}>
+            <i class="fa-regular fa-heart notwishlist-heart"></i>
+            </span>
         </div>
     )
 }
