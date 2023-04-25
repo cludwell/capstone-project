@@ -44,13 +44,72 @@ export default function AlbumFormPost() {
     return (
         <div className='album-post-form-container'>
         <h1 className='album-post-title'>your new album</h1>
+        <div className='album-post-wrapper'>
         <form className='album-post-form'>
 
+        <label className='post-album-label'>name</label>
 
+        <div className='post-album-input-col'>
+        <input className='post-album-input' type='text'></input>
+        {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.name}</p>
+            ) : (
+        <p></p>
+        )}
+        </div>
+
+
+        <label className='post-album-label'>description</label>
+
+        <div className='post-album-input-col'>
+        <textarea className='post-album-input' type='textarea'></textarea>
+        {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.description}</p>
+            ) : (
+        <p></p>
+        )}
+        </div>
+
+
+        <label className='post-album-label'>price</label>
+
+        <div className='post-album-input-col'>
+        <input className='post-album-input' type='number'></input>
+        {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.price}</p>
+            ) : (
+        <p></p>
+        )}
+        </div>
+
+
+        <label className='post-album-label'>album image</label>
+
+        <div className='post-album-input-col'>
+        <input className='post-album-input' type='text'></input>
+        {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.albumImage}</p>
+            ) : (
+        <p></p>
+        )}
+        </div>
+
+
+        <label className='post-album-label'>genre</label>
+
+        <div className='post-album-input-col'>
+        <input className='post-album-input' type='text'></input>
+        {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.genre}</p>
+            ) : (
+        <p></p>
+        )}
+        </div>
 
 
         <button type='submit'>Submit Album</button>
         </form>
+        </div>
         </div>
     )
 }
