@@ -5,12 +5,15 @@ import albumReducer from './albums';
 import purchasesReducer from './purchases';
 import bandReducer from './bands';
 import userReducer from './users';
+import wishReducer from './wishlists';
+
 const rootReducer = combineReducers({
   session,
   albums: albumReducer,
   purchases: purchasesReducer,
   bands: bandReducer,
-  users: userReducer
+  users: userReducer,
+  wishs: wishReducer
 });
 
 
