@@ -27,7 +27,8 @@ export const fetchPostWish = wish => async dispatch => {
     }
 }
 export const deleteWishRequest = wishId => async dispatch => {
-    const response = await fetch(`/wishlists/${wishId}`,
+    console.log('-----------------WISHID', wishId)
+    const response = await fetch(`/api/wishlists/${wishId}`,
         {"method": "DELETE",
         "headers": {"Content-Type": "application/json"}})
     const deleted = await response.json()

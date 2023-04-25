@@ -9,6 +9,7 @@ import LyricsModal from '../LyricsModal'
 import { NavLink } from 'react-router-dom'
 import { fetchUsers } from '../../store/users'
 import WishListFormPost from '../WishListFormPost'
+import { deleteWishRequest } from '../../store/wishlists'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -50,7 +51,11 @@ export default function AlbumDetails() {
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
     }
-
+    const deleteWish = e => {
+        const wish = users[user.id].WishList.filter(w=> w.albumId === album.id)
+        console.log('=====================WISHID', wish)
+        dispatch(deleteWishRequest(wish[0].id))
+    }
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
@@ -101,7 +106,7 @@ export default function AlbumDetails() {
             <WishListFormPost album={album} />WishList
             </>
             ) : (
-            <span>
+            <span onClick={deleteWish}>
             <i className="fa-solid fa-heart wished-for-list"/>
                 Wishlist</span>
             )}
