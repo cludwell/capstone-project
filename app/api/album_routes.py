@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request, redirect
 from app.models import db, Album, Song, Purchase, User, Band
 from flask_login import current_user, login_required
 from .router_helpers import get_sales, get_sale_user, get_album_songs, get_band_info
-
+from app.forms import PostAlbumForm, PostSongForm
 album_routes = Blueprint('/albums', __name__)
 
 @album_routes.route('/', methods=['GET', 'POST'])
@@ -20,7 +20,22 @@ def get_all_albums():
                 del s['User']['address']
         return discog
     if request.method == 'POST' and current_user.id:
-        form = 
+        form = PostAlbumForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if not form.validate_on_submit():
+            return form.errors, 404
+        else:
+            new_album = Album(
+                name = form.data['name'],
+                description = form.data['description'],
+                price = form.data['price'],
+                album_image = form.data['album_image'],
+                genre = form.data['genre'],
+                band_id = form.data['band_id']
+            )
+            db.session.add(new_album)
+            db.session.commit()
+            return new_album, 200
 
 @album_routes.route('/<int:album_id>', methods=['GET', 'DELETE'])
 def get_album_by_id(album_id):
