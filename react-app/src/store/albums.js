@@ -68,6 +68,7 @@ export const editAlbumRequest = (albumData, albumId) => async dispatch => {
         return edittedAlbum
     }
 }
+
 const initialState = {}
 //album reducer
 export default function albumReducer (state = initialState, action) {
