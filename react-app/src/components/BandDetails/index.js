@@ -9,14 +9,17 @@ export default function BandDetails() {
     const { bandId } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
+
     useEffect(() => {
         dispatch(fetchBandInfo(bandId))
         dispatch(authenticate())
     }, [dispatch, bandId])
+
     const band = useSelector(state => state.bands.singleBand)
     const user = useSelector(state => state.session.user)
-    // console.log('BANDPAGE', band)
     if (!band || !band.Albums.length) return null
+
+    
     const deleteBand = async e => {
         dispatch(deleteBandCommand(bandId))
         history.push(`/users/${user.id}`)
