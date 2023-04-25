@@ -16,6 +16,7 @@ export default function BandFormPOST() {
     const [ description, setDescription ] = useState('')
     const [ genres, setGenres ] = useState('')
     const [ errors, setErrors] = useState({})
+    const [ hasSubmitted, setHasSubmitted ] = useState(false)
     const user = useSelector(state => state.session.user)
     const history = useHistory()
     const validate = () => {
@@ -29,16 +30,16 @@ export default function BandFormPOST() {
         if (!description || description.length < 30) err.description = 'Please enter a description of your band'
         if (!genres || genres.length < 3) err.genres = 'Please enter some genres you could be categorized under'
         setErrors(err)
-        return;
+        return err
     }
 
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
         validate()
-        if (Object.values(errors).length) return errors;
+        if (Object.values(validate()).length) return alert('Please correct errors')
         else {
             const newBand = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
-            await dispatch(startBand(newBand))
+            dispatch(startBand(newBand))
             history.push(`/users/${user.id}`)
         }
     }
@@ -56,7 +57,11 @@ export default function BandFormPOST() {
     <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={name} onChange={e => setName(e.target.value)}></input>
-    <p className='errors'>{errors.name}</p>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.name}</p>
+    ) : (
+        <p></p>
+    )}
     </div>
 
     <label className='post-band-label'>city</label>
@@ -64,7 +69,11 @@ export default function BandFormPOST() {
     <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={city} onChange={e=> setCity(e.target.value)}></input>
-    <p className='errors'>{errors.city}</p>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.city}</p>
+    ) : (
+        <p></p>
+    )}
     </div>
 
     <label className='post-band-label'>state</label>
@@ -72,7 +81,11 @@ export default function BandFormPOST() {
     <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={state} onChange={e => setState(e.target.value)}></input>
-    <p className='errors'>{errors.state}</p>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.state}</p>
+    ) : (
+        <p></p>
+    )}
     </div>
 
     <label className='post-band-label'>country</label>
@@ -80,7 +93,11 @@ export default function BandFormPOST() {
     <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={country} onChange={e=> setCountry(e.target.value)}></input>
-    <p className='errors'>{errors.country}</p>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.country}</p>
+    ) : (
+        <p></p>
+    )}
     </div>
 
     <label className='post-band-label'>band photo</label>
@@ -88,7 +105,11 @@ export default function BandFormPOST() {
     <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={bannerUrl} onChange={e => setBannerUrl(e.target.value)}></input>
+    {hasSubmitted && Object.values(errors).length ? (
     <p className='errors'>{errors.bannerUrl}</p>
+    ) : (
+        <p></p>
+    )}
     </div>
 
     <label className='post-band-label'>banner or logo</label>
@@ -96,7 +117,11 @@ export default function BandFormPOST() {
     <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={artistImage} onChange={e => setArtistImage(e.target.value)}></input>
-    <p className='errors'>{errors.artistImage}</p>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.artistImage}</p>
+    ) : (
+        <p></p>
+    )}
     </div>
 
     <label className='post-band-label'>description</label>
@@ -104,7 +129,11 @@ export default function BandFormPOST() {
     <div className='band-post-input-col'>
     <textarea className='post-band-input textarea'
     value={description} onChange={e=> setDescription(e.target.value)}></textarea>
-    <p className='errors'>{errors.description}</p>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.description}</p>
+    ) : (
+        <p></p>
+    )}
     </div>
 
     <label className='post-band-label'>Genre</label>
@@ -112,7 +141,11 @@ export default function BandFormPOST() {
     <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={genres} onChange={e => setGenres(e.target.value)}></input>
-    <p className='errors'>{errors.genres}</p>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.genres}</p>
+    ) : (
+        <p></p>
+    )}
     </div>
         <div></div>
     <button className='post-band-submit' type='submit' onClick={handleSubmit}>Submit Band</button>
