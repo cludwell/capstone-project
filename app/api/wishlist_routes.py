@@ -2,10 +2,11 @@ from flask import Blueprint, jsonify, request, redirect
 from app.models import Album, User, WishList, db
 from flask_login import current_user, login_required
 from .router_helpers import get_band_info, get_album_info
+from app.forms import WishListForm
 
 wishlist_routes = Blueprint('/wishlists', __name__)
 
-@wishlist_routes.route('/', methods=['GET', 'DELETE'])
+@wishlist_routes.route('/', methods=['GET', 'DELETE', 'POST'])
 def get_wishlist():
     """get logged in users wishlists"""
     if not current_user:
@@ -22,6 +23,21 @@ def get_wishlist():
             db.session.delete(i)
         db.session.commit()
         return {"message": "Your wishlist has been cleared"}
+    if request.method == 'POST':
+        if not current_user or current_user.id:
+            return {"error": "You are not authorized for this request"}
+        form = WishListForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if not form.validate_on_submit():
+            return form.errors, 404
+        else:
+            new_wish = WishList(
+                user_id = current_user.id,
+                album_id = form.data['album_id']
+            )
+            db.session.add(new_wish)
+            db.session.commit()
+            return new_wish, 200
 
 @wishlist_routes.route('/<int:wishlist_id>', methods=['DELETE'])
 def delete_from_wishlist(wishlist_id):

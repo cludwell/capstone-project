@@ -7,7 +7,6 @@ import { fetchUserPurchases } from '../../store/purchases'
 import OpenModalButton from '../OpenModalButton'
 import LyricsModal from '../LyricsModal'
 import { NavLink } from 'react-router-dom'
-import { fetchBandInfo } from '../../store/bands'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
