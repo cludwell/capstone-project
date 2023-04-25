@@ -7,6 +7,8 @@ import { fetchUserPurchases } from '../../store/purchases'
 import OpenModalButton from '../OpenModalButton'
 import LyricsModal from '../LyricsModal'
 import { NavLink } from 'react-router-dom'
+import { fetchUsers } from '../../store/users'
+import WishListFormPost from '../WishListFormPost'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -32,6 +34,7 @@ export default function AlbumDetails() {
         dispatch(fetchSingleAlbum(albumId))
         dispatch(fetchUserPurchases())
         dispatch(fetchAlbums())
+        dispatch(fetchUsers())
     }, [dispatch, albumId])
 
     const album = useSelector(state => state.albums.singleAlbum)
@@ -41,8 +44,9 @@ export default function AlbumDetails() {
     console.log('================album', album)
     // console.log('================band', band)
     console.log('================user', user)
-
-    if (!album || !Object.values(album).length || !albums || !Object.values(albums).length) return null
+    const users = useSelector(state => state.users)
+    const userWishList = users && user && users[String(user.id)].WishList ?  users[String(user.id)].WishList : null
+    if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
 
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
@@ -92,8 +96,14 @@ export default function AlbumDetails() {
             <img src={`${album.albumImage}`} alt='albumartwork' className='album-details-artwork'/>
             <div className='share-wishlist'>
                 <span>Share/Embed</span>
+            {users && user && users[String(user.id)] && users[String(user.id)]['WishList'].some(w => w.albumId === album.id) ? (
+            <WishListFormPost album={album} />
+            ) : (
                 <span>
-                <i className="fa-regular fa-heart navi-icons"/>Wishlist</span>
+                <i className="fa-regular fa-heart navi-icons"/>
+                Wishlist</span>
+            )}
+
             </div>
             <div className='details-supporters'>
                 {album.Sales.length ? album.Sales.map((s,i) => (
