@@ -19,7 +19,9 @@ export default function BandDetails() {
     const user = useSelector(state => state.session.user)
     if (!band || !band.Albums.length) return null
 
-    
+    const addAlbum = e => {
+        history.push(`/bands/${band.id}/newAlbum`)
+    }
     const deleteBand = async e => {
         dispatch(deleteBandCommand(bandId))
         history.push(`/users/${user.id}`)
@@ -52,7 +54,7 @@ export default function BandDetails() {
         {user && band.userId === user.id ? (
             <>
             <button className='band-deets-user-auth' onClick={editOnClick}>Edit Band</button>
-            <button className='band-deets-user-auth'>Add Album</button>
+            <button className='band-deets-user-auth' onClick={addAlbum}>Add Album</button>
             <button className='band-deets-user-auth' onClick={deleteBand}>Break Up Band</button>
             </>
         ) : null}

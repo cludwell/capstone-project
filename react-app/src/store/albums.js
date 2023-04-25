@@ -1,5 +1,6 @@
 const LOAD_ALBUMS = 'albums/LOAD_ALBUMS'
 const LOAD_ONE_ALBUM = 'albums/LOAD_ONE_ALBUM'
+const POST_ALBUM = 'albums/POST_ALBUM'
 //load all shops
 export const loadAlbums = albums => {
     return {
@@ -11,6 +12,12 @@ export const loadOneAlbum = album => {
     return {
         type: LOAD_ONE_ALBUM,
         album
+    }
+}
+export const postAlbum = newAlbum => {
+    return {
+        type:POST_ALBUM,
+        newAlbum
     }
 }
 //thunk for loading all albums
@@ -31,6 +38,17 @@ export const fetchSingleAlbum = albumId => async dispatch => {
         return album
     }
 }
+export const createAlbumRequest = albumData => async dispatch => {
+    const response = await fetch(`/api/albums`,
+    {"method": "POST",
+    "headers": {"Content-Type": "application/json"},
+    "body": JSON.stringify(albumData)})
+    const newAlbum = await response.json()
+    if (response.ok) {
+        dispatch(postAlbum(newAlbum))
+        return newAlbum
+    }
+}
 const initialState = {}
 //album reducer
 export default function albumReducer (state = initialState, action) {
@@ -38,7 +56,9 @@ export default function albumReducer (state = initialState, action) {
         case LOAD_ALBUMS:
             return {...state, allAlbums: {...action.albums} }
         case LOAD_ONE_ALBUM:
-            return {...state, singleAlbum: {...action.album}}
+            return {...state, singleAlbum: {...action.album} }
+        case POST_ALBUM:
+            return {...state, allAlbums: { ...action.newAlbum} }
         default: return state
     }
 }

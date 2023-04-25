@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
-import './AlbumFormPost'
-import { useState } from 'react';
+import './AlbumFormPost.css'
+import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { fetchBandInfo } from '../../store/bands';
 
 export default function AlbumFormPost() {
     const { bandId } = useParams()
@@ -37,11 +38,15 @@ export default function AlbumFormPost() {
             history.push(`/bands/${bandId}`)
         }
     }
+    useEffect(() => {
+        dispatch(fetchBandInfo(bandId))
+    }, [dispatch, bandId])
+    
     const user = useSelector(state => state.session.user)
     const band = useSelector(state => state.bands.singleBand)
 
     if (!user || !band || user.id !== band.userId) return null
-    
+
     return (
         <div className='album-post-form-container'>
         <h1 className='album-post-title'>your new album</h1>
@@ -64,7 +69,7 @@ export default function AlbumFormPost() {
         <label className='post-album-label'>description</label>
 
         <div className='post-album-input-col'>
-        <textarea className='post-album-input' type='textarea'
+        <textarea className='post-album-input textarea' type='textarea'
         value={description} onChange={e => setDescription(e.target.value)}></textarea>
         {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.description}</p>
@@ -77,7 +82,7 @@ export default function AlbumFormPost() {
         <label className='post-album-label'>price</label>
 
         <div className='post-album-input-col'>
-        <input className='post-album-input' type='number'
+        <input className='post-album-input' type='number' min={0}
         value={price} onChange={e => setPrice(e.target.value)}></input>
         {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.price}</p>
@@ -113,7 +118,7 @@ export default function AlbumFormPost() {
         </div>
 
         <div></div>
-        <button type='submit'>Submit Album</button>
+        <button type='submit' className='post-album-submit' onClick={handleSubmit}>Submit Album</button>
         </form>
         </div>
         </div>

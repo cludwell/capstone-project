@@ -12,6 +12,7 @@ import BandDetails from "./components/BandDetails";
 import UserDetails from "./components/UserDetails";
 import BandFormPOST from "./components/BandFormPOST";
 import BandFormPut from "./components/BandFormPut";
+import AlbumFormPost from "./components/AlbumFormPost";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
           <Route path='/users/:userId' exact={true} component={UserDetails} />
           <Route path='/bands/edit/:bandId' exact={true} component={BandFormPut} />
           <Route path='/bands/new' exact={true} component={BandFormPOST} />
+          <Route path='/bands/:bandId/newAlbum' exact={true} component={AlbumFormPost} />
         </Switch>
     </>
   );

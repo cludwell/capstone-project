@@ -137,7 +137,7 @@ export default function BandFormPOST() {
     )}
     </div>
 
-    <label className='post-band-label'>Genre</label>
+    <label className='post-band-label'>genre</label>
 
     <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'

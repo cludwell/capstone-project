@@ -54,7 +54,7 @@ export default function AlbumDetails() {
                 <p className='details-grey-text'>Streaming + Download</p>
 
                 <table className='album-track-table'>
-                    {album.Songs.map(s => (
+                    {album && album.Songs && album.Songs.length ? album.Songs.map(s => (
                         <tr>
 
                             <td></td>
@@ -67,7 +67,7 @@ export default function AlbumDetails() {
                                 modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
                             ) : null}</td>
                         </tr>
-                    ))}
+                    )) : null}
 
                 </table>
                 <p className='details-ownership-info'>Includes unlimited streaming via the free Bandcamp app, plus high-quality download in MP3, FLAC and more.</p>
