@@ -113,7 +113,7 @@ export default function AlbumDetails() {
             <p className='album-deets-city'>{album.Band.city}</p>
 
             {user && album.Band.userId === user.id && album.bandId === album.Band.id && (
-                <button className='band-deets-user-auth'>Edit Album</button>
+                <button className='band-deets-user-auth' onClick={editAlbum}>Edit Album</button>
             )}
 
             <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${album.Band.name.split(' ').join('%20')}`} >Facebook</a> </p>

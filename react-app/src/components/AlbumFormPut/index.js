@@ -4,8 +4,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { fetchBandInfo } from '../../store/bands';
 import { editAlbumRequest } from '../../store/albums';
 
-export default function AlbumFormPut({ album }) {
-    const { bandId } = useParams()
+export default function AlbumFormPut() {
+    const { albumId } = useParams()
     const dispatch = useDispatch();
     const [ name, setName ] = useState('')
     const [ description, setDescription ] = useState('')
@@ -26,7 +26,7 @@ export default function AlbumFormPut({ album }) {
         setErrors(err)
         return err
     }
-
+    const album = useSelector(state => state.albums.singleAlbum)
     useEffect(() => {
         setName(album && album.name ? album.name : '')
         setDescription(album && album.description ? album.description : '')
@@ -43,17 +43,18 @@ export default function AlbumFormPut({ album }) {
         else {
             const edittedAlbum = { name, price, album_image: albumImage, genre, band_id: parseInt(album.bandId), description }
             dispatch(editAlbumRequest(edittedAlbum, album.id))
+            dispatch(fetchBandInfo(album.bandId))
             history.push(`/bands/${album.bandId}`)
         }
     }
 
-    useEffect(() => {
-        dispatch(fetchBandInfo(bandId))
-    }, [dispatch, bandId])
+    // useEffect(() => {
+    //     dispatch(fetchBandInfo(album.bandId))
+    // }, [dispatch, album])
 
     const user = useSelector(state => state.session.user)
-    const band = useSelector(state => state.bands.singleBand)
-    console.log('band', band)
+    // const band = useSelector(state => state.bands.singleBand)
+    // console.log('band', band)
     if (!user ) return null
 
     return (
