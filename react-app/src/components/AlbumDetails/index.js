@@ -152,8 +152,7 @@ export default function AlbumDetails() {
                 <div className='details-discog-created'>{a.createdAt.slice(0, -12)}</div>
 
                 </div>
-                    )
-                ).slice(0,2)}
+                )).slice(0,2)}
                 <NavLink to={`/bands/${album.bandId}`}><p className='details-more-releases'>more releases...</p></NavLink>
             </div>
 
