@@ -3,6 +3,7 @@ import './AlbumFormPost.css'
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { fetchBandInfo } from '../../store/bands';
+import { createAlbumRequest } from '../../store/albums';
 
 export default function AlbumFormPost() {
     const { bandId } = useParams()
@@ -33,15 +34,16 @@ export default function AlbumFormPost() {
         setHasSubmitted(true)
         if (Object.values(errors).length) return alert('Please correct input errors')
         else {
-            const newAlbum = { name, price, album_image: albumImage, genre, band_id: bandId, description}
-            dispatch( (newAlbum))
+            const newAlbum = { name, price, album_image: albumImage, genre, band_id: parseInt(bandId), description }
+            dispatch(createAlbumRequest(newAlbum))
             history.push(`/bands/${bandId}`)
         }
     }
+
     useEffect(() => {
         dispatch(fetchBandInfo(bandId))
     }, [dispatch, bandId])
-    
+
     const user = useSelector(state => state.session.user)
     const band = useSelector(state => state.bands.singleBand)
 

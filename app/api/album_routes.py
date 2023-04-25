@@ -19,7 +19,8 @@ def get_all_albums():
                 s['User'] = get_sale_user(s)
                 del s['User']['address']
         return discog
-    if request.method == 'POST' and current_user.id:
+    if request.method == 'POST' and current_user:
+        print('=====================reaching request')
         form = PostAlbumForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if not form.validate_on_submit():
@@ -35,6 +36,7 @@ def get_all_albums():
             )
             db.session.add(new_album)
             db.session.commit()
+            print('===============END=OF=ROUTE')
             return new_album, 200
 
 @album_routes.route('/<int:album_id>', methods=['GET', 'DELETE'])

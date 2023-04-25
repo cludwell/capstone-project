@@ -39,11 +39,12 @@ export const fetchSingleAlbum = albumId => async dispatch => {
     }
 }
 export const createAlbumRequest = albumData => async dispatch => {
-    const response = await fetch(`/api/albums`,
+    const response = await fetch(`/api/albums/`,
     {"method": "POST",
     "headers": {"Content-Type": "application/json"},
     "body": JSON.stringify(albumData)})
     const newAlbum = await response.json()
+    console.log('=============thunk=============')
     if (response.ok) {
         dispatch(postAlbum(newAlbum))
         return newAlbum
