@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './AlbumDetails.css'
 import { useEffect, useRef, useState } from 'react'
-import { fetchAlbums, fetchSingleAlbum } from '../../store/albums'
+import { deleteAlbumRequest, fetchAlbums, fetchSingleAlbum } from '../../store/albums'
 import { useHistory, useParams } from 'react-router-dom'
 import { fetchUserPurchases } from '../../store/purchases'
 import OpenModalButton from '../OpenModalButton'
@@ -18,7 +18,6 @@ export default function AlbumDetails() {
     //modal components
     const [ showMenu, setShowMenu ] = useState(false)
     const ulRef = useRef();
-
     useEffect(() => {
         if (!showMenu) return;
         const closeMenu = e => {
@@ -53,7 +52,10 @@ export default function AlbumDetails() {
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
     }
-
+    const deleteAlbum = e => {
+        history.push(`/bands/${album.bandId}`)
+        dispatch(deleteAlbumRequest(album.id))
+    }
     const deleteWish = e => {
         dispatch(fetchWishLists())
         const wishId = wishes.find(w=> w.albumId === album.id).id
@@ -135,7 +137,10 @@ export default function AlbumDetails() {
             <p className='album-deets-city'>{album.Band.city}</p>
 
             {user && album.Band.userId === user.id && album.bandId === album.Band.id && (
+                <>
                 <button className='band-deets-user-auth' onClick={editAlbum}>Edit Album</button>
+                <button className='band-deets-user-auth' onClick={deleteAlbum}>Delete Album</button>
+                </>
             )}
 
             <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${album.Band.name.split(' ').join('%20')}`} >Facebook</a> </p>
