@@ -36,7 +36,7 @@
     font-weight: bold;
 }
 .user-deets-bands {
-    border: .1rem black solid;
+    /* border: .1rem black solid; */
     z-index: 2;
     margin: 4rem;
     font-weight: bold;
