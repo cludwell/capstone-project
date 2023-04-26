@@ -27,8 +27,8 @@ export const fetchPostWish = wish => async dispatch => {
     {"method": "POST",
     "headers": {"Content-Type": "application/json"},
     "body": JSON.stringify(wish)})
-    const newWish = await response.json()
     if (response.ok) {
+        const newWish = await response.json()
         dispatch(postWish(newWish))
         return newWish
     }
@@ -37,8 +37,8 @@ export const deleteWishRequest = wishId => async dispatch => {
     const response = await fetch(`/api/wishlists/${wishId}`,
         {"method": "DELETE",
         "headers": {"Content-Type": "application/json"}})
-    const deleted = await response.json()
-    if (response.ok) {
+        if (response.ok) {
+        const deleted = await response.json()
         dispatch(deleteWish(deleted))
         return deleted
     }
@@ -46,21 +46,23 @@ export const deleteWishRequest = wishId => async dispatch => {
 
 export const fetchWishLists = () => async dispatch => {
     const response = await fetch(`/api/wishlists/`)
-    const wishes = await response.json()
     if (response.ok) {
+        const wishes = await response.json()
         dispatch(loadWishes(wishes))
         return wishes
     }
 }
-const intitialState = {}
+const intitialState = {
+    userWishes: []
+}
 export default function wishReducer (state = intitialState, action) {
     switch (action.type) {
         case LOAD_WISHES:
-            return { ...state, userWishes : [ ...action.wishes]}
+            return { ...state, userWishes : [ ...state.userWishes, ...action.wishes]}
         case POST_WISH:
-            return { ...state, userWishes: [ action.wish, ...state.userWishes ] }
+            return { ...state, userWishes: [ ...state.userWishes, action.wish  ] }
         case DELETE_WISH:
-            const filtered = state && state.userWishes && state.userWishes.length ? state.userWishes.filter(w=> w.id !== action.wish.id) : []
+            const filtered =  state.userWishes.filter(w=> w.id !== action.wish.id)
             return { ...state, userWishes: filtered }
         default:
             return state
