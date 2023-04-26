@@ -42,7 +42,8 @@ export default function AlbumDetails() {
     const albums = useSelector(state => state.albums.allAlbums)
     const users = useSelector(state => state.users)
     const user = useSelector(state => state.session.user)
-    // console.log('================album', album)
+    const wishes = useSelector(state => state.wishes)
+    console.log('================wishes', wishes)
     // console.log('================band', band)
     // console.log('================user', user.name)
     // const userWishList = users && user && users[String(user.id)].WishList ?  users[String(user.id)].WishList : null

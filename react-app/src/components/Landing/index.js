@@ -7,6 +7,7 @@ import { fetchAllPurchases } from '../../store/purchases'
 import UpcomingLiveStream from '../UpcomingLiveStream'
 import { fetchUsers } from '../../store/users'
 import { NavLink } from 'react-router-dom'
+import { fetchWishLists } from '../../store/wishlists'
 
 export default function Landing() {
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ export default function Landing() {
         dispatch(fetchAlbums())
         dispatch(fetchAllPurchases())
         dispatch(fetchUsers())
+        dispatch(fetchWishLists())
     }, [dispatch])
 
     const albums = useSelector(state => state.albums.allAlbums)

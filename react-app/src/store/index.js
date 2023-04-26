@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   purchases: purchasesReducer,
   bands: bandReducer,
   users: userReducer,
-  wishs: wishReducer
+  wishes: wishReducer
 });
 
 
