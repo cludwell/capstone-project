@@ -71,7 +71,7 @@ function ProfileButton({ user }) {
             <hr></hr>
             <p>settings</p>
             <p>help</p>
-            <button onClick={handleLogout}>sign out</button>
+            <button onClick={handleLogout} className="band-deets-user-auth">sign out</button>
           </>
         ) : (
           <>
