@@ -2,6 +2,7 @@ const LOAD_ALBUMS = 'albums/LOAD_ALBUMS'
 const LOAD_ONE_ALBUM = 'albums/LOAD_ONE_ALBUM'
 const POST_ALBUM = 'albums/POST_ALBUM'
 const EDIT_ALBUM = 'albums/EDIT_ALBUM'
+const DELETE_ALBUM = 'albums/DELETE_ALBUM'
 //load all shops
 export const loadAlbums = albums => {
     return {
@@ -25,6 +26,12 @@ export const editAlbum = edittedAlbum => {
     return {
         type: EDIT_ALBUM,
         edittedAlbum
+    }
+}
+export const deleteAlbum = deleted => {
+    return {
+        type: DELETE_ALBUM,
+        deleted
     }
 }
 //thunk for loading all albums
@@ -67,7 +74,15 @@ export const editAlbumRequest = (albumData, albumId) => async dispatch => {
         return edittedAlbum
     }
 }
-
+export const deleteAlbumRequest = albumId => async dispatch => {
+    const response = await fetch(`/api/albums/${albumId}`,
+        {"method": "DELETE", "headers": {"Content-Type": "application/json"}})
+    const deleted = await response.json()
+    if (response.ok) {
+        dispatch(deleteAlbum(deleted))
+        return deleted
+    }
+}
 const initialState = {}
 //album reducer
 export default function albumReducer (state = initialState, action) {
@@ -80,6 +95,10 @@ export default function albumReducer (state = initialState, action) {
             return {...state, allAlbums: { ...action.newAlbum } }
         case EDIT_ALBUM:
             return { ...state, allAlbums: { ...action.edittedAlbum } }
+        case DELETE_ALBUM:
+            const withRecord = { ...state}
+            delete state.allAlbums[action.deleted.id]
+            return withRecord
         default: return state
     }
 }
