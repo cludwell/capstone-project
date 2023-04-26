@@ -30,7 +30,7 @@ export default function Landing() {
         ['tomorrow', '8:00 PM PST'],
         ['in two days', '7:00 PM PST'],
     ]
-    const wishes = useSelector(state => state.wishes)
+    // const wishes = useSelector(state => state.wishes)
     if (!albums || !Object.values(albums).length) return null
     // console.log('%%%%%%%%%%%%%%%%', albums)
 
