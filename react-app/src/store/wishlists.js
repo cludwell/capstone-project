@@ -34,10 +34,13 @@ export const fetchPostWish = wish => async dispatch => {
     }
 }
 export const deleteWishRequest = wishId => async dispatch => {
+    console.log('@@@@@@@@@WISH THUNK')
     const response = await fetch(`/api/wishlists/${wishId}`,
         {"method": "DELETE",
         "headers": {"Content-Type": "application/json"}})
+
         if (response.ok) {
+        console.log('=======DELETE RESPONSE=======')
         const deleted = await response.json()
         dispatch(deleteWish(deleted))
         return deleted
@@ -52,9 +55,11 @@ export const fetchWishLists = () => async dispatch => {
         return wishes
     }
 }
+
 const intitialState = {
-    userWishes: []
+    userWishes: [],
 }
+
 export default function wishReducer (state = intitialState, action) {
     switch (action.type) {
         case LOAD_WISHES:
@@ -62,7 +67,8 @@ export default function wishReducer (state = intitialState, action) {
         case POST_WISH:
             return { ...state, userWishes: [ ...state.userWishes, action.wish  ] }
         case DELETE_WISH:
-            const filtered =  state.userWishes.filter(w=> w.id !== action.wish.id)
+            console.log('==========in=wish=reducer', action.wish)
+            const filtered =  state.userWishes.filter(w=> w !== action.deleted)
             return { ...state, userWishes: filtered }
         default:
             return state

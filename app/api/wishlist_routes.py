@@ -6,6 +6,20 @@ from app.forms import WishListForm
 
 wishlist_routes = Blueprint('/wishlists', __name__)
 
+@wishlist_routes.route('/<int:wishlist_id>', methods=['DELETE'])
+def delete_from_wishlist(wishlist_id):
+    """remove a single item from a wishlist"""
+    item = WishList.query.get(wishlist_id)
+    if not item:
+        return {"error": "The requested record could not be found"}
+    if request.method == 'DELETE':
+        print('===============================DELETE')
+        if current_user.id != item.user_id:
+            return {"error": "Unauthorized request"}
+        db.session.delete(item)
+        db.session.commit()
+        return item.to_dict()
+
 @wishlist_routes.route('/', methods=['GET', 'DELETE', 'POST'])
 def get_wishlist():
     """get logged in users wishlists"""
@@ -38,16 +52,3 @@ def get_wishlist():
             db.session.add(new_wish)
             db.session.commit()
             return new_wish, 200
-
-@wishlist_routes.route('/<int:wishlist_id>', methods=['DELETE'])
-def delete_from_wishlist(wishlist_id):
-    """remove a single item from a wishlist"""
-    item = WishList.query.get(wishlist_id)
-    if not item:
-        return {"error": "The requested record could not be found"}
-    if request.method == 'DELETE':
-        if current_user != item.user_id:
-            return {"error": "Unauthorized request"}
-        db.session.delete(item)
-        db.session.commit()
-        return item.to_dict()

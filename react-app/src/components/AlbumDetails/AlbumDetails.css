@@ -63,3 +63,7 @@
     margin-top: 0rem;
     color:rgb(69, 69, 69);
 }
+.share-wishlist {
+    display: flex;
+    flex-direction: row;
+}

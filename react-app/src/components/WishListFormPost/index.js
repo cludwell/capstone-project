@@ -22,7 +22,7 @@ export default function WishListFormPost({ album }) {
     return (
         <div className='wishlist-post-form'>
             <span className='wish-list-post' onClick={handleSubmit}>
-            <i class="fa-regular fa-heart notwishlist-heart"></i>
+            <i className="fa-regular fa-heart notwishlist-heart"></i>
             </span>
         </div>
     )

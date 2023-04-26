@@ -9,7 +9,7 @@ import LyricsModal from '../LyricsModal'
 import { NavLink } from 'react-router-dom'
 import { fetchUsers } from '../../store/users'
 import WishListFormPost from '../WishListFormPost'
-import { deleteWishRequest } from '../../store/wishlists'
+import { deleteWishRequest, fetchWishLists } from '../../store/wishlists'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -36,13 +36,14 @@ export default function AlbumDetails() {
         dispatch(fetchUserPurchases())
         dispatch(fetchAlbums())
         dispatch(fetchUsers())
+        dispatch(fetchWishLists())
     }, [dispatch, albumId])
 
     const album = useSelector(state => state.albums.singleAlbum)
     const albums = useSelector(state => state.albums.allAlbums)
     const users = useSelector(state => state.users)
     const user = useSelector(state => state.session.user)
-    const wishes = useSelector(state => state.wishes)
+    const wishes = useSelector(state => state.wishes.userWishes)
     console.log('================wishes', wishes)
     // console.log('================band', band)
     // console.log('================user', user.name)
@@ -52,10 +53,13 @@ export default function AlbumDetails() {
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
     }
+
     const deleteWish = e => {
-        const wish = users[user.id].WishList.filter(w=> w.albumId === album.id)
-        console.log('=====================WISHID', wish)
-        dispatch(deleteWishRequest(wish[0].id))
+        dispatch(fetchWishLists())
+        const wishId = wishes.find(w=> w.albumId === album.id).id
+        console.log('=====================WISHID', wishId)
+        dispatch(deleteWishRequest(wishId))
+        dispatch(fetchUsers())
     }
     return (
         <div className='album-details-page'>
@@ -73,14 +77,15 @@ export default function AlbumDetails() {
                 <p className='details-grey-text'>Streaming + Download</p>
 
                 <table className='album-track-table'>
-                    {album && album.Songs && album.Songs.length ? album.Songs.map(s => (
-                <tr>
+                    {album && album.Songs && album.Songs.length ? album.Songs.map((s, i) => (
+                <tr key={`tr${i}`}>
 
-                <td></td>
-                <td>{s.trackNum}. </td>
-                <td>{s.name}</td>
-                <td>{s.lyrics ? (
+                <td key={`td${i}`}></td>
+                <td key={`td2${i}`}>{s.trackNum}. </td>
+                <td key={`td3${i}`}>{s.name}</td>
+                <td key={`td4${i}`}>{s.lyrics ? (
                 <OpenModalButton
+                key={`modallyric${i}`}
                 buttonText={'lyrics'}
                 onItemClick={closeMenu}
                 modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
@@ -109,7 +114,7 @@ export default function AlbumDetails() {
             ) : (
             <span onClick={deleteWish}>
             <i className="fa-solid fa-heart wished-for-list"/>
-                Wishlist</span>
+                WishList</span>
             )}
 
             </div>

@@ -20,8 +20,9 @@ export default function Landing() {
     }, [dispatch])
 
     const albums = useSelector(state => state.albums.allAlbums)
-    const state = useSelector(state => state)
-    console.log('STATE', state)
+    const user = useSelector(state => state.session.user)
+    // const state = useSelector(state => state)
+    // console.log('STATE', state)
     const livestreamTimes = [
         ['today', '6:00 PM PST'],
         ['today', '10:00 PM PST'],
@@ -29,11 +30,13 @@ export default function Landing() {
         ['tomorrow', '8:00 PM PST'],
         ['in two days', '7:00 PM PST'],
     ]
+    const wishes = useSelector(state => state.wishes)
     if (!albums || !Object.values(albums).length) return null
+    console.log('%%%%%%%%%%%%%%%%', wishes)
 
     return (
         <div className='landing-container'>
-            {!state.session.user ? (<div className='updated-use-terms'>We've updated our terms of use. Please sign in.</div>
+            {user ? (<div className='updated-use-terms'>We've updated our terms of use. Please sign in.</div>
             ) : null}
 
             {/* <h5 className='landing-banner-mid-sub'>DnD inspired fantasy metal</h5> */}
@@ -76,7 +79,7 @@ export default function Landing() {
             <div className='upcoming-live-streams-container'>
             {[albums['14'], albums['5'],  albums['7'], albums['11'], albums['15']].map((a,i) => (
                 a ? (
-                    <UpcomingLiveStream ele={livestreamTimes[i]} album={a} key={`livestream${i}`}/>
+                <UpcomingLiveStream ele={livestreamTimes[i]} album={a} key={`livestream${i}`}/>
                 ) : null
             ))}
             </div>
