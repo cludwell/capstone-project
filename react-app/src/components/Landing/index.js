@@ -36,7 +36,7 @@ export default function Landing() {
 
     return (
         <div className='landing-container'>
-            {user ? (<div className='updated-use-terms'>We've updated our terms of use. Please sign in.</div>
+            {!user ? (<div className='updated-use-terms'>We've updated our terms of use. Please sign in.</div>
             ) : null}
 
             {/* <h5 className='landing-banner-mid-sub'>DnD inspired fantasy metal</h5> */}
