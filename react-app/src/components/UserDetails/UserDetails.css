@@ -72,6 +72,7 @@
     position: relative;
     right: 3rem;
     transition: .2s ease-in-out;
+    margin-left: 35rem;
 }
 .create-band-button:hover {
     box-shadow: 0rem 0rem .5rem black;

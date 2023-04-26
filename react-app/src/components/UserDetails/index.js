@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import './UserDetails.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useRef, useState } from 'react'
@@ -11,6 +11,7 @@ export default function UserDetails() {
     const dispatch = useDispatch()
     //appearing collection/wishlist albums
     const [ showBody, setShowBody ] = useState(false)
+    const history = useHistory()
     const ulRef = useRef()
     const openBody = () => {
         if (showBody) return;
@@ -34,6 +35,9 @@ export default function UserDetails() {
     const user = users[userId]
     if (!user || !Object.values(user).length) return null
 
+    const startBand = e => {
+        history.push('/bands/new')
+    }
     return (
     <div className='user-details-container'>
 
@@ -47,7 +51,7 @@ export default function UserDetails() {
     <h2 className='user-details-business-title'>{user.username}</h2>
     <p className='user-details-location'>{user.city}, {user.state}</p>
     </div>
-    <button className='band-deets-user-auth create-band-button'>Start Band</button>
+    <button className=' create-band-button' onClick={startBand}>Start Band</button>
     </div>
     <div className='user-details-tabs'>
     <span className='user-details-collection' onClick={openBody} >collection {user.Purchases.length}</span>
