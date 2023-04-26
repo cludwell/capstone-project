@@ -67,7 +67,7 @@ function SignupFormModal() {
 		<label className="sign-up-label">name</label>
 
 		<div className="sign-up-col">
-		<input className="sign-up-input" type="text" value={name} onChange={e=> setName(e.target.value)} placeholder="name"></input>
+		<input className="sign-up-input" type="text" value={name} onChange={e=> setName(e.target.value)} ></input>
 		</div>
 
 		<label className="sign-up-label">email</label>

@@ -47,7 +47,7 @@ export default function AlbumDetails() {
     // console.log('================band', band)
     // console.log('================user', user.name)
     // const userWishList = users && user && users[String(user.id)].WishList ?  users[String(user.id)].WishList : null
-    if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users || !user || !Object.values(user).length) return null
+    if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
 
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
@@ -63,6 +63,7 @@ export default function AlbumDetails() {
         dispatch(deleteWishRequest(wishId))
         dispatch(fetchUsers())
     }
+    const pleaseLogin = e => alert('Please log in to create a wishlist!')
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
@@ -109,7 +110,13 @@ export default function AlbumDetails() {
             <img src={`${album.albumImage}`} alt='albumartwork' className='album-details-artwork'/>
             <div className='share-wishlist'>
                 <span></span>
-            {!users[user.id]?.WishList.some(w => w.albumId === album.id) ? (
+            {!user ? (
+             <span className='logged-out-wishlist' onClick={pleaseLogin}>
+             <i className="fa-regular fa-heart notwislist-list"/>
+            WishList
+             </span>
+
+            ) : user && !users[user.id]?.WishList.some(w => w.albumId === album.id) ? (
             <>
             <WishListFormPost album={album} />WishList
             </>
@@ -156,10 +163,11 @@ export default function AlbumDetails() {
 
             {Object.values(albums).filter(a=>a.bandId === album.bandId && a.id !== album.id).map((a,i) =>(
                 <div className='detail-discog-card'>
+                <NavLink to={`/albums/${a.id}`} style={{textDecoration: "none"}}>
                 <img src={`${a.albumImage}`} alt='otheralbums' key={`albumart${i}`} className='details-discog-image'></img>
 
-                <div className='detail-discog-link'><NavLink to={`/albums/${a.id}`}
-                        style={{textDecoration: "none"}}>{a.name}</NavLink></div>
+                <div className='detail-discog-link'>{a.name}</div>
+                </NavLink>
                 <div className='details-discog-created'>{a.createdAt.slice(0, -12)}</div>
 
                 </div>

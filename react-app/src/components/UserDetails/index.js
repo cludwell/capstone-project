@@ -50,6 +50,7 @@ export default function UserDetails() {
     <div className='user-details-business-card'>
     <h2 className='user-details-business-title'>{user.username}</h2>
     <p className='user-details-location'>{user.city}, {user.state}</p>
+    {}
     </div>
     <button className=' create-band-button' onClick={startBand}>Start Band</button>
     </div>

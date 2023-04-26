@@ -32,7 +32,7 @@ export default function Landing() {
     ]
     const wishes = useSelector(state => state.wishes)
     if (!albums || !Object.values(albums).length) return null
-    console.log('%%%%%%%%%%%%%%%%', albums)
+    // console.log('%%%%%%%%%%%%%%%%', albums)
 
     return (
         <div className='landing-container'>

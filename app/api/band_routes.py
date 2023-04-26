@@ -48,9 +48,12 @@ def bands_albums(band_id):
 
 
 
-@band_routes.route('/', methods=['POST'])
+@band_routes.route('/', methods=['POST', 'GET'])
 def post_band():
     """post a band"""
+    if request.method == 'GET':
+        bands = Band.query().all()
+        return {b.id: b.to_dict() for b in bands}, 200
     if request.method == 'POST' and current_user.id:
         form = PostBandForm()
         form['csrf_token'].data = request.cookies['csrf_token']

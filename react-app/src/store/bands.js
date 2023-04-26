@@ -2,6 +2,7 @@ const LOAD_BAND = 'bands/LOAD_BAND'
 const POST_BAND = 'bands/POST_BAND'
 const DELETE_BAND = 'bands/DELETE_BAND'
 const EDIT_BAND = 'bands/EDIT_BAND'
+const LOAD_ALL_BANDS = 'bands/LOAD_ALL_BANDS'
 //actions
 export const loadBandInfo = bandInfo => {
     return {
@@ -25,6 +26,12 @@ export const editBand = edittedBand => {
     return {
         type: EDIT_BAND,
         edittedBand
+    }
+}
+export const loadAllBands = bandData => {
+    return {
+        type: LOAD_ALL_BANDS,
+        bandData
     }
 }
 //get bandinfo thunk
@@ -76,7 +83,14 @@ export const editBandRequest = (data, bandId) => async dispatch => {
         return edittedBand
     }
 }
-
+export const loadBandRequest = () => async dispatch => {
+    const response = await fetch(`/api/bands/`)
+    const bandData = await response.json()
+    if (response.ok) {
+        dispatch(loadAllBands(bandData))
+        return bandData
+    }
+}
 const intitialState = {}
 
 export default function bandReducer (state = intitialState, action) {
@@ -84,12 +98,16 @@ export default function bandReducer (state = intitialState, action) {
         case LOAD_BAND:
             return {...state, singleBand: {...action.bandInfo}}
         case POST_BAND:
-            return {...state, singleBand: {...action.bandInfo}, allBands: {...action.bandInfo}}
+            return {...state, singleBand: {...action.bandInfo}, allBands: { [action.bandInfo.id]: action.bandInfo} }
         case DELETE_BAND:
-            const filtered = Object.values(state.allBands).filter(b=> b.id !== action.deleted.id)
-            return {...state, allBands: {...filtered}}
+            const modified = { ...state }
+            delete modified.allBands[action.deleted.id]
+            // const filtered = Object.values(state.allBands).filter(b=> b.id !== action.deleted.id)
+            return modified
         case EDIT_BAND:
-            return {...state, singleBand: action.edittedBand, allBands: {...action.edittedBand}}
+            return {...state, singleBand: action.edittedBand, allBands: { [action.edittedBand]: action.edittedBand}}
+        case LOAD_ALL_BANDS:
+            return { ...state, allBands: { ...action.bandData } }
         default: return state
     }
 }
