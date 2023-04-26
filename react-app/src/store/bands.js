@@ -83,7 +83,8 @@ export const editBandRequest = (data, bandId) => async dispatch => {
         return edittedBand
     }
 }
-export const loadBandRequest = () => async dispatch => {
+export const fetchAllBands = () => async dispatch => {
+    
     const response = await fetch(`/api/bands/`)
     const bandData = await response.json()
     if (response.ok) {

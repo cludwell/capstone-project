@@ -58,7 +58,7 @@ def seed_bands():
     )
 
     band06 = Band(
-        name='Eternal Champion', city='Austin', state='TX', country='USA', user_id=6,
+        name='Eternal Champion', city='Austin', state='TX', country='USA', user_id=9,
         artist_image='https://i.imgur.com/bvmKetU.jpg',
         banner_url='https://i.imgur.com/Ah3ena6.jpg',
         description=

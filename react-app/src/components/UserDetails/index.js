@@ -1,10 +1,11 @@
-import { useHistory, useParams } from 'react-router-dom'
+import { NavLink, useHistory, useParams } from 'react-router-dom'
 import './UserDetails.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useRef, useState } from 'react'
 import { fetchUserPurchases } from '../../store/purchases'
 import { fetchUsers } from '../../store/users'
 import UserDetailsAlbum from '../UserDetailsAlbum'
+import { fetchAllBands } from '../../store/bands'
 
 export default function UserDetails() {
     const { userId } = useParams()
@@ -30,14 +31,17 @@ export default function UserDetails() {
     useEffect(() => {
         dispatch(fetchUserPurchases(userId))
         dispatch(fetchUsers())
+        dispatch(fetchAllBands())
     }, [dispatch, userId])
     const users = useSelector(state => state.users)
     const user = users[userId]
+    const bands = useSelector(state => state.bands.allBands)
     if (!user || !Object.values(user).length) return null
 
     const startBand = e => {
         history.push('/bands/new')
     }
+    console.log('===============', bands)
     return (
     <div className='user-details-container'>
 
@@ -50,7 +54,17 @@ export default function UserDetails() {
     <div className='user-details-business-card'>
     <h2 className='user-details-business-title'>{user.username}</h2>
     <p className='user-details-location'>{user.city}, {user.state}</p>
-    {}
+
+    </div>
+    <div className='user-deets-bands'>
+        Member of
+    {bands && Object.values(bands).length ? (
+        Object.values(bands).filter(b=>b.userId === user.id).map((b, i) =>
+        <NavLink className='user-deets-band-iter' to={`/bands/${b.id}`}>
+        <div className='user-deets-band-iter' key={`iteratebands${i}`}>•{b.name}</div>
+        </NavLink>
+        )
+    ) : null}
     </div>
     <button className=' create-band-button' onClick={startBand}>Start Band</button>
     </div>

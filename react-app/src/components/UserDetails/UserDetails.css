@@ -30,8 +30,15 @@
     z-index: 100;
     /* margin-left: 5rem; */
 }
+
 .user-details-location{
     color:rgb(88, 88, 88);
+    font-weight: bold;
+}
+.user-deets-bands {
+    border: .1rem black solid;
+    z-index: 2;
+    margin: 4rem;
     font-weight: bold;
 }
 .user-details-collection-body {
@@ -72,7 +79,7 @@
     position: relative;
     right: 3rem;
     transition: .2s ease-in-out;
-    margin-left: 35rem;
+    /* margin-left: 35rem; */
 }
 .create-band-button:hover {
     box-shadow: 0rem 0rem .5rem black;

@@ -36,10 +36,15 @@ def seed_users():
         username='hexvessel', email='hexvessel@aa.io', password='password', name='Mathew Kvohst McNerney', address='unknown', city='Somewhere', state='In the woods', country='Finland',
         genre='rock, folk rock, occult, psychedelic folk', profile_pic='https://i.imgur.com/GrXRz7s.jpg'
     )
-
+    user09 = User(
+        username='eterchamp', email='eternchamp@aa.io', password='password', name='Jason Tarpey', address='unknown',
+        city='Austin', state='TX', country='USA',
+        genre='metal, fantasy metal', profile_pic='https://i.imgur.com/bvmKetU.jpg'
+    )
 
     db.session.add_all([
-        user01, user02, user03, user04, user05, user06, user07, user08])
+        user01, user02, user03, user04, user05, user06, user07, user08, user09
+        ])
     db.session.commit()
 
 
