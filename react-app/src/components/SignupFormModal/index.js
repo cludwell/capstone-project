@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 // import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import "./SignupForm.css";
+import { useModal } from "../../context/Modal";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
@@ -18,7 +19,8 @@ function SignupFormModal() {
   	const [ genre, setGenre ] = useState('')
   	const [ profilePic, setProfilePic ] = useState('')
   	const [ errors, setErrors ] = useState([]);
-
+	const [ hasSubmitted, setHasSubmitted ] = useState(false)
+	const { closeModal } = useModal()
 	const validate = () => {
 		const err = []
 		if (!name || name.length < 3 ) err.push('Please enter a name more than 3 characters')
@@ -27,25 +29,29 @@ function SignupFormModal() {
 		if ( password !== confirmPassword ) err.push('Password and password confirmation do not match')
 		if (!confirmPassword || confirmPassword.length < 6 ) err.push('Please enter a valid confirmation for password')
 		if (!address || address.length < 4) err.push('Please enter a valid street address')
-		if (!city || !city.length < 4) err.push('Please enter a valid city')
+		if (!city || city.length < 4) err.push('Please enter a valid city')
 		if (!state || state.length < 2) err.push('Please enter a valid state')
 		if (!country || country.length < 2) err.push('Please enter a valid country')
-		if (!genre || genre.length < 4) err.push('Please enter some interest genres')
-		if (!profilePic || profilePic.length < 10 || !profilePic.includes('www.')) err.push('Please enter valid image url')
+		if (!genre) err.push('Please enter some interest genres')
+		if (!profilePic || profilePic.length < 10) err.push('Please enter valid image url')
 		setErrors(err)
 		return err
 	}
-  	const handleSubmit = async (e) => {
+  	const handleSubmit = (e) => {
  	   e.preventDefault();
 	   validate()
+	   setHasSubmitted(true)
  	   if (!errors.length) {
- 	       const data = await dispatch(signUp(username, email, password));
+			const newUser = { name, email, username, password, address, city, state, country, genre, profile_pic: profilePic }
+ 	       const data = dispatch(signUp(newUser));
  	       if (data) {
  	         setErrors(data)
+			//   closeModal()
  	       }
  	   } else {
- 	       setErrors(['Confirm Password field must be the same as the Password field']);
+ 	       return alert('Please correct input errors');
  	   }
+	   closeModal()
 	  };
 
   return (
@@ -53,7 +59,7 @@ function SignupFormModal() {
       <h1 className="signup-title">Sign Up</h1>
       <form onSubmit={handleSubmit} className="signup-form">
         <ul>
-          {errors.map((error, idx) =>(
+          {hasSubmitted && errors.length && errors.map((error, idx) =>(
 		  <li className="errors" key={idx}>{error}</li>
 		  ))}
         </ul>

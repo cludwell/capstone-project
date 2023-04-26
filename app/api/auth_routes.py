@@ -41,7 +41,7 @@ def login():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
-        
+
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -66,7 +66,14 @@ def sign_up():
         user = User(
             username=form.data['username'],
             email=form.data['email'],
-            password=form.data['password']
+            password=form.data['password'],
+            name = form.data['name'],
+            address = form.data['address'],
+            city = form.data['city'],
+            state = form.data['state'],
+            country = form.data['country'],
+            genre = form.data['genre'],
+            profile_pic = form.data['profile_pic']
         )
         db.session.add(user)
         db.session.commit()

@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { fetchBandInfo } from '../../store/bands';
 import { editAlbumRequest } from '../../store/albums';
 
 export default function AlbumFormPut() {
-    const { albumId } = useParams()
+    // const { albumId } = useParams()
     const dispatch = useDispatch();
     const [ name, setName ] = useState('')
     const [ description, setDescription ] = useState('')

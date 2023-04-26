@@ -24,19 +24,6 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
-    # cart = db.relationship('Cart',
-    #     back_populates='users',
-    #     lazy='dynamic')
-    # purchased_albums = db.relationship('Album',
-    #     back_populates='purchases',
-    #     secondary=supporters,
-    #     lazy=True)
-    # wished_for_albums = db.relationship('Album',
-    #     back_populates='wish_lists',
-        # secondary=wished_for,
-        # lazy='dynamic')
-    # albums_released = db.relationship('Album', backref='users_releases', secondary='bands')
-    # wished_for_albums = db.relationship('Album', backref='wished_by_users', secondary='wish_lists', lazy='dynamic')
     carts = db.relationship('Cart', backref='users', lazy=True)
     wish_lists = db.relationship('WishList', backref='users', lazy=True)
     purchases = db.relationship('Purchase', backref='users', lazy=True)
@@ -69,3 +56,17 @@ class User(db.Model, UserMixin):
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
         }
+
+    # cart = db.relationship('Cart',
+    #     back_populates='users',
+    #     lazy='dynamic')
+    # purchased_albums = db.relationship('Album',
+    #     back_populates='purchases',
+    #     secondary=supporters,
+    #     lazy=True)
+    # wished_for_albums = db.relationship('Album',
+    #     back_populates='wish_lists',
+        # secondary=wished_for,
+        # lazy='dynamic')
+    # albums_released = db.relationship('Album', backref='users_releases', secondary='bands')
+    # wished_for_albums = db.relationship('Album', backref='wished_by_users', secondary='wish_lists', lazy='dynamic')
