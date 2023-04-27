@@ -21,6 +21,7 @@ function SignupFormModal() {
   	const [ errors, setErrors ] = useState([]);
 	const [ hasSubmitted, setHasSubmitted ] = useState(false)
 	const { closeModal } = useModal()
+
 	const validate = () => {
 		const err = []
 		if (!name || name.length < 3 ) err.push('Please enter a name more than 3 characters')
@@ -41,17 +42,15 @@ function SignupFormModal() {
  	   e.preventDefault();
 	   validate()
 	   setHasSubmitted(true)
+	   console.log('ERRORS', errors)
  	   if (!errors.length) {
 			const newUser = { name, email, username, password, address, city, state, country, genre, profile_pic: profilePic }
- 	       const data = dispatch(signUp(newUser));
- 	       if (data) {
- 	         setErrors(data)
-			//   closeModal()
- 	       }
+ 	       	const data = dispatch(signUp(newUser));
+ 	      	if (data) setErrors(data)
+ 	    	else closeModal()
  	   } else {
  	       return alert('Please correct input errors');
  	   }
-	   closeModal()
 	  };
 
   return (

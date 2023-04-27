@@ -59,11 +59,16 @@ export default function AlbumDetails() {
         history.push(`/bands/${album.bandId}`)
         dispatch(fetchBandInfo(album.bandId))
     }
+    console.log('================BEFOREDELETE', wishes)
+
     const deleteWish = async e => {
         // await dispatch(fetchWishLists())
+
         const wishId = wishes.find(w=> w.albumId === album.id && w.userId === user.id).id
         await dispatch(deleteWishRequest(wishId))
         await dispatch(fetchUsers())
+        await dispatch(fetchWishLists())
+        console.log('================WISHES', wishes)
     }
     const pleaseLogin = e => alert('Please log in to create a wishlist!')
     return (
@@ -113,21 +118,33 @@ export default function AlbumDetails() {
             <div className='share-wishlist'>
                 <span></span>
 
+
+
             {!user ? (
+                //if the user is not signed in, they should be prompted to sign in
              <span className='logged-out-wishlist' onClick={pleaseLogin}>
              <i className="fa-regular fa-heart notwislist-list"/>
             WishList
              </span>
-
-            ) : user && !users[user.id]?.WishList.some(w => w.albumId === album.id ) ? (
+                //
+            ) : user && users[user.id].Purchases.some(p => p.albumId === album.id ) ? (
+            //if user is signed in and owns item already
+            <span className='logged-out-wishlist'>
+            <i className="fa-solid fa-heart purchased-list"/>
+           You Own This
+            </span>
+            ) : user && !wishes.some(w=> w.albumId === album.id) ? (
             <>
             <WishListFormPost album={album} />WishList
             </>
-            ) : wishes && wishes.find(w=> w.albumId === album.id) ? (
+            ) : (
             <span onClick={deleteWish}>
             <i className="fa-solid fa-heart wished-for-list"/>
                 WishList</span>
-            ) : null}
+            )}
+
+
+
 
             </div>
             <div className='details-supporters'>

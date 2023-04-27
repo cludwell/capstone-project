@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './WishListFormPost.css'
-import { fetchPostWish } from '../../store/wishlists'
+import { fetchPostWish, fetchWishLists } from '../../store/wishlists'
 import { useEffect } from 'react'
 import { authenticate } from '../../store/session'
 import { fetchUsers } from '../../store/users'
@@ -12,11 +12,12 @@ export default function WishListFormPost({ album }) {
         dispatch(authenticate())
     }, [dispatch])
     const user = useSelector(state => state.session.user)
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault()
         const newWish = {user_id: user.id, album_id: album.id}
-        dispatch(fetchPostWish(newWish))
-        dispatch(fetchUsers())
+        await dispatch(fetchPostWish(newWish))
+        await dispatch(fetchUsers())
+        await dispatch(fetchWishLists())
     }
 
     return (

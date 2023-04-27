@@ -17,7 +17,7 @@ export default function AlbumFormPost() {
     const [ errors, setErrors ] = useState({})
     const history = useHistory()
 
-    const validate = () => {
+    useEffect(()=>{
         const err = {}
         if (!name || name.length < 3) err.name = 'Please enter a valid name, and of at least 3 characters.'
         if (!description || description.length < 30) err.description = 'Please enter a description of your album'
@@ -26,12 +26,13 @@ export default function AlbumFormPost() {
         if (!albumImage || albumImage.length < 20) err.albumImage = 'Please enter a valid image for your album'
         setErrors(err)
         return err
-    }
+    }, [name, description, genre, price, albumImage])
 
     const handleSubmit = e => {
         e.preventDefault()
-        validate()
+        // validate()
         setHasSubmitted(true)
+        console.log()
         if (Object.values(errors).length) return alert('Please correct input errors')
         else {
             const newAlbum = { name, price, album_image: albumImage, genre, band_id: parseInt(bandId), description }
@@ -60,7 +61,7 @@ export default function AlbumFormPost() {
         <div className='post-album-input-col'>
         <input className='post-album-input' type='text'
         value={name} onChange={e => setName(e.target.value)}></input>
-        {hasSubmitted && Object.values(errors).length ? (
+        {hasSubmitted && errors.name ? (
         <p className='errors'>{errors.name}</p>
             ) : (
         <p></p>
@@ -73,7 +74,7 @@ export default function AlbumFormPost() {
         <div className='post-album-input-col'>
         <textarea className='post-album-input textarea' type='textarea'
         value={description} onChange={e => setDescription(e.target.value)}></textarea>
-        {hasSubmitted && Object.values(errors).length ? (
+        {hasSubmitted && errors.description ? (
         <p className='errors'>{errors.description}</p>
             ) : (
         <p></p>
@@ -86,7 +87,7 @@ export default function AlbumFormPost() {
         <div className='post-album-input-col'>
         <input className='post-album-input' type='number' min={0}
         value={price} onChange={e => setPrice(e.target.value)}></input>
-        {hasSubmitted && Object.values(errors).length ? (
+        {hasSubmitted && errors.price ? (
         <p className='errors'>{errors.price}</p>
             ) : (
         <p></p>
@@ -99,7 +100,7 @@ export default function AlbumFormPost() {
         <div className='post-album-input-col'>
         <input className='post-album-input' type='text'
         value={albumImage} onChange={e => setAlbumImage(e.target.value)}></input>
-        {hasSubmitted && Object.values(errors).length ? (
+        {hasSubmitted && errors.albumImage ? (
         <p className='errors'>{errors.albumImage}</p>
             ) : (
         <p></p>
@@ -112,7 +113,7 @@ export default function AlbumFormPost() {
         <div className='post-album-input-col'>
         <input className='post-album-input' type='text'
         value={genre} onChange={e => setGenre(e.target.value)}></input>
-        {hasSubmitted && Object.values(errors).length ? (
+        {hasSubmitted && errors.genre ? (
         <p className='errors'>{errors.genre}</p>
             ) : (
         <p></p>

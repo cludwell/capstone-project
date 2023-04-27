@@ -68,7 +68,7 @@ export default function wishReducer (state = intitialState, action) {
         case POST_WISH:
             return { ...state, userWishes: [ ...state.userWishes, action.newWish  ] }
         case DELETE_WISH:
-            const filtered =  state.userWishes.filter(w=> w !== action.deleted)
+            const filtered =  state.userWishes.filter(w=> w.albumId !== action.deleted.albumId)
             return { ...state, userWishes: filtered }
         default:
             return state
