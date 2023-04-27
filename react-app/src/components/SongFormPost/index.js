@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { postSongRequest } from '../../store/songs'
 import { fetchSingleAlbum } from '../../store/albums'
+import { useModal } from '../../context/Modal'
 
 export default function SongFormPost() {
     const dispatch = useDispatch()
@@ -14,6 +15,7 @@ export default function SongFormPost() {
     const [ trackNum, setTrackNum ] = useState(0)
     const [ url, setUrl ] = useState('')
     const [ errors, setErrors ] = useState({})
+    const { closeModal } = useModal()
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
     const validate = () => {
         const err = {}
@@ -34,6 +36,7 @@ export default function SongFormPost() {
             const newSong = { name, lyrics, price, track_num: trackNum, url }
             dispatch(postSongRequest(newSong, albumId))
             dispatch(fetchSingleAlbum(albumId))
+            closeModal()
         }
     }
 
@@ -46,28 +49,17 @@ export default function SongFormPost() {
         <label className='post-song-label'>name</label>
 
         <div className='post-song-col'>
-        <input type='text' className='post-song-input'></input>
+        <input type='text' className='post-song-input' value={name} onChange={e => setName(e.target.value)}></input>
         {hasSubmitted && !Object.values(errors).length ? (
         <p className='errors'>{errors.name}</p>
         ) : (
         <p></p>
         )}
         </div>
-        <label className='post-song-label'>name</label>
+        <label className='post-song-label'>lyrics</label>
 
         <div className='post-song-col'>
-        <input type='text' className='post-song-input'></input>
-        {hasSubmitted && !Object.values(errors).length ? (
-        <p className='errors'>{errors.name}</p>
-        ) : (
-        <p></p>
-        )}
-        </div>
-
-        <label className='post-song-label'>name</label>
-
-        <div className='post-song-col'>
-        <input type='text' className='post-song-input'></input>
+        <textarea type='textarea' className='post-song-input' value={lyrics} onChange={e => setLyrics(e.target.value)}></textarea>
         {hasSubmitted && !Object.values(errors).length ? (
         <p className='errors'>{errors.name}</p>
         ) : (
@@ -75,10 +67,10 @@ export default function SongFormPost() {
         )}
         </div>
 
-        <label className='post-song-label'>name</label>
+        <label className='post-song-label'>price</label>
 
         <div className='post-song-col'>
-        <input type='text' className='post-song-input'></input>
+        <input type='text' className='post-song-input' value={price} onChange={e=> setPrice(e.target.value)}></input>
         {hasSubmitted && !Object.values(errors).length ? (
         <p className='errors'>{errors.name}</p>
         ) : (
@@ -89,7 +81,18 @@ export default function SongFormPost() {
         <label className='post-song-label'>name</label>
 
         <div className='post-song-col'>
-        <input type='text' className='post-song-input'></input>
+        <input type='text' className='post-song-input' value={trackNum} onChange={e=> setTrackNum(e.target.value)} min={0} max={100}></input>
+        {hasSubmitted && !Object.values(errors).length ? (
+        <p className='errors'>{errors.name}</p>
+        ) : (
+        <p></p>
+        )}
+        </div>
+
+        <label className='post-song-label'>name</label>
+
+        <div className='post-song-col'>
+        <input type='url' className='post-song-input' value={url} onChange={e=> setUrl(e.target.value)}></input>
         {hasSubmitted && !Object.values(errors).length ? (
         <p className='errors'>{errors.name}</p>
         ) : (
