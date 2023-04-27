@@ -99,7 +99,7 @@ export default function AlbumDetails() {
                     )) : null}
 
                 </table>
-                <p className='details-ownership-info'>Includes unlimited streaming via the free Bandcamp app, plus high-quality download in MP3, FLAC and more.</p>
+                <p className='details-ownership-info'>Includes unlimited streaming via the free fancamp app, plus high-quality download in MP3, FLAC and more.</p>
 
             </div>
 
