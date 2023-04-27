@@ -21,8 +21,6 @@ export default function Landing() {
 
     const albums = useSelector(state => state.albums.allAlbums)
     const user = useSelector(state => state.session.user)
-    // const state = useSelector(state => state)
-    // console.log('STATE', state)
     const livestreamTimes = [
         ['today', '6:00 PM PST'],
         ['today', '10:00 PM PST'],
@@ -32,7 +30,6 @@ export default function Landing() {
     ]
     // const wishes = useSelector(state => state.wishes)
     if (!albums || !Object.values(albums).length) return null
-    // console.log('%%%%%%%%%%%%%%%%', albums)
 
     return (
         <div className='landing-container'>
@@ -40,7 +37,6 @@ export default function Landing() {
             ) : null}
 
             {/* <h5 className='landing-banner-mid-sub'>DnD inspired fantasy metal</h5> */}
-
 
             <div className='landing-banner'>
 
@@ -91,8 +87,7 @@ export default function Landing() {
             {Object.values(albums).map((album,i)=> (
                 <NewAndNotable album={album} key={`a${i}`}
                 className={`new-notable-card${i}`}/>
-                // <p>{album.id}</p>
-            )).reverse().slice(0,5)}
+            )).sort((a,b)=> b.createdAt - a.createdAt).slice(0,5)}
             </div>
             </div>
         </div>

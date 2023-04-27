@@ -123,11 +123,11 @@ export default function AlbumDetails() {
             <>
             <WishListFormPost album={album} />WishList
             </>
-            ) : (
+            ) : wishes && wishes.find(w=> w.albumId === album.id) ? (
             <span onClick={deleteWish}>
             <i className="fa-solid fa-heart wished-for-list"/>
                 WishList</span>
-            )}
+            ) : null}
 
             </div>
             <div className='details-supporters'>
@@ -154,14 +154,13 @@ export default function AlbumDetails() {
                 <OpenModalSong
                 buttonText={'Add Song'}
                 onItemClick={closeMenu}
-
                 modalComponent={<SongFormPost albumId={albumId}/>} />
                 </div>
             )}
 
             <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${album.Band.name.split(' ').join('%20')}`} >Facebook</a> </p>
 
-            <p><a className='album-details-social-media' href={`https://www.instagram.com/explore/search/keyword/?q=${album.Band.name.split(' ').join('%20')}`}>Instagram</a></p>
+            {/* <p><a className='album-details-social-media' href={`https://www.instagram.com/explore/search/keyword/?q=${album.Band.name.split(' ').join('%20')}`}>Instagram</a></p> */}
 
             <p><a className='album-details-social-media' href={`https://www.youtube.com/results?search_query=${album.Band.name.split(' ').join('+')}`} >YouTube</a></p>
 

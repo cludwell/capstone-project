@@ -13,3 +13,9 @@
 .profile-dropdown {
     z-index: 101;
 }
+.sign-or-login {
+    display: flex;
+    flex-direction: row;
+    width: 8rem;
+    justify-content: space-between;
+}
