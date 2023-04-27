@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import './SongFormPost.css'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -6,9 +6,8 @@ import { postSongRequest } from '../../store/songs'
 import { fetchSingleAlbum } from '../../store/albums'
 import { useModal } from '../../context/Modal'
 
-export default function SongFormPost() {
+export default function SongFormPost({ albumId }) {
     const dispatch = useDispatch()
-    const { albumId } = useParams()
     const [ name, setName ] = useState('')
     const [ lyrics, setLyrics ] = useState('')
     const [ price, setPrice ] = useState(0)
@@ -31,9 +30,11 @@ export default function SongFormPost() {
         e.preventDefault();
         validate()
         setHasSubmitted(true)
+
         if (Object.values(errors).length) return alert('Please correct input errors')
         else {
-            const newSong = { name, lyrics, price, track_num: trackNum, url }
+            const newSong = { name, lyrics, price: parseFloat(price), track_num: parseInt(trackNum), url, album_id: parseInt(albumId) }
+            console.log('SONG', newSong)
             dispatch(postSongRequest(newSong, albumId))
             dispatch(fetchSingleAlbum(albumId))
             closeModal()
@@ -70,7 +71,7 @@ export default function SongFormPost() {
         <label className='post-song-label'>price</label>
 
         <div className='post-song-col'>
-        <input type='text' className='post-song-input' value={price} onChange={e=> setPrice(e.target.value)}></input>
+        <input type='number' className='post-song-input' value={price} onChange={e=> setPrice(e.target.value)}></input>
         {hasSubmitted && !Object.values(errors).length ? (
         <p className='errors'>{errors.name}</p>
         ) : (
@@ -81,7 +82,7 @@ export default function SongFormPost() {
         <label className='post-song-label'>track number</label>
 
         <div className='post-song-col'>
-        <input type='text' className='post-song-input' value={trackNum} onChange={e=> setTrackNum(e.target.value)} min={0} max={100}></input>
+        <input type='number' className='post-song-input' value={trackNum} onChange={e=> setTrackNum(e.target.value)} min={0} max={100}></input>
         {hasSubmitted && !Object.values(errors).length ? (
         <p className='errors'>{errors.name}</p>
         ) : (

@@ -51,7 +51,6 @@ export default function AlbumDetails() {
     // console.log('================user', user.name)
     // const userWishList = users && user && users[String(user.id)].WishList ?  users[String(user.id)].WishList : null
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
-
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
     }
@@ -60,10 +59,9 @@ export default function AlbumDetails() {
         history.push(`/bands/${album.bandId}`)
         dispatch(fetchBandInfo(album.bandId))
     }
-    const deleteWish = e => {
-        dispatch(fetchWishLists())
+    const deleteWish = async e => {
+        await dispatch(fetchWishLists())
         const wishId = wishes.find(w=> w.albumId === album.id).id
-        // console.log('=====================WISHID', wishId)
         dispatch(deleteWishRequest(wishId))
         dispatch(fetchUsers())
     }
@@ -84,7 +82,7 @@ export default function AlbumDetails() {
                 <p className='details-grey-text'>Streaming + Download</p>
 
                 <table className='album-track-table'>
-                    {album && album.Songs && album.Songs.length ? album.Songs.map((s, i) => (
+                    {album && album.Songs && album.Songs.length ? album.Songs.sort((a,b) => a.trackNum - b.trackNum).map((s, i) => (
                 <tr key={`tr${i}`}>
 
                 <td key={`td${i}`}></td>
@@ -155,7 +153,8 @@ export default function AlbumDetails() {
                 <OpenModalSong
                 buttonText={'Add Song'}
                 onItemClick={closeMenu}
-                modalComponent={<button><SongFormPost /></button>} />
+
+                modalComponent={<SongFormPost albumId={albumId}/>} />
                 </div>
             )}
 

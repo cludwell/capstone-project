@@ -8,4 +8,4 @@ class PostSongForm(FlaskForm):
     price = IntegerField('price')
     track_num = IntegerField('track_num', validators=[DataRequired()])
     url = StringField('url')
-    
+    album_id = IntegerField('album_id', validators=[DataRequired()])
