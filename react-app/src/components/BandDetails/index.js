@@ -17,7 +17,7 @@ export default function BandDetails() {
 
     const band = useSelector(state => state.bands.singleBand)
     const user = useSelector(state => state.session.user)
-    if (!band || !band.Albums.length) return null
+    if (!band) return null
 
     const addAlbum = e => {
         history.push(`/bands/${band.id}/newAlbum`)
@@ -33,7 +33,7 @@ export default function BandDetails() {
         <div className='band-deets-page'>
         <div className='band-details-container'>
         <div className='band-deets-iterated-albums'>
-        {band && band.Albums.length ? band.Albums.map(( a, i) => (
+        {band && band.Albums && band.Albums.length ? band.Albums.map(( a, i) => (
 
         <div className='band-deets-album-card' key={`card${i}`}>
         <NavLink to={`/albums/${a.id}`}>
@@ -43,7 +43,11 @@ export default function BandDetails() {
         {/* <p className='band-deets-album-title'></p> */}
         </div>
 
-        )) : null}
+        )) : (
+            <>
+            <h1>Share your music with the world! Post an album!</h1>
+            </>
+        )}
         </div>
         <div className='band-details-col'>
 

@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom'
 import { fetchUsers } from '../../store/users'
 import WishListFormPost from '../WishListFormPost'
 import { deleteWishRequest, fetchWishLists } from '../../store/wishlists'
+import { fetchBandInfo } from '../../store/bands'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -53,8 +54,9 @@ export default function AlbumDetails() {
         history.push(`/albums/${album.id}/edit`)
     }
     const deleteAlbum = e => {
-        history.push(`/bands/${album.bandId}`)
         dispatch(deleteAlbumRequest(album.id))
+        history.push(`/bands/${album.bandId}`)
+        dispatch(fetchBandInfo(album.bandId))
     }
     const deleteWish = e => {
         dispatch(fetchWishLists())
