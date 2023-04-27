@@ -44,9 +44,7 @@ export default function BandDetails() {
         </div>
 
         )) : (
-            <>
-            <h1>Share your music with the world! Post an album!</h1>
-            </>
+            <h2>Nothing here yet</h2>
         )}
         </div>
         <div className='band-details-col'>

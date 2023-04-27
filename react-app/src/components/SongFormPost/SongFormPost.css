@@ -1,0 +1,35 @@
+.post-song-input {
+    font-size: 4rem;
+    width: 25rem;
+}
+.post-song-form-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.post-song-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.post-song-title {
+    text-align: center;
+    color: rgb(0, 200, 200);
+
+}
+.post-song-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.post-song-submit {
+    background-color: rgb(0, 200, 200);
+    border:  none;
+    border-radius: .3rem;
+    color: white;
+    font-weight: bold;
+    transition: .2s ease-in-out;
+    width: 10rem;
+    padding: .2rem;
+    margin-top: 1rem;
+    text-align: center;
+}
