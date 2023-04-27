@@ -60,10 +60,10 @@ export default function AlbumDetails() {
         dispatch(fetchBandInfo(album.bandId))
     }
     const deleteWish = async e => {
-        await dispatch(fetchWishLists())
-        const wishId = wishes.find(w=> w.albumId === album.id).id
-        dispatch(deleteWishRequest(wishId))
-        dispatch(fetchUsers())
+        // await dispatch(fetchWishLists())
+        const wishId = wishes.find(w=> w.albumId === album.id && w.userId === user.id).id
+        await dispatch(deleteWishRequest(wishId))
+        await dispatch(fetchUsers())
     }
     const pleaseLogin = e => alert('Please log in to create a wishlist!')
     return (
@@ -112,13 +112,14 @@ export default function AlbumDetails() {
             <img src={`${album.albumImage}`} alt='albumartwork' className='album-details-artwork'/>
             <div className='share-wishlist'>
                 <span></span>
+
             {!user ? (
              <span className='logged-out-wishlist' onClick={pleaseLogin}>
              <i className="fa-regular fa-heart notwislist-list"/>
             WishList
              </span>
 
-            ) : user && !users[user.id]?.WishList.some(w => w.albumId === album.id) ? (
+            ) : user && !users[user.id]?.WishList.some(w => w.albumId === album.id ) ? (
             <>
             <WishListFormPost album={album} />WishList
             </>
