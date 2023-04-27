@@ -24,7 +24,7 @@ export const fetchUserPurchases = () => async dispatch => {
 }
 export const fetchAllPurchases = () => async dispatch => {
     const response = await fetch('/api/purchases/')
-    console.log('--------------------')
+    // console.log('--------------------')
     if (response.ok) {
         const purchases = await response.json()
         dispatch(loadAllPurchases(purchases))

@@ -58,8 +58,8 @@ export const startBand = bandInfo => async dispatch => {
         description,
         genres
     })})
-    const newBand = await response.json()
     if (response.ok) {
+        const newBand = await response.json()
         dispatch(postBand(bandInfo))
         return newBand
     }
@@ -67,8 +67,9 @@ export const startBand = bandInfo => async dispatch => {
 export const deleteBandCommand = bandId => async dispatch => {
     const response = await fetch(`/api/bands/${bandId}`,
         {"method": "DELETE", "headers": {"Content-Type": "application/json"}})
-    const deleted = await response.json()
+
     if (response.ok) {
+        const deleted = await response.json()
         dispatch(deleteBand(bandId))
         return deleted
     }
@@ -77,17 +78,16 @@ export const editBandRequest = (data, bandId) => async dispatch => {
     const response = await fetch(`/api/bands/${bandId}`,
         {"method": "PUT", "headers": {"Content-Type": "application/json"},
         "body": JSON.stringify(data)})
+        if (response.ok) {
         const edittedBand = await response.json()
-    if (response.ok) {
         dispatch(editBand(edittedBand))
         return edittedBand
     }
 }
 export const fetchAllBands = () => async dispatch => {
-    
     const response = await fetch(`/api/bands/`)
-    const bandData = await response.json()
     if (response.ok) {
+        const bandData = await response.json()
         dispatch(loadAllBands(bandData))
         return bandData
     }

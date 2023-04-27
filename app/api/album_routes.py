@@ -77,3 +77,28 @@ def get_album_by_id(album_id):
                 return album.to_dict(), 201
             else:
                 return {"error": "Unauthorized request."}
+
+@album_routes.route('/<int:album_id>/songs', methods=["PUT"])
+def create_song(album_id):
+    """post a song according to album id"""
+    if request.method == 'POST' and current_user.id:
+        album = Album.query.get(album_id)
+        band = Band.query.get(album.id)
+        if current_user.id != band.user_id:
+            return {"error": "Unauthorized request"}
+        else:
+            form = PostSongForm()
+            form['csrf_token'].data = request.cookies['csrf_token']
+            if form.validate_on_submit():
+                new_song = Song(
+                    name = form.data['name'],
+                    lyrics = form.data['lyrics'],
+                    price = form.data['price'],
+                    track_num = form.data['track_num'],
+                    url = form.data['url'],
+                    album_id = album_id
+                )
+            db.session.add(new_song)
+            db.session.commit()
+            return new_song.to_dict(), 201
+        
