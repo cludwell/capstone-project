@@ -11,6 +11,8 @@ import { fetchUsers } from '../../store/users'
 import WishListFormPost from '../WishListFormPost'
 import { deleteWishRequest, fetchWishLists } from '../../store/wishlists'
 import { fetchBandInfo } from '../../store/bands'
+import SongFormPost from '../SongFormPost'
+import OpenModalSong from '../OpenModalButton/OpenModalSong'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -146,10 +148,15 @@ export default function AlbumDetails() {
             <p className='album-deets-city'>{album.Band.city}</p>
 
             {user && album.Band.userId === user.id && album.bandId === album.Band.id && (
-                <>
+                <div className='user-auth-buttons'>
                 <button className='band-deets-user-auth' onClick={editAlbum}>Edit Album</button>
                 <button className='band-deets-user-auth' onClick={deleteAlbum}>Delete Album</button>
-                </>
+
+                <OpenModalSong
+                buttonText={'Add Song'}
+                onItemClick={closeMenu}
+                modalComponent={<button><SongFormPost /></button>} />
+                </div>
             )}
 
             <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${album.Band.name.split(' ').join('%20')}`} >Facebook</a> </p>

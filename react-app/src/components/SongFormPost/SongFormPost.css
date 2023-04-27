@@ -1,5 +1,5 @@
 .post-song-input {
-    font-size: 4rem;
+    font-size: 1.5rem;
     width: 25rem;
 }
 .post-song-form-grid {
@@ -10,11 +10,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2rem;
 }
 .post-song-title {
     text-align: center;
     color: rgb(0, 200, 200);
 
+}
+.post-song-label {
+    color: rgb(0, 200, 200);
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+.post-song-lyrics {
+    height: 6rem;
 }
 .post-song-col {
     display: flex;

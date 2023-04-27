@@ -59,7 +59,7 @@ export default function SongFormPost() {
         <label className='post-song-label'>lyrics</label>
 
         <div className='post-song-col'>
-        <textarea type='textarea' className='post-song-input' value={lyrics} onChange={e => setLyrics(e.target.value)}></textarea>
+        <textarea type='textarea' className='post-song-input post-song-lyrics' value={lyrics} onChange={e => setLyrics(e.target.value)}></textarea>
         {hasSubmitted && !Object.values(errors).length ? (
         <p className='errors'>{errors.name}</p>
         ) : (
@@ -78,7 +78,7 @@ export default function SongFormPost() {
         )}
         </div>
 
-        <label className='post-song-label'>name</label>
+        <label className='post-song-label'>track number</label>
 
         <div className='post-song-col'>
         <input type='text' className='post-song-input' value={trackNum} onChange={e=> setTrackNum(e.target.value)} min={0} max={100}></input>
@@ -89,7 +89,7 @@ export default function SongFormPost() {
         )}
         </div>
 
-        <label className='post-song-label'>name</label>
+        <label className='post-song-label'>url</label>
 
         <div className='post-song-col'>
         <input type='url' className='post-song-input' value={url} onChange={e=> setUrl(e.target.value)}></input>

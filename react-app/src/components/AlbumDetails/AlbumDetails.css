@@ -39,7 +39,7 @@
     width: 55rem;
     max-height: 20rem;
     object-fit: cover;
-    margin: 0rem;
+    margin-top: 1rem;
     border-radius: 1rem;
 }
 .details-band-name {
@@ -70,4 +70,8 @@
 }
 .logged-out-wishlist {
     cursor: pointer;
+}
+.user-auth-buttons {
+    display: flex;
+    flex-direction: column;
 }
