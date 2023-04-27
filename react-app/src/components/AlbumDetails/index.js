@@ -44,7 +44,7 @@ export default function AlbumDetails() {
     const users = useSelector(state => state.users)
     const user = useSelector(state => state.session.user)
     const wishes = useSelector(state => state.wishes.userWishes)
-    console.log('================wishes', wishes)
+    // console.log('================wishes', wishes)
     // console.log('================band', band)
     // console.log('================user', user.name)
     // const userWishList = users && user && users[String(user.id)].WishList ?  users[String(user.id)].WishList : null
@@ -61,7 +61,7 @@ export default function AlbumDetails() {
     const deleteWish = e => {
         dispatch(fetchWishLists())
         const wishId = wishes.find(w=> w.albumId === album.id).id
-        console.log('=====================WISHID', wishId)
+        // console.log('=====================WISHID', wishId)
         dispatch(deleteWishRequest(wishId))
         dispatch(fetchUsers())
     }

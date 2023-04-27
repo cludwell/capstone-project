@@ -6,6 +6,7 @@ import { fetchUserPurchases } from '../../store/purchases'
 import { fetchUsers } from '../../store/users'
 import UserDetailsAlbum from '../UserDetailsAlbum'
 import { fetchAllBands } from '../../store/bands'
+import { authenticate } from '../../store/session'
 
 export default function UserDetails() {
     const { userId } = useParams()
@@ -32,16 +33,19 @@ export default function UserDetails() {
         dispatch(fetchUserPurchases(userId))
         dispatch(fetchUsers())
         dispatch(fetchAllBands())
+        dispatch(authenticate())
     }, [dispatch, userId])
     const users = useSelector(state => state.users)
     const user = users[userId]
+    const loggedIn = useSelector(state => state.session.user)
     const bands = useSelector(state => state.bands.allBands)
     if (!user || !Object.values(user).length) return null
 
     const startBand = e => {
         history.push('/bands/new')
     }
-    console.log('===============', bands)
+    // console.log('===============', bands)
+
     return (
     <div className='user-details-container'>
 
@@ -66,7 +70,9 @@ export default function UserDetails() {
         )
     ) : null}
     </div>
+    {user && loggedIn && loggedIn.id === user.id ? (
     <button className=' create-band-button' onClick={startBand}>Start Band</button>
+    ) : null}
     </div>
     <div className='user-details-tabs'>
     <span className='user-details-collection' onClick={openBody} >collection {user.Purchases.length}</span>

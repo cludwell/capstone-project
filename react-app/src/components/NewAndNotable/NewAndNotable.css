@@ -22,7 +22,10 @@
     font-size: .8rem;
     overflow: wrap;
     color: black;
-    padding: .3rem;
+    /* padding: .3rem; */
+}
+.new-notable-desc {
+    margin: .2rem;
     overflow-wrap: break-word;
 }
 .new-notable-genre {
