@@ -15,6 +15,7 @@ import SongFormPost from '../SongFormPost'
 import OpenModalSong from '../OpenModalButton/OpenModalSong'
 import SongFormPut from '../SongFormPut'
 import SongDeleteModal from '../SongDeleteModal'
+import { fetchUserCart } from '../../store/carts'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -41,6 +42,7 @@ export default function AlbumDetails() {
         dispatch(fetchAlbums())
         dispatch(fetchUsers())
         dispatch(fetchWishLists())
+        dispatch(fetchUserCart())
     }, [dispatch, albumId])
 
     const album = useSelector(state => state.albums.singleAlbum)
@@ -48,8 +50,10 @@ export default function AlbumDetails() {
     const users = useSelector(state => state.users)
     const user = useSelector(state => state.session.user)
     const wishes = useSelector(state => state.wishes.userWishes)
-
+    const cart = useSelector(state => state.cart)
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
+
+    console.log('======================CART', cart)
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
     }
@@ -172,6 +176,8 @@ export default function AlbumDetails() {
 
 
             <div className='band-info-column'>
+
+            {}
             <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />
             <p className='album-deets-country'>{album.Band.country}</p>
             <p className='album-deets-city'>{album.Band.city}</p>
