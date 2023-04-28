@@ -4,7 +4,7 @@ export default function AboutPage() {
     return (
         <div className="about-page-container">
 
-
+        <h1>About the creator</h1>
         <section className="the-creator">
         <div className="about-text">
         <h1 className="about-title">Christian Ludwell
@@ -16,10 +16,10 @@ export default function AboutPage() {
         </Link>
         </h1>
         <h5>Javascript | SQL | HTML/CSS | Python | Express.js | Flask | Node.js | React.js | SQLAlchemy | Sequelize | Postgresql | Tailwind CSS</h5>
-        <p>I am a student at App Academy who is transitioning into a career of programming. My previous occupation was as a roof lead for residential solar installations.
+        <p>I am a student at App Academy who is transitioning into a career of programming. My previous occupation was as a roof lead for residential solar installations. I'm currently seeking employment and collaborations.
         </p>
         <p>When I am not working I am hopefully backpacking in a national forest or park or exploring a part of Mexico I've never been to. This photo here is from a trip I took to the King Range Conservation Area in Northern California, which is one of 20 black sand beaches in the world.</p>
-        <p>I'm currently located in Poartland, OR. But looking to relocate, given the right opportunity!</p>
+        <p>I'm currently located in Portland, OR. But looking to relocate, given the right opportunity!</p>
         </div>
         <img src="https://i.imgur.com/JVy6TbT.jpg" alt="selfie" className="about-me-image"/>
 
@@ -28,8 +28,8 @@ export default function AboutPage() {
         <img className="bandcamp-screenshot" src='https://i.imgur.com/YKuhXGy.png' alt="bandcamp-screen" />
         <div className="about-text">
         <h1 className="about-title">Why Bandcamp</h1>
-        <section>I've long been a user and fan of Bandcamps' platform. They're one of the many platforms that has leveled the playing field between the major record companies and independent artists trying to connect with their fans. Their business model differs from some of the streaming sites like Spotify in that they allow artists to name and set their own prices for their records which Bandcamp takes a fraction of. When you buy music on Bandcamp you own it inpertuity, at varying fidelities, even the highest on par with vinyl. </section>
-
+        <p>I've long been a user and fan of Bandcamps' platform. They're one of the many platforms that has leveled the playing field between the major record companies and independent artists trying to connect with their fans. Their business model differs from some of the streaming sites like Spotify in that they allow artists to name and set their own prices for their records which Bandcamp takes a fraction of. When you buy music on Bandcamp you own it inpertuity, at varying fidelities, even the highest flac files on par with vinyl. Imagine taking your vinyl records with you anywhere and never having to worry about them getting scratched or damaged in the heat.</p>
+        <p>In short, it's business model for enthusiasts that allows for more freedom for both artists and fans.</p>
         </div>
         </section>
         </div>

@@ -68,7 +68,7 @@ function ProfileButton({ user }) {
             <p>{user.email}</p>
             <NavLink to={`/users/${user.id}`} style={{textDecoration: "none"}}>purchases</NavLink>
             <hr></hr>
-            <p>settings</p>
+            <NavLink to={`/about`} style={{textDecoration: "none"}}>About Fancamp</NavLink>
             <p>help</p>
             <button onClick={handleLogout} className="band-deets-user-auth">sign out</button>
           </>
