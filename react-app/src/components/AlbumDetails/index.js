@@ -57,14 +57,12 @@ export default function AlbumDetails() {
         history.push(`/bands/${album.bandId}`)
         dispatch(fetchBandInfo(album.bandId))
     }
-    console.log('================BEFOREDELETE', wishes)
 
     const deleteWish = async e => {
         const wishId = wishes.find(w=> w.albumId === album.id && w.userId === user.id).id
         await dispatch(deleteWishRequest(wishId))
         await dispatch(fetchUsers())
         await dispatch(fetchWishLists())
-        console.log('================WISHES', wishes)
     }
     const pleaseLogin = e => alert('Please log in to create a wishlist!')
     return (
@@ -101,7 +99,7 @@ export default function AlbumDetails() {
                     key={`modaleditsong${i}`}
                     buttonText={'Edit'}
                     onItemClick={closeMenu}
-                    modalComponent={<SongFormPut album={album} song= {s} />} />
+                    modalComponent={<SongFormPut albumId={album.id} song= {s} />} />
                 ) : null}
                 </tr>
                     )) : null}
