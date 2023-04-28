@@ -82,3 +82,7 @@
     font-size: 1.3rem;
     color: red;
 }
+.user-auth-song {
+    width: 1.5rem;
+    justify-content: end;
+}

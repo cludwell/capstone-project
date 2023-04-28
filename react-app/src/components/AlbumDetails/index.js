@@ -14,6 +14,7 @@ import { fetchBandInfo } from '../../store/bands'
 import SongFormPost from '../SongFormPost'
 import OpenModalSong from '../OpenModalButton/OpenModalSong'
 import SongFormPut from '../SongFormPut'
+import SongDeleteModal from '../SongDeleteModal'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -95,11 +96,22 @@ export default function AlbumDetails() {
                 modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
                 ) : null}</td>
                 {user && album.Band.userId === user.id ? (
+                    <>
+                    <td key={`edit${i}`} className='user-auth-song'>
                     <OpenModalButton
                     key={`modaleditsong${i}`}
-                    buttonText={'Edit'}
+                    buttonText={<i className="fa-solid fa-pen-to-square"></i>}
                     onItemClick={closeMenu}
                     modalComponent={<SongFormPut albumId={album.id} song= {s} />} />
+                    </td>
+                    <td key={`del${i}`} className='user-auth-song'>
+                    <OpenModalButton
+                    key={`modaldeletesong${i}`}
+                    buttonText={<i className="fa-solid fa-trash-can"></i>}
+                    onItemClick={closeMenu}
+                    modalComponent={<SongDeleteModal album={album} song={s} />} />
+                    </td>
+                    </>
                 ) : null}
                 </tr>
                     )) : null}
