@@ -104,3 +104,24 @@ def create_song(album_id):
             db.session.commit()
             print('=================SUCCESS', new_song.to_dict())
             return new_song.to_dict(), 201
+
+@album_routes.route('/<int:album_id>/songs/<int:song_id>', methods=['PUT'])
+def edit_or_delete_song(album_id, song_id):
+    """edit or delete song by id"""
+    song = Song.query.get(song_id)
+    album = Album.query.get(album_id)
+    band = Band.query.get(album.band_id)
+    if request.method == 'PUT':
+        if current_user.id == band.user_id:
+            form = PostSongForm()
+            if form.validate_on_submit():
+                song.name = form.data['name']
+                song.lyrics = form.data['lyrics']
+                song.price = form.data['price']
+                song.track_num = form.data['track_num']
+                song.url = form.data['url']
+                song.album_id = album_id
+                db.session.commit()
+                return song.to_dict()
+        else:
+            return {"error": "Unauthorized request"}, 401
