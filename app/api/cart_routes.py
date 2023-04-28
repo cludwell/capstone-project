@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request, redirect
 from app.models import Album, User, Cart, db, Band
 from flask_login import current_user, login_required
 from .router_helpers import get_album_info, get_band_info
-
+from app.forms import CartForm
 cart_routes = Blueprint('/carts', __name__)
 
 
@@ -23,6 +23,21 @@ def get_users_cart():
             db.session.delete(c)
         db.session.commit()
         return {"message": "Your cart has been emptied"}
+    if request.method == 'POST':
+        if not current_user:
+            return {"error": "You are not authorized for this request"}
+        form = CartForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if not form.validate_on_submit():
+            return form.errors, 404
+        else:
+            new_cart = Cart(
+                user_id = current_user.id,
+                album_id = form.data['album_id']
+            )
+            db.session.add(new_song)
+            db.session.commit()
+            return new_cart, 200
 
 @cart_routes.route('/<int:cart_id>', methods=['DELETE'])
 def remove_from_cart(cart_id):

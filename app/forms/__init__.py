@@ -4,3 +4,4 @@ from .PostBandForm import PostBandForm
 from .PostAlbumForm import PostAlbumForm
 from .PostSongForm import PostSongForm
 from .WishListForm import WishListForm
+from .CartForm import CartForm
