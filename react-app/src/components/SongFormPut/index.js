@@ -19,25 +19,25 @@ export default function SongFormPut({ albumId, song }) {
         if (!name) err.name = 'Please enter a title for your song'
         if (!price || price < 0 || price > 100) err.price = 'Please enter a realistic price for your song'
         if (!trackNum || trackNum < 0  || trackNum > 100) err.trackNum = 'Please keep track numbers between 0 and 100'
-        if (!url) err.url = 'Please provide a path to upload your song'
+        // if (!url) err.url = 'Please provide a path to upload your song'
         setErrors(err)
         return err
     }, [name, price, trackNum, url])
 
     useEffect(()=>{
-        dispatch(fetchSingleAlbum(album.id))
-    }, [dispatch, album])
-    const albumState = useSelector(state => state.albums.singlAlbum)
-    const songState = albumState.Songs.find(s.id === song.id)
+        dispatch(fetchSingleAlbum(albumId))
+    }, [dispatch, albumId])
+
+    // const albumState = useSelector(state => state.albums.singlAlbum)
+    // const song = albumState.Songs.find(s=> s.id === song.id)
 
     useEffect(() => {
-        setName(songState && songState.name ? songState.name : '')
-        setLyrics(songState && songState.lyrics ? songState.lyrics : '')
-        setPrice(songState && songState.price ? songState.price : '')
-        setTrackNum(songState && songState.trackNum ? songState.trackNum : '')
-        setUrl(songState && songState.url ? songState.url : '')
-
-    }, [songState])
+        setName(song && song.name ? song.name : '')
+        setLyrics(song && song.lyrics ? song.lyrics : '')
+        setPrice(song && song.price ? song.price : '')
+        setTrackNum(song && song.trackNum ? song.trackNum : '')
+        setUrl(song && song.url ? song.url : '')
+    }, [song])
 
     const handleSubmit = e => {
         e.preventDefault();

@@ -13,6 +13,7 @@ import { deleteWishRequest, fetchWishLists } from '../../store/wishlists'
 import { fetchBandInfo } from '../../store/bands'
 import SongFormPost from '../SongFormPost'
 import OpenModalSong from '../OpenModalButton/OpenModalSong'
+import SongFormPut from '../SongFormPut'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -46,10 +47,7 @@ export default function AlbumDetails() {
     const users = useSelector(state => state.users)
     const user = useSelector(state => state.session.user)
     const wishes = useSelector(state => state.wishes.userWishes)
-    // console.log('================wishes', wishes)
-    // console.log('================band', band)
-    // console.log('================user', user.name)
-    // const userWishList = users && user && users[String(user.id)].WishList ?  users[String(user.id)].WishList : null
+
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
@@ -62,8 +60,6 @@ export default function AlbumDetails() {
     console.log('================BEFOREDELETE', wishes)
 
     const deleteWish = async e => {
-        // await dispatch(fetchWishLists())
-
         const wishId = wishes.find(w=> w.albumId === album.id && w.userId === user.id).id
         await dispatch(deleteWishRequest(wishId))
         await dispatch(fetchUsers())
@@ -100,6 +96,13 @@ export default function AlbumDetails() {
                 onItemClick={closeMenu}
                 modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
                 ) : null}</td>
+                {user && album.Band.userId === user.id ? (
+                    <OpenModalButton
+                    key={`modaleditsong${i}`}
+                    buttonText={'Edit'}
+                    onItemClick={closeMenu}
+                    modalComponent={<SongFormPut album={album} song= {s} />} />
+                ) : null}
                 </tr>
                     )) : null}
 
