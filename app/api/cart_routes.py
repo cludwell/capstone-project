@@ -35,7 +35,7 @@ def get_users_cart():
                 user_id = current_user.id,
                 album_id = form.data['album_id']
             )
-            db.session.add(new_song)
+            db.session.add(new_cart)
             db.session.commit()
             return new_cart, 200
 

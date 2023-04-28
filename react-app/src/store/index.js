@@ -7,6 +7,7 @@ import bandReducer from './bands';
 import userReducer from './users';
 import wishReducer from './wishlists';
 import songReducer from './songs';
+import cartReducer from './carts';
 
 const rootReducer = combineReducers({
   session,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   bands: bandReducer,
   users: userReducer,
   wishes: wishReducer,
-  songs: songReducer
+  songs: songReducer,
+  cart: cartReducer
 });
 
 
