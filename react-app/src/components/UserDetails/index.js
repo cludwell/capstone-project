@@ -15,7 +15,6 @@ export default function UserDetails() {
     const [ showBody, setShowBody ] = useState(false)
     const history = useHistory()
     const ulRef = useRef()
-    const [ selectCollection, setSelectCollection ] = useState(true)
 
     const openBody = () => {
         if (showBody) return;

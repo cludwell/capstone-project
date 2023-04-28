@@ -1,8 +1,14 @@
+/* .user-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
 .user-details-header {
     height: 20rem;
     align-items: center;
     /* margin: 5rem; */
 }
+
 .user-details-header-accent {
     position: absolute;
     background-color: skyblue;
@@ -15,7 +21,7 @@
 .user-details-profile-pic {
     height: 13rem;
     width: 13rem;
-    left: 8rem;
+    /* left: 8rem; */
     top: 5rem;
     object-fit: cover;
     z-index: 1;
