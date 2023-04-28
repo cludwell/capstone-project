@@ -68,7 +68,7 @@ export default function Landing() {
             </div>
 
             <h3 className='fans-have-paid'>✨Fans have paid artists billions using fancamp, and $190 billion in the last year✨</h3>
-
+            <div className='landing-body'>
             <div className='centering-div'>
 
             <h5 className='new-notable-title'>UPCOMING FANCAMP LIVE STREAMS</h5>
@@ -82,12 +82,15 @@ export default function Landing() {
             </div>
 
             <div className='centering-div'>
+
             <h5 className='new-notable-title'>NEW AND NOTABLE</h5>
+
             <div className='new-and-notable-container'>
             {Object.values(albums).map((album,i)=> (
                 <NewAndNotable album={album} key={`a${i}`}
                 className={`new-notable-card${i}`}/>
             )).sort((a,b)=> b.createdAt - a.createdAt).slice(0,5)}
+            </div>
             </div>
             </div>
         </div>
