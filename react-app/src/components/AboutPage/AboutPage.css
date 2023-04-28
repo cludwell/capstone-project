@@ -11,7 +11,7 @@
 .the-creator {
     display: flex;
     flex-direction: row;
-    margin-top: 4rem;
+    margin-top: 2rem;
     width: 55rem;
 }
 .github-icon,
@@ -20,6 +20,12 @@
     width: 2rem;
     object-fit: cover;
     margin-left: 1rem;
+    transition: .2s ease-in-out;
+    border-radius: .3rem;
+}
+.github-icon:hover,
+.linkedin-icon:hover {
+    box-shadow: 0rem 0rem .5rem black;
 }
 .about-me-image {
     height: 30rem;
