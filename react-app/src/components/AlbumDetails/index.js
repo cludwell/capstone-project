@@ -52,10 +52,10 @@ export default function AlbumDetails() {
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
     }
-    const deleteAlbum = e => {
-        dispatch(deleteAlbumRequest(album.id))
+    const deleteAlbum = async e => {
+        await dispatch(deleteAlbumRequest(album.id))
+        await dispatch(fetchBandInfo(album.bandId))
         history.push(`/bands/${album.bandId}`)
-        dispatch(fetchBandInfo(album.bandId))
     }
 
     const deleteWish = async e => {

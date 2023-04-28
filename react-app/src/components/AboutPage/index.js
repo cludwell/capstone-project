@@ -16,7 +16,7 @@ export default function AboutPage() {
         </Link>
         </h1>
         <h5>Javascript | SQL | HTML/CSS | Python | Express.js | Flask | Node.js | React.js | SQLAlchemy | Sequelize | Postgresql | Tailwind CSS</h5>
-        <p>I am a student at App Academy who is transitioning into a career of programming. My previous occupation was as a roof lead for residential solar installations. I'm currently seeking employment and collaborations.
+        <p>I am a student at App Academy who is transitioning into a career as a Software Engineer. My previous occupation was as a roof lead for residential solar installations. I'm currently seeking employment and collaborations.
         </p>
         <p>When I am not working I am hopefully backpacking in a national forest or park or exploring a part of Mexico I've never been to. This photo here is from a trip I took to the King Range Conservation Area in Northern California, which is one of 20 black sand beaches in the world.</p>
         <p>I'm currently located in Portland, OR. But looking to relocate, given the right opportunity!</p>
