@@ -3,6 +3,11 @@
     flex-direction: column;
     align-items: center;
 }
+.about-page-container > h1,
+.about-title {
+    font-family: 'Libre Baskerville', serif;
+
+}
 .the-creator {
     display: flex;
     flex-direction: row;
