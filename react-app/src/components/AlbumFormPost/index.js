@@ -17,9 +17,9 @@ export default function AlbumFormPost() {
     const [ errors, setErrors ] = useState({})
     const history = useHistory()
 
-    useEffect(()=>{
+    useEffect(()=> {
         const err = {}
-        if (!name || name.length < 3) err.name = 'Please enter a valid name, and of at least 3 characters.'
+        if (!name || name.length < 3 || name.length > 40) err.name = 'Please enter a valid name, between 3 and 40 characters.'
         if (!description || description.length < 30) err.description = 'Please enter a description of your album'
         if (!genre || genre.length < 3) err.genres = 'Please enter some genres your album could be categorized under'
         if (!price || price < 0) err.price = 'Please enter a valid price for your album'
@@ -32,7 +32,6 @@ export default function AlbumFormPost() {
         e.preventDefault()
         // validate()
         setHasSubmitted(true)
-        console.log()
         if (Object.values(errors).length) return alert('Please correct input errors')
         else {
             const newAlbum = { name, price, album_image: albumImage, genre, band_id: parseInt(bandId), description }
@@ -54,7 +53,7 @@ export default function AlbumFormPost() {
         <div className='album-post-form-container'>
         <h1 className='album-post-title'>your new album</h1>
         <div className='album-post-wrapper'>
-        <form className='album-post-form'>
+        <form className='album-post-form' onSubmit={handleSubmit}>
 
         <label className='post-album-label'>name</label>
 

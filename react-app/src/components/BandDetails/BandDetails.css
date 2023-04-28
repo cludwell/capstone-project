@@ -51,4 +51,5 @@
 }
 .band-deets-bandname {
     font-weight: bold;
+    overflow-wrap: anywhere;
 }

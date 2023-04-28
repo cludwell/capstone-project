@@ -127,9 +127,9 @@ export default function AlbumDetails() {
             WishList
              </span>
                 //
-            ) : user && users[user.id].Purchases.some(p => p.albumId === album.id ) ? (
+            ) : user && users[user.id].Purchases && users[user.id].Purchases.some(p => p.albumId === album.id ) ? (
             //if user is signed in and owns item already
-            <span className='logged-out-wishlist'>
+            <span>
             <i className="fa-solid fa-heart purchased-list"/>
            You Own This
             </span>

@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import './BandFormPOST.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { startBand } from '../../store/bands'
 
 export default function BandFormPOST() {
@@ -19,23 +19,22 @@ export default function BandFormPOST() {
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
     const user = useSelector(state => state.session.user)
     const history = useHistory()
-    const validate = () => {
+    useEffect(() => {
         const err = {}
-        if (!name || name.length < 3) err.name = 'Please enter a valid name, and of at least 3 characters.'
-        if (!city || city.length < 3) err.city = 'Please enter a valid city. It helps local fans find you'
-        if (!state || state.length < 2) err.state = 'Please enter a valid state, it helps local fans find you'
-        if (!country || country.length < 2) err.country = 'Please enter a valid country'
-        if (artistImage.length < 20) err.artistImage = 'Please enter a valid image url'
-        if (bannerUrl.length < 20) err.bannerUrl = 'Please enter a valid image url'
-        if (!description || description.length < 30) err.description = 'Please enter a description of your band'
-        if (!genres || genres.length < 3) err.genres = 'Please enter some genres you could be categorized under'
+        if (!name || name.length < 3 || name.length >40) err.name = 'Please enter a valid name, between 3 and 40 characters.'
+        if (!city || city.length < 3) err.city = 'Please enter a valid city. It helps local fans find you.'
+        if (!state || state.length < 2) err.state = 'Please enter a valid state, it helps local fans find you.'
+        if (!country || country.length < 2) err.country = 'Please enter a valid country.'
+        if (artistImage.length < 20) err.artistImage = 'Please enter a valid image url.'
+        if (bannerUrl.length < 20) err.bannerUrl = 'Please enter a valid image url.'
+        if (!description || description.length < 30) err.description = 'Please enter a description of your band.'
+        if (!genres || genres.length < 3) err.genres = 'Please enter some genres you could be categorized under.'
         setErrors(err)
         return err
-    }
+    }, [name, city, state, country, artistImage, bannerUrl, description, genres])
 
     const handleSubmit = e => {
         e.preventDefault();
-        validate()
         setHasSubmitted(true)
         if (Object.values(errors).length) return alert('Please correct errors')
         else {
@@ -51,7 +50,7 @@ export default function BandFormPOST() {
     <h3 className='post-band-title'>your new band</h3>
 
     <div className='post-band-form-container'>
-    <form className='post-band-form'>
+    <form className='post-band-form' onSubmit={handleSubmit}>
 
     <label className='post-band-label'>name</label>
 

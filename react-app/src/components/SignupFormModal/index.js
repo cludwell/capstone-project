@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 // import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
@@ -22,9 +22,9 @@ function SignupFormModal() {
 	const [ hasSubmitted, setHasSubmitted ] = useState(false)
 	const { closeModal } = useModal()
 
-	const validate = () => {
+	useEffect(() => {
 		const err = []
-		if (!name || name.length < 3 ) err.push('Please enter a name more than 3 characters')
+		if (!name || name.length < 3 || name.length > 50) err.push('Please enter a name between 3 and 50 characters')
 		if (!email || !email.includes('@')) err.push('Please enter a valid email')
 		if (!password || password.length < 6) err.push('Please enter a valid password')
 		if ( password !== confirmPassword ) err.push('Password and password confirmation do not match')
@@ -37,10 +37,9 @@ function SignupFormModal() {
 		if (!profilePic || profilePic.length < 10) err.push('Please enter valid image url')
 		setErrors(err)
 		return err
-	}
+	}, [name, email, password, confirmPassword, address, city, state, country, genre, profilePic])
   	const handleSubmit = (e) => {
  	   e.preventDefault();
-	   validate()
 	   setHasSubmitted(true)
 	   console.log('ERRORS', errors)
  	   if (!errors.length) {

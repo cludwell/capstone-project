@@ -21,9 +21,10 @@ export default function BandFormPut() {
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
     const user = useSelector(state => state.session.user)
     const history = useHistory()
-    const validate = () => {
+
+    useEffect(() => {
         const err = {}
-        if (!name || name.length < 3) err.name = 'Please enter a valid name, and of at least 3 characters.'
+        if (!name || name.length < 3 || name.length >40) err.name = 'Please enter a valid name, between 3 and 40 characters.'
         if (!city || city.length < 3) err.city = 'Please enter a valid city. It helps local fans find you'
         if (!state || state.length < 2) err.state = 'Please enter a valid state, it helps local fans find you'
         if (!country || country.length < 2) err.country = 'Please enter a valid country'
@@ -33,7 +34,7 @@ export default function BandFormPut() {
         if (!genres || genres.length < 3) err.genres = 'Please enter some genres you could be categorized under'
         setErrors(err)
         return err
-    }
+    }, [name, city, state, country, artistImage, bannerUrl, description, genres])
 
     useEffect(() => {
         setName(bandState && bandState.name ? bandState.name : '')
@@ -49,12 +50,10 @@ export default function BandFormPut() {
 
     const handleSubmit = e => {
         e.preventDefault();
-        validate()
         setHasSubmitted(true)
         if (Object.values(errors).length) return alert('Please correct errors')
         else {
             const data = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
-            console.log('--------in form------------', data)
             dispatch(editBandRequest(data, bandId))
             dispatch(fetchBandInfo(bandId))
             history.push(`/users/${user.id}`)
@@ -75,7 +74,7 @@ export default function BandFormPut() {
     <div className='band-post-input-col'>
     <input type='text' className='post-band-text-input'
     value={name} onChange={e => setName(e.target.value)}></input>
-    {hasSubmitted && Object.values(errors).length ? (
+    {hasSubmitted && errors.name ? (
         <p className='errors'>{errors.name}</p>
     ) : (
         <p></p>

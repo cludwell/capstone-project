@@ -18,7 +18,7 @@ export default function AlbumFormPut() {
 
     useEffect(()=>{
         const err = {}
-        if (!name || name.length < 3) err.name = 'Please enter a valid name, and of at least 3 characters.'
+        if (!name || name.length < 3 || name.length > 40) err.name = 'Please enter a valid name, between 3 and 40 characters.'
         if (!description || description.length < 30) err.description = 'Please enter a description of your album'
         if (!genre || genre.length < 3) err.genres = 'Please enter some genres your album could be categorized under'
         if (!price || price < 0) err.price = 'Please enter a valid price for your album'
@@ -47,20 +47,16 @@ export default function AlbumFormPut() {
         }
     }
 
-    // useEffect(() => {
-    //     dispatch(fetchBandInfo(album.bandId))
-    // }, [dispatch, album])
 
     const user = useSelector(state => state.session.user)
-    // const band = useSelector(state => state.bands.singleBand)
-    // console.log('band', band)
+
     if (!user ) return null
 
     return (
         <div className='album-post-form-container'>
         <h1 className='album-post-title'>previously {album.name}</h1>
         <div className='album-post-wrapper'>
-        <form className='album-post-form'>
+        <form className='album-post-form' onSubmit={handleSubmit}>
 
         <label className='post-album-label'>name</label>
 

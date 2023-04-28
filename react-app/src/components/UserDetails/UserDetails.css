@@ -40,6 +40,7 @@
     z-index: 2;
     margin: 4rem;
     font-weight: bold;
+    overflow-wrap: anywhere;
 }
 .user-details-collection-body {
     display: flex;
