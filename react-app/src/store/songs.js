@@ -34,15 +34,17 @@ export const putSongRequest = (songData, albumId) => async dispatch => {
 
 }
 
-const initialState = {}
+const initialState = {
+    allSongs: []
+}
 export default function songReducer( state = initialState, action) {
     switch (action.type) {
         case POST_SONG:
-            return { ...state, [action.newSong.albumId]:[ ...action.newSong] }
+            return { ...state, allSongs :[ ...action.newSong] }
         case PUT_SONG:
-            const preEditState = { ...state}
-            const filtered = state[action.edittedSong.albumId].filter(s=>s.id !== action.edittedSong.id )
-            return {...preEditState, [action.edittedSong.albumId]: [ ...filtered, action.edittedSong]}
+            const preEditState = { ...state, allSongs: [...state.allSongs]}
+            const filtered = state.allSongs.filter(s=>s.id !== action.edittedSong.id )
+            return {...preEditState, allSongs: [ ...filtered]}
         default:
             return state
     }

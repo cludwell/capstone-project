@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { postSongRequest } from '../../store/songs'
+import { putSongRequest } from '../../store/songs'
 import { fetchSingleAlbum } from '../../store/albums'
 import { useModal } from '../../context/Modal'
 
@@ -14,6 +14,7 @@ export default function SongFormPut({ albumId, song }) {
     const [ errors, setErrors ] = useState({})
     const { closeModal } = useModal()
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
+    
     useEffect(() => {
         const err = {}
         if (!name) err.name = 'Please enter a title for your song'
@@ -44,9 +45,9 @@ export default function SongFormPut({ albumId, song }) {
         setHasSubmitted(true)
         if (Object.values(errors).length) return alert('Please correct input errors')
         else {
-            const newSong = { name, lyrics, price: parseFloat(price), track_num: parseInt(trackNum), url, album_id: parseInt(albumId) }
+            const newSong = { name, lyrics, price: parseFloat(price), track_num: parseInt(trackNum), url, album_id: parseInt(albumId), id: song.id }
             console.log('SONG', newSong)
-            dispatch(postSongRequest(newSong, albumId))
+            dispatch(putSongRequest(newSong, albumId))
             dispatch(fetchSingleAlbum(albumId))
             closeModal()
         }

@@ -84,11 +84,9 @@ def create_song(album_id):
     if request.method == 'POST' and current_user.id:
         album = Album.query.get(album_id)
         band = Band.query.get(album.band_id)
-        print('BAND=================================================', band.to_dict())
         if current_user.id != band.user_id:
             return {"error": "Unauthorized request"}
         else:
-            print('===============IN CONDITIONAL')
             form = PostSongForm()
             form['csrf_token'].data = request.cookies['csrf_token']
             if form.validate_on_submit():
@@ -102,7 +100,6 @@ def create_song(album_id):
                 )
             db.session.add(new_song)
             db.session.commit()
-            print('=================SUCCESS', new_song.to_dict())
             return new_song.to_dict(), 201
 
 @album_routes.route('/<int:album_id>/songs/<int:song_id>', methods=['PUT'])
@@ -114,6 +111,7 @@ def edit_or_delete_song(album_id, song_id):
     if request.method == 'PUT':
         if current_user.id == band.user_id:
             form = PostSongForm()
+            form['csrf_token'].data = request.cookies['csrf_token']
             if form.validate_on_submit():
                 song.name = form.data['name']
                 song.lyrics = form.data['lyrics']
