@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import './ProfileButton.css'
-
+import { NavLink } from "react-router-dom";
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -37,7 +37,6 @@ function ProfileButton({ user }) {
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
-
   return (
     <>
       {user ? (
@@ -67,7 +66,7 @@ function ProfileButton({ user }) {
           <>
             <p>{user.username}</p>
             <p>{user.email}</p>
-            <p>purchases</p>
+            <NavLink to={`/users/${user.id}`} style={{textDecoration: "none"}}>purchases</NavLink>
             <hr></hr>
             <p>settings</p>
             <p>help</p>
