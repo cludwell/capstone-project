@@ -56,13 +56,12 @@
     border-bottom: .1rem solid grey;
     color: rgb(88, 88, 88);
 }
-.user-details-collection,
-.user-details-wishlist {
+.user-details-tab {
     font-weight: bold;
     margin-left: 3rem;
+    color: royalblue;
 }
-.user-details-collection:hover,
-.user-details-wishlist:hover {
+.user-details-tab:hover {
     border-bottom: .3rem royalblue solid;
     cursor: pointer;
 }
@@ -84,4 +83,10 @@
 }
 .create-band-button:hover {
     box-shadow: 0rem 0rem .5rem black;
+}
+
+.user-selected {
+    color: black;
+    border-bottom: .2rem black solid;
+
 }

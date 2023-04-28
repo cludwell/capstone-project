@@ -63,9 +63,9 @@ export default function BandDetails() {
         <p className='band-deets-desc'>{band.description}</p>
         <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${band.name.split(' ').join('%20')}`} >Facebook</a> </p>
 
-        <p><a className='album-details-social-media' href={`https://www.instagram.com/explore/tags/${band.name.split(' ').join('')}`}>Instagram</a></p>
+        {/* <p><a className='album-details-social-media' href={`https://www.instagram.com/explore/tags/${band.name.split(' ').join('')}`}>Instagram</a></p> */}
 
-        <p><a className='album-details-social-media' href={`https://www.youtube.com/results?search_query=${band.name.split(' ').join('+')}`} >YouTube</a></p>
+        <p><a className='album-details-social-media' href={`https://www.youtube.com/results?search_query=${band.name.split(' ').join('+')} band`} >YouTube</a></p>
 
 
         </div>

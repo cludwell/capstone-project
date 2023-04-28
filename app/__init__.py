@@ -10,6 +10,7 @@ from .api.auth_routes import auth_routes
 from .api.cart_routes import cart_routes
 from .api.wishlist_routes import wishlist_routes
 from .api.purchase_routes import purchase_routes
+from .api.song_routes import song_routes
 from .seeds import seed_commands
 from .config import Config
 from .api.album_routes import album_routes
@@ -38,6 +39,7 @@ app.register_blueprint(band_routes, url_prefix='/api/bands')
 app.register_blueprint(cart_routes, url_prefix='/api/carts')
 app.register_blueprint(wishlist_routes, url_prefix='/api/wishlists')
 app.register_blueprint(purchase_routes, url_prefix='/api/purchases')
+app.register_blueprint(song_routes, url_prefix='/api/songs')
 db.init_app(app)
 Migrate(app, db)
 

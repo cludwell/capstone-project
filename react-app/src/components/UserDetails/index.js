@@ -15,6 +15,8 @@ export default function UserDetails() {
     const [ showBody, setShowBody ] = useState(false)
     const history = useHistory()
     const ulRef = useRef()
+    const [ selectCollection, setSelectCollection ] = useState(true)
+
     const openBody = () => {
         if (showBody) return;
         setShowBody(true)
@@ -28,6 +30,8 @@ export default function UserDetails() {
         return () => document.removeEventListener('click', closeBody)
     })
     const ulClassName = 'user-details-collection-body' + (showBody ? '' : ' hidden')
+    const collectionClass = 'user-details-tab' + (!showBody ? ' user-selected' : '')
+    const wishlistClass = 'user-details-tab' + (showBody ? ' user-selected' : '')
     // const closeBody = () => setShowBody(false)
     useEffect(() => {
         dispatch(fetchUserPurchases(userId))
@@ -35,6 +39,7 @@ export default function UserDetails() {
         dispatch(fetchAllBands())
         dispatch(authenticate())
     }, [dispatch, userId])
+
     const users = useSelector(state => state.users)
     const user = users[userId]
     const loggedIn = useSelector(state => state.session.user)
@@ -44,7 +49,6 @@ export default function UserDetails() {
     const startBand = e => {
         history.push('/bands/new')
     }
-    // console.log('===============', bands)
 
     return (
     <div className='user-details-container'>
@@ -75,8 +79,8 @@ export default function UserDetails() {
     ) : null}
     </div>
     <div className='user-details-tabs'>
-    <span className='user-details-collection' onClick={openBody} >collection {user.Purchases.length}</span>
-    <span className='user-details-wishlist'  onClick={()=> setShowBody(!showBody)}>wishlist {user.WishList.length}</span>
+    <span className={collectionClass} onClick={openBody} >collection {user.Purchases.length}</span>
+    <span className={wishlistClass}  onClick={()=> setShowBody(!showBody)}>wishlist {user.WishList.length}</span>
     </div>
 
     <div className={ulClassName} ref={ulRef}>
