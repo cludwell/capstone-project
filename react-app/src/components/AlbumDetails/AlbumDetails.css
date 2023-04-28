@@ -16,6 +16,9 @@
 .album-details-artwork{
     width: 25rem;
     height: 25rem;
+    object-fit: cover;
+    border-radius: .3rem;
+    margin-bottom: .5rem;
 }
 
 .album-details-title {
