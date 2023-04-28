@@ -1,0 +1,42 @@
+.about-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.the-creator {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4rem;
+    width: 55rem;
+}
+.github-icon,
+.linkedin-icon {
+    height: 2rem;
+    width: 2rem;
+    object-fit: cover;
+    margin-left: 1rem;
+}
+.about-me-image {
+    height: 30rem;
+    width: 20rem;
+    object-fit: cover;
+    border-radius: .5rem;
+    box-shadow: 0rem 0rem .5rem black;
+    margin: 1.5rem;
+}
+
+.why-bandcamp {
+    display: flex;
+    flex-direction: row;
+    width: 55rem;
+}
+.bandcamp-screenshot {
+    width: 30rem;
+    height: fit-content;
+    border-radius: .5rem;
+    box-shadow: 0rem 0rem .5rem black;
+    margin: 1.5rem;
+}
+.about-text {
+    line-height: 1.4rem;
+}
