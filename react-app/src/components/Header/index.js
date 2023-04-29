@@ -14,8 +14,9 @@ export default function Header({ isLoaded }) {
         dispatch(authenticate())
         dispatch(fetchUserCart())
     }, [dispatch])
-    const cart = useSelector(state => state.cart.userCart)
     const user = useSelector(state => state.session.user)
+    let cart = useSelector(state => state.cart.userCart)
+    cart = user ? cart : []
     return (
         <div className='header-container'>
             <div className='logo-text'>
