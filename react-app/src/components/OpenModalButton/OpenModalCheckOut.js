@@ -16,6 +16,6 @@ export default function OpenModalCheckout({
   };
 
   return (
-    <button onClick={onClick} className='band-deets-user-auth'>{buttonText}</button>
+    <span onClick={onClick} className=''>{buttonText}</span>
   );
 }

@@ -3,13 +3,26 @@ import Navigation from '../Navigation'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { authenticate } from '../../store/session'
 import { fetchUserCart } from '../../store/carts'
+import OpenModalCheckout from '../OpenModalButton/OpenModalCheckOut'
+import CheckOutModal from '../CheckOutModal'
 
 export default function Header({ isLoaded }) {
     const dispatch = useDispatch()
-
+    const [ showMenu, setShowMenu ] = useState(false)
+    const ulRef = useRef()
+    useEffect(() => {
+        if (!showMenu) return;
+        const closeMenu = e => {
+            if (!ulRef.current?.contains(e.target)) setShowMenu(false)
+        }
+        document.addEventListener('click', closeMenu)
+        return () => document.removeEventListener('click', closeMenu)
+    }, [showMenu])
+    const closeMenu = e => setShowMenu(false)
+    
     useEffect(() => {
         dispatch(authenticate())
         dispatch(fetchUserCart())
@@ -29,7 +42,10 @@ export default function Header({ isLoaded }) {
             {cart && cart.length ? (
             <div className='navi-items navi-items cart-div'>
             <div className='number-in-cart'>{cart.length}</div>
-            <i className="fa-solid fa-cart-shopping navi-icons"></i>
+            <OpenModalCheckout
+            buttonText={<i className="fa-solid fa-cart-shopping navi-icons"></i>}
+            onItemClick={closeMenu}
+            modalComponent={<CheckOutModal user={user} cart={cart} />} />
             </div>
             ) : null}
 

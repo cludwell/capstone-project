@@ -30,6 +30,7 @@ def root_purchases():
             p['User'] =get_user_info(p['userId'])
         return copy
     if request.method == 'POST':
+        print('=================POST')
         if not current_user:
             return {"error": "You are not authorized for this request"}
         form = PurchaseForm()
@@ -47,4 +48,4 @@ def root_purchases():
             copy = new_purchase.to_dict()
             copy['Album'] = get_album_info(copy['albumId'])
             copy['Band'] = get_band_info(copy['Album']['bandId'])
-            return copy, 404
+            return copy, 200

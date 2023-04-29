@@ -1,21 +1,31 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './CheckOutModal.css'
 import { checkOutRequest, deleteCartRequest, fetchUserCart } from '../../store/carts'
 import { useModal } from '../../context/Modal'
+import { postPurchaseRequest } from '../../store/purchases'
+import { useEffect } from 'react'
 
-export default function CheckOutModal({ user, cart }) {
+export default function CheckOutModal({ user }) {
     const dispatch = useDispatch()
     const { closeModal } = useModal()
 
+    useEffect(() => {
+        dispatch(fetchUserCart())
+    }, [dispatch])
+    const cart = useSelector(state => state.cart.userCart)
     const deleteCart = async cartId => {
         await dispatch(deleteCartRequest(cartId))
         await dispatch(fetchUserCart())
-
     }
     const checkOut = async e => {
+        if (!cart.length) closeModal()
         await dispatch(checkOutRequest())
         await dispatch(fetchUserCart())
-        closeModal()
+        for (const item in cart) {
+            await dispatch(postPurchaseRequest({album_id: cart[item].albumId, user_id: parseInt(user.id), price: cart[item].Album.price}))
+            console.log('========CARTITEM', cart[item].Album.price)
+        }
+        return closeModal()
     }
     return (
         <div className='checkout-modal-container'>
