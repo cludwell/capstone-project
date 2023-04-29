@@ -104,6 +104,7 @@
 .cart-delete-instance {
     float: right;
     color: blue;
+    cursor: pointer;
 }
 .cart-preview-sum {
     float: right;

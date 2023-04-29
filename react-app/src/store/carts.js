@@ -38,7 +38,7 @@ export const postCartRequest = cartData => async dispatch => {
             return cartInfo
         }
 }
-export const deleteItemRequest = cartId => async dispatch => {
+export const deleteCartRequest = cartId => async dispatch => {
     const response = await fetch(`/api/carts/${cartId}`,
         {method: 'DELETE', headers: {"Content-Type": "application/json"}})
     if (response.ok) {

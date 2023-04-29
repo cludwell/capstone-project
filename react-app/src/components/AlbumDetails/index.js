@@ -15,7 +15,7 @@ import SongFormPost from '../SongFormPost'
 import OpenModalSong from '../OpenModalButton/OpenModalSong'
 import SongFormPut from '../SongFormPut'
 import SongDeleteModal from '../SongDeleteModal'
-import { fetchUserCart, postCartRequest } from '../../store/carts'
+import { deleteCartRequest, fetchUserCart, postCartRequest } from '../../store/carts'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -75,6 +75,10 @@ export default function AlbumDetails() {
         if (cart.some(c=>c.albumId === album.id)) return alert('Item is already in cart.')
         await dispatch(postCartRequest({album_id: parseInt(album.id), user_id: parseInt(user.id)}))
     }
+    const deleteCart = async cartId => {
+        await dispatch(deleteCartRequest(cartId))
+        await dispatch(fetchUserCart())
+    }
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
@@ -87,7 +91,15 @@ export default function AlbumDetails() {
             <p className='details-band-name'>by {album.Band.name}</p>
             <div className='details-react-player'>REACT placeholder</div>
             <div className='album-details-streaming-info'>
-                <h3 className='details-info buy-digital-album' onClick={buyAlbum}>Buy Digital Album ${album.price}</h3>
+
+            {user && users[user.id].Purchases && users[user.id].Purchases.some(p => p.albumId === album.id) ? (
+            <p>
+            <i className="fa-solid fa-heart purchased-list"/>
+            You Own This
+            </p>
+                ) : (
+            <h3 className='details-info buy-digital-album' onClick={buyAlbum}>Buy Digital Album ${album.price}</h3>
+            )}
                 <p className='details-grey-text'>Streaming + Download</p>
 
                 <table className='album-track-table'>
@@ -181,19 +193,24 @@ export default function AlbumDetails() {
 
 
             <div className='band-info-column'>
+
+
+
             {user && cart && cart.length ? (
             <div className='cart-preview'>
                 <div className='cart-title'>Shopping Cart</div>
                 {user && cart && cart.length ? cart.map((c, i)=> (
                     <div className='cart-instance' key={`cart${i}`}>
                     <div className='cart-album-name'>{c.Album.name}</div>
-                    <span className='cart-album-price'>{c.Album.price}</span>
-                    <span className='cart-delete-instance'><i className="fa-solid fa-trash-can"></i></span>
+                    <span className='cart-album-price'>${c.Album.price} USD</span>
+                    <span className='cart-delete-instance' onClick={() => deleteCart(c.id)}>
+                        <i className="fa-solid fa-trash-can"></i></span>
                     </div>
                 )) : null}
                 <hr></hr>
             <span className='cart-preview-total'>Total</span>
             <span className='cart-preview-sum'>${cart.reduce((acc, ele) => acc + ele.Album.price, 0).toFixed(2)}</span>
+            <button className='band-deets-user-auth'>Check Out</button>
             </div>
             ) : null}
             <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />

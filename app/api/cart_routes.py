@@ -37,7 +37,10 @@ def get_users_cart():
             )
             db.session.add(new_cart)
             db.session.commit()
-            return new_cart.to_dict(), 200
+            copy = new_cart.to_dict()
+            copy['Album'] = get_album_info(copy['albumId'])
+            copy['Band'] = get_band_info(copy['Album']['bandId'])
+            return copy, 200
 
 @cart_routes.route('/<int:cart_id>', methods=['DELETE'])
 def remove_from_cart(cart_id):
