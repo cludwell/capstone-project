@@ -16,6 +16,8 @@ import OpenModalSong from '../OpenModalButton/OpenModalSong'
 import SongFormPut from '../SongFormPut'
 import SongDeleteModal from '../SongDeleteModal'
 import { deleteCartRequest, fetchUserCart, postCartRequest } from '../../store/carts'
+import OpenModalCheckout from '../OpenModalButton/OpenModalCheckOut'
+import CheckOutModal from '../CheckOutModal'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -210,7 +212,11 @@ export default function AlbumDetails() {
                 <hr></hr>
             <span className='cart-preview-total'>Total</span>
             <span className='cart-preview-sum'>${cart.reduce((acc, ele) => acc + ele.Album.price, 0).toFixed(2)}</span>
-            <button className='band-deets-user-auth'>Check Out</button>
+            <OpenModalCheckout
+            buttonText={'Check Out'}
+            onItemClick={closeMenu}
+            modalComponent={<CheckOutModal user={user} cart={cart} />} />
+            
             </div>
             ) : null}
             <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />

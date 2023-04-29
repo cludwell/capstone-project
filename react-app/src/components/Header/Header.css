@@ -44,9 +44,9 @@
     justify-content: center;
     align-items: center;
 }
-.navi-items:hover {
+/* .navi-items:hover {
     background-color: lightgrey;
-}
+} */
 .number-in-cart {
     position: absolute;
     background-color: rgb(180, 33, 33, .9);
