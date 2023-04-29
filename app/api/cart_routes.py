@@ -19,9 +19,11 @@ def get_users_cart():
             c['Band'] = get_band_info(c['Album']['bandId'])
         return copy
     if request.method == 'DELETE':
+        print('=============HITTING ROUTE')
         for c in cart:
             db.session.delete(c)
         db.session.commit()
+        print('#################SUCCESS', cart)
         return {"message": "Your cart has been emptied"}
     if request.method == 'POST':
         if not current_user:

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import './CheckOutModal.css'
-import { deleteCartRequest, fetchUserCart } from '../../store/carts'
+import { checkOutRequest, deleteCartRequest, fetchUserCart } from '../../store/carts'
 import { useModal } from '../../context/Modal'
 
 export default function CheckOutModal({ user, cart }) {
@@ -13,7 +13,8 @@ export default function CheckOutModal({ user, cart }) {
 
     }
     const checkOut = async e => {
-        
+        await dispatch(checkOutRequest())
+        await dispatch(fetchUserCart())
         closeModal()
     }
     return (
