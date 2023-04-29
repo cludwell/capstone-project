@@ -30,6 +30,14 @@
 .details-info {
     margin-bottom: 0rem;
 }
+.buy-digital-album {
+    color: blue;
+    cursor: pointer;
+}
+.buy-digital-album:hover {
+    text-decoration: underline;
+}
+
 .details-grey-text {
     margin-top: 0rem;
     font-size: .8rem;
@@ -85,4 +93,22 @@
 .user-auth-song {
     width: 1.5rem;
     justify-content: end;
+}
+.cart-preview {
+    background-color: rgb(255, 255, 255);
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    padding: .3rem;
+    font-size: .8rem;
+}
+.cart-delete-instance {
+    float: right;
+    color: blue;
+}
+.cart-preview-sum {
+    float: right;
+}
+.cart-title {
+    margin-bottom: .5rem;
+    font-weight: bold;
 }

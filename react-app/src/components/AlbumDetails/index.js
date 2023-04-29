@@ -15,7 +15,7 @@ import SongFormPost from '../SongFormPost'
 import OpenModalSong from '../OpenModalButton/OpenModalSong'
 import SongFormPut from '../SongFormPut'
 import SongDeleteModal from '../SongDeleteModal'
-import { fetchUserCart } from '../../store/carts'
+import { fetchUserCart, postCartRequest } from '../../store/carts'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -50,7 +50,7 @@ export default function AlbumDetails() {
     const users = useSelector(state => state.users)
     const user = useSelector(state => state.session.user)
     const wishes = useSelector(state => state.wishes.userWishes)
-    const cart = useSelector(state => state.cart)
+    const cart = useSelector(state => state.cart.userCart)
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
 
     console.log('======================CART', cart)
@@ -70,6 +70,11 @@ export default function AlbumDetails() {
         await dispatch(fetchWishLists())
     }
     const pleaseLogin = e => alert('Please log in to create a wishlist!')
+    const buyAlbum = async e => {
+        if (!user) return alert('Please sign in to add items to cart!')
+        if (cart.some(c=>c.albumId === album.id)) return alert('Item is already in cart.')
+        await dispatch(postCartRequest({album_id: parseInt(album.id), user_id: parseInt(user.id)}))
+    }
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
@@ -82,7 +87,7 @@ export default function AlbumDetails() {
             <p className='details-band-name'>by {album.Band.name}</p>
             <div className='details-react-player'>REACT placeholder</div>
             <div className='album-details-streaming-info'>
-                <h4 className='details-info'>Digital Album</h4>
+                <h3 className='details-info buy-digital-album' onClick={buyAlbum}>Buy Digital Album ${album.price}</h3>
                 <p className='details-grey-text'>Streaming + Download</p>
 
                 <table className='album-track-table'>
@@ -176,8 +181,21 @@ export default function AlbumDetails() {
 
 
             <div className='band-info-column'>
-
-            {}
+            {user && cart && cart.length ? (
+            <div className='cart-preview'>
+                <div className='cart-title'>Shopping Cart</div>
+                {user && cart && cart.length ? cart.map((c, i)=> (
+                    <div className='cart-instance' key={`cart${i}`}>
+                    <div className='cart-album-name'>{c.Album.name}</div>
+                    <span className='cart-album-price'>{c.Album.price}</span>
+                    <span className='cart-delete-instance'><i className="fa-solid fa-trash-can"></i></span>
+                    </div>
+                )) : null}
+                <hr></hr>
+            <span className='cart-preview-total'>Total</span>
+            <span className='cart-preview-sum'>${cart.reduce((acc, ele) => acc + ele.Album.price, 0).toFixed(2)}</span>
+            </div>
+            ) : null}
             <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />
             <p className='album-deets-country'>{album.Band.country}</p>
             <p className='album-deets-city'>{album.Band.city}</p>

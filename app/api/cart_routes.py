@@ -24,6 +24,7 @@ def get_users_cart():
         db.session.commit()
         return {"message": "Your cart has been emptied"}
     if request.method == 'POST':
+        print('#########HITTING ROUTE')
         if not current_user:
             return {"error": "You are not authorized for this request"}
         form = CartForm()
@@ -31,13 +32,14 @@ def get_users_cart():
         if not form.validate_on_submit():
             return form.errors, 404
         else:
+            print('==============CREATING CART')
             new_cart = Cart(
                 user_id = current_user.id,
                 album_id = form.data['album_id']
             )
             db.session.add(new_cart)
             db.session.commit()
-            return new_cart, 200
+            return new_cart.to_dict(), 200
 
 @cart_routes.route('/<int:cart_id>', methods=['DELETE'])
 def remove_from_cart(cart_id):
