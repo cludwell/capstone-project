@@ -1,5 +1,6 @@
 const LOAD_USER_PURCHASES = 'purchases/LOAD_USER_PURCHASES'
 const LOAD_ALL_PURCHASES = 'purchases/LOAD_ALL_PURCHASES'
+const POST_PURCHASE = 'purchases/POST_PURCHASE'
 //load all user buys
 export const loadUserPurchases = purchases => {
     return {
@@ -13,6 +14,12 @@ export const loadAllPurchases = purchases => {
         purchases
     }
 }
+export const postPurchase = purchase => {
+    return {
+        type: POST_PURCHASE,
+        purchase
+    }
+}
 //thunk for loading purchases
 export const fetchUserPurchases = () => async dispatch => {
     const response = await fetch('/api/purchases/user')
@@ -24,12 +31,14 @@ export const fetchUserPurchases = () => async dispatch => {
 }
 export const fetchAllPurchases = () => async dispatch => {
     const response = await fetch('/api/purchases/')
-    // console.log('--------------------')
     if (response.ok) {
         const purchases = await response.json()
         dispatch(loadAllPurchases(purchases))
         return purchases
     }
+}
+export const postPurchaseRequest = purchaseData => async dispatch => {
+    const response = await fetch('/api/purchases')
 }
 const initialState = {}
 export default function purchasesReducer (state = initialState, action) {
