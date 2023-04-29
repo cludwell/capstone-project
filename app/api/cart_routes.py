@@ -24,7 +24,6 @@ def get_users_cart():
         db.session.commit()
         return {"message": "Your cart has been emptied"}
     if request.method == 'POST':
-        print('#########HITTING ROUTE')
         if not current_user:
             return {"error": "You are not authorized for this request"}
         form = CartForm()
@@ -32,7 +31,6 @@ def get_users_cart():
         if not form.validate_on_submit():
             return form.errors, 404
         else:
-            print('==============CREATING CART')
             new_cart = Cart(
                 user_id = current_user.id,
                 album_id = form.data['album_id']

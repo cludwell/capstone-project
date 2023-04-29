@@ -43,7 +43,8 @@ export const deleteItemRequest = cartId => async dispatch => {
         {method: 'DELETE', headers: {"Content-Type": "application/json"}})
     if (response.ok) {
         const deleted = await response.json()
-        dispatch(d)
+        dispatch(deleteCart(deleted))
+        return deleted
     }
 }
 const intitialState = {
@@ -58,6 +59,10 @@ export default function cartReducer (state =intitialState, action) {
             const prePost = {...state, userCart:[...state.userCart]}
             prePost.userCart.push(action.itemInfo)
             return prePost
+        case DELETE_CART_ITEM:
+            const preDelete = {...state, userCart: [...state.userCart]}
+            const filtered = preDelete.userCart.filter(c=> c.id !== action.deleted.id)
+            return {...state, userCart: [...filtered]}
         default: return state
     }
 }
