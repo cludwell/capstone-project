@@ -53,6 +53,7 @@ export default function AlbumDetails() {
     const user = useSelector(state => state.session.user)
     const wishes = useSelector(state => state.wishes.userWishes)
     const cart = useSelector(state => state.cart.userCart)
+    const purchases = useSelector(state => state.purchases.user)
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
@@ -92,7 +93,7 @@ export default function AlbumDetails() {
             <div className='details-react-player'>REACT placeholder</div>
             <div className='album-details-streaming-info'>
 
-            {user && users[user.id].Purchases && users[user.id].Purchases.some(p => p.albumId === album.id) ? (
+            {user && purchases && purchases.length && purchases.some(p => p.albumId === album.id) ? (
             <p>
             <i className="fa-solid fa-heart purchased-list"/>
             You Own This
@@ -161,7 +162,7 @@ export default function AlbumDetails() {
             WishList
              </span>
                 //
-            ) : user && users[user.id].Purchases && users[user.id].Purchases.some(p => p.albumId === album.id ) ? (
+            ) : user && purchases && purchases.length && purchases.some(p => p.albumId === album.id ) ? (
             //if user is signed in and owns item already
             <span>
             <i className="fa-solid fa-heart purchased-list"/>
