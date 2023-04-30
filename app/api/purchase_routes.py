@@ -30,7 +30,6 @@ def root_purchases():
             p['User'] =get_user_info(p['userId'])
         return copy
     if request.method == 'POST':
-        print('=================POST')
         if not current_user:
             return {"error": "You are not authorized for this request"}
         form = PurchaseForm()

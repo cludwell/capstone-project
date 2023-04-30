@@ -16,8 +16,8 @@ import OpenModalSong from '../OpenModalButton/OpenModalSong'
 import SongFormPut from '../SongFormPut'
 import SongDeleteModal from '../SongDeleteModal'
 import { deleteCartRequest, fetchUserCart, postCartRequest } from '../../store/carts'
-import OpenModalCheckout from '../OpenModalButton/OpenModalCheckOut'
 import CheckOutModal from '../CheckOutModal'
+import OpenModalCheckOutPreview from '../OpenModalButton/OpenModalCheckoutPreview'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -78,7 +78,7 @@ export default function AlbumDetails() {
         await dispatch(deleteCartRequest(cartId))
         await dispatch(fetchUserCart())
     }
-    
+
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
@@ -208,13 +208,16 @@ export default function AlbumDetails() {
                     </div>
                 )) : null}
                 <hr></hr>
+            <div className='cart-preview-total-row'>
             <span className='cart-preview-total'>Total</span>
             <span className='cart-preview-sum'>${cart.reduce((acc, ele) => acc + ele.Album.price, 0).toFixed(2)}</span>
-            <OpenModalCheckout
+            </div>
+            <div className='cart-preview-buttons'>
+            <OpenModalCheckOutPreview
             buttonText={'Check Out'}
             onItemClick={closeMenu}
             modalComponent={<CheckOutModal user={user} cart={cart} />} />
-
+            </div>
             </div>
             ) : null}
             <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />
