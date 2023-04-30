@@ -38,7 +38,6 @@ export const fetchAllPurchases = () => async dispatch => {
     }
 }
 export const postPurchaseRequest = purchaseData => async dispatch => {
-    console.log('===============IN PURCHASE THUNK', purchaseData)
     const response = await fetch('/api/purchases/',
         {method: 'POST', headers: { "Content-Type": "application/json"},
         body: JSON.stringify(purchaseData)})
@@ -56,7 +55,6 @@ export default function purchasesReducer (state = initialState, action) {
         case LOAD_ALL_PURCHASES:
             return { ...state, allPurchases: { ...action.purchases} }
         case POST_PURCHASE:
-            console.log('###############PURCHASE REDUCER')
             const prePurchase = { ...state}
             return { ...state, user: {...prePurchase.user, ...action.newPurchase }}
         default: return state

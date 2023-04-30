@@ -54,8 +54,6 @@ export default function AlbumDetails() {
     const wishes = useSelector(state => state.wishes.userWishes)
     const cart = useSelector(state => state.cart.userCart)
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
-
-    console.log('======================CART', cart)
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
     }
@@ -64,7 +62,6 @@ export default function AlbumDetails() {
         await dispatch(fetchBandInfo(album.bandId))
         history.push(`/bands/${album.bandId}`)
     }
-
     const deleteWish = async e => {
         const wishId = wishes.find(w=> w.albumId === album.id && w.userId === user.id).id
         await dispatch(deleteWishRequest(wishId))
@@ -81,6 +78,7 @@ export default function AlbumDetails() {
         await dispatch(deleteCartRequest(cartId))
         await dispatch(fetchUserCart())
     }
+    
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
@@ -216,7 +214,7 @@ export default function AlbumDetails() {
             buttonText={'Check Out'}
             onItemClick={closeMenu}
             modalComponent={<CheckOutModal user={user} cart={cart} />} />
-            
+
             </div>
             ) : null}
             <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />

@@ -58,9 +58,12 @@
     padding: .2rem;
     border-radius: 3rem;
     z-index: 100;
-    left:.3rem;
+    right:.3rem;
     top: -.3rem
 }
 .cart-div {
     position: relative;
+}
+.fa-cart-shopping {
+    cursor: pointer;
 }

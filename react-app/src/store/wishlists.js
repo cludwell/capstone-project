@@ -34,13 +34,10 @@ export const fetchPostWish = wish => async dispatch => {
     }
 }
 export const deleteWishRequest = wishId => async dispatch => {
-    // console.log('@@@@@@@@@WISH THUNK')
     const response = await fetch(`/api/wishlists/${wishId}`,
         {"method": "DELETE",
         "headers": {"Content-Type": "application/json"}})
-
         if (response.ok) {
-        // console.log('=======DELETE RESPONSE=======')
         const deleted = await response.json()
         console.log('DELETED WISH', deleted)
         dispatch(deleteWish(deleted))
