@@ -21,7 +21,7 @@ export default function AlbumFormPost() {
         const err = {}
         if (!name || name.length < 3 || name.length > 40) err.name = 'Please enter a valid name, between 3 and 40 characters.'
         if (!description || description.length < 30) err.description = 'Please enter a description of your album'
-        if (!genre || genre.length < 3) err.genres = 'Please enter some genres your album could be categorized under'
+        if (!genre || genre.length < 3) err.genre = 'Please enter some genres your album could be categorized under'
         if (!price || price < 0) err.price = 'Please enter a valid price for your album'
         if (!albumImage || albumImage.length < 20) err.albumImage = 'Please enter a valid image for your album'
         setErrors(err)

@@ -244,7 +244,7 @@ export default function AlbumDetails() {
 
 
             <h4>
-            <NavLink to={`/bands/${album.bandId}`}>discography</NavLink>
+            <NavLink to={`/bands/${album?.bandId}`}>discography</NavLink>
             </h4>
 
             {Object.values(albums).filter(a=>a.bandId === album.bandId && a.id !== album.id).map((a,i) =>(

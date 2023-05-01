@@ -60,9 +60,11 @@ export default function Landing() {
             <NavLink to={`/albums/${albums['6'].id}`}>
             <img src={`${albums['6'].albumImage}`} alt='second col item' className='landing-banner-col'></img>
             </NavLink>
+            {albums && albums['10'] ? (
             <NavLink to={`/bands/${albums['10'].Band.id}`} >
             <img src={`${albums['10'].Band.artistImage}`} alt='second col item' className='landing-banner-col'></img>
             </NavLink>
+            ) : null }
             </div>
 
             </div>

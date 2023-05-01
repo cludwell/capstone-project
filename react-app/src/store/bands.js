@@ -16,10 +16,10 @@ export const postBand = bandInfo => {
         bandInfo
     }
 }
-export const deleteBand = bandId => {
+export const deleteBand = deleted => {
     return {
         type: DELETE_BAND,
-        bandId
+        deleted
     }
 }
 export const editBand = edittedBand => {

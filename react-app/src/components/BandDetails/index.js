@@ -2,7 +2,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom'
 import './BandDetails.css'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteBandCommand, fetchBandInfo } from '../../store/bands'
+import { deleteBandCommand, fetchAllBands, fetchBandInfo } from '../../store/bands'
 import { authenticate } from '../../store/session'
 
 export default function BandDetails() {
@@ -23,7 +23,8 @@ export default function BandDetails() {
         history.push(`/bands/${band.id}/newAlbum`)
     }
     const deleteBand = async e => {
-        dispatch(deleteBandCommand(bandId))
+        await dispatch(deleteBandCommand(bandId))
+        await dispatch(fetchAllBands())
         history.push(`/users/${user.id}`)
     }
     const editOnClick = async e => {
