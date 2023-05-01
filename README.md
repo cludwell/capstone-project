@@ -7,6 +7,8 @@ Fancamp is a clone of bandcamp, with more of a metal music theme, built as a cap
 Fancamp is currently hosted publicly at
 https://fancamp.onrender.com
 
+![Landing Page](landing-preview.png)
+![Cart Preview](cart-preview.png)
 
 ### TECHNOLOGIES
 
@@ -116,7 +118,14 @@ Wishlist
         userWishes: {}
     }
 }
+
 ```
+### FUTURE APP GOALS
+
+In the future I hope to implement embedded audio with react player and hopefully connect the cart to Paypal where users are checked out for 0 dollars, just as proof of concept.
+![Cart Preview](cart-preview.png)
+
+
 ### ABOUT THE CREATOR
 
 To learn more about me, please reach out and network. Looking forward to programming with you!

@@ -1,0 +1,11 @@
+.footer-dov {
+    margin: 10rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.footer-title {
+    text-align: center;
+    margin: 10rem;
+}

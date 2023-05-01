@@ -22,9 +22,9 @@ export default function BandFormPOST() {
     useEffect(() => {
         const err = {}
         if (!name || name.length < 3 || name.length >40) err.name = 'Please enter a valid name, between 3 and 40 characters.'
-        if (!city || city.length < 3) err.city = 'Please enter a valid city. It helps local fans find you.'
-        if (!state || state.length < 2) err.state = 'Please enter a valid state, it helps local fans find you.'
-        if (!country || country.length < 2) err.country = 'Please enter a valid country.'
+        if (!city || city.length < 3 || city.length > 40) err.city = 'Please enter a valid city between 3 and 40 characters. It helps local fans find you.'
+        if (!state || state.length < 2 || state.length > 40) err.state = 'Please enter a valid state between 3 and 40 characters, it helps local fans find you.'
+        if (!country || country.length < 2 || country.length > 40) err.country = 'Please enter a valid country between 3 and 40 characters.'
         if (artistImage.length < 20) err.artistImage = 'Please enter a valid image url.'
         if (bannerUrl.length < 20) err.bannerUrl = 'Please enter a valid image url.'
         if (!description || description.length < 30) err.description = 'Please enter a description of your band.'
