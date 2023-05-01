@@ -17,7 +17,7 @@ export default function SongFormPut({ albumId, song }) {
 
     useEffect(() => {
         const err = {}
-        if (!name) err.name = 'Please enter a title for your song'
+        if (!name || name.length >40) err.name = 'Please enter a title for your song less than 40 characters'
         if (!price || price < 0 || price > 100) err.price = 'Please enter a realistic price for your song'
         if (!trackNum || trackNum < 0  || trackNum > 100) err.trackNum = 'Please keep track numbers between 0 and 100'
         // if (!url) err.url = 'Please provide a path to upload your song'
