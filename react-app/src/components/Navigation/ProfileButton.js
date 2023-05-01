@@ -66,7 +66,7 @@ function ProfileButton({ user }) {
           <>
             <p>{user.username}</p>
             <p>{user.email}</p>
-            <NavLink to={`/users/${user.id}`} style={{textDecoration: "none"}}>purchases</NavLink>
+            <NavLink to={`/users/${user.id}`} style={{textDecoration: "none"}}>Profile</NavLink>
             <hr></hr>
             <NavLink to={`/about`} style={{textDecoration: "none"}}>About Fancamp</NavLink>
             <p>help</p>
