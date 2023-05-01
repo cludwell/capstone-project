@@ -51,12 +51,12 @@ const initialState = {}
 export default function purchasesReducer (state = initialState, action) {
     switch(action.type) {
         case LOAD_USER_PURCHASES:
-            return { ...state, user: { ...action.purchases } }
+            return { ...state, user:  [...action.purchases ] }
         case LOAD_ALL_PURCHASES:
-            return { ...state, allPurchases: { ...action.purchases} }
+            return { ...state, allPurchases: [ ...action.purchases ]}
         case POST_PURCHASE:
             const prePurchase = { ...state}
-            return { ...state, user: {...prePurchase.user, ...action.newPurchase }}
+            return { ...state, user: [...prePurchase.user, ...action.newPurchase] }
         default: return state
     }
 }

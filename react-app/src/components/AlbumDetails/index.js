@@ -79,7 +79,7 @@ export default function AlbumDetails() {
         await dispatch(deleteCartRequest(cartId))
         await dispatch(fetchUserCart())
     }
-
+    console.log('PURCHASES', purchases)
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
