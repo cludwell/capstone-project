@@ -58,7 +58,8 @@ const initialState = {
 export default function songReducer( state = initialState, action) {
     switch (action.type) {
         case POST_SONG:
-            return { ...state, allSongs :[ ...action.newSong] }
+            const beforePost = { ...state, allSongs: [...state.allSongs]}
+            return { ...state, allSongs :[ ...state.allSongs, action.newSong] }
         case PUT_SONG:
             const preEditState = { ...state, allSongs: [...state.allSongs]}
             const filtered = state.allSongs.filter(s=>s.id !== action.edittedSong.id )

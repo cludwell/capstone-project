@@ -14,7 +14,7 @@ export default function SongFormPut({ albumId, song }) {
     const [ errors, setErrors ] = useState({})
     const { closeModal } = useModal()
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
-    
+
     useEffect(() => {
         const err = {}
         if (!name) err.name = 'Please enter a title for your song'
@@ -40,15 +40,14 @@ export default function SongFormPut({ albumId, song }) {
         setUrl(song && song.url ? song.url : '')
     }, [song])
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         setHasSubmitted(true)
         if (Object.values(errors).length) return alert('Please correct input errors')
         else {
             const newSong = { name, lyrics, price: parseFloat(price), track_num: parseInt(trackNum), url, album_id: parseInt(albumId), id: song.id }
-            console.log('SONG', newSong)
-            dispatch(putSongRequest(newSong, albumId))
-            dispatch(fetchSingleAlbum(albumId))
+            await dispatch(putSongRequest(newSong, albumId))
+            await dispatch(fetchSingleAlbum(albumId))
             closeModal()
         }
     }

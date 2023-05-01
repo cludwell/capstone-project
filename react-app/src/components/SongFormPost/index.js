@@ -26,15 +26,14 @@ export default function SongFormPost({ albumId }) {
         return err
     }, [name, price, trackNum, url])
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         setHasSubmitted(true)
         if (Object.values(errors).length) return alert('Please correct input errors')
         else {
             const newSong = { name, lyrics, price: parseFloat(price), track_num: parseInt(trackNum), url, album_id: parseInt(albumId) }
-            console.log('SONG', newSong)
-            dispatch(postSongRequest(newSong, albumId))
-            dispatch(fetchSingleAlbum(albumId))
+            await dispatch(postSongRequest(newSong, albumId))
+            await dispatch(fetchSingleAlbum(albumId))
             closeModal()
         }
     }
