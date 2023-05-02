@@ -54,6 +54,21 @@ In the second terminal cd into the 'react-app' directory and enter 'npm start' i
 Otherwise, you can use the app at
 https://fancamp.onrender.com
 
+### MINIMAL VIABLE PRODUCT
+
+As much as I admire bandcamp, reproducing it in its entirety is  a little out of scope for the time restraints of my capstone.
+
+Table that have full CRUD functionality are
+Bands
+Albums
+Songs
+
+Tables with partial CRUD
+-Cart //CRD
+-Wishlist //CRD
+-Users //CR
+-Purchases //CR
+
 ### BACKEND ROUTES
 
 Albums
