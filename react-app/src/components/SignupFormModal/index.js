@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { signUp } from "../../store/session";
 import "./SignupForm.css";
 import { useModal } from "../../context/Modal";
+import { fetchUserCart } from "../../store/carts";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
@@ -46,7 +47,10 @@ function SignupFormModal() {
 			const newUser = { name, email, username, password, address, city, state, country, genre, profile_pic: profilePic }
  	       	const data = await dispatch(signUp(newUser));
  	      	if (data) setErrors(data)
- 	    	else closeModal()
+ 	    	else{
+			await dispatch(fetchUserCart())
+			closeModal()
+			}
  	   } else {
  	       return alert('Please correct input errors');
  	   }
