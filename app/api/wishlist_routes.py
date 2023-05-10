@@ -13,7 +13,6 @@ def delete_from_wishlist(wishlist_id):
     if not item:
         return {"error": "The requested record could not be found"}
     if request.method == 'DELETE':
-        print('===============================DELETE')
         if current_user.id != item.user_id:
             return {"error": "Unauthorized request"}
         db.session.delete(item)

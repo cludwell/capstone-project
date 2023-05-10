@@ -75,7 +75,7 @@ export default function Landing() {
 
             <h5 className='new-notable-title'>UPCOMING FANCAMP LIVE STREAMS</h5>
             <div className='upcoming-live-streams-container'>
-            {[albums['14'], albums['5'],  albums['7'], albums['11'], albums['15']].map((a,i) => (
+            {[albums['14'], albums['5'], albums['7'], albums['11'], albums['15']].map((a,i) => (
                 a ? (
                 <UpcomingLiveStream ele={livestreamTimes[i]} album={a} key={`livestream${i}`}/>
                 ) : null
