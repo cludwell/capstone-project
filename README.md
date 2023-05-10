@@ -125,7 +125,10 @@ I would also like to implement some transitions for the cart preview or the prof
 
 To learn more about me, please reach out and network. Looking forward to programming with you!
 
-```['Christian Ludwell',
-        'https://www.linkedin.com/in/christian-ludwell-047b18247/',
-        'https://github.com/cludwell']
-```
+'Christian Ludwell'
+
+Linked In
+https://www.linkedin.com/in/christian-ludwell-047b18247/
+
+Github
+https://github.com/cludwell
