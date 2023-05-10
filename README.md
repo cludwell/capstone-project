@@ -1,4 +1,4 @@
-## WHAT IS FANCAMP?
+## FANCAMP
 
 ### ABOUT
 
@@ -34,9 +34,9 @@ https://fancamp.onrender.com
 
 ### MINIMAL VIABLE PRODUCT
 
-As much as I admire bandcamp, reproducing it in its entirety is  a little out of scope for the time restraints of my capstone.
+As much as I admire bandcamp, reproducing it in its entirety is a little out of scope for the time restraints of my capstone.
 
-Table that have full CRUD functionality are
+Tables that have full CRUD functionality are
 Bands
 Albums
 Songs
@@ -115,7 +115,9 @@ Wishlist
 ```
 ### FUTURE APP GOALS
 
-In the future I hope to implement embedded audio with react player and hopefully connect the cart to Paypal where users are checked out for 0 dollars, just as proof of concept.
+In the future I hope to implement embedded audio with react player and hopefully connect the cart to Paypal where users are checked out for 0 dollars, just as proof of concept, not to convey actual ownership.
+
+I would also like to implement some transitions for the cart preview or the profile menu dropdown
 ![Cart Preview](cart-preview.png)
 
 
