@@ -42,7 +42,6 @@ function SignupFormModal() {
   	const handleSubmit = async (e) => {
  	   e.preventDefault();
 	   setHasSubmitted(true)
-	   console.log('ERRORS', errors)
  	   if (!errors.length) {
 			const newUser = { name, email, username, password, address, city, state, country, genre, profile_pic: profilePic }
  	       	const data = await dispatch(signUp(newUser));

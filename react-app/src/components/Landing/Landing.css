@@ -2,8 +2,8 @@
     color:  skyblue;
     position: relative;
     position: absolute;
-    top: -1rem;
-    left: 1rem;
+    top: -2vmin;
+    left: 2vmin;
 }
 .centering-div {
     justify-content: center;
@@ -11,14 +11,14 @@
     display: flex;
     flex-direction: column;
     max-width: 71rem;
-    padding-top: 4rem;
+    padding-top: 6vmin;
     display: flex;
-    margin-top: 2rem;
+    margin-top: 3vmin;
 }
 .new-and-notable-container {
     display: flex;
     flex-direction: row;
-    gap: 1.5rem;
+    gap: 2vmin;
     justify-content: center;
     align-items: flex-start;
 }
@@ -30,20 +30,20 @@
 .updated-use-terms{
     background-color: aqua;
     font-weight: bolder;
-    font-size: 1.2rem;
-    height: 3rem;
+    font-size: min(3vmin, 1.2rem);
+    height: min(5vmin, 3rem);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     position: absolute;
-    width: 98vw;
+    width: 100vw;
     z-index: 1;
+    color: white;
 }
 .landing-container {
-    /* background-color: rgb(49, 49, 49); */
     justify-content: center;
-    margin-top: .3rem;
+    margin-top: .5vmin;
 }
 
 .landing-banner{
