@@ -4,8 +4,8 @@
 } */
 .profile-button-picture {
     object-fit: cover;
-    height: 2.5rem;
-    width: 2.5rem;
+    height: min(7vmin, 2.8rem);
+    width: min(7vmin, 2.8rem);
     border: .1rem solid white;
     background-color: none;
     border-radius: 5rem;

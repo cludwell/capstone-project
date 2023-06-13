@@ -4,8 +4,7 @@
     justify-content: space-between;
     border-bottom: .1rem rgb(124, 124, 124) solid;
     left: 0px;
-    /* box-shadow: 0rem 0rem .5rem white; */
-    height: 2.8rem;
+    height: min(7vmin, 2.8rem);
 }
 .logo-text {
     margin-left: min(3vmin, 2rem);
@@ -52,7 +51,8 @@
     border-radius: 3rem;
     z-index: 100;
     right: min(-.5vmin, -.3rem);
-    top: min(-.5vmin, -.6rem)
+    top: min(-.5vmin, -.6rem);
+    font-size: min(1.7vmin, .9rem);
 }
 .cart-div {
     position: relative;
