@@ -16,3 +16,6 @@
 body {
     margin: 0px;
 }
+div, p, span {
+    font-size: min(2.5vmin, 1rem);
+}

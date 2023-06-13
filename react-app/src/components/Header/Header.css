@@ -8,17 +8,16 @@
     height: 2.8rem;
 }
 .logo-text {
-    margin-left: 2rem;
-    font-size: 1.5rem;
+    margin-left: min(3vmin, 2rem);
+    font-size: min(4vmin, 1.5rem);
     font-weight: bold;
-    /* color: white; */
     text-decoration: none;
 }
 .navi-corner {
     display: flex;
     flex-direction: row;
-    margin-right: 2rem;
-    gap: 2rem;
+    margin-right: min(3vmin, 2rem);
+    gap: min(3vmin, 2rem);
     align-items: center;
 }
 .profile-dropdown {
@@ -32,34 +31,28 @@
     line-height: 1rem;
 }
 .navi-icons {
-    font-size: 1.5rem;
+    font-size: min(3vmin, 1.5rem);
     color: black;
 }
 .navi-items {
-    height: 2.8rem;
-    width: 2.8rem;
     transition: .2s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-/* .navi-items:hover {
-    background-color: lightgrey;
-} */
+
 .number-in-cart {
     position: absolute;
     background-color: rgb(180, 33, 33, .9);
     color: white;
-    font-size: .8rem;
     font-weight: bolder;
     width: fit-content;
-    height: 1rem;
     padding: .2rem;
     border-radius: 3rem;
     z-index: 100;
-    right:.3rem;
-    top: -.3rem
+    right: min(-.5vmin, -.3rem);
+    top: min(-.5vmin, -.6rem)
 }
 .cart-div {
     position: relative;
