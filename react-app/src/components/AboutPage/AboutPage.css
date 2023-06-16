@@ -16,12 +16,11 @@
 }
 .github-icon,
 .linkedin-icon {
-    height: 2rem;
     width: 2rem;
     object-fit: cover;
     margin-left: 1rem;
     transition: .2s ease-in-out;
-    border-radius: .3rem;
+    border-radius: .5vmin;
 }
 .github-icon:hover,
 .linkedin-icon:hover {
