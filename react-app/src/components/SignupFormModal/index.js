@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
@@ -18,12 +18,12 @@ function SignupFormModal() {
   	const [ state, setState ] = useState('')
   	const [ country, setCountry ] = useState('')
   	const [ genre, setGenre ] = useState('')
-  	const [ profilePic, setProfilePic ] = useState('')
+  	const [ image, setImage ] = useState('')
   	const [ errors, setErrors ] = useState([]);
 	const [ hasSubmitted, setHasSubmitted ] = useState(false)
 	const { closeModal } = useModal()
 
-	useEffect(() => {
+	const validate = () => {
 		const err = []
 		if (!name || name.length < 3 || name.length > 50) err.push('Please enter a name between 3 and 50 characters')
 		if (!email || !email.includes('@')) err.push('Please enter a valid email')
@@ -35,15 +35,18 @@ function SignupFormModal() {
 		if (!state || state.length < 2) err.push('Please enter a valid state')
 		if (!country || country.length < 2) err.push('Please enter a valid country')
 		if (!genre) err.push('Please enter some interest genres')
-		if (!profilePic || profilePic.length < 10) err.push('Please enter valid image url')
+		// if (!image) err.push('Please upload a profile picture')
 		setErrors(err)
 		return err
-	}, [name, email, password, confirmPassword, address, city, state, country, genre, profilePic])
+	}
   	const handleSubmit = async (e) => {
  	   e.preventDefault();
-	   setHasSubmitted(true)
+	   validate()
+	   setHasSubmitted(true);
+	//    const formData = new FormData();
  	   if (!errors.length) {
-			const newUser = { name, email, username, password, address, city, state, country, genre, profile_pic: profilePic }
+			const newUser = { name, email, username, password, address, city, state, country, genre, image }
+			// for (let key in newUser) formData.set(`${key}`, newUser[key])
  	       	const data = await dispatch(signUp(newUser));
  	      	if (data) setErrors(data)
  	    	else{
@@ -60,9 +63,11 @@ function SignupFormModal() {
       <h1 className="signup-title">Sign Up</h1>
       <form onSubmit={handleSubmit} className="signup-form">
         <ul>
-          {hasSubmitted && errors.length && errors.map((error, idx) =>(
+          {hasSubmitted && Array.isArray(errors) && errors.length ? errors.map((error, idx) =>(
 		  <li className="errors" key={idx}>{error}</li>
-		  ))}
+		  ))
+		  : typeof errors === 'string' ? <li className="errors">{errors}</li>
+		  : Object.values(errors).map((error, idx) => <li className="errors" key={idx}>{error}</li>)}
         </ul>
 		<div className="sign-up-container">
 		<label className="sign-up-label">name</label>
@@ -116,7 +121,7 @@ function SignupFormModal() {
 		<label className="sign-up-label">profile pic</label>
 
 		<div className="sign-up-col">
-		<input className="sign-up-input" type="url" value={profilePic} onChange={e=> setProfilePic(e.target.value)}></input>
+		<input className="sign-up-input" type="file" accept="image/*" onChange={e=> setImage(e.target.files[0])}></input>
 		</div>
 
 		<label className="sign-up-label">password</label>

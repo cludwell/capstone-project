@@ -6,10 +6,10 @@ import uuid
 BUCKET_NAME = os.environ.get("S3_BUCKET")
 S3_LOCATION = f"https://{BUCKET_NAME}.s3.amazonaws.com/"
 ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
-
+print('=====================================================================================================================================',str(os.environ.get("S3_KEY")))
 s3 = boto3.client(
    "s3",
-   aws_access_key_id=os.environ.get("S3_KEY"),
+   aws_access_key_id=os.environ["S3_KEY"],
    aws_secret_access_key=os.environ.get("S3_SECRET")
 )
 
@@ -26,6 +26,7 @@ def get_unique_filename(filename):
 
 
 def upload_file_to_s3(file, acl="public-read"):
+
     try:
         s3.upload_fileobj(
             file,

@@ -19,3 +19,6 @@ body {
 p, span {
     font-size: min(2.5vmin, 1rem);
 }
+button {
+    cursor: pointer;
+}

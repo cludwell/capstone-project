@@ -2,8 +2,9 @@ from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.models import User
 from .router_helpers import get_album_info, get_user_wishlist, get_user_buys, get_band_info
-user_routes = Blueprint('users', __name__)
 
+
+user_routes = Blueprint('users', __name__)
 
 @user_routes.route('/')
 # @login_required

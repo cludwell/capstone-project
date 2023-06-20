@@ -67,11 +67,12 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
-export const signUp = userData => async (dispatch) => {
+export const signUp = newUser => async (dispatch) => {
+	const formData = new FormData()
+	for (let key in newUser) formData.append(`${key}`, newUser[key])
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(userData),
+		body: formData,
 	});
 
 	if (response.ok) {
