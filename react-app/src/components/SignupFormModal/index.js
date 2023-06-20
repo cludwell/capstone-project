@@ -35,7 +35,7 @@ function SignupFormModal() {
 		if (!state || state.length < 2) err.push('Please enter a valid state')
 		if (!country || country.length < 2) err.push('Please enter a valid country')
 		if (!genre) err.push('Please enter some interest genres')
-		// if (!image) err.push('Please upload a profile picture')
+		if (!image) err.push('Please upload a profile picture')
 		setErrors(err)
 		return err
 	}
@@ -45,8 +45,7 @@ function SignupFormModal() {
 	   setHasSubmitted(true);
 	//    const formData = new FormData();
  	   if (!errors.length) {
-			const newUser = { name, email, username, password, address, city, state, country, genre, image }
-			// for (let key in newUser) formData.set(`${key}`, newUser[key])
+			const newUser = { name, email, username, password, address, city, state, country, genre, image, profile_pic: image }
  	       	const data = await dispatch(signUp(newUser));
  	      	if (data) setErrors(data)
  	    	else{
