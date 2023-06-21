@@ -35,13 +35,35 @@ def bands_albums(band_id):
         if current_user.id == band.user_id:
             form = PostBandForm()
             form['csrf_token'].data = request.cookies['csrf_token']
+            # AWS Image management
+            if 'banner_url' not in request.files:
+                return { 'errors': ['Banner Image is required']}, 400
+            if 'artist_image' not in request.files:
+                return { 'errors': ['Band photo is required']}, 400
+            banner_url = request.files['banner_url']
+            artist_image = request.files['artist_image']
+            if not allowed_file(banner_url.filename) or not allowed_file(artist_image.filename):
+                return {'errors': ['file type not permitted']}, 400
+            banner_url.filename = get_unique_filename(banner_url.filename)
+            artist_image.filename = get_unique_filename(artist_image.filename)
+            banner_upload = upload_file_to_s3(banner_url)
+            artist_upload = upload_file_to_s3(artist_image)
+            delete_file_from_s3(band.banner_url)
+            delete_file_from_s3(band.artist_image)
+            if 'url' not in banner_upload:
+                return banner_upload, 400
+            if 'url' not in artist_upload:
+                return artist_upload, 400
+            banner_aws_url = banner_upload['url']
+            artist_aws_url = artist_upload['url']
+
             if form.validate_on_submit():
                 band.name = form.data['name']
                 band.city = form.data['city']
                 band.state = form.data['state']
                 band.country = form.data['country']
-                band.artist_image = form.data['artist_image']
-                band.banner_url = form.data['banner_url']
+                band.artist_image = artist_aws_url
+                band.banner_url = banner_aws_url
                 band.description = form.data['description']
                 band.genres = form.data['genres']
                 band.user_id = current_user.id

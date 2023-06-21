@@ -56,7 +56,7 @@ export default function BandFormPut() {
             const data = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
             dispatch(editBandRequest(data, bandId))
             dispatch(fetchBandInfo(bandId))
-            history.push(`/users/${user.id}`)
+            // history.push(`/users/${user.id}`)
         }
     }
 

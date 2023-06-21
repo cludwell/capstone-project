@@ -68,9 +68,15 @@ export const deleteBandCommand = bandId => async dispatch => {
     }
 }
 export const editBandRequest = (data, bandId) => async dispatch => {
-    const response = await fetch(`/api/bands/${bandId}`,
-        {"method": "PUT", "headers": {"Content-Type": "application/json"},
-        "body": JSON.stringify(data)})
+    const formData = new FormData();
+    for (let key in data) formData.append(`${key}`, data[key]);
+    formData.set('banner_url', data.banner_url[0]);
+    formData.set('artist_image', data.artist_image[0]);
+
+    const response = await fetch(`/api/bands/${bandId}`, {
+        method: "PUT",
+        body: formData
+    })
         if (response.ok) {
         const edittedBand = await response.json()
         dispatch(editBand(edittedBand))
