@@ -26,7 +26,6 @@ export default function BandFormPOST() {
         if (!city || city.length < 3 || city.length > 40) err.city = 'Please enter a valid city between 3 and 40 characters. It helps local fans find you.'
         if (!state || state.length < 2 || state.length > 40) err.state = 'Please enter a valid state between 3 and 40 characters, it helps local fans find you.'
         if (!country || country.length < 2 || country.length > 40) err.country = 'Please enter a valid country between 3 and 40 characters.'
-        console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARTISHTIMAGE', artistImage, '============================', bannerUrl)
         if (!artistImage) err.artistImage = 'Please submit a band photo'
         if (!bannerUrl) err.bannerUrl = 'Please submit a band logo for your banner'
         if (!description || description.length < 30) err.description = 'Please enter a description of your band.'
@@ -42,7 +41,7 @@ export default function BandFormPOST() {
         else {
             const newBand = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
             dispatch(startBand(newBand))
-            // history.push(`/users/${user.id}`)
+            history.push(`/users/${user.id}`)
         }
     }
 

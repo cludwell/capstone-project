@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request, redirect
 from app.models import Album, Song, Purchase, User, Band, db
 from flask_login import current_user, login_required
 from app.forms import PostBandForm
-from app.api.aws_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
+from app.api.aws_helpers import (upload_file_to_s3, allowed_file, get_unique_filename, delete_file_from_s3)
 from flask import request
 band_routes = Blueprint('/bands', __name__)
 
@@ -26,6 +26,8 @@ def bands_albums(band_id):
             return {"error": "You are not authorized to delete this item"}
         else:
             # return band.to_dict()
+            delete_file_from_s3(band.banner_url)
+            delete_file_from_s3(band.artist_image)
             db.session.delete(band)
             db.session.commit()
             return band.to_dict()
@@ -58,13 +60,13 @@ def post_band():
         return { b.id: b.to_dict() for b in bands }, 200
 
     if request.method == 'POST' and current_user.id:
-        # print('request.form################################################', request.form)
         form = PostBandForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         form.validate_on_submit()
         if not form.validate_on_submit():
             return form.errors, 404
         if form.validate_on_submit():
+
             # AWS functionality
             if 'banner_url' not in request.files:
                 return { 'errors': ['Banner Image is required']}, 400
@@ -78,15 +80,14 @@ def post_band():
             artist_image.filename = get_unique_filename(artist_image.filename)
             banner_upload = upload_file_to_s3(banner_url)
             artist_upload = upload_file_to_s3(artist_image)
-
             if 'url' not in banner_upload:
                 return banner_upload, 400
             if 'url' not in artist_upload:
                 return artist_upload, 400
-            # if the dictionary doesnt have a url Key, it means there was an error when we tried to upload so we send back that error message
             banner_aws_url = banner_upload['url']
             artist_aws_url = artist_upload['url']
             # END OF AWS
+
             new_band = Band(
                 name = form.data['name'],
                 city = form.data['city'],

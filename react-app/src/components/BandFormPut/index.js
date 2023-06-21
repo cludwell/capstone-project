@@ -28,8 +28,8 @@ export default function BandFormPut() {
         if (!city || city.length < 3 || city.length > 40) err.city = 'Please enter a valid city between 3 and 40 characters. It helps local fans find you.'
         if (!state || state.length < 2 || state.length > 40) err.state = 'Please enter a valid state between 3 and 40 characters, it helps local fans find you.'
         if (!country || country.length < 2 || country.length > 40) err.country = 'Please enter a valid country between 3 and 40 characters.'
-        if (artistImage.length < 20) err.artistImage = 'Please enter a valid image url.'
-        if (bannerUrl.length < 20) err.bannerUrl = 'Please enter a valid image url.'
+        if (!artistImage) err.artistImage = 'Please submit a band photo'
+        if (!bannerUrl) err.bannerUrl = 'Please submit a band logo for your banner'
         if (!description || description.length < 30) err.description = 'Please enter a description of your band.'
         if (!genres || genres.length < 3) err.genres = 'Please enter some genres you could be categorized under.'
         setErrors(err)
@@ -57,7 +57,6 @@ export default function BandFormPut() {
             dispatch(editBandRequest(data, bandId))
             dispatch(fetchBandInfo(bandId))
             history.push(`/users/${user.id}`)
-
         }
     }
 
@@ -117,11 +116,12 @@ export default function BandFormPut() {
     )}
     </div>
 
+
     <label className='post-band-label'>band photo</label>
 
     <div className='band-post-input-col'>
-    <input type='text' className='post-band-text-input'
-    value={bannerUrl} onChange={e => setBannerUrl(e.target.value)}></input>
+    <input type='file' className='post-band-text-input'
+    accept='image/*' name='banner_url' onChange={e => setBannerUrl(e.target.files)} ></input>
     {hasSubmitted && Object.values(errors).length ? (
     <p className='errors'>{errors.bannerUrl}</p>
     ) : (
@@ -132,8 +132,8 @@ export default function BandFormPut() {
     <label className='post-band-label'>banner or logo</label>
 
     <div className='band-post-input-col'>
-    <input type='text' className='post-band-text-input'
-    value={artistImage} onChange={e => setArtistImage(e.target.value)}></input>
+    <input type='file' className='post-band-text-input'
+    accept='image/*' name='artist_image' onChange={e => setArtistImage(e.target.files)} ></input>
     {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.artistImage}</p>
     ) : (

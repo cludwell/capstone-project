@@ -41,3 +41,17 @@ def upload_file_to_s3(file, acl="public-read"):
         return {"errors": str(e)}
 
     return {"url": f"{S3_LOCATION}{file.filename}"}
+
+def delete_file_from_s3(file_url):
+    try:
+        # Extract the key (file name) from the file URL
+        key = file_url.rsplit("/", 1)[-1]
+        s3.delete_object(
+            Bucket=BUCKET_NAME,
+            Key=key
+        )
+    except Exception as e:
+        # in case the deletion fails
+        return {"errors": str(e)}
+
+    return {"message": "File deleted successfully"}
