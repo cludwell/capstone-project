@@ -44,20 +44,12 @@ export const fetchBandInfo = bandId => async dispatch => {
     }
 }
 export const startBand = bandInfo => async dispatch => {
-    const {name, city, state, country, artist_image, banner_url, description, genres} = bandInfo
-    const response = await fetch('/api/bands/',
-    {"method": "POST",
-    "headers": {"Content-Type": "application/json"},
-    "body": JSON.stringify({
-        name,
-        city,
-        state,
-        country,
-        artist_image,
-        banner_url,
-        description,
-        genres
-    })})
+    const formData = new FormData()
+    console.log('BANDINFOOOOOOOOOOOOOOOOOOOOOOOOO', bandInfo)
+    for (let key in bandInfo) formData.append(`${key}`, bandInfo[key])
+    const response = await fetch('/api/bands/', {
+        method: "POST",
+        body: formData})
     if (response.ok) {
         const newBand = await response.json()
         dispatch(postBand(bandInfo))

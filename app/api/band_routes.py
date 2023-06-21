@@ -2,6 +2,8 @@ from flask import Blueprint, jsonify, request, redirect
 from app.models import Album, Song, Purchase, User, Band, db
 from flask_login import current_user, login_required
 from app.forms import PostBandForm
+from app.api.aws_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
+
 band_routes = Blueprint('/bands', __name__)
 
 def get_albums_by_band(band_id):
@@ -61,13 +63,35 @@ def post_band():
         if not form.validate_on_submit():
             return form.errors, 404
         if form.validate_on_submit():
+            # AWS functionality
+            print('===============================================', request.files)
+            if 'banner_url' not in request.files[0]:
+                return { 'errors': ['Banner Image is required']}, 400
+            if 'artist_image' not in request.files[1]:
+                return { 'errors': ['Band photo is required']}, 400
+            banner_url = request.files['banner_url']
+            artist_image = request.files['artist_image']
+            if not allowed_file(banner_url.filename) or allowed_file(artist_image.filename):
+                return {'errors': ['file type not permitted']}, 400
+            banner_url.filename = get_unique_filename(banner_url.filename)
+            artist_image.filename = get_unique_filename(artist_image.filename)
+            banner_upload = upload_file_to_s3(banner_url)
+            artist_upload = upload_file_to_s3(artist_image)
+            if 'url' not in banner_upload:
+                return banner_upload, 400
+            if 'url' not in artist_upload:
+                return artist_upload, 400
+            # if the dictionary doesnt have a url Key, it means there was an error when we tried to upload so we send back that error message
+            banner_aws_url = banner_upload['url']
+            artist_aws_url = artist_upload['url']
+            # END OF AWS
             new_band = Band(
                 name = form.data['name'],
                 city = form.data['city'],
                 state = form.data['state'],
                 country = form.data['country'],
-                artist_image = form.data['artist_image'],
-                banner_url = form.data['banner_url'],
+                artist_image = artist_aws_url,
+                banner_url = banner_aws_url,
                 description = form.data['description'],
                 genres = form.data['genres'],
                 user_id = current_user.id,
