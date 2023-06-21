@@ -101,7 +101,7 @@ export default function bandReducer (state = intitialState, action) {
             return {...state, singleBand: {...action.bandInfo}, allBands: { [action.bandInfo.id]: action.bandInfo} }
         case DELETE_BAND:
             const modified = { ...state }
-            delete modified.allBands[action.deleted.id]
+            delete modified.allBands[action?.deleted?.id]
             // const filtered = Object.values(state.allBands).filter(b=> b.id !== action.deleted.id)
             return modified
         case EDIT_BAND:

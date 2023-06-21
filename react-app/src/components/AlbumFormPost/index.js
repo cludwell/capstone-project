@@ -11,7 +11,7 @@ export default function AlbumFormPost() {
     const [ name, setName ] = useState('')
     const [ description, setDescription ] = useState('')
     const [ price, setPrice ] = useState(0)
-    const [ albumImage, setAlbumImage ] = useState('')
+    const [ albumImage, setAlbumImage ] = useState(null)
     const [ genre, setGenre ] = useState('')
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
     const [ errors, setErrors ] = useState({})

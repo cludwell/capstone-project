@@ -27,6 +27,7 @@ def get_all_albums():
         if not form.validate_on_submit():
             return form.errors, 404
         else:
+            # aws album image
             if 'album_image' not in request.files:
                 return { 'errors': ['Album image is required' ] }, 400
             album_image = request.files['album_image']
@@ -37,6 +38,7 @@ def get_all_albums():
             if 'url' not in album_image_upload:
                 return album_image_upload, 400
             album_image_aws_url = album_image_upload['url']
+            # end of aws album image
             new_album = Album(
                 name = form.data['name'],
                 description = form.data['description'],
@@ -68,6 +70,7 @@ def get_album_by_id(album_id):
         if current_user == None or current_user.id != band.user_id:
             return {"error": "You are not authorized to delete this item."}
         else:
+            delete_file_from_s3(album.album_image)
             db.session.delete(album)
             db.session.commit()
             return album.to_dict()
@@ -78,10 +81,23 @@ def get_album_by_id(album_id):
             form = PostAlbumForm()
             form['csrf_token'].data = request.cookies['csrf_token']
             if form.validate_on_submit():
+                # aws album image
+                if 'album_image' not in request.files:
+                    return { 'errors': ['Album image is required' ] }, 400
+                album_image = request.files['album_image']
+                if not allowed_file(album_image.filename):
+                    return {'errors': ['file type not permitted']}, 400
+                album_image.filename = get_unique_filename(album_image.filename)
+                album_image_upload = upload_file_to_s3(album_image)
+                delete_file_from_s3(album.album_image)
+                if 'url' not in album_image_upload:
+                    return album_image_upload, 400
+                album_image_aws_url = album_image_upload['url']
+                # end of aws album image
                 album.name = form.data['name']
                 album.description = form.data['description']
                 album.price = form.data['price']
-                album.album_image = form.data['album_image']
+                album.album_image = album_image_aws_url
                 album.genre = form.data['genre']
                 album.band_id = form.data['band_id']
 

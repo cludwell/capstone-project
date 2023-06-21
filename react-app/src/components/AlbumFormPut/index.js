@@ -10,7 +10,7 @@ export default function AlbumFormPut() {
     const [ name, setName ] = useState('')
     const [ description, setDescription ] = useState('')
     const [ price, setPrice ] = useState(0)
-    const [ albumImage, setAlbumImage ] = useState('')
+    const [ albumImage, setAlbumImage ] = useState(null)
     const [ genre, setGenre ] = useState('')
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
     const [ errors, setErrors ] = useState({})
@@ -22,11 +22,12 @@ export default function AlbumFormPut() {
         if (!description || description.length < 30) err.description = 'Please enter a description of your album'
         if (!genre || genre.length < 3) err.genre = 'Please enter some genres your album could be categorized under'
         if (!price || price < 0) err.price = 'Please enter a valid price for your album'
-        if (!albumImage || albumImage.length < 20) err.albumImage = 'Please enter a valid image for your album'
+        if (!albumImage) err.albumImage = 'Please enter a valid image for your album'
         setErrors(err)
         return err
     }, [name, description, genre, price, albumImage])
     const album = useSelector(state => state.albums.singleAlbum)
+
     useEffect(() => {
         setName(album && album.name ? album.name : '')
         setDescription(album && album.description ? album.description : '')
@@ -47,10 +48,9 @@ export default function AlbumFormPut() {
         }
     }
 
-
     const user = useSelector(state => state.session.user)
 
-    if (!user ) return null
+    if (!user) return null
 
     return (
         <div className='album-post-form-container'>
@@ -100,8 +100,7 @@ export default function AlbumFormPut() {
         <label className='post-album-label'>album image</label>
 
         <div className='post-album-input-col'>
-        <input className='post-album-input' type='text'
-        value={albumImage} onChange={e => setAlbumImage(e.target.value)}></input>
+        <input className='post-album-input' type='file' name='album_image' accept='image/*' onChange={e => setAlbumImage(e.target.files)}></input>
         {hasSubmitted && errors.albumImage ? (
         <p className='errors'>{errors.albumImage}</p>
             ) : (

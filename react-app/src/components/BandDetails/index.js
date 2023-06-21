@@ -41,7 +41,6 @@ export default function BandDetails() {
         <img src={`${a.albumImage}`} alt='albumart' key={`albumart${i}`} className='band-deets-albumart'></img>
         <p className='band-deets-album-name'>
         {a.name}</p></NavLink>
-        {/* <p className='band-deets-album-title'></p> */}
         </div>
 
         )) : (
