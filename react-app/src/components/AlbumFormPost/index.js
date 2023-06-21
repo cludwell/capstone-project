@@ -23,19 +23,19 @@ export default function AlbumFormPost() {
         if (!description || description.length < 30) err.description = 'Please enter a description of your album'
         if (!genre || genre.length < 3) err.genre = 'Please enter some genres your album could be categorized under'
         if (!price || price < 0) err.price = 'Please enter a valid price for your album'
-        if (!albumImage || albumImage.length < 20) err.albumImage = 'Please enter a valid image for your album'
+        if (!albumImage) err.albumImage = 'Please enter a valid image for your album'
         setErrors(err)
         return err
     }, [name, description, genre, price, albumImage])
 
     const handleSubmit = e => {
         e.preventDefault()
-        // validate()
         setHasSubmitted(true)
         if (Object.values(errors).length) return alert('Please correct input errors')
         else {
             const newAlbum = { name, price, album_image: albumImage, genre, band_id: parseInt(bandId), description }
             dispatch(createAlbumRequest(newAlbum))
+            dispatch(fetchBandInfo(bandId)) //need state to refresh on bandinfo page
             history.push(`/bands/${bandId}`)
         }
     }
@@ -97,8 +97,7 @@ export default function AlbumFormPost() {
         <label className='post-album-label'>album image</label>
 
         <div className='post-album-input-col'>
-        <input className='post-album-input' type='text'
-        value={albumImage} onChange={e => setAlbumImage(e.target.value)}></input>
+        <input className='post-album-input' type='file' name='album_image' accept='image/*' onChange={e => setAlbumImage(e.target.files)}></input>
         {hasSubmitted && errors.albumImage ? (
         <p className='errors'>{errors.albumImage}</p>
             ) : (

@@ -3,6 +3,8 @@ from app.models import db, Album, Song, Purchase, User, Band
 from flask_login import current_user, login_required
 from .router_helpers import get_sales, get_sale_user, get_album_songs, get_band_info
 from app.forms import PostAlbumForm, PostSongForm
+from app.api.aws_helpers import (upload_file_to_s3, allowed_file, get_unique_filename, delete_file_from_s3)
+
 album_routes = Blueprint('/albums', __name__)
 
 @album_routes.route('/', methods=['GET', 'POST'])
@@ -25,11 +27,21 @@ def get_all_albums():
         if not form.validate_on_submit():
             return form.errors, 404
         else:
+            if 'album_image' not in request.files:
+                return { 'errors': ['Album image is required' ] }, 400
+            album_image = request.files['album_image']
+            if not allowed_file(album_image.filename):
+                return {'errors': ['file type not permitted']}, 400
+            album_image.filename = get_unique_filename(album_image.filename)
+            album_image_upload = upload_file_to_s3(album_image)
+            if 'url' not in album_image_upload:
+                return album_image_upload, 400
+            album_image_aws_url = album_image_upload['url']
             new_album = Album(
                 name = form.data['name'],
                 description = form.data['description'],
                 price = form.data['price'],
-                album_image = form.data['album_image'],
+                album_image = album_image_aws_url,
                 genre = form.data['genre'],
                 band_id = form.data['band_id']
             )
