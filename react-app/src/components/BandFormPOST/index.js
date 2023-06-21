@@ -42,7 +42,7 @@ export default function BandFormPOST() {
         else {
             const newBand = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
             dispatch(startBand(newBand))
-            history.push(`/users/${user.id}`)
+            // history.push(`/users/${user.id}`)
         }
     }
 
@@ -106,7 +106,7 @@ export default function BandFormPOST() {
 
     <div className='band-post-input-col'>
     <input type='file' className='post-band-text-input'
-    accept='image/*' onChange={e => setBannerUrl(e.target.files)} ></input>
+    accept='image/*' name='banner_url' onChange={e => setBannerUrl(e.target.files)} ></input>
     {hasSubmitted && Object.values(errors).length ? (
     <p className='errors'>{errors.bannerUrl}</p>
     ) : (
@@ -118,7 +118,7 @@ export default function BandFormPOST() {
 
     <div className='band-post-input-col'>
     <input type='file' className='post-band-text-input'
-    accept='image/*' onChange={e => setArtistImage(e.target.files)} ></input>
+    accept='image/*' name='artist_image' onChange={e => setArtistImage(e.target.files)} ></input>
     {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.artistImage}</p>
     ) : (

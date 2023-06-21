@@ -3,7 +3,7 @@ from app.models import Album, Song, Purchase, User, Band, db
 from flask_login import current_user, login_required
 from app.forms import PostBandForm
 from app.api.aws_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
-
+from flask import request
 band_routes = Blueprint('/bands', __name__)
 
 def get_albums_by_band(band_id):
@@ -56,7 +56,9 @@ def post_band():
     if request.method == 'GET':
         bands = Band.query.all()
         return { b.id: b.to_dict() for b in bands }, 200
+
     if request.method == 'POST' and current_user.id:
+        # print('request.form################################################', request.form)
         form = PostBandForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         form.validate_on_submit()
@@ -64,19 +66,19 @@ def post_band():
             return form.errors, 404
         if form.validate_on_submit():
             # AWS functionality
-            print('===============================================', request.files)
-            if 'banner_url' not in request.files[0]:
+            if 'banner_url' not in request.files:
                 return { 'errors': ['Banner Image is required']}, 400
-            if 'artist_image' not in request.files[1]:
+            if 'artist_image' not in request.files:
                 return { 'errors': ['Band photo is required']}, 400
             banner_url = request.files['banner_url']
             artist_image = request.files['artist_image']
-            if not allowed_file(banner_url.filename) or allowed_file(artist_image.filename):
+            if not allowed_file(banner_url.filename) or not allowed_file(artist_image.filename):
                 return {'errors': ['file type not permitted']}, 400
             banner_url.filename = get_unique_filename(banner_url.filename)
             artist_image.filename = get_unique_filename(artist_image.filename)
             banner_upload = upload_file_to_s3(banner_url)
             artist_upload = upload_file_to_s3(artist_image)
+
             if 'url' not in banner_upload:
                 return banner_upload, 400
             if 'url' not in artist_upload:

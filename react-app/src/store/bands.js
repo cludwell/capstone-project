@@ -45,8 +45,9 @@ export const fetchBandInfo = bandId => async dispatch => {
 }
 export const startBand = bandInfo => async dispatch => {
     const formData = new FormData()
-    console.log('BANDINFOOOOOOOOOOOOOOOOOOOOOOOOO', bandInfo)
     for (let key in bandInfo) formData.append(`${key}`, bandInfo[key])
+    formData.set('banner_url', bandInfo.banner_url[0])
+    formData.set('artist_image', bandInfo.artist_image[0])
     const response = await fetch('/api/bands/', {
         method: "POST",
         body: formData})
