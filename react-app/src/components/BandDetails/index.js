@@ -11,8 +11,11 @@ export default function BandDetails() {
     const history = useHistory()
 
     useEffect(() => {
-        dispatch(fetchBandInfo(bandId))
-        dispatch(authenticate())
+        const loadData = async () => {
+            await dispatch(fetchBandInfo(bandId))
+            await dispatch(authenticate())
+        }
+        loadData()
     }, [dispatch, bandId])
 
     const band = useSelector(state => state.bands.singleBand)

@@ -33,10 +33,13 @@ export default function UserDetails() {
     const wishlistClass = 'user-details-tab' + (showBody ? ' user-selected' : '')
     // const closeBody = () => setShowBody(false)
     useEffect(() => {
-        dispatch(fetchUserPurchases(userId))
-        dispatch(fetchUsers())
-        dispatch(fetchAllBands())
-        dispatch(authenticate())
+        const loadData = async () => {
+            await dispatch(fetchUserPurchases(userId))
+            await dispatch(fetchUsers())
+            await dispatch(fetchAllBands())
+            await dispatch(authenticate())
+        }
+        loadData()
     }, [dispatch, userId])
 
     const users = useSelector(state => state.users)

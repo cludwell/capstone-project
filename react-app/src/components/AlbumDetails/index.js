@@ -39,12 +39,15 @@ export default function AlbumDetails() {
     const closeMenu = e => setShowMenu(false)
 
     useEffect(() => {
-        dispatch(fetchSingleAlbum(albumId))
-        dispatch(fetchUserPurchases())
-        dispatch(fetchAlbums())
-        dispatch(fetchUsers())
-        dispatch(fetchWishLists())
-        dispatch(fetchUserCart())
+        const loadData = async () => {
+            await dispatch(fetchSingleAlbum(albumId))
+            await dispatch(fetchUserPurchases())
+            await dispatch(fetchAlbums())
+            await dispatch(fetchUsers())
+            await dispatch(fetchWishLists())
+            await dispatch(fetchUserCart())
+        }
+        loadData()
     }, [dispatch, albumId])
 
     const album = useSelector(state => state.albums.singleAlbum)
