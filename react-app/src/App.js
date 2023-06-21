@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
-import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 // import Navigation from "./components/Navigation";
 import Header from "./components/Header";
@@ -31,8 +29,8 @@ function App() {
           <Route path={`/`} exact={true} component={Landing}/>
           <Route path='/albums/:albumId/edit' exact={true} component={AlbumFormPut} />
           <Route path='/albums/:albumId' exact={true} component={AlbumDetails} />
-          <Route path="/login" component={LoginFormPage} />
-          <Route path="/signup" component={SignupFormPage}/>
+          {/* <Route path="/login" component={LoginFormPage} />
+          <Route path="/signup" component={SignupFormPage}/> */}
           <Route path='/bands/new' exact={true} component={BandFormPOST} />
           <Route path='/bands/:bandId' exact={true} component={BandDetails} />
           <Route path='/users/:userId' exact={true} component={UserDetails} />
