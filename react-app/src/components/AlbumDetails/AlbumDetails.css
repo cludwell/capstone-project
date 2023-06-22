@@ -27,9 +27,15 @@
 .details-grey-text {
     color: green;
 }
+
 .details-info {
     margin-bottom: 0rem;
 }
+/* .player,
+audio {
+    width: 35vmin !important;
+    height: 7vmin !important;
+} */
 .buy-digital-album {
     color: blue;
     cursor: pointer;

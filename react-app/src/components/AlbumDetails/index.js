@@ -18,11 +18,13 @@ import SongDeleteModal from '../SongDeleteModal'
 import { deleteCartRequest, fetchUserCart, postCartRequest } from '../../store/carts'
 import CheckOutModal from '../CheckOutModal'
 import OpenModalCheckOutPreview from '../OpenModalButton/OpenModalCheckoutPreview'
+import ReactPlayer from 'react-player';
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
     const { albumId } = useParams()
     const history = useHistory()
+    const [ duration, setDuration ] = useState(0)
     //modal components
     const [ showMenu, setShowMenu ] = useState(false)
     const ulRef = useRef();
@@ -82,17 +84,50 @@ export default function AlbumDetails() {
         await dispatch(deleteCartRequest(cartId))
         await dispatch(fetchUserCart())
     }
+    const songUrl = album && album.Songs && album.Songs.length ? album.Songs.find(s=> s.url) : null
+    const handleDuration = duration => {
+        setDuration(duration)
+    }
+    console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%', songUrl)
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
                 <img src={`${album.Band.bannerUrl}`} alt='bandbannerimage' className='album-details-banner'/>
             ) : null}
+            <ReactPlayer
+            url={'https://youtu.be/gqUPGa15Oto'}
+            style={{alignSelf: "center", aspectRatio: '1'}}
+            width={'100vmin'}
+            height={'50vmin'}
+            />
         <div className='album-details-container'>
 
             <div className='tracks-column'>
             <h2 className='album-details-title'>{album.name}</h2>
             <p className='details-band-name'>by {album.Band.name}</p>
-            <div className='details-react-player'>REACT placeholder</div>
+            <div className='details-react-player'>
+                {songUrl ? (
+                    <>
+                    <div>{songUrl.trackNum}: {songUrl.name}</div>
+                    <ReactPlayer url={songUrl.url}
+                    controls={true}
+                    className='player'
+                    playsinline={true}
+                    onDuration={handleDuration}
+                    config={{
+                        file: {
+                          attributes: {
+                            controlsList: 'nodownload'
+                          }
+                        }
+                      }}
+                    width={'37vmin'}
+                    height={'6vmin'}
+                    albumImage={album.albumImage}
+                    />
+                </>
+                ) : null}
+            </div>
             <div className='album-details-streaming-info'>
 
             {user && purchases && purchases.length && purchases.some(p => p.albumId === album.id) ? (

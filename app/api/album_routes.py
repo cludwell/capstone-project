@@ -65,7 +65,7 @@ def get_album_by_id(album_id):
         copy['Sales'] = get_sales(copy['id'])
         for s in copy['Sales']:
             s['User'] = get_sale_user(s)
-        print('####################################################################################################################################################################################################################################################################')
+
         return copy
     if request.method == 'DELETE':
         if current_user == None or current_user.id != band.user_id:
@@ -156,6 +156,7 @@ def edit_or_delete_song(album_id, song_id):
         # aws song upload
         aws_url = None  # Initialize aws_url variable with None
         if 'url' in request.files:
+            delete_file_from_s3(song.url)
             url = request.files['url']
             if not allowed_song(url.filename):
                 return { 'errors': ['file type not permitted'] }, 400
