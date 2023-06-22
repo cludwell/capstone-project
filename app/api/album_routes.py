@@ -3,7 +3,7 @@ from app.models import db, Album, Song, Purchase, User, Band
 from flask_login import current_user, login_required
 from .router_helpers import get_sales, get_sale_user, get_album_songs, get_band_info
 from app.forms import PostAlbumForm, PostSongForm
-from app.api.aws_helpers import (upload_file_to_s3, allowed_file, get_unique_filename, delete_file_from_s3)
+from app.api.aws_helpers import (upload_file_to_s3, allowed_file, allowed_song, get_unique_filename, delete_file_from_s3)
 
 album_routes = Blueprint('/albums', __name__)
 
@@ -117,13 +117,24 @@ def create_song(album_id):
         else:
             form = PostSongForm()
             form['csrf_token'].data = request.cookies['csrf_token']
+
+            # aws song upload
+            if request.files['url']:
+                url = request.files['url']
+                if not allowed_song(url.filename):
+                    return { 'errors': ['file type not permitted'] }, 400
+                url.filename = get_unique_filename(url.filename)
+                url_upload = upload_file_to_s3(url)
+                aws_url = url_upload['url']
+            # end of aws upload
+
             if form.validate_on_submit():
                 new_song = Song(
                     name = form.data['name'],
                     lyrics = form.data['lyrics'],
                     price = form.data['price'],
                     track_num = form.data['track_num'],
-                    url = form.data['url'],
+                    url = aws_url or form.data['url'],
                     album_id = album_id
                 )
             db.session.add(new_song)
@@ -141,11 +152,25 @@ def edit_or_delete_song(album_id, song_id):
             form = PostSongForm()
             form['csrf_token'].data = request.cookies['csrf_token']
             if form.validate_on_submit():
+
+                # aws song upload
+                aws_url = None  # Initialize aws_url variable with None
+                if request.files['url']:
+                    url = request.files['url']
+                    if not allowed_song(url.filename):
+                        return { 'errors': ['file type not permitted'] }, 400
+                    url.filename = get_unique_filename(url.filename)
+                    url_upload = upload_file_to_s3(url)
+                    aws_url = url_upload['url']
+                    song.url = aws_url
+                    print('###############################################', aws_url)
+                # end of aws upload
+
                 song.name = form.data['name']
                 song.lyrics = form.data['lyrics']
                 song.price = form.data['price']
                 song.track_num = form.data['track_num']
-                song.url = form.data['url']
+                # song.url = aws_url or form.data['url'],
                 song.album_id = album_id
                 db.session.commit()
                 return song.to_dict()

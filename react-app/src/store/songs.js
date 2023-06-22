@@ -20,10 +20,15 @@ export const deleteSong = deleted => {
         deleted
     }
 }
-export const postSongRequest = (song, albumId) => async dispatch => {
-    const response = await fetch(`/api/albums/${albumId}/songs/`,
-        {method: 'POST', headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(song)})
+export const postSongRequest = (songData, albumId) => async dispatch => {
+    const formData = new FormData()
+    for (let key in songData) formData.append(`${key}`, songData[key])
+    formData.set('url', songData.url[0])
+
+    const response = await fetch(`/api/albums/${albumId}/songs/`, {
+        method: 'POST',
+        body: formData
+    })
     if (response.ok) {
         const newSong = await response.json()
         dispatch(postSong(newSong))
@@ -31,14 +36,19 @@ export const postSongRequest = (song, albumId) => async dispatch => {
     }
 }
 export const putSongRequest = (songData, albumId) => async dispatch => {
-    const response = await fetch(`/api/albums/${albumId}/songs/${songData.id}`,
-        {method: 'PUT',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(songData)} )
-        if (response.ok) {
-            const edittedSong = await response.json()
-            dispatch(editSong(edittedSong))
-        }
+    const formData = new FormData()
+    for (let key in songData) formData.append(`${key}`, songData[key])
+    formData.set('url', songData.url[0])
+    console.log('==================================', songData)
+    const response = await fetch(`/api/albums/${albumId}/songs/${songData.id}`, {
+        method: 'PUT',
+        body: formData
+    })
+    if (response.ok) {
+        const edittedSong = await response.json()
+        dispatch(editSong(edittedSong))
+        return edittedSong
+    }
 
 }
 export const deleteSongRequest = songId => async dispatch => {

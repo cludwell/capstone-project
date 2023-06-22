@@ -104,7 +104,7 @@ export default function SongFormPut({ albumId, song }) {
         <label className='post-song-label'>url</label>
 
         <div className='post-song-col'>
-        <input type='url' className='post-song-input' value={url} onChange={e=> setUrl(e.target.value)}></input>
+        <input type='file' name='url' accept='audio/*' className='post-song-input' onChange={e=> setUrl(e.target.files)}></input>
         {hasSubmitted && errors.url ? (
         <p className='errors'>{errors.url}</p>
         ) : (

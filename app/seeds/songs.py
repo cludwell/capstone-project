@@ -80,6 +80,7 @@ def seed_songs():
     song018 = Song(
         # abyss by unleash the archers
         name= "Abyss", album_id=2, price=.99, track_num= 2,
+        url='https://fancamp.s3.amazonaws.com/53fa35ae79f94805bd233eb2e4e54bd4.mp3',
         lyrics="""Open my eyes in a daze
         How long has it been? Am I so out of place?
         Warmth I can no longer feel
@@ -889,6 +890,7 @@ of our transformation, we finally have won
     song037 = Song(
         # Apex by Unleash The Archers
         name="Awakening", album_id=3, price=0.99, track_num=1,
+        url='https://fancamp.s3.us-west-2.amazonaws.com/7ffde90b7acf474bb9cc21f848d7af42.mp3',
         lyrics="""To look up into the night's sky
 To see the stars they are changed
 To know a thousand years or more have passed, and I am still the same

@@ -12,7 +12,7 @@ export default function SongFormPost({ albumId }) {
     const [ lyrics, setLyrics ] = useState('')
     const [ price, setPrice ] = useState(0)
     const [ trackNum, setTrackNum ] = useState(0)
-    const [ url, setUrl ] = useState('')
+    const [ url, setUrl ] = useState(null)
     const [ errors, setErrors ] = useState({})
     const { closeModal } = useModal()
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
@@ -21,7 +21,6 @@ export default function SongFormPost({ albumId }) {
         if (!name || name.length >40) err.name = 'Please enter a title for your song less than 40 characters'
         if (!price || price < 0 || price > 100) err.price = 'Please enter a realistic price for your song'
         if (!trackNum || trackNum < 0  || trackNum > 100) err.trackNum = 'Please keep track numbers between 0 and 100'
-        if (!url) err.url = 'Please provide a path to upload your song'
         setErrors(err)
         return err
     }, [name, price, trackNum, url])
@@ -90,7 +89,7 @@ export default function SongFormPost({ albumId }) {
         <label className='post-song-label'>url</label>
 
         <div className='post-song-col'>
-        <input type='url' className='post-song-input' value={url} onChange={e=> setUrl(e.target.value)}></input>
+        <input type='file' name='url' accept='audio/*' className='post-song-input' onChange={e=> setUrl(e.target.files)}></input>
         {hasSubmitted && errors.url ? (
         <p className='errors'>{errors.url}</p>
         ) : (

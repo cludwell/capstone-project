@@ -28,9 +28,7 @@ function App() {
         <Switch>
           <Route path={`/`} exact={true} component={Landing}/>
           <Route path='/albums/:albumId/edit' exact={true} component={AlbumFormPut} />
-          <Route path='/albums/:albumId' exact={true} component={AlbumDetails} />
-          {/* <Route path="/login" component={LoginFormPage} />
-          <Route path="/signup" component={SignupFormPage}/> */}
+          <Route path='/albums/:albumId' exact={true} component={AlbumDetails} /> 
           <Route path='/bands/new' exact={true} component={BandFormPOST} />
           <Route path='/bands/:bandId' exact={true} component={BandDetails} />
           <Route path='/users/:userId' exact={true} component={UserDetails} />
