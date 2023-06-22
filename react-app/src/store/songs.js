@@ -39,7 +39,6 @@ export const putSongRequest = (songData, albumId) => async dispatch => {
     const formData = new FormData()
     for (let key in songData) formData.append(`${key}`, songData[key])
     formData.set('url', songData.url[0])
-    console.log('==================================', songData)
     const response = await fetch(`/api/albums/${albumId}/songs/${songData.id}`, {
         method: 'PUT',
         body: formData
@@ -68,7 +67,6 @@ const initialState = {
 export default function songReducer( state = initialState, action) {
     switch (action.type) {
         case POST_SONG:
-            const beforePost = { ...state, allSongs: [...state.allSongs]}
             return { ...state, allSongs :[ ...state.allSongs, action.newSong] }
         case PUT_SONG:
             const preEditState = { ...state, allSongs: [...state.allSongs]}

@@ -65,6 +65,7 @@ def get_album_by_id(album_id):
         copy['Sales'] = get_sales(copy['id'])
         for s in copy['Sales']:
             s['User'] = get_sale_user(s)
+        print('####################################################################################################################################################################################################################################################################')
         return copy
     if request.method == 'DELETE':
         if current_user == None or current_user.id != band.user_id:
@@ -147,32 +148,36 @@ def edit_or_delete_song(album_id, song_id):
     song = Song.query.get(song_id)
     album = Album.query.get(album_id)
     band = Band.query.get(album.band_id)
-    if request.method == 'PUT':
-        if current_user.id == band.user_id:
-            form = PostSongForm()
-            form['csrf_token'].data = request.cookies['csrf_token']
-            if form.validate_on_submit():
 
-                # aws song upload
-                aws_url = None  # Initialize aws_url variable with None
-                if request.files['url']:
-                    url = request.files['url']
-                    if not allowed_song(url.filename):
-                        return { 'errors': ['file type not permitted'] }, 400
-                    url.filename = get_unique_filename(url.filename)
-                    url_upload = upload_file_to_s3(url)
-                    aws_url = url_upload['url']
-                    song.url = aws_url
-                    print('###############################################', aws_url)
-                # end of aws upload
+    if request.method == 'PUT' and current_user.id == band.user_id:
+        form = PostSongForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
 
-                song.name = form.data['name']
-                song.lyrics = form.data['lyrics']
-                song.price = form.data['price']
-                song.track_num = form.data['track_num']
-                # song.url = aws_url or form.data['url'],
-                song.album_id = album_id
+        # aws song upload
+        aws_url = None  # Initialize aws_url variable with None
+        if 'url' in request.files:
+            url = request.files['url']
+            if not allowed_song(url.filename):
+                return { 'errors': ['file type not permitted'] }, 400
+
+            url.filename = get_unique_filename(url.filename)
+            url_upload = upload_file_to_s3(url)
+            aws_url = url_upload.get('url')  # Use .get() method to safely access the URL
+            print('###############################################', aws_url)
+        # end of aws upload
+
+        if form.validate_on_submit():
+            song.name = form.data['name']
+            song.lyrics = form.data['lyrics']
+            song.price = form.data['price']
+            song.track_num = form.data['track_num']
+            song.url = aws_url or form.data['url']
+            song.album_id = album_id
+
+            try:
                 db.session.commit()
                 return song.to_dict()
-        else:
-            return {"error": "Unauthorized request"}, 401
+            except Exception as e:
+                return {'error': str(e)}, 500
+
+    return {'error': 'Unauthorized request'}, 403
