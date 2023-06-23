@@ -4,6 +4,7 @@ from flask_login import current_user, login_required
 from .router_helpers import get_sales, get_sale_user, get_album_songs, get_band_info
 from app.forms import PostAlbumForm, PostSongForm
 from app.api.aws_helpers import (upload_file_to_s3, allowed_file, allowed_song, get_unique_filename, delete_file_from_s3)
+import traceback
 
 album_routes = Blueprint('/albums', __name__)
 
@@ -150,36 +151,44 @@ def edit_or_delete_song(album_id, song_id):
     album = Album.query.get(album_id)
     band = Band.query.get(album.band_id)
 
-    if request.method == 'PUT' and current_user.id == band.user_id:
+# and current_user.id == band.user_id
+    if request.method == 'PUT':
         form = PostSongForm()
         form['csrf_token'].data = request.cookies['csrf_token']
+        if not form.validate_on_submit():
+            print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', form.errors)
+        if form.validate_on_submit():
 
-        # aws song upload
-        aws_url = None  # Initialize aws_url variable with None
-        if 'url' in request.files:
-            delete_file_from_s3(song.url)
-            url = request.files['url']
-            if not allowed_song(url.filename):
-                return { 'errors': ['file type not permitted'] }, 400
+            # aws song upload
+            aws_url = None  # Initialize aws_url variable with None
+            if 'url' in request.files:
+                if song.url:
+                    delete_file_from_s3(song.url)
+                url = request.files['url']
+                if not allowed_song(url.filename):
+                    return { 'errors': ['file type not permitted'] }, 400
 
-            url.filename = get_unique_filename(url.filename)
-            url_upload = upload_file_to_s3(url)
-            aws_url = url_upload.get('url')  
+                url.filename = get_unique_filename(url.filename)
+                url_upload = upload_file_to_s3(url)
+                aws_url = url_upload.get('url')
+                print('###############################################', aws_url)
+            print('===============================================')
             print('###############################################', aws_url)
         # end of aws upload
 
-        if form.validate_on_submit():
             song.name = form.data['name']
             song.lyrics = form.data['lyrics']
             song.price = form.data['price']
             song.track_num = form.data['track_num']
-            song.url = aws_url or form.data['url']
+            song.url = aws_url if aws_url else form.data['url']
             song.album_id = album_id
 
             try:
                 db.session.commit()
+                print('======================================================', song.to_dict())
                 return song.to_dict()
             except Exception as e:
+                traceback.print_exc()  # Print the traceback
                 return {'error': str(e)}, 500
 
-    return {'error': 'Unauthorized request'}, 403
+    return {'error': 'Unauthorized request'}, 404

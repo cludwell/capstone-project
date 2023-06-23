@@ -56,7 +56,7 @@ def seed_songs():
     )
     song014 = Song(
         # first four years by black flag
-        name= 	"Machine", album_id=1, price=.99, track_num= 14
+        name= 	"Machine", album_id=1, price=.99, track_num= 14, url='https://fancamp.s3.amazonaws.com/448a964128484060ac6a827bf0315644.mp3'
     )
     song015 = Song(
         # first four years by black flag
@@ -1281,7 +1281,7 @@ Call me Immortal"""
     )
     song048 = Song(
         # Caníbal by Accidente
-        name="Hablar de lxs muertxs", album_id=4, price=.99, track_num=2
+        name="Hablar de lxs muertxs", album_id=4, price=.99, track_num=2, url='https://fancamp.s3.amazonaws.com/c8c6b0cf91634189a59d5b7e1138e5d9.mp3'
     )
     song049 = Song(
         # Caníbal by Accidente
@@ -1385,7 +1385,7 @@ Call me Immortal"""
 
     song073 = Song(
         # The Saberlight Chronicles by Fellowship
-        name="Glory Days", album_id=6, price=.99, track_num=3
+        name="Glory Days", album_id=6, price=.99, track_num=3, url='https://fancamp.s3.amazonaws.com/474b4e6168c447ed9db7efefd19b4597.mp3'
     )
 
     song074 = Song(
@@ -1617,7 +1617,8 @@ Smite the invoker!"""
 
     song089 = Song(
         # The Armor of Ire by Eternal Champion
-        name="Sing A Last Song Of Valdese", album_id=7, price=.99, track_num=7, lyrics="""SING A LAST SONG OF VALDESE
+        name="Sing A Last Song Of Valdese", album_id=7, price=.99, track_num=7, url='https://fancamp.s3.amazonaws.com/2a1acea2faf64c6b935c75c0bc16c052.mp3',
+        lyrics="""SING A LAST SONG OF VALDESE,
 
 Into the vale beneath the autumn ridges flows the Cotras. It cuts it's way to Raven's Eyrie's door. Under the strange moon the night winds mock the Sun. The hound is baying for his master Demonlord.
 
@@ -1768,7 +1769,7 @@ Valdese by revenge your soul can be at one. No longer must you stalk among the n
     )
     song117 = Song(
         # Pulso by Accidente
-    name="Pulso", album_id=11, price=.99, track_num=1,
+    name="Pulso", album_id=11, price=.99, track_num=1, url='https://fancamp.s3.amazonaws.com/51d66ec8254b459b9382988ee2b49873.mp3',
     lyrics="""Dignidad no significa
 que no grites cuando duele
 cuando hayas mordido el polvo

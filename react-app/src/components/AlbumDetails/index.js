@@ -86,7 +86,6 @@ export default function AlbumDetails() {
     }
     const songUrl = album && album.Songs && album.Songs.length ? album.Songs.find(s=> s.url) : null
 
-    console.log('==================================================', album)
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
@@ -155,7 +154,8 @@ export default function AlbumDetails() {
                 onItemClick={closeMenu}
                 modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
                 ) : null}</td>
-                {user && album.Band.userId === user.id ? (
+                {user //&& album.Band.userId === user.id
+                 ? (
                     <>
                     <td key={`edit${i}`} className='user-auth-song'>
                     <OpenModalButton

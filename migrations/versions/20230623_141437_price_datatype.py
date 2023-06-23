@@ -1,19 +1,20 @@
-"""youtube
+"""price datatype
 
-Revision ID: 5c2db567b715
+Revision ID: e22b73a4eaa8
 Revises:
-Create Date: 2023-06-23 09:15:38.821090
+Create Date: 2023-06-23 14:14:37.903534
 
 """
 from alembic import op
 import sqlalchemy as sa
+
 
 import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = '5c2db567b715'
+revision = 'e22b73a4eaa8'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -39,7 +40,6 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-
 
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
@@ -80,7 +80,6 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
 
-
     if environment == "production":
         op.execute(f"ALTER TABLE albums SET SCHEMA {SCHEMA};")
 
@@ -94,7 +93,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
 
     if environment == "production":
         op.execute(f"ALTER TABLE carts SET SCHEMA {SCHEMA};")
@@ -111,7 +109,6 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
 
-
     if environment == "production":
         op.execute(f"ALTER TABLE purchases SET SCHEMA {SCHEMA};")
 
@@ -120,7 +117,7 @@ def upgrade():
     sa.Column('name', sa.String(), nullable=False),
     sa.Column('album_id', sa.Integer(), nullable=False),
     sa.Column('lyrics', sa.Text(), nullable=True),
-    sa.Column('price', sa.Integer(), nullable=True),
+    sa.Column('price', sa.DECIMAL(precision=8, scale=2), nullable=False),
     sa.Column('track_num', sa.Integer(), nullable=True),
     sa.Column('url', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
@@ -128,7 +125,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['album_id'], ['albums.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
 
     if environment == "production":
         op.execute(f"ALTER TABLE songs SET SCHEMA {SCHEMA};")

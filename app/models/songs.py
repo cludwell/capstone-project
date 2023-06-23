@@ -11,7 +11,7 @@ class Song(db.Model):
     name = db.Column(db.String, nullable=False)
     album_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id')), nullable=False)
     lyrics = db.Column(db.Text)
-    price = db.Column(db.Integer)
+    price = db.Column(db.DECIMAL(precision=8, scale=2), nullable=False)
     track_num = db.Column(db.Integer)
     url = db.Column(db.String)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
