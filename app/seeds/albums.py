@@ -9,7 +9,7 @@ def seed_albums():
         genre='Punk'
     )
     album02 = Album(
-        name= 'Abyss', price=9.99, youtube='https://youtu.be/gqUPGa15Oto',
+        name= 'Abyss', price=9.99, youtube='https://youtu.be/1bGmjnkDTTI',
         description=
         """Less than a year after the release of their covers EP Explorers, Canadian melodic power metal quartet UNLEASH THE ARCHERS have sharpened their arrows and hit the bullseye once again with their fifth full-length album, Abyss. Featuring 10 new tracks, this adventure is a concept album and sequel to 2017's Apex, and was once again recorded with legendary producer Jacob Hansen of Hansen Studios in Denmark. Abyss succeeds in showcasing the mind-blowing technical craftmanship of the young four-piece with the perfect mix of highly complex, catchy bangers and moody, synth-infused power ballads. Pairing traditional heavy sounds in the vein of Iron Maiden and Judas Priest with fast-paced power metal, the album is once again accented by frontwoman Brittney Slayes' raw four octave mezzo-soprano, shining both in powerful anthems like the outstanding title track “Abyss” as well as the fragile intro of the epic “The Wind That Shapes The Land”, and contrasted with guttural screams on the soaring “Return To Me” or the transcendent album closer “Afterlife". The quartet from Vancouver has forged their own niche in the world of metal and cemented it with memorable live shows all over the world, and now, a lucky 13 years after their inception, they've delivered their strongest album to date.
 
@@ -21,7 +21,7 @@ def seed_albums():
 
     )
     album03 = Album(
-        name= 'Apex', price=9.99,
+        name= 'Apex', price=9.99, youtube='https://youtu.be/gqUPGa15Oto',
         description=
         """Deluxe 2CD + 10" Earbook edition available here: lnk.to/ApexAnniversary/napalmrecords
 
@@ -54,7 +54,7 @@ def seed_albums():
 
     )
     album05 = Album(
-        name= 'Chapter III Downfall ', price=9.99,
+        name= 'Chapter III Downfall ', price=9.99, youtube='https://youtu.be/Qk1akD6HVDU',
         description=
         """Physical editions available here:
         lnk.to/ChapterIIIDownfall/napalmrecords
@@ -206,19 +206,19 @@ def seed_albums():
 
     )
     album12 = Album(
-        name='Inhuman Rampage', price=9.99,
+        name='Inhuman Rampage', price=9.99, youtube='https://youtu.be/rK_d5g3pBb8',
         description="""Inhuman Rampage is the third studio album by British power metal band DragonForce, released first on 28 December 2005[4] in Japan, and 9 January 2006 elsewhere, through Victor Entertainment and Roadrunner Records, respectively. Its first single, "Through the Fire and Flames", has received rock radio and Fuse TV airplay, and has appeared as a playable track on the video games Guitar Hero III: Legends of Rock and Rocksmith 2014 Edition - Remastered. It is the band's first album to feature harsh vocals, which were recorded by Demoniac vocalist Lindsay Dawson; the album is also the last to feature bassist Adrian Lambert, who left the band in 2005 and was replaced by Frédéric Leclercq before the album's release.  """,
         band_id=8, album_image='https://i.imgur.com/yDR2Q5w.png',
         genre='metal, power metal, fantasy metal'
     )
     album13 = Album(
-        name='Sonic Firestorm', price=9.99,
+        name='Sonic Firestorm', price=9.99, youtube='https://www.youtube.com/watch?v=BxF7pfW7sqI',
         description="""Sonic Firestorm is the second studio album by British power metal band DragonForce, released through Noise Records on 11 May 2004. It is the first album to feature bassist Adrian Lambert and drummer Dave Mackintosh. The reissue of this album was released on 22 February 2010, along with a remixed and remastered version of the band's first album, Valley of the Damned. The re-release also came with the bonus track "Cry of the Brave", which was a Japanese bonus track on the original release.  """,
         band_id=8, album_image='https://i.imgur.com/9Aswxnh.jpg',
         genre='metal, power metal, fantasy metal'
     )
     album14 = Album(
-        name='Valley of the Damned', price=9.99,
+        name='Valley of the Damned', price=9.99, youtube='https://youtu.be/9iYUYznGiKU',
         description="""Valley of the Damned is the debut studio album by British power metal band DragonForce. In 2000, while the band was still known as DragonHeart, a demo of the same name was recorded and sent to Noise Records, subsequently gaining the band a deal with the label. It was then re-recorded in late 2002 and released as a full-length studio album on 25 February 2003, following the band's obtainance of the deal with Noise and change in name to DragonForce. The album was set to be remastered and released with a bonus DVD on 24 September 2007, but was subsequently delayed and eventually released on 22 February 2010, along with the re-release of the band's second album, Sonic Firestorm.  """,
         band_id=8, album_image='https://i.imgur.com/MqOojTu.jpg',
         genre='metal, power metal, fantasy metal'

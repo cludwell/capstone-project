@@ -37,14 +37,14 @@ def seed_bands():
     band04 = Band(
         name='Ad Infinitum', city='Montreux', state='Riviera-Pays-dEnhaut', country='Switzerland', user_id=4,
         artist_image='https://i.imgur.com/okSLGZX.jpg',
-        banner_url=None,
+        banner_url='https://i.imgur.com/tl6HxgB.png',
         description="""Ad Infinitum is a Swiss/German symphonic metal band. Originally a solo project of Swiss singer Melissa Bonny, it turned into a full band with arrival of drummer Niklas Müller, bassist Jonas Asplind and guitarist Adrian Theßenvitz. The band signed a deal with Napalm Records in July 2019 and released a debut album - Chapter I: Monarchy - in April 2020.""",
         genres='metal, power metal, fantasy metal'
     )
     band05 = Band(
         name='Fellowship', city='Harwich', state='Essex', country='UK', user_id=5,
         artist_image='https://i.imgur.com/BSA9XQ8.jpg',
-        banner_url='https://i.imgur.com/XREf79t.png',
+        banner_url='https://i.imgur.com/PuR7FbV.png',
         description=
         """
         Hailing from Harwich, England, Fellowship is a four-piece on a mission to take melodic power metal to new heights.
