@@ -3,13 +3,13 @@ from sqlalchemy.sql import text
 
 def seed_albums():
     album01 = Album(
-        name= 'The First Four Years', price=4.99,
+        name= 'The First Four Years', price=4.99, youtube='https://youtu.be/4gpbDEWEPtM',
         description="The First Four Years is a compilation album by the American hardcore punk band Black Flag. It was released in 1983 on SST Records. The compilation consists of all of the group's material released before Henry Rollins became the band's vocalist in 1981. It essentially collects the extended plays Nervous Breakdown (1979), Jealous Again (1980), Six Pack (1981), and the single Louie Louie, with two tracks from various artists' compilation albums. \nTracks 1-4 are taken from Nervous Breakdown, tracks 5-9 are taken from Jealous Again, tracks 11-13 are from Six Pack, and tracks 15-16 are taken from the Louie Louie single. Tracks 10 and 14 were originally released on the New Alliance Records compilation albums Cracks in the Sidewalk (1980) and Chunks (1981).",
         band_id=1, album_image='https://i.imgur.com/qoDd5GQ.jpg',
         genre='Punk'
     )
     album02 = Album(
-        name= 'Abyss', price=9.99,
+        name= 'Abyss', price=9.99, youtube='https://youtu.be/gqUPGa15Oto',
         description=
         """Less than a year after the release of their covers EP Explorers, Canadian melodic power metal quartet UNLEASH THE ARCHERS have sharpened their arrows and hit the bullseye once again with their fifth full-length album, Abyss. Featuring 10 new tracks, this adventure is a concept album and sequel to 2017's Apex, and was once again recorded with legendary producer Jacob Hansen of Hansen Studios in Denmark. Abyss succeeds in showcasing the mind-blowing technical craftmanship of the young four-piece with the perfect mix of highly complex, catchy bangers and moody, synth-infused power ballads. Pairing traditional heavy sounds in the vein of Iron Maiden and Judas Priest with fast-paced power metal, the album is once again accented by frontwoman Brittney Slayes' raw four octave mezzo-soprano, shining both in powerful anthems like the outstanding title track “Abyss” as well as the fragile intro of the epic “The Wind That Shapes The Land”, and contrasted with guttural screams on the soaring “Return To Me” or the transcendent album closer “Afterlife". The quartet from Vancouver has forged their own niche in the world of metal and cemented it with memorable live shows all over the world, and now, a lucky 13 years after their inception, they've delivered their strongest album to date.
 
@@ -97,7 +97,7 @@ def seed_albums():
         genre='metal, fantasy metal'
     )
     album08 = Album(
-        name= 'Pesadilla Adulta', price=9.99,
+        name= 'Pesadilla Adulta', price=9.99, youtube='https://youtu.be/3iy-B0aYqJg',
         description=
         """
          Grabado en 'Tigruss Estudios' en abril de 2011 Por Pepe Tigruss. Mezclado en 'El Castillo Alemán' por Carlos Hernández en octubre de 2011. Masterizado por Carlos Hernández y Ruben Suarez.
@@ -124,7 +124,7 @@ def seed_albums():
         genre='pop, pop-punk'
     )
     album09 = Album(
-        name= 'Nueva Numancia', price=9.99,
+        name= 'Nueva Numancia', price=9.99, youtube='https://youtu.be/PcjyAo0TqyE',
         description=
         """
          Beat Generation BEAT 47
@@ -224,7 +224,7 @@ def seed_albums():
         genre='metal, power metal, fantasy metal'
     )
     album15 = Album(
-        name='No Holier Temple', price=9.99,
+        name='No Holier Temple', price=9.99, youtube='https://youtu.be/hbIofZoCX4c',
         description=""" released September 20, 2012
         license
         all rights reserved """,

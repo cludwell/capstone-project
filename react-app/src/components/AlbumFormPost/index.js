@@ -13,6 +13,7 @@ export default function AlbumFormPost() {
     const [ price, setPrice ] = useState(0)
     const [ albumImage, setAlbumImage ] = useState(null)
     const [ genre, setGenre ] = useState('')
+    const [ youtube, setYoutube ] = useState('')
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
     const [ errors, setErrors ] = useState({})
     const history = useHistory()
@@ -24,16 +25,17 @@ export default function AlbumFormPost() {
         if (!genre || genre.length < 3) err.genre = 'Please enter some genres your album could be categorized under'
         if (!price || price < 0) err.price = 'Please enter a valid price for your album'
         if (!albumImage) err.albumImage = 'Please enter a valid image for your album'
+        if (!youtube.includes('youtu')) err.youtube = "Are you sure that's a youtube link?"
         setErrors(err)
         return err
-    }, [name, description, genre, price, albumImage])
+    }, [name, description, genre, price, albumImage, youtube])
 
     const handleSubmit = e => {
         e.preventDefault()
         setHasSubmitted(true)
         if (Object.values(errors).length) return alert('Please correct input errors')
         else {
-            const newAlbum = { name, price, album_image: albumImage, genre, band_id: parseInt(bandId), description }
+            const newAlbum = { name, price, album_image: albumImage, genre, band_id: parseInt(bandId), description, youtube }
             dispatch(createAlbumRequest(newAlbum))
             dispatch(fetchBandInfo(bandId)) //need state to refresh on bandinfo page
             history.push(`/bands/${bandId}`)
@@ -113,6 +115,18 @@ export default function AlbumFormPost() {
         value={genre} onChange={e => setGenre(e.target.value)}></input>
         {hasSubmitted && errors.genre ? (
         <p className='errors'>{errors.genre}</p>
+            ) : (
+        <p></p>
+        )}
+        </div>
+
+        <label className='post-album-label'>youtube</label>
+
+        <div className='post-album-input-col'>
+        <input className='post-album-input' type='text'
+        value={youtube} onChange={e => setYoutube(e.target.value)}></input>
+        {hasSubmitted && errors.youtube ? (
+        <p className='errors'>{errors.youtube}</p>
             ) : (
         <p></p>
         )}

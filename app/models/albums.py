@@ -16,22 +16,8 @@ class Album(db.Model):
     genre = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
+    youtube = db.Column(db.String(255))
 
-    # in_cart= db.relationship(
-    #     'User',
-    #     back_populates='carts',
-    #     secondary=users_cart,
-    #     lazy='dynamic')
-    # supporters = db.relationship(
-    #     'User',
-    #     back_populates='purchases',
-    #     secondary=purchased_albums,
-    #     lazy=True)
-    # wishing_users = db.relationship(
-    #     'User',
-    #     back_populates='wish_lists',
-    #     secondary=wished_for,
-    #     lazy=True)
     wish_lists = db.relationship('WishList', backref='albums', lazy=True, cascade='all, delete')
     carts = db.relationship('Cart', backref='albums', lazy=True, cascade='all, delete')
     purchases = db.relationship('Purchase', backref='albums', lazy=True, cascade='all, delete')
@@ -47,5 +33,6 @@ class Album(db.Model):
             'albumImage': self.album_image,
             'genre': self.genre,
             'createdAt': self.created_at,
-            'updatedAt': self.updated_at
+            'updatedAt': self.updated_at,
+            'youtube': self.youtube
         }

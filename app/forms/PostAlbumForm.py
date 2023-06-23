@@ -9,3 +9,4 @@ class PostAlbumForm(FlaskForm):
     album_image = StringField('album_image', validators=[DataRequired()])
     genre = StringField('genre', validators=[DataRequired()])
     band_id = IntegerField('band_id', validators=[DataRequired()])
+    youtube = StringField('youtube')

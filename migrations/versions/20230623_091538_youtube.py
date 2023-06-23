@@ -1,8 +1,8 @@
-"""migrate
+"""youtube
 
-Revision ID: 073af0252798
+Revision ID: 5c2db567b715
 Revises:
-Create Date: 2023-04-22 22:37:15.568017
+Create Date: 2023-06-23 09:15:38.821090
 
 """
 from alembic import op
@@ -11,8 +11,9 @@ import sqlalchemy as sa
 import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
+
 # revision identifiers, used by Alembic.
-revision = '073af0252798'
+revision = '5c2db567b715'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -39,6 +40,7 @@ def upgrade():
     sa.UniqueConstraint('username')
     )
 
+
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
 
@@ -59,6 +61,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
 
+
     if environment == "production":
         op.execute(f"ALTER TABLE bands SET SCHEMA {SCHEMA};")
 
@@ -72,9 +75,11 @@ def upgrade():
     sa.Column('genre', sa.String(length=255), nullable=True),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
+    sa.Column('youtube', sa.String(length=255), nullable=True),
     sa.ForeignKeyConstraint(['band_id'], ['bands.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+
 
     if environment == "production":
         op.execute(f"ALTER TABLE albums SET SCHEMA {SCHEMA};")
@@ -90,6 +95,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
 
+
     if environment == "production":
         op.execute(f"ALTER TABLE carts SET SCHEMA {SCHEMA};")
 
@@ -104,6 +110,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+
 
     if environment == "production":
         op.execute(f"ALTER TABLE purchases SET SCHEMA {SCHEMA};")
@@ -122,6 +129,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
 
+
     if environment == "production":
         op.execute(f"ALTER TABLE songs SET SCHEMA {SCHEMA};")
 
@@ -136,8 +144,10 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
 
+
     if environment == "production":
         op.execute(f"ALTER TABLE wish_lists SET SCHEMA {SCHEMA};")
+
     # ### end Alembic commands ###
 
 

@@ -45,7 +45,9 @@ def get_all_albums():
                 price = form.data['price'],
                 album_image = album_image_aws_url,
                 genre = form.data['genre'],
-                band_id = form.data['band_id']
+                band_id = form.data['band_id'],
+                youtube = form.data['youtube']
+
             )
             db.session.add(new_album)
             db.session.commit()
@@ -59,14 +61,14 @@ def get_album_by_id(album_id):
         return {"error": "The requested album could not be found."}
     band = Band.query.get(album.band_id)
     if request.method == 'GET':
-        copy = album.to_dict()
-        copy['Band'] = band.to_dict()
-        copy['Songs'] = get_album_songs(copy['id'])
-        copy['Sales'] = get_sales(copy['id'])
-        for s in copy['Sales']:
+        payload = album.to_dict()
+        payload['Band'] = band.to_dict()
+        payload['Songs'] = get_album_songs(payload['id'])
+        payload['Sales'] = get_sales(payload['id'])
+        for s in payload['Sales']:
             s['User'] = get_sale_user(s)
 
-        return copy
+        return payload
     if request.method == 'DELETE':
         if current_user == None or current_user.id != band.user_id:
             return {"error": "You are not authorized to delete this item."}
@@ -101,7 +103,7 @@ def get_album_by_id(album_id):
                 album.album_image = album_image_aws_url
                 album.genre = form.data['genre']
                 album.band_id = form.data['band_id']
-
+                album.youtube = form.data['youtube']
                 db.session.commit()
                 return album.to_dict(), 201
             else:

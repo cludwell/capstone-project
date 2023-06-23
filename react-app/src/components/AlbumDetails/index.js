@@ -24,7 +24,7 @@ export default function AlbumDetails() {
     const dispatch = useDispatch()
     const { albumId } = useParams()
     const history = useHistory()
-    const [ duration, setDuration ] = useState(0)
+    // const [ duration, setDuration ] = useState(0)
     //modal components
     const [ showMenu, setShowMenu ] = useState(false)
     const ulRef = useRef();
@@ -85,21 +85,22 @@ export default function AlbumDetails() {
         await dispatch(fetchUserCart())
     }
     const songUrl = album && album.Songs && album.Songs.length ? album.Songs.find(s=> s.url) : null
-    const handleDuration = duration => {
-        setDuration(duration)
-    }
 
+    console.log('==================================================', album)
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
                 <img src={`${album.Band.bannerUrl}`} alt='bandbannerimage' className='album-details-banner'/>
             ) : null}
-            {/* <ReactPlayer
-            url={'https://youtu.be/gqUPGa15Oto'}
-            style={{alignSelf: "center"}}
-            width={'100vmin'}
-            height={'50vmin'}
-            /> */}
+
+            {album.youtube ? (
+                <ReactPlayer
+                url={album.youtube}
+                style={{alignSelf: "center"}}
+                width={'100vmin'}
+                height={'50vmin'}
+                />
+            ) : null}
 
         <div className='album-details-container'>
 
@@ -114,7 +115,6 @@ export default function AlbumDetails() {
                     controls={true}
                     className='player'
                     playsinline={true}
-                    onDuration={handleDuration}
                     config={{
                         file: {
                           attributes: {
