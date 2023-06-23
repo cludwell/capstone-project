@@ -156,10 +156,10 @@ def edit_or_delete_song(album_id, song_id):
         form = PostSongForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if not form.validate_on_submit():
-            print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', form.errors)
+            print('FORM ERRORS', form.errors)
         if form.validate_on_submit():
 
-            # aws song upload
+        # aws song upload
             aws_url = None  # Initialize aws_url variable with None
             if 'url' in request.files:
                 if song.url:
@@ -171,9 +171,6 @@ def edit_or_delete_song(album_id, song_id):
                 url.filename = get_unique_filename(url.filename)
                 url_upload = upload_file_to_s3(url)
                 aws_url = url_upload.get('url')
-                print('###############################################', aws_url)
-            print('===============================================')
-            print('###############################################', aws_url)
         # end of aws upload
 
             song.name = form.data['name']
@@ -185,7 +182,6 @@ def edit_or_delete_song(album_id, song_id):
 
             try:
                 db.session.commit()
-                print('======================================================', song.to_dict())
                 return song.to_dict()
             except Exception as e:
                 traceback.print_exc()  # Print the traceback

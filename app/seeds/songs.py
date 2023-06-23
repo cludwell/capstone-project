@@ -1334,7 +1334,7 @@ Call me Immortal"""
     )
     song061 = Song(
         # Chapter III: Downfall by Ad Infinitum
-        name="Somewhere Better", album_id=5, price=.99, track_num=5
+        name="Somewhere Better", album_id=5, price=.99, track_num=5, url='https://fancamp.s3.amazonaws.com/f1c31b7651a943eeb376e99be7256f22.mp3'
     )
     song062 = Song(
         # Chapter III: Downfall by Ad Infinitum
