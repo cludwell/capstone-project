@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request, redirect
 from app.models import Album, User, Band, db, Song
 from flask_login import current_user, login_required
+from app.api.aws_helpers import (delete_file_from_s3)
 
 song_routes = Blueprint('/songs', __name__)
 
@@ -15,6 +16,8 @@ def delete_song_by_id(song_id):
             return {"error": "Unauthorized request"}, 403
         if not song:
             return {"error": "Record could not be found"}, 404
+        if song.url:
+            delete_file_from_s3(song.url)
         db.session.delete(song)
         db.session.commit()
         return song.to_dict()

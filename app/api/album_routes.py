@@ -47,7 +47,6 @@ def get_all_albums():
                 genre = form.data['genre'],
                 band_id = form.data['band_id'],
                 youtube = form.data['youtube']
-
             )
             db.session.add(new_album)
             db.session.commit()
@@ -165,7 +164,7 @@ def edit_or_delete_song(album_id, song_id):
 
             url.filename = get_unique_filename(url.filename)
             url_upload = upload_file_to_s3(url)
-            aws_url = url_upload.get('url')  # Use .get() method to safely access the URL
+            aws_url = url_upload.get('url')  
             print('###############################################', aws_url)
         # end of aws upload
 
