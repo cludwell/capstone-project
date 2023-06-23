@@ -88,18 +88,19 @@ export default function AlbumDetails() {
     const handleDuration = duration => {
         setDuration(duration)
     }
-    console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%', songUrl)
+
     return (
         <div className='album-details-page'>
             {album.Band && album.Band.bannerUrl ? (
                 <img src={`${album.Band.bannerUrl}`} alt='bandbannerimage' className='album-details-banner'/>
             ) : null}
-            <ReactPlayer
+            {/* <ReactPlayer
             url={'https://youtu.be/gqUPGa15Oto'}
-            style={{alignSelf: "center", aspectRatio: '1'}}
+            style={{alignSelf: "center"}}
             width={'100vmin'}
             height={'50vmin'}
-            />
+            /> */}
+
         <div className='album-details-container'>
 
             <div className='tracks-column'>
