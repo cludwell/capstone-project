@@ -9,9 +9,9 @@ def seed_bands():
         description= """Black Flag is an American punk rock band formed in 1976 in Hermosa Beach, California. Initially called Panic, the band was established by Greg Ginn, the guitarist, primary songwriter, and sole continuous member through multiple personnel changes in the band. They are widely considered to be one of the first hardcore punk bands, as well as one of the pioneers of post-hardcore. After breaking up in 1986, Black Flag reunited in 2003 and again in 2013. The second reunion lasted well over a year, during which they released their first studio album in nearly three decades, What The... (2013). The band announced their third reunion in January 2019. """,
         genres='punk, hardcore, old school hardcore, 80s punk',
         background_image='https://i.imgur.com/v6xPD85.jpg',
-        background_color='#000000',
-        background_color_secondary='#000000',
-        text_color='#ffffff'
+        background_color='#ffffff',
+        background_color_secondary='#ffffff',
+        text_color='#000000'
 
     )
     band02 = Band(
@@ -53,7 +53,7 @@ def seed_bands():
         banner_url='https://i.imgur.com/tl6HxgB.png',
         description="""Ad Infinitum is a Swiss/German symphonic metal band. Originally a solo project of Swiss singer Melissa Bonny, it turned into a full band with arrival of drummer Niklas Müller, bassist Jonas Asplind and guitarist Adrian Theßenvitz. The band signed a deal with Napalm Records in July 2019 and released a debut album - Chapter I: Monarchy - in April 2020.""",
         genres='metal, power metal, fantasy metal',
-        background_color='#ffffff',
+        background_color='#303e4b',
         background_color_secondary='#4D6275',
         text_color='#000000'
     )

@@ -4,6 +4,8 @@ from flask_login import current_user, login_required
 from app.forms import PostBandForm
 from app.api.aws_helpers import (upload_file_to_s3, allowed_file, get_unique_filename, delete_file_from_s3)
 from flask import request
+import traceback
+
 band_routes = Blueprint('/bands', __name__)
 
 def get_albums_by_band(band_id):
@@ -105,13 +107,14 @@ def post_band():
         return { b.id: b.to_dict() for b in bands }, 200
 
     if request.method == 'POST' and current_user.id:
+        print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         form = PostBandForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         form.validate_on_submit()
         if not form.validate_on_submit():
             return form.errors, 404
         if form.validate_on_submit():
-
+            print('VALIDATED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
             # AWS functionality
             if 'banner_url' not in request.files:
                 return { 'errors': ['Banner Image is required']}, 400
@@ -144,7 +147,7 @@ def post_band():
             banner_aws_url = banner_upload['url']
             artist_aws_url = artist_upload['url']
             # END OF AWS
-
+            print('+++++++++++++++++++++++++++++++++++', request)
             new_band = Band(
                 name = form.data['name'],
                 city = form.data['city'],
@@ -160,8 +163,17 @@ def post_band():
                 text_color = form.data['text_color'],
                 user_id = current_user.id,
             )
-            db.session.add(new_band)
-            db.session.commit()
-            return new_band.to_dict(), 201
+            print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', new_band)
+
+            try:
+                db.session.add(new_band)
+                db.session.commit()
+                return new_band.to_dict(), 201
+            except Exception as e:
+                traceback.print_exc()  # Print the traceback
+                return {'error': str(e)}, 500
+            # db.session.add(new_band)
+            # db.session.commit()
+            # return new_band.to_dict(), 201
     else:
         return {"errors": "You must be validated"}

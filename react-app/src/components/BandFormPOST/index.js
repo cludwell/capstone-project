@@ -58,6 +58,7 @@ export default function BandFormPOST() {
                 background_color_secondary: backgroundColorSecondary,
                 text_color: textColor
             }
+            console.log('=================================', newBand)
             dispatch(startBand(newBand))
             history.push(`/users/${user.id}`)
         }

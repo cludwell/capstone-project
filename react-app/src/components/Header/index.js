@@ -22,7 +22,7 @@ export default function Header({ isLoaded }) {
         return () => document.removeEventListener('click', closeMenu)
     }, [showMenu])
     const closeMenu = e => setShowMenu(false)
-    
+
     useEffect(() => {
         dispatch(authenticate())
         dispatch(fetchUserCart())
@@ -31,7 +31,9 @@ export default function Header({ isLoaded }) {
     let cart = useSelector(state => state.cart.userCart)
     cart = user ? cart : []
     return (
-        <div className='header-container'>
+        <div className='header-container'
+
+        >
             <div className='logo-text'>
             <NavLink to={'/'}
             style={{textDecoration: "none",
