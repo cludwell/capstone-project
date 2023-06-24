@@ -35,7 +35,11 @@ export default function BandDetails() {
     }
     return (
         <div className='band-deets-page'>
-        <div className='band-details-container'>
+        <div className='band-details-container'
+                style={{
+                    backgroundColor: band.backgroundColorSecondary ? band.backgroundColorSecondary : null,
+                    color: band.textColor ? band.textColor : null
+                }}>
         <div className='band-deets-iterated-albums'>
         {band && band.Albums && band.Albums.length ? band.Albums.map(( a, i) => (
 
@@ -65,8 +69,6 @@ export default function BandDetails() {
         ) : null}
         <p className='band-deets-desc'>{band.description}</p>
         <p> <a className='album-details-social-media' href={`https://www.facebook.com/search/top/?q=${band.name.split(' ').join('%20')}`} >Facebook</a> </p>
-
-        {/* <p><a className='album-details-social-media' href={`https://www.instagram.com/explore/tags/${band.name.split(' ').join('')}`}>Instagram</a></p> */}
 
         <p><a className='album-details-social-media' href={`https://www.youtube.com/results?search_query=${band.name.split(' ').join('+')} band`} >YouTube</a></p>
 

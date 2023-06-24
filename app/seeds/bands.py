@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 def seed_bands():
     band01 = Band(
         name= 'Black Flag', city='Los Angeles', state='CA', country='USA', user_id=3, artist_image='https://i.imgur.com/jg2l0GT.png',
-        banner_url='https://i.imgur.com/Y1dlg8P.jpg',
+        banner_url='https://i.imgur.com/nr3Ab9I.png',
         description= """Black Flag is an American punk rock band formed in 1976 in Hermosa Beach, California. Initially called Panic, the band was established by Greg Ginn, the guitarist, primary songwriter, and sole continuous member through multiple personnel changes in the band. They are widely considered to be one of the first hardcore punk bands, as well as one of the pioneers of post-hardcore. After breaking up in 1986, Black Flag reunited in 2003 and again in 2013. The second reunion lasted well over a year, during which they released their first studio album in nearly three decades, What The... (2013). The band announced their third reunion in January 2019. """,
         genres='punk, hardcore, old school hardcore, 80s punk',
         background_image='https://i.imgur.com/v6xPD85.jpg',

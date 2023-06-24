@@ -49,7 +49,7 @@
 .album-details-banner {
     align-self: center;
     width: min(90vmin, 55rem);
-    height: min(30vmin, 20rem);
+    height: auto;
     object-fit: cover;
     margin: 7vmin;
     border-radius: 1rem;
@@ -96,7 +96,6 @@
     justify-content: end;
 }
 .cart-preview {
-    background-color: rgb(255, 255, 255);
     border-radius: .25rem;
     margin-bottom: 1rem;
     padding: .3rem;
