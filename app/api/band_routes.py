@@ -107,14 +107,13 @@ def post_band():
         return { b.id: b.to_dict() for b in bands }, 200
 
     if request.method == 'POST' and current_user.id:
-        print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         form = PostBandForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         form.validate_on_submit()
         if not form.validate_on_submit():
-            return form.errors, 404
+            print('FORM ERRORS', form.errors)
+            return form.errors, 403
         if form.validate_on_submit():
-            print('VALIDATED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
             # AWS functionality
             if 'banner_url' not in request.files:
                 return { 'errors': ['Banner Image is required']}, 400
@@ -147,7 +146,6 @@ def post_band():
             banner_aws_url = banner_upload['url']
             artist_aws_url = artist_upload['url']
             # END OF AWS
-            print('+++++++++++++++++++++++++++++++++++', request)
             new_band = Band(
                 name = form.data['name'],
                 city = form.data['city'],
@@ -159,11 +157,10 @@ def post_band():
                 genres = form.data['genres'],
                 background_image = background_image_aws,
                 background_color = form.data['background_color'],
-                backgrond_color_secondary = form.data['background_color_secondary'],
+                background_color_secondary = form.data['background_color_secondary'],
                 text_color = form.data['text_color'],
                 user_id = current_user.id,
             )
-            print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', new_band)
 
             try:
                 db.session.add(new_band)
@@ -172,8 +169,6 @@ def post_band():
             except Exception as e:
                 traceback.print_exc()  # Print the traceback
                 return {'error': str(e)}, 500
-            # db.session.add(new_band)
-            # db.session.commit()
-            # return new_band.to_dict(), 201
+
     else:
         return {"errors": "You must be validated"}

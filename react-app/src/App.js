@@ -13,7 +13,6 @@ import BandFormPut from "./components/BandFormPut";
 import AlbumFormPost from "./components/AlbumFormPost";
 import AlbumFormPut from "./components/AlbumFormPut";
 import AboutPage from "./components/AboutPage";
-import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();

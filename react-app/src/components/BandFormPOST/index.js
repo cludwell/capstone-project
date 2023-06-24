@@ -15,9 +15,9 @@ export default function BandFormPOST() {
     const [ bannerUrl, setBannerUrl ] = useState(null)
     const [ description, setDescription ] = useState('')
     const [ backgroundImage, setBackgroundImage ] = useState(null)
-    const [ backgroundColor, setBackgroundColor ] = useState('')
-    const [ backgroundColorSecondary, setBackgroundColorSecondary ] = useState('')
-    const [ textColor, setTextColor ] = useState('')
+    const [ backgroundColor, setBackgroundColor ] = useState('#ffffff')
+    const [ backgroundColorSecondary, setBackgroundColorSecondary ] = useState('#ffffff')
+    const [ textColor, setTextColor ] = useState('#000000')
     const [ genres, setGenres ] = useState('')
     const [ errors, setErrors] = useState({})
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
@@ -58,7 +58,6 @@ export default function BandFormPOST() {
                 background_color_secondary: backgroundColorSecondary,
                 text_color: textColor
             }
-            console.log('=================================', newBand)
             dispatch(startBand(newBand))
             history.push(`/users/${user.id}`)
         }
