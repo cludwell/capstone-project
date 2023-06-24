@@ -8,6 +8,7 @@ import UpcomingLiveStream from '../UpcomingLiveStream'
 import { fetchUsers } from '../../store/users'
 import { NavLink } from 'react-router-dom'
 import { fetchWishLists } from '../../store/wishlists'
+import Footer from '../Footer'
 
 export default function Landing() {
     const dispatch = useDispatch()
@@ -95,6 +96,7 @@ export default function Landing() {
             </div>
             </div>
             </div>
+            <Footer />
         </div>
     )
 }

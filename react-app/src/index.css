@@ -21,6 +21,10 @@ p, span {
 }
 button {
     cursor: pointer;
+    transition: .2s ease-in-out;
+}
+button:hover {
+    scale: 1.08;
 }
 h2 {
     font-size: min(4vmin, 1.6rem);

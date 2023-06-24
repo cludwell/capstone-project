@@ -29,9 +29,9 @@
     margin-top: 1rem;
     text-align: center;
 }
-.login-button:hover {
+/* .login-button:hover {
     box-shadow: 0rem 0rem .5rem black;
-}
+} */
 .login-label {
     font-size: 1.4rem;
     color: rgb(0, 200, 200);
