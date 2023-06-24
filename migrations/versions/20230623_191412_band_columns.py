@@ -1,20 +1,22 @@
-"""price datatype
+"""band columns
 
-Revision ID: e22b73a4eaa8
+Revision ID: 5735c930b22c
 Revises:
-Create Date: 2023-06-23 14:14:37.903534
+Create Date: 2023-06-23 19:14:12.807124
 
 """
 from alembic import op
 import sqlalchemy as sa
 
 
+
 import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
+
 # revision identifiers, used by Alembic.
-revision = 'e22b73a4eaa8'
+revision = '5735c930b22c'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -55,12 +57,15 @@ def upgrade():
     sa.Column('banner_url', sa.String(), nullable=True),
     sa.Column('description', sa.Text(), nullable=True),
     sa.Column('genres', sa.String(length=255), nullable=True),
+    sa.Column('background_image', sa.String(), nullable=True),
+    sa.Column('background_color', sa.String(), nullable=True),
+    sa.Column('background_color_secondary', sa.String(), nullable=True),
+    sa.Column('text_color', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
 
     if environment == "production":
         op.execute(f"ALTER TABLE bands SET SCHEMA {SCHEMA};")
@@ -139,7 +144,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
 
     if environment == "production":
         op.execute(f"ALTER TABLE wish_lists SET SCHEMA {SCHEMA};")
