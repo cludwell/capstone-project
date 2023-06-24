@@ -13,9 +13,11 @@ export default function BandFormPOST() {
     const [ country, setCountry ] = useState('')
     const [ artistImage, setArtistImage ] = useState(null)
     const [ bannerUrl, setBannerUrl ] = useState(null)
-    const [ backgroundImage, setBackgroundImage ] = useState(null)
     const [ description, setDescription ] = useState('')
+    const [ backgroundImage, setBackgroundImage ] = useState(null)
     const [ backgroundColor, setBackgroundColor ] = useState('')
+    const [ backgroundColorSecondary, setBackgroundColorSecondary ] = useState('')
+    const [ textColor, setTextColor ] = useState('')
     const [ genres, setGenres ] = useState('')
     const [ errors, setErrors] = useState({})
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
@@ -32,16 +34,30 @@ export default function BandFormPOST() {
         if (!bannerUrl) err.bannerUrl = 'Please submit a band logo for your banner'
         if (!description || description.length < 30) err.description = 'Please enter a description of your band.'
         if (!genres || genres.length < 3) err.genres = 'Please enter some genres you could be categorized under.'
+        if (backgroundColorSecondary === textColor) err.textColor = 'Text color and secondary background color must be different to read text!'
         setErrors(err)
         return err
-    }, [name, city, state, country, artistImage, bannerUrl, description, genres])
+    }, [name, city, state, country, artistImage, bannerUrl, description, genres, backgroundColor, backgroundColorSecondary, textColor])
 
     const handleSubmit = e => {
         e.preventDefault();
         setHasSubmitted(true)
         if (Object.values(errors).length) return;
         else {
-            const newBand = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres, background_image: backgroundImage}
+            const newBand = {
+                name,
+                city,
+                state,
+                country,
+                description,
+                genres,
+                artist_image: artistImage,
+                banner_url: bannerUrl,
+                background_image: backgroundImage,
+                background_color: backgroundColor,
+                background_color_secondary: backgroundColorSecondary,
+                text_color: textColor
+            }
             dispatch(startBand(newBand))
             history.push(`/users/${user.id}`)
         }
@@ -146,6 +162,30 @@ export default function BandFormPOST() {
     value={backgroundColor} onChange={e => setBackgroundColor(e.target.value)}></input>
     {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.backgroundColor}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
+
+    <label className='post-band-label'>secondary background color</label>
+
+    <div className='band-post-input-col'>
+    <input type='color' className='post-band-text-input'
+    value={backgroundColorSecondary} onChange={e => setBackgroundColorSecondary(e.target.value)}></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.backgroundColorSecondary}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
+
+    <label className='post-band-label'>text color</label>
+
+    <div className='band-post-input-col'>
+    <input type='color' className='post-band-text-input'
+    value={textColor} onChange={e => setTextColor(e.target.value)}></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.textColor}</p>
     ) : (
         <p></p>
     )}

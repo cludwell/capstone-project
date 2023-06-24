@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteBandCommand, fetchAllBands, fetchBandInfo } from '../../store/bands'
 import { authenticate } from '../../store/session'
+import Footer from '../Footer'
 
 export default function BandDetails() {
     const { bandId } = useParams()
@@ -34,7 +35,18 @@ export default function BandDetails() {
         history.push(`/bands/edit/${band.id}`)
     }
     return (
-        <div className='band-deets-page'>
+        <div className='band-deets-page'
+        style={
+            band.backgroundImage ? {
+            backgroundImage: `url(${band.backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            // backgroundRepeat: 'no-repeat'
+        }
+        : band.backgroundColor ? {
+            backgroundColor: band.backgroundColor
+        } : null }>
         <div className='band-details-container'
                 style={{
                     backgroundColor: band.backgroundColorSecondary ? band.backgroundColorSecondary : null,
@@ -75,6 +87,7 @@ export default function BandDetails() {
 
         </div>
         </div>
+        <Footer/>
         </div>
     )
 }
