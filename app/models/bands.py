@@ -17,6 +17,10 @@ class Band(db.Model):
     banner_url = db.Column(db.String)
     description = db.Column(db.Text)
     genres = db.Column(db.String(255))
+    background_image = db.Column(db.String)
+    background_color = db.Column(db.String)
+    background_color_secondary = db.Column(db.String)
+    text_color = db.Column(db.String)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
@@ -36,6 +40,10 @@ class Band(db.Model):
             'description': self.description,
             'genres': self.genres,
             'bannerUrl': self.banner_url,
+            'backgroundImage': self.background_image,
+            'backgroundColor': self.background_color,
+            'backgroundColorSecondary': self.background_color_secondary,
+            'textColor': self.text_color,
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
         }

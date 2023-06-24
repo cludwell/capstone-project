@@ -43,17 +43,18 @@ export const fetchBandInfo = bandId => async dispatch => {
         return bandInfo
     }
 }
-export const startBand = bandInfo => async dispatch => {
+export const startBand = bandData => async dispatch => {
     const formData = new FormData()
-    for (let key in bandInfo) formData.append(`${key}`, bandInfo[key])
-    formData.set('banner_url', bandInfo.banner_url[0])
-    formData.set('artist_image', bandInfo.artist_image[0])
+    for (let key in bandData) formData.append(`${key}`, bandData[key])
+    formData.set('banner_url', bandData.banner_url[0])
+    formData.set('artist_image', bandData.artist_image[0])
+    formData.set('background_image', bandData.background_image[0])
     const response = await fetch('/api/bands/', {
         method: "POST",
         body: formData})
     if (response.ok) {
         const newBand = await response.json()
-        dispatch(postBand(bandInfo))
+        dispatch(postBand(bandData))
         return newBand
     }
 }
@@ -67,12 +68,13 @@ export const deleteBandCommand = bandId => async dispatch => {
         return deleted
     }
 }
-export const editBandRequest = (data, bandId) => async dispatch => {
+export const editBandRequest = (bandData, bandId) => async dispatch => {
     const formData = new FormData();
-    for (let key in data) formData.append(`${key}`, data[key]);
-    formData.set('banner_url', data.banner_url[0]);
-    formData.set('artist_image', data.artist_image[0]);
-
+    for (let key in bandData) formData.append(`${key}`, bandData[key]);
+    formData.set('banner_url', bandData.banner_url[0]);
+    formData.set('artist_image', bandData.artist_image[0]);
+    formData.set('background_image', bandData.background_image[0])
+    
     const response = await fetch(`/api/bands/${bandId}`, {
         method: "PUT",
         body: formData

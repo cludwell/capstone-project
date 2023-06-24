@@ -17,24 +17,30 @@ def bands_albums(band_id):
     band = Band.query.get(band_id)
     if not band:
         return {"error": "The requested band could not be found"}
+
     if request.method == 'GET':
-        copy = band.to_dict()
-        copy['Albums'] = get_albums_by_band(band.id)
-        return copy
+        payload = band.to_dict()
+        payload['Albums'] = get_albums_by_band(band.id)
+        return payload
+
     if request.method =='DELETE':
         if current_user == None or current_user.id != band.user_id:
             return {"error": "You are not authorized to delete this item"}
         else:
             # return band.to_dict()
+            if band.background_image:
+                delete_file_from_s3(band.background_image)
             delete_file_from_s3(band.banner_url)
             delete_file_from_s3(band.artist_image)
             db.session.delete(band)
             db.session.commit()
             return band.to_dict()
+
     if request.method == 'PUT':
         if current_user.id == band.user_id:
             form = PostBandForm()
             form['csrf_token'].data = request.cookies['csrf_token']
+
             # AWS Image management
             if 'banner_url' not in request.files:
                 return { 'errors': ['Banner Image is required']}, 400
@@ -42,12 +48,25 @@ def bands_albums(band_id):
                 return { 'errors': ['Band photo is required']}, 400
             banner_url = request.files['banner_url']
             artist_image = request.files['artist_image']
+            background_image = request.files['background_image']
             if not allowed_file(banner_url.filename) or not allowed_file(artist_image.filename):
                 return {'errors': ['file type not permitted']}, 400
             banner_url.filename = get_unique_filename(banner_url.filename)
             artist_image.filename = get_unique_filename(artist_image.filename)
             banner_upload = upload_file_to_s3(banner_url)
             artist_upload = upload_file_to_s3(artist_image)
+            # background image is optional, therefore conditional
+            background_image_aws = None
+            if background_image:
+                if not allowed_file(background_image.filename):
+                    return { 'errors': ['file type not permitted']}, 400
+                if band.background_image:
+                    delete_file_from_s3(band.background_image)
+                background_image.filename = get_unique_filename(background_image.filename)
+                background_image_upload = upload_file_to_s3(background_image)
+                background_image_aws = background_image_upload['url']
+                if 'url' not in background_image_upload:
+                    return background_image_upload, 400
             delete_file_from_s3(band.banner_url)
             delete_file_from_s3(band.artist_image)
             if 'url' not in banner_upload:
@@ -66,6 +85,10 @@ def bands_albums(band_id):
                 band.banner_url = banner_aws_url
                 band.description = form.data['description']
                 band.genres = form.data['genres']
+                band.background_image = background_image_aws
+                band.background_color = form.data['background_image']
+                band.background_color_secondary = form.data['background_color_secondary']
+                band.text_color = form.data['text_color']
                 band.user_id = current_user.id
                 db.session.commit()
                 return band.to_dict(), 201
@@ -96,12 +119,24 @@ def post_band():
                 return { 'errors': ['Band photo is required']}, 400
             banner_url = request.files['banner_url']
             artist_image = request.files['artist_image']
+            background_image = request.files['background_image']
             if not allowed_file(banner_url.filename) or not allowed_file(artist_image.filename):
                 return {'errors': ['file type not permitted']}, 400
             banner_url.filename = get_unique_filename(banner_url.filename)
             artist_image.filename = get_unique_filename(artist_image.filename)
             banner_upload = upload_file_to_s3(banner_url)
             artist_upload = upload_file_to_s3(artist_image)
+
+            # background image is optional, therefore conditional
+            background_image_aws = None
+            if background_image:
+                if not allowed_file(background_image.filename):
+                    return { 'errors': ['file type not permitted']}, 400
+                background_image.filename = get_unique_filename(background_image.filename)
+                background_image_upload = upload_file_to_s3(background_image)
+                background_image_aws = background_image_upload['url']
+                if 'url' not in background_image_upload:
+                    return background_image_upload, 400
             if 'url' not in banner_upload:
                 return banner_upload, 400
             if 'url' not in artist_upload:
@@ -119,6 +154,10 @@ def post_band():
                 banner_url = banner_aws_url,
                 description = form.data['description'],
                 genres = form.data['genres'],
+                background_image = background_image_aws,
+                background_color = form.data['background_color'],
+                backgrond_color_secondary = form.data['background_color_secondary'],
+                text_color = form.data['text_color'],
                 user_id = current_user.id,
             )
             db.session.add(new_band)

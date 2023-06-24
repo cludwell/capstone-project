@@ -13,7 +13,9 @@ export default function BandFormPOST() {
     const [ country, setCountry ] = useState('')
     const [ artistImage, setArtistImage ] = useState(null)
     const [ bannerUrl, setBannerUrl ] = useState(null)
+    const [ backgroundImage, setBackgroundImage ] = useState(null)
     const [ description, setDescription ] = useState('')
+    const [ backgroundColor, setBackgroundColor ] = useState('')
     const [ genres, setGenres ] = useState('')
     const [ errors, setErrors] = useState({})
     const [ hasSubmitted, setHasSubmitted ] = useState(false)
@@ -39,7 +41,7 @@ export default function BandFormPOST() {
         setHasSubmitted(true)
         if (Object.values(errors).length) return;
         else {
-            const newBand = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres}
+            const newBand = {name, city, state, country, artist_image: artistImage, banner_url: bannerUrl, description, genres, background_image: backgroundImage}
             dispatch(startBand(newBand))
             history.push(`/users/${user.id}`)
         }
@@ -125,6 +127,30 @@ export default function BandFormPOST() {
     )}
     </div>
 
+    <label className='post-band-label'>background image</label>
+
+    <div className='band-post-input-col'>
+    <input type='file' className='post-band-text-input'
+    accept='image/*' name='background_image' onChange={e => setBackgroundImage(e.target.files)} ></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.backgroundImage}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
+
+    <label className='post-band-label'>background color</label>
+
+    <div className='band-post-input-col'>
+    <input type='color' className='post-band-text-input'
+    value={backgroundColor} onChange={e => setBackgroundColor(e.target.value)}></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.backgroundColor}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
+
     <label className='post-band-label'>description</label>
 
     <div className='band-post-input-col'>
@@ -148,6 +174,7 @@ export default function BandFormPOST() {
         <p></p>
     )}
     </div>
+
         <div></div>
     <button className='post-band-submit' type='submit' onClick={handleSubmit}>Submit Band</button>
     </form>
