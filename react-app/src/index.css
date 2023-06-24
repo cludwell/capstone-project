@@ -22,3 +22,6 @@ p, span {
 button {
     cursor: pointer;
 }
+h2 {
+    font-size: min(4vmin, 1.6rem);
+}

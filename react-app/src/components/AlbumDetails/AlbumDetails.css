@@ -9,7 +9,6 @@
     flex-direction: row;
     gap: 1rem;
     background-color: rgb(216, 220, 223);
-    /* margin: 2rem; */
     padding: 2rem;
     border-radius: 1rem;
 }
@@ -31,11 +30,7 @@
 .details-info {
     margin-bottom: 0rem;
 }
-/* .player,
-audio {
-    width: 35vmin !important;
-    height: 7vmin !important;
-} */
+
 .buy-digital-album {
     color: blue;
     cursor: pointer;
@@ -53,10 +48,10 @@ audio {
 }
 .album-details-banner {
     align-self: center;
-    width: 55rem;
-    max-height: 20rem;
+    width: min(90vmin, 55rem);
+    height: min(30vmin, 20rem);
     object-fit: cover;
-    margin-top: 1rem;
+    margin: 7vmin;
     border-radius: 1rem;
 }
 .details-band-name {

@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 def seed_bands():
     band01 = Band(
         name= 'Black Flag', city='Los Angeles', state='CA', country='USA', user_id=3, artist_image='https://i.imgur.com/jg2l0GT.png',
-        banner_url='https://i.imgur.com/njk4Rcg.jpg',
+        banner_url='https://i.imgur.com/Y1dlg8P.jpg',
         description= """Black Flag is an American punk rock band formed in 1976 in Hermosa Beach, California. Initially called Panic, the band was established by Greg Ginn, the guitarist, primary songwriter, and sole continuous member through multiple personnel changes in the band. They are widely considered to be one of the first hardcore punk bands, as well as one of the pioneers of post-hardcore. After breaking up in 1986, Black Flag reunited in 2003 and again in 2013. The second reunion lasted well over a year, during which they released their first studio album in nearly three decades, What The... (2013). The band announced their third reunion in January 2019. """,
         genres='punk, hardcore, old school hardcore, 80s punk',
         background_image='https://i.imgur.com/v6xPD85.jpg',
@@ -80,7 +80,7 @@ def seed_bands():
     band06 = Band(
         name='Eternal Champion', city='Austin', state='TX', country='USA', user_id=9,
         artist_image='https://i.imgur.com/bvmKetU.jpg',
-        banner_url='https://i.imgur.com/Ah3ena6.jpg',
+        banner_url='https://i.imgur.com/ejvS3Ob.jpg',
         description=
         """
         Not to be confused with Eternal Champion from Charleston, Illinois.
@@ -88,7 +88,7 @@ def seed_bands():
         In Michael Moorcock's fantasy universe, the Eternal Champion is a reincarnating hero who's lived many lives in the multiverse and whose deeds are part of a larger interdimensional struggle for cosmic balance between the forces of Law and Chaos.""",
         genres='power metal, fantasy metal, epic',
         background_image='https://i.imgur.com/WIGzb02.jpg',
-        background_color='#000000',
+        background_color='#E0CDB8',
         background_color_secondary='#E0CDB8',
         text_color='#ffffff'
     )
@@ -99,21 +99,32 @@ def seed_bands():
         description=
         """
         Juanita y los Feos es una banda de punk nueva ola formada a finales de 2004 en Madrid por músicos de la escena independiente. Su actual formación está compuesta por Juanita a la voz, Adolfo Párraga a la batería, Ángel al bajo, Héctor al órgano y Fa a la guitarra. """,
-        genres='pop punk, pop, punk, 77, new wave, post-punk'
+        genres='pop punk, pop, punk, 77, new wave, post-punk',
+        background_color='#000000',
+        background_color_secondary='#000000',
+        text_color='#ffffff'
     )
     band08 = Band (
         name='Dragonforce', city='London', state='London', country='UK', user_id=7,
         artist_image='https://i.imgur.com/yLPylhb.jpg',
-        banner_url='https://i.imgur.com/eds1k0J.png',
+        banner_url='https://i.imgur.com/auMhu2h.png',
         description="""DragonForce are a British power metal band from London, England. The band was formed in 1999 by guitarists Herman Li and Sam Totman, and are known for their long and fast guitar solos, fantasy-themed lyrics and retro video game-influenced sound. DragonForce's current lineup comprises Li, Totman, vocalist Marc Hudson, drummer Gee Anzalone and bassist Alicia Vigil. The band have been through several lineup changes throughout their career; longtime members in vocalist ZP Theart, keyboardist Vadim Pruzhanov, drummer Dave Mackintosh and bassist Frédéric Leclercq are among the former members of the band. """,
-        genres='fantasy metal, power metal, epic'
+        genres='fantasy metal, power metal, epic',
+        background_image='https://i.imgur.com/Io2bKSF.png',
+        background_color='#000000',
+        background_color_secondary='#c86eff',
+        text_color='#000000'
+
     )
     band09 = Band (
         name='Hexvessel', city='Somewhere', state='in the woods', country='Finland', user_id=8,
         artist_image='https://i.imgur.com/GrXRz7s.jpg',
-        banner_url='https://i.imgur.com/VMH7evm.png',
+        banner_url='https://i.imgur.com/gJfuwGk.png',
         description="""Founded in the magical forests of Finland, via the green and pleasant lands of England and Ireland, enigmatic “spirit-trafficking” Finnish forest-psych weirdos Hexvessel are wyrd folk. Formed in 2009 by English/Irish singer/songwriter Mat "Kvohst" McNerney, also known for his work with Beastmilk (now known as Grave Pleasures), The Deathtrip, guest spots with Carpenter Brut and Me & That Man and his earlier work with Norwegian Black Metal bands Code & Dødheimsgard, Hexvessel has truly become a melting cauldron or “vessel,” a potent “hex” of spellwork. Hexvessel spin songs in the oral tradition of the old balladeers, conjuring wild psychedelic rituals and hypnotic pagan prayers. By drawing on older folk acts like Shirley Collins, Vashti Bunyan, later psych rock bands and 90s Black Metal to more recent artists such as Current93, Nick Cave and Coil, imbued with Karelian and Nordic folklore rhythms, Hexvessel have created a sound that is both ancient, heavy, modern and genre-less. Hexvessel have been previously nominated for 2 Finnish Emma (Grammy) awards, 2 Metal Hammer awards and 3 Prog Magazine awards, winning 2 Finnish Femma awards and landed several times in both the national and alternative charts in Finland. Rock-A-Rolla Magazine dubbed them “an ever-shifting beast, floating between unhurried bliss and fevered rapture.” Hexvessel's sound expands outward from their eerie, signature, ritual-esque folk into a genre-twisting cauldron of otherworldly rock that Prog Magazine identifies containing nods towards “the Beatles, HP Lovecraft and King Crimson.” """,
-        genres='folk metal, folk, metal, prog'
+        genres='folk metal, folk, metal, prog',
+        background_color='#8EBEE1',
+        background_color_secondary='#8EBEE1',
+        text_color='#ffffff'
     )
     db.session.add_all([
        band01, band02, band03, band04, band05, band06, band07, band08, band09

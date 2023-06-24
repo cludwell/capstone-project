@@ -19,6 +19,7 @@ import { deleteCartRequest, fetchUserCart, postCartRequest } from '../../store/c
 import CheckOutModal from '../CheckOutModal'
 import OpenModalCheckOutPreview from '../OpenModalButton/OpenModalCheckoutPreview'
 import ReactPlayer from 'react-player';
+import Footer from '../Footer'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -86,8 +87,22 @@ export default function AlbumDetails() {
     }
     const songUrl = album && album.Songs && album.Songs.length ? album.Songs.find(s=> s.url) : null
 
+    console.log('====================================', album)
+
     return (
-        <div className='album-details-page'>
+        <div className='album-details-page'
+        style={
+            album.Band.backgroundImage ? {
+            backgroundImage: `url(${album.Band.backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            // backgroundRepeat: 'no-repeat'
+        }
+        : album.Band.backgroundColor ? {
+            backgroundColor: album.Band.backgroundColor
+        } : null }>
+
             {album.Band && album.Band.bannerUrl ? (
                 <img src={`${album.Band.bannerUrl}`} alt='bandbannerimage' className='album-details-banner'/>
             ) : null}
@@ -96,12 +111,16 @@ export default function AlbumDetails() {
                 <ReactPlayer
                 url={album.youtube}
                 style={{alignSelf: "center"}}
-                width={'100vmin'}
+                width={'95vmin'}
                 height={'50vmin'}
                 />
             ) : null}
 
-        <div className='album-details-container'>
+        <div className='album-details-container'
+        style={{
+            backgroundColor: album.Band.backgroundColorSecondary ? album.Band.backgroundColorSecondary : null,
+            color: album.Band.textColor ? album.Band.textColor : null
+        }}>
 
             <div className='tracks-column'>
             <h2 className='album-details-title'>{album.name}</h2>
@@ -301,6 +320,7 @@ export default function AlbumDetails() {
             </div>
 
         </div>
+        <Footer />
         </div>
     )
 }
