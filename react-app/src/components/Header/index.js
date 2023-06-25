@@ -32,11 +32,14 @@ export default function Header({ isLoaded }) {
     const band = useSelector(state => state.bands.singleBand)
     let cart = useSelector(state => state.cart.userCart)
     cart = user ? cart : []
+
+    const rgbaParser = str => `rgba(${parseInt(str.slice(1, 3), 16)}, ${parseInt(str.slice(3, 5), 16)}, ${parseInt(str.slice(5), 16)}, 0.8)`
+
     return (
         <div className='header-container'
         style={{
-            backgroundColor: album && album.Band && album.Band.backgroundColorSecondary ? album.Band.backgroundColorSecondary
-            : band && band.backgroundColorSecondary ? band.backgroundColorSecondary
+            backgroundColor: album && album.Band && album.Band.backgroundColorSecondary ? rgbaParser(album.Band.backgroundColorSecondary)
+            : band && band.backgroundColorSecondary ? rgbaParser(band.backgroundColorSecondary)
             : null
         }}
         >

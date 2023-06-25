@@ -55,6 +55,7 @@ def seed_bands():
         banner_url='https://i.imgur.com/tl6HxgB.png',
         description="""Ad Infinitum is a Swiss/German symphonic metal band. Originally a solo project of Swiss singer Melissa Bonny, it turned into a full band with arrival of drummer Niklas Müller, bassist Jonas Asplind and guitarist Adrian Theßenvitz. The band signed a deal with Napalm Records in July 2019 and released a debut album - Chapter I: Monarchy - in April 2020.""",
         genres='metal, power metal, fantasy metal',
+        background_image='https://i.imgur.com/vhqT7aY.jpg',
         background_color='#303e4b',
         background_color_secondary='#4D6275',
         text_color='#000000'
@@ -102,6 +103,7 @@ def seed_bands():
         """
         Juanita y los Feos es una banda de punk nueva ola formada a finales de 2004 en Madrid por músicos de la escena independiente. Su actual formación está compuesta por Juanita a la voz, Adolfo Párraga a la batería, Ángel al bajo, Héctor al órgano y Fa a la guitarra. """,
         genres='pop punk, pop, punk, 77, new wave, post-punk',
+        background_image='https://i.imgur.com/lcbPSY2.jpg',
         background_color='#000000',
         background_color_secondary='#000000',
         text_color='#ffffff'

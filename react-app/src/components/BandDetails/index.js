@@ -34,6 +34,8 @@ export default function BandDetails() {
     const editOnClick = async e => {
         history.push(`/bands/edit/${band.id}`)
     }
+    const rgbaParser = str => `rgba(${parseInt(str.slice(1, 3), 16)}, ${parseInt(str.slice(3, 5), 16)}, ${parseInt(str.slice(5), 16)}, 0.8)`
+    
     return (
         <div className='band-deets-page'
         style={
@@ -50,7 +52,7 @@ export default function BandDetails() {
         } : null }>
         <div className='band-details-container'
                 style={{
-                    backgroundColor: band.backgroundColorSecondary ? band.backgroundColorSecondary : null,
+                    backgroundColor: band.backgroundColorSecondary ? rgbaParser(band.backgroundColorSecondary) : null,
                     color: band.textColor ? band.textColor : null
                 }}>
         <div className='band-deets-iterated-albums'>
