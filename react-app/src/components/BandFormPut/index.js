@@ -26,7 +26,7 @@ export default function BandFormPut() {
     const user = useSelector(state => state.session.user)
     const history = useHistory()
 
-    useEffect(() => {
+    const validate = () => {
         const err = {}
         if (!name || name.length < 3 || name.length >40) err.name = 'Please enter a valid name, between 3 and 40 characters.'
         if (!city || city.length < 3 || city.length > 40) err.city = 'Please enter a valid city between 3 and 40 characters. It helps local fans find you.'
@@ -39,7 +39,7 @@ export default function BandFormPut() {
         if (backgroundColorSecondary === textColor) err.textColor = 'Text color and secondary background color must be different to read text!'
         setErrors(err)
         return err
-    }, [name, city, state, country, artistImage, bannerUrl, description, genres, backgroundColor, backgroundColorSecondary, textColor])
+    }
 
     useEffect(() => {
         setName(bandState && bandState.name ? bandState.name : '')
@@ -59,7 +59,8 @@ export default function BandFormPut() {
     const handleSubmit = async e => {
         e.preventDefault();
         setHasSubmitted(true)
-        if (Object.values(errors).length) return alert('Please correct errors')
+        validate()
+        if (Object.values(errors).length) return;
         else {
             const data = {
                 name,
