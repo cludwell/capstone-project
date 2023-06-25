@@ -37,14 +37,15 @@ export default function BandDetails() {
     return (
         <div className='band-deets-page'
         style={
-            band.backgroundImage ? {
+            band.backgroundImage && band.tiled ? {
+              backgroundImage: `url(${band.backgroundImage})`
+        } : band.backgroundImage && !band.tiled ? {
             backgroundImage: `url(${band.backgroundImage})`,
             backgroundSize: 'cover',
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
-            // backgroundRepeat: 'no-repeat'
         }
-        : band.backgroundColor ? {
+          : band.backgroundColor ? {
             backgroundColor: band.backgroundColor
         } : null }>
         <div className='band-details-container'
