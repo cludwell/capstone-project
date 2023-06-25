@@ -3,6 +3,7 @@ const POST_BAND = 'bands/POST_BAND'
 const DELETE_BAND = 'bands/DELETE_BAND'
 const EDIT_BAND = 'bands/EDIT_BAND'
 const LOAD_ALL_BANDS = 'bands/LOAD_ALL_BANDS'
+const CLEAR_BAND = 'bands/CLEAR_BAND'
 //actions
 export const loadBandInfo = bandInfo => {
     return {
@@ -32,6 +33,12 @@ export const loadAllBands = bandData => {
     return {
         type: LOAD_ALL_BANDS,
         bandData
+    }
+}
+export const clearBand = data => {
+    return {
+        type: CLEAR_BAND,
+        data
     }
 }
 //get bandinfo thunk
@@ -92,6 +99,10 @@ export const fetchAllBands = () => async dispatch => {
         return bandData
     }
 }
+export const clearBandState = () => async dispatch => {
+    dispatch(clearBand())
+    return null
+}
 const intitialState = {}
 
 export default function bandReducer (state = intitialState, action) {
@@ -109,6 +120,8 @@ export default function bandReducer (state = intitialState, action) {
             return {...state, singleBand: action.edittedBand, allBands: { [action.edittedBand]: action.edittedBand}}
         case LOAD_ALL_BANDS:
             return { ...state, allBands: { ...action.bandData } }
+        case CLEAR_BAND:
+            return { ...state, singleBand: null }
         default: return state
     }
 }

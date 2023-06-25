@@ -28,16 +28,28 @@ export default function Header({ isLoaded }) {
         dispatch(fetchUserCart())
     }, [dispatch])
     const user = useSelector(state => state.session.user)
+    const album = useSelector(state => state.albums.singleAlbum)
+    const band = useSelector(state => state.bands.singleBand)
     let cart = useSelector(state => state.cart.userCart)
     cart = user ? cart : []
     return (
         <div className='header-container'
-
+        style={{
+            backgroundColor: album && album.Band && album.Band.backgroundColorSecondary ? album.Band.backgroundColorSecondary
+            : band && band.backgroundColorSecondary ? band.backgroundColorSecondary
+            : null,
+            // color: album && album.Band && album.Band.textColor ? album.Band.textColor
+            // : band && band.textColor ? band.textColor
+            // : null
+        }}
         >
             <div className='logo-text'>
             <NavLink to={'/'}
-            style={{textDecoration: "none",
-            color: "black"}}>fanca🤘p</NavLink>
+            style={{
+                textDecoration: "none",
+                color: album && album.Band && album.Band.textColor ? album.Band.textColor
+                : band && band.textColor ? band.textColor
+                : '#000000' }}>fanca🤘p</NavLink>
             </div>
 
             <div className='navi-corner'>
@@ -45,7 +57,13 @@ export default function Header({ isLoaded }) {
             <div className='navi-items navi-items cart-div'>
             <div className='number-in-cart'>{cart.length}</div>
             <OpenModalCheckout
-            buttonText={<i className="fa-solid fa-cart-shopping navi-icons"></i>}
+            buttonText={
+                <i className="fa-solid fa-cart-shopping navi-icons"
+                style={{
+                    color: album && album.Band && album.Band.textColor ? album.Band.textColor
+                    : band && band.textColor ? band.textColor
+                    : null
+                }}></i>}
             onItemClick={closeMenu}
             modalComponent={<CheckOutModal user={user} cart={cart} />} />
             </div>
@@ -53,7 +71,12 @@ export default function Header({ isLoaded }) {
 
             <div className='user-activity-feed navi-items'>
             <NavLink to={`/about`} >
-            <i className="fa-solid fa-bolt-lightning navi-icons"></i>
+            <i className="fa-solid fa-bolt-lightning navi-icons"
+            style={{
+                color: album && album.Band && album.Band.textColor ? album.Band.textColor
+                : band && band.textColor ? band.textColor
+                : null
+            }}></i>
             </NavLink>
             </div>
             <div className='user-collection navi-items'>
@@ -62,10 +85,20 @@ export default function Header({ isLoaded }) {
             {user && user.id ? (
             <NavLink to={`/users/${user.id}`}
             style={{textDecoration: "none"}}>
-            <i className="fa-regular fa-heart navi-icons"/>
+            <i className="fa-regular fa-heart navi-icons"
+            style={{
+                color: album && album.Band && album.Band.textColor ? album.Band.textColor
+                : band && band.textColor ? band.textColor
+                : null
+            }}/>
             </NavLink>
             ) : (
-            <i className="fa-regular fa-heart navi-icons"/>
+            <i className="fa-regular fa-heart navi-icons"
+            style={{
+                color: album && album.Band && album.Band.textColor ? album.Band.textColor
+                : band && band.textColor ? band.textColor
+                : null
+            }}/>
             )}
             </div>
 

@@ -3,6 +3,7 @@ const LOAD_ONE_ALBUM = 'albums/LOAD_ONE_ALBUM'
 const POST_ALBUM = 'albums/POST_ALBUM'
 const EDIT_ALBUM = 'albums/EDIT_ALBUM'
 const DELETE_ALBUM = 'albums/DELETE_ALBUM'
+const CLEAR_ALBUMS ='albums/CLEAR_ALBUMS'
 //load all shops
 export const loadAlbums = albums => {
     return {
@@ -32,6 +33,12 @@ export const deleteAlbum = deleted => {
     return {
         type: DELETE_ALBUM,
         deleted
+    }
+}
+export const clearData = data => {
+    return {
+        type: CLEAR_ALBUMS,
+        data
     }
 }
 //thunk for loading all albums
@@ -91,6 +98,10 @@ export const deleteAlbumRequest = albumId => async dispatch => {
         return deleted
     }
 }
+export const clearAlbumState = data => async dispatch => {
+    dispatch(clearData(data))
+    return null
+}
 const initialState = {}
 //album reducer
 export default function albumReducer (state = initialState, action) {
@@ -107,6 +118,8 @@ export default function albumReducer (state = initialState, action) {
             const withRecord = { ...state}
             delete state.allAlbums[action.deleted.id]
             return withRecord
+        case CLEAR_ALBUMS:
+            return {...state, singleAlbum: null }
         default: return state
     }
 }

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './Landing.css'
 import { useEffect } from 'react'
-import { fetchAlbums } from '../../store/albums'
+import { clearAlbumState, fetchAlbums } from '../../store/albums'
 import NewAndNotable from '../NewAndNotable'
 import { fetchAllPurchases } from '../../store/purchases'
 import UpcomingLiveStream from '../UpcomingLiveStream'
@@ -9,15 +9,21 @@ import { fetchUsers } from '../../store/users'
 import { NavLink } from 'react-router-dom'
 import { fetchWishLists } from '../../store/wishlists'
 import Footer from '../Footer'
+import { clearBandState } from '../../store/bands'
 
 export default function Landing() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchAlbums())
-        dispatch(fetchAllPurchases())
-        dispatch(fetchUsers())
-        dispatch(fetchWishLists())
+        const loadData = async () => {
+            await dispatch(clearAlbumState())
+            await dispatch(clearBandState())
+            await dispatch(fetchAlbums())
+            await dispatch(fetchAllPurchases())
+            await dispatch(fetchUsers())
+            await dispatch(fetchWishLists())
+        }
+        loadData()
     }, [dispatch])
 
     const albums = useSelector(state => state.albums.allAlbums)
@@ -29,6 +35,7 @@ export default function Landing() {
         ['tomorrow', '8:00 PM PST'],
         ['in two days', '7:00 PM PST'],
     ]
+
     // const wishes = useSelector(state => state.wishes)
     if (!albums || !Object.values(albums).length) return null
 
