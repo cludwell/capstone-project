@@ -13,10 +13,10 @@ export default function BandFormPut() {
     const [ city, setCity ] = useState('')
     const [ state, setState ] = useState('')
     const [ country, setCountry ] = useState('')
-    const [ artistImage, setArtistImage ] = useState('')
-    const [ bannerUrl, setBannerUrl ] = useState('')
-    const [ description, setDescription ] = useState('')
+    const [ artistImage, setArtistImage ] = useState(null)
+    const [ bannerUrl, setBannerUrl ] = useState(null)
     const [ backgroundImage, setBackgroundImage ] = useState(null)
+    const [ description, setDescription ] = useState('')
     const [ backgroundColor, setBackgroundColor ] = useState('')
     const [ backgroundColorSecondary, setBackgroundColorSecondary ] = useState('')
     const [ textColor, setTextColor ] = useState('')
@@ -56,7 +56,7 @@ export default function BandFormPut() {
         setBackgroundImage(bandState && bandState.backgroundImage ? bandState.backgroundImage : null)
     }, [bandState])
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         setHasSubmitted(true)
         if (Object.values(errors).length) return alert('Please correct errors')
@@ -75,8 +75,8 @@ export default function BandFormPut() {
                 background_color_secondary: backgroundColorSecondary,
                 text_color: textColor
             }
-            dispatch(editBandRequest(data, bandId))
-            dispatch(fetchBandInfo(bandId))
+            await dispatch(editBandRequest(data, bandId))
+            await dispatch(fetchBandInfo(bandId))
             history.push(`/users/${user.id}`)
         }
     }

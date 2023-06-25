@@ -74,7 +74,6 @@ export const editBandRequest = (bandData, bandId) => async dispatch => {
     formData.set('banner_url', bandData.banner_url[0]);
     formData.set('artist_image', bandData.artist_image[0]);
     formData.set('background_image', bandData.background_image[0])
-    console.log('THUNK=====================================', bandData)
     const response = await fetch(`/api/bands/${bandId}`, {
         method: "PUT",
         body: formData

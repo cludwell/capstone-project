@@ -42,7 +42,7 @@ def bands_albums(band_id):
         if current_user.id == band.user_id:
             form = PostBandForm()
             form['csrf_token'].data = request.cookies['csrf_token']
-
+            print('ENTERED ROUTE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
             # AWS Image management
             if 'banner_url' not in request.files:
                 return { 'errors': ['Banner Image is required']}, 400
@@ -51,6 +51,7 @@ def bands_albums(band_id):
             banner_url = request.files['banner_url']
             artist_image = request.files['artist_image']
             background_image = request.files['background_image']
+            print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@', background_image)
             if not allowed_file(banner_url.filename) or not allowed_file(artist_image.filename):
                 return {'errors': ['file type not permitted']}, 400
             banner_url.filename = get_unique_filename(banner_url.filename)
@@ -66,9 +67,13 @@ def bands_albums(band_id):
                     delete_file_from_s3(band.background_image)
                 background_image.filename = get_unique_filename(background_image.filename)
                 background_image_upload = upload_file_to_s3(background_image)
-                background_image_aws = background_image_upload['url']
                 if 'url' not in background_image_upload:
+                    print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
                     return background_image_upload, 400
+                background_image_aws = background_image_upload['url']
+                print('#######################################', background_image_aws)
+            print('#######################################', background_image_aws)
+
             delete_file_from_s3(band.banner_url)
             delete_file_from_s3(band.artist_image)
             if 'url' not in banner_upload:
@@ -77,7 +82,7 @@ def bands_albums(band_id):
                 return artist_upload, 400
             banner_aws_url = banner_upload['url']
             artist_aws_url = artist_upload['url']
-
+            print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', band)
             if form.validate_on_submit():
                 band.name = form.data['name']
                 band.city = form.data['city']
@@ -88,12 +93,21 @@ def bands_albums(band_id):
                 band.description = form.data['description']
                 band.genres = form.data['genres']
                 band.background_image = background_image_aws
-                band.background_color = form.data['background_image']
+                band.background_color = form.data['background_color']
                 band.background_color_secondary = form.data['background_color_secondary']
                 band.text_color = form.data['text_color']
                 band.user_id = current_user.id
+            print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', band)
+
+            try:
                 db.session.commit()
                 return band.to_dict(), 201
+            except Exception as e:
+                traceback.print_exc()  # Print the traceback
+                delete_file_from_s3(band.background_image)
+                delete_file_from_s3(band.artist_image)
+                delete_file_from_s3(band.banner_url)
+                return {'error': str(e)}, 500
         else:
             return {"error": "Unauthorized request"}, 401
 
