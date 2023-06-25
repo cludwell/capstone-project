@@ -88,7 +88,7 @@ def seed_bands():
 
         In Michael Moorcock's fantasy universe, the Eternal Champion is a reincarnating hero who's lived many lives in the multiverse and whose deeds are part of a larger interdimensional struggle for cosmic balance between the forces of Law and Chaos.""",
         genres='power metal, fantasy metal, epic',
-        background_image='https://i.imgur.com/WIGzb02.jpg',
+        background_image='https://i.imgur.com/jiEvZfU.jpg',
         background_color='#E0CDB8',
         background_color_secondary='#E0CDB8',
         text_color='#ffffff'
