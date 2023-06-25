@@ -51,7 +51,7 @@
     width: min(90vmin, 55rem);
     height: auto;
     object-fit: cover;
-    margin: 7vmin;
+    margin: 0 0 7vmin 0;
     border-radius: 1rem;
 }
 .details-band-name {

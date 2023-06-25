@@ -87,7 +87,6 @@ export default function AlbumDetails() {
     }
     const songUrl = album && album.Songs && album.Songs.length ? album.Songs.find(s=> s.url) : null
 
-    // console.log('====================================', album)
 
     return (
         <div className='album-details-page'

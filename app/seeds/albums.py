@@ -181,7 +181,7 @@ def seed_albums():
 
     )
     album11 = Album(
-        name= 'Pulso', price=9.99,
+        name= 'Pulso', price=9.99, youtube='https://youtu.be/upnt0L2FyxQ',
         description=
         """Torpes pero intensos… define bien la actitud con la que muchos de nosotros encaramos la vida cuando empezábamos a caminar… Y así, igual que J., hemos chocado con toda esta mierda: inseguros, vulnerables, y aterrados por haber sido despojados poco a poco de nuestra espontaneidad, de nuestra energía infinita y esa rabia incendiaria de la que sacas la fuerza cuando eres un crío. Ya no somos niños, y a menudo nos atrapa el cinismo y el miedo, pero esto no ha acabado. La misma mísera realidad que nos motivó a rebelarnos entonces, sigue asfixiándonos hoy. La guerra es la paz, ya lo decían Orwell, y los RIP, y este pulso estará presente en nuestras vidas, hasta que palmemos. Le dedicamos este disco a todos los que se juegan la libertad y el pellejo luchando, sin purezas, sin egos, con perseverancia y entereza y por amor a la libertad. A los más de 40 anarquistas detenidos en los últimos meses por el Estado.
 

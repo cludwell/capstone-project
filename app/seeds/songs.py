@@ -1641,7 +1641,7 @@ Valdese by revenge your soul can be at one. No longer must you stalk among the n
     )
     song091 = Song(
         # Pesadilla Adulta by Juanita y Los Feos
-        name="El Final", album_id=8, price=.99, track_num=1
+        name="El Final", album_id=8, price=.99, track_num=1, url='https://fancamp.s3.amazonaws.com/3283d857be2b4566839cd5e35414bfbc.mp3'
     )
 
     song092 = Song(
@@ -1715,7 +1715,7 @@ Valdese by revenge your soul can be at one. No longer must you stalk among the n
 
     song106 = Song(
         # Nueva Numancia by Juanita y Los Feos
-        name="Escupe en la tumba", album_id=9, price=.99, track_num=2
+        name="Escupe en la tumba", album_id=9, price=.99, track_num=2, url='https://fancamp.s3.amazonaws.com/94ef579b4f6a47bf88a8dce16abb4b1b.mp3'
     )
 
     song107 = Song(
@@ -2050,7 +2050,7 @@ La revuelta real
 
     song128 = Song(
         # Inhuman Rampage by Dragonforce
-        name="Revolution Deathsquad", album_id=12, price=.99, track_num=2
+        name="Revolution Deathsquad", album_id=12, price=.99, track_num=2, url='https://fancamp.s3.amazonaws.com/3fb02fdf29664b0aaa7964f61e93fc79.mp3'
     )
 
     song129 = Song(
