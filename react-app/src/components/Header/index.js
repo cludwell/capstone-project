@@ -37,10 +37,7 @@ export default function Header({ isLoaded }) {
         style={{
             backgroundColor: album && album.Band && album.Band.backgroundColorSecondary ? album.Band.backgroundColorSecondary
             : band && band.backgroundColorSecondary ? band.backgroundColorSecondary
-            : null,
-            // color: album && album.Band && album.Band.textColor ? album.Band.textColor
-            // : band && band.textColor ? band.textColor
-            // : null
+            : null
         }}
         >
             <div className='logo-text'>
