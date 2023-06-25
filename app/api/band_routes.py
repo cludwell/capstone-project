@@ -82,11 +82,11 @@ def bands_albums(band_id):
                 band.city = form.data['city']
                 band.state = form.data['state']
                 band.country = form.data['country']
-                band.artist_image = artist_aws_url
-                band.banner_url = banner_aws_url
+                band.artist_image = artist_aws_url if artist_aws_url else band.artist_image
+                band.banner_url = banner_aws_url if banner_aws_url else band.banner_url
                 band.description = form.data['description']
                 band.genres = form.data['genres']
-                band.background_image = background_image_aws
+                band.background_image = background_image_aws if background_image_aws else band.background_image
                 band.background_color = form.data['background_color']
                 band.background_color_secondary = form.data['background_color_secondary']
                 band.text_color = form.data['text_color']

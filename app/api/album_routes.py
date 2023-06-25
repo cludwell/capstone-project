@@ -100,7 +100,7 @@ def get_album_by_id(album_id):
                 album.name = form.data['name']
                 album.description = form.data['description']
                 album.price = form.data['price']
-                album.album_image = album_image_aws_url
+                album.album_image = album_image_aws_url if album_image_aws_url else album.album_image
                 album.genre = form.data['genre']
                 album.band_id = form.data['band_id']
                 album.youtube = form.data['youtube']
@@ -177,7 +177,7 @@ def edit_or_delete_song(album_id, song_id):
             song.lyrics = form.data['lyrics']
             song.price = form.data['price']
             song.track_num = form.data['track_num']
-            song.url = aws_url if aws_url else form.data['url']
+            song.url = aws_url if aws_url else song.url
             song.album_id = album_id
 
             try:
