@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, FileField
+from wtforms import StringField, TextAreaField, FileField, BooleanField
 from wtforms.validators import DataRequired
 
 class PostBandForm(FlaskForm):
@@ -12,6 +12,7 @@ class PostBandForm(FlaskForm):
     description = TextAreaField('description', validators=[DataRequired()])
     genres = StringField('genres', validators=[DataRequired()])
     background_image = FileField('background_image')
+    tiled = BooleanField('tiled')
     background_color = StringField('background_color')
     background_color_secondary = StringField('background_color_secondary')
     text_color = StringField('text_color')

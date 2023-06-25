@@ -18,6 +18,7 @@ class Band(db.Model):
     description = db.Column(db.Text)
     genres = db.Column(db.String(255))
     background_image = db.Column(db.String)
+    tiled = db.Column(db.Boolean, default=False)
     background_color = db.Column(db.String)
     background_color_secondary = db.Column(db.String)
     text_color = db.Column(db.String)

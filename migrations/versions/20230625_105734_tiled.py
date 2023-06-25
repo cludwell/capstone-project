@@ -1,22 +1,16 @@
-"""band columns
+"""tiled
 
-Revision ID: 5735c930b22c
-Revises:
-Create Date: 2023-06-23 19:14:12.807124
+Revision ID: 0a0c9c94eaa4
+Revises: 
+Create Date: 2023-06-25 10:57:34.304775
 
 """
 from alembic import op
 import sqlalchemy as sa
 
 
-
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
-
-
 # revision identifiers, used by Alembic.
-revision = '5735c930b22c'
+revision = '0a0c9c94eaa4'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -42,10 +36,6 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-
     op.create_table('bands',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=False),
@@ -58,6 +48,7 @@ def upgrade():
     sa.Column('description', sa.Text(), nullable=True),
     sa.Column('genres', sa.String(length=255), nullable=True),
     sa.Column('background_image', sa.String(), nullable=True),
+    sa.Column('tiled', sa.Boolean(), nullable=True),
     sa.Column('background_color', sa.String(), nullable=True),
     sa.Column('background_color_secondary', sa.String(), nullable=True),
     sa.Column('text_color', sa.String(), nullable=True),
@@ -66,10 +57,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE bands SET SCHEMA {SCHEMA};")
-
     op.create_table('albums',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
@@ -84,10 +71,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['band_id'], ['bands.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE albums SET SCHEMA {SCHEMA};")
-
     op.create_table('carts',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -98,10 +81,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE carts SET SCHEMA {SCHEMA};")
-
     op.create_table('purchases',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -113,10 +92,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE purchases SET SCHEMA {SCHEMA};")
-
     op.create_table('songs',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
@@ -130,10 +105,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['album_id'], ['albums.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE songs SET SCHEMA {SCHEMA};")
-
     op.create_table('wish_lists',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -144,10 +115,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE wish_lists SET SCHEMA {SCHEMA};")
-
     # ### end Alembic commands ###
 
 

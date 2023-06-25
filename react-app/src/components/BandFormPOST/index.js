@@ -15,6 +15,7 @@ export default function BandFormPOST() {
     const [ bannerUrl, setBannerUrl ] = useState(null)
     const [ description, setDescription ] = useState('')
     const [ backgroundImage, setBackgroundImage ] = useState(null)
+    const [ tiled, setTiled ] = useState(false)
     const [ backgroundColor, setBackgroundColor ] = useState('#ffffff')
     const [ backgroundColorSecondary, setBackgroundColorSecondary ] = useState('#ffffff')
     const [ textColor, setTextColor ] = useState('#000000')
@@ -54,6 +55,7 @@ export default function BandFormPOST() {
                 artist_image: artistImage,
                 banner_url: bannerUrl,
                 background_image: backgroundImage,
+                tiled,
                 background_color: backgroundColor,
                 background_color_secondary: backgroundColorSecondary,
                 text_color: textColor
@@ -150,6 +152,18 @@ export default function BandFormPOST() {
     accept='image/*' name='background_image' onChange={e => setBackgroundImage(e.target.files)} ></input>
     {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.backgroundImage}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
+
+    <label className='post-band-label'>tile background image</label>
+
+    <div className='band-post-input-col'>
+    <input type='checkbox' className='post-band-text-input'
+    value={tiled} name='background_image' onChange={e => setTiled(e.target.value)} ></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.tiled}</p>
     ) : (
         <p></p>
     )}

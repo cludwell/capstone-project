@@ -32,6 +32,7 @@ def seed_bands():
         """,
         genres='metal, power metal, fantasy metal',
         background_image='https://i.imgur.com/UhUSOKk.jpg',
+        tiled=True,
         background_color='#000000',
         background_color_secondary='#000000',
         text_color='#ffffff'

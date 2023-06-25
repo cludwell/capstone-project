@@ -16,6 +16,7 @@ export default function BandFormPut() {
     const [ artistImage, setArtistImage ] = useState(null)
     const [ bannerUrl, setBannerUrl ] = useState(null)
     const [ backgroundImage, setBackgroundImage ] = useState(null)
+    const [ tiled, setTiled ] = useState(false)
     const [ description, setDescription ] = useState('')
     const [ backgroundColor, setBackgroundColor ] = useState('')
     const [ backgroundColorSecondary, setBackgroundColorSecondary ] = useState('')
@@ -54,6 +55,7 @@ export default function BandFormPut() {
         setBackgroundColorSecondary(bandState && bandState.backgroundColorSecondary ? bandState.backgroundColorSecondary : '')
         setTextColor(bandState && bandState.textColor ? bandState.textColor : '')
         setBackgroundImage(bandState && bandState.backgroundImage ? bandState.backgroundImage : null)
+        setTiled(bandState && bandState.tiled ? bandState.tiled : false)
     }, [bandState])
 
     const handleSubmit = async e => {
@@ -72,6 +74,7 @@ export default function BandFormPut() {
                 artist_image: artistImage,
                 banner_url: bannerUrl,
                 background_image: backgroundImage,
+                tiled,
                 background_color: backgroundColor,
                 background_color_secondary: backgroundColorSecondary,
                 text_color: textColor
@@ -171,6 +174,19 @@ export default function BandFormPut() {
     accept='image/*' name='background_image' onChange={e => setBackgroundImage(e.target.files)} ></input>
     {hasSubmitted && Object.values(errors).length ? (
         <p className='errors'>{errors.backgroundImage}</p>
+    ) : (
+        <p></p>
+    )}
+    </div>
+
+
+    <label className='post-band-label'>tile background image</label>
+
+    <div className='band-post-input-col'>
+    <input type='checkbox' className='post-band-text-input'
+    value={tiled} name='background_image' onChange={e => setTiled(e.target.value)} ></input>
+    {hasSubmitted && Object.values(errors).length ? (
+        <p className='errors'>{errors.tiled}</p>
     ) : (
         <p></p>
     )}
