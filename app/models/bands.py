@@ -42,6 +42,7 @@ class Band(db.Model):
             'genres': self.genres,
             'bannerUrl': self.banner_url,
             'backgroundImage': self.background_image,
+            'tiled': self.tiled,
             'backgroundColor': self.background_color,
             'backgroundColorSecondary': self.background_color_secondary,
             'textColor': self.text_color,

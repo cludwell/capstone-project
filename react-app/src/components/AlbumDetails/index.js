@@ -92,14 +92,15 @@ export default function AlbumDetails() {
     return (
         <div className='album-details-page'
         style={
-            album.Band.backgroundImage ? {
+            album.Band.backgroundImage && album.Band.tiled ? {
+              backgroundImage: `url(${album.Band.backgroundImage})`
+        } : album.Band.backgroundImage && !album.Band.tiled ? {
             backgroundImage: `url(${album.Band.backgroundImage})`,
             backgroundSize: 'cover',
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
-            // backgroundRepeat: 'no-repeat'
         }
-        : album.Band.backgroundColor ? {
+          : album.Band.backgroundColor ? {
             backgroundColor: album.Band.backgroundColor
         } : null }>
 
