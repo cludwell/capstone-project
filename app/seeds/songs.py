@@ -2109,7 +2109,7 @@ La revuelta real
 
     song140 = Song(
         # Sonic Firestorm by Dragonforce
-        name="Soldiers of the Wasteland", album_id=13, price=1.29, track_num=6
+        name="Soldiers of the Wasteland", album_id=13, price=1.29, track_num=6, url='https://fancamp.s3.amazonaws.com/20607e86be4a486786ec2970181a46b9.mp3'
     )
 
     song141 = Song(
@@ -2174,7 +2174,7 @@ La revuelta real
 
     song154 = Song(
         # No Holier Temple by Hexvessel
-        name="Woods To Conjure", album_id=15, price=.99, track_num=2
+        name="Woods To Conjure", album_id=15, price=.99, track_num=2, url='https://fancamp.s3.amazonaws.com/e39dd27f6e874dd9a97bc0305f7c61d2.mp3'
     )
 
     song155 = Song(

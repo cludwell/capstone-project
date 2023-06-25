@@ -118,7 +118,7 @@ export default function AlbumDetails() {
 
         <div className='album-details-container'
         style={{
-            backgroundColor: album.Band.backgroundColorSecondary ? album.Band.backgroundColorSecondary : null,
+            backgroundColor: album.Band.backgroundColorSecondary ? `rgba(${parseInt(album.Band.backgroundColorSecondary.slice(1, 3), 16)}, ${parseInt(album.Band.backgroundColorSecondary.slice(3, 5), 16)}, ${parseInt(album.Band.backgroundColorSecondary.slice(5), 16)}, 0.8)` : null,
             color: album.Band.textColor ? album.Band.textColor : null
         }}>
 

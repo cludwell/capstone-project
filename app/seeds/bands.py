@@ -43,6 +43,7 @@ def seed_bands():
         banner_url='https://i.imgur.com/ktP2bDg.png',
         description="""Accidente is a pop punk band from Madrid Spain that sings about politics and friendship.""",
         genres='punk, pop, pop punk, spanish punk, spanish',
+        background_image='https://i.imgur.com/L1utUw7.png',
         background_color='#ffffff',
         background_color_secondary='#ffffff',
         text_color='#000000'
@@ -123,6 +124,7 @@ def seed_bands():
         banner_url='https://i.imgur.com/gJfuwGk.png',
         description="""Founded in the magical forests of Finland, via the green and pleasant lands of England and Ireland, enigmatic “spirit-trafficking” Finnish forest-psych weirdos Hexvessel are wyrd folk. Formed in 2009 by English/Irish singer/songwriter Mat "Kvohst" McNerney, also known for his work with Beastmilk (now known as Grave Pleasures), The Deathtrip, guest spots with Carpenter Brut and Me & That Man and his earlier work with Norwegian Black Metal bands Code & Dødheimsgard, Hexvessel has truly become a melting cauldron or “vessel,” a potent “hex” of spellwork. Hexvessel spin songs in the oral tradition of the old balladeers, conjuring wild psychedelic rituals and hypnotic pagan prayers. By drawing on older folk acts like Shirley Collins, Vashti Bunyan, later psych rock bands and 90s Black Metal to more recent artists such as Current93, Nick Cave and Coil, imbued with Karelian and Nordic folklore rhythms, Hexvessel have created a sound that is both ancient, heavy, modern and genre-less. Hexvessel have been previously nominated for 2 Finnish Emma (Grammy) awards, 2 Metal Hammer awards and 3 Prog Magazine awards, winning 2 Finnish Femma awards and landed several times in both the national and alternative charts in Finland. Rock-A-Rolla Magazine dubbed them “an ever-shifting beast, floating between unhurried bliss and fevered rapture.” Hexvessel's sound expands outward from their eerie, signature, ritual-esque folk into a genre-twisting cauldron of otherworldly rock that Prog Magazine identifies containing nods towards “the Beatles, HP Lovecraft and King Crimson.” """,
         genres='folk metal, folk, metal, prog',
+        background_image='https://i.imgur.com/Mcy0sR6.jpg',
         background_color='#8EBEE1',
         background_color_secondary='#8EBEE1',
         text_color='#ffffff'

@@ -19,11 +19,13 @@ export default function WishListFormPost({ album }) {
         await dispatch(fetchUsers())
         await dispatch(fetchWishLists())
     }
-
     return (
         <div className='wishlist-post-form'>
             <span className='wish-list-post' onClick={handleSubmit}>
-            <i className="fa-regular fa-heart notwishlist-heart"></i>
+            <i className="fa-regular fa-heart notwishlist-heart"
+            style={{
+                color: album.Band.textColor ? album.Band.textColor : null
+            }}></i>
             </span>
         </div>
     )
