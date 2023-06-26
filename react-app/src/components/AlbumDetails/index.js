@@ -86,6 +86,7 @@ export default function AlbumDetails() {
         await dispatch(fetchUserCart())
     }
     const songUrl = album && album.Songs && album.Songs.length ? album.Songs.find(s=> s.url) : null
+    
     const rgbaParser = str => `rgba(${parseInt(str.slice(1, 3), 16)}, ${parseInt(str.slice(3, 5), 16)}, ${parseInt(str.slice(5), 16)}, 0.8)`
 
     return (

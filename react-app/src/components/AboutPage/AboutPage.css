@@ -15,16 +15,17 @@
     width: 55rem;
 }
 .github-icon,
-.linkedin-icon {
+.linkedin-icon,
+svg {
     width: 2rem;
     object-fit: cover;
-    margin-left: 1rem;
+    margin: 0 1vmin;
     transition: .2s ease-in-out;
-    border-radius: .5vmin;
 }
 .github-icon:hover,
-.linkedin-icon:hover {
-    box-shadow: 0rem 0rem .5rem black;
+.linkedin-icon:hover,
+svg:hover {
+    scale: 1.2;
 }
 .about-me-image {
     height: 30rem;
