@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom"
 import './AboutPage.css'
 import Footer from "../Footer"
+import { clearAlbumState } from "../../store/albums"
+import { clearBandState } from "../../store/bands"
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 export default function AboutPage() {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        const loadData = async () => {
+            await dispatch(clearAlbumState())
+            await dispatch(clearBandState())
+        }
+        loadData()
+    }, [dispatch])
     return (
         <div className="about-page-container">
 
