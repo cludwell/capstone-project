@@ -16,7 +16,7 @@
 body {
     margin: 0px;
 }
-p, span {
+p, span, td {
     font-size: min(2.5vmin, 1rem);
 }
 button {

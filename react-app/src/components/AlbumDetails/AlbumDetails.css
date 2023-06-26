@@ -4,20 +4,21 @@
 }
 .album-details-container {
     align-self: center;
-    margin: 1rem;
+    margin: min(2vmin, 1rem);
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 1080px;
+    gap: min(2vmin, 1rem);
     background-color: rgb(216, 220, 223);
-    padding: 2rem;
-    border-radius: 1rem;
+    padding: 3vmin;
+    border-radius: .5vmin;
 }
 .album-details-artwork{
-    width: 25rem;
-    height: 25rem;
+    width: 40vmin;
+    aspect-ratio: 1;
     object-fit: cover;
-    border-radius: .3rem;
-    margin-bottom: .5rem;
+    border-radius: .5vmin;
+    margin-bottom: 1vmin;
 }
 
 .album-details-title {
@@ -27,9 +28,9 @@
     color: green;
 }
 
-.details-info {
+/* .details-info {
     margin-bottom: 0rem;
-}
+} */
 
 .buy-digital-album {
     color: blue;
@@ -38,35 +39,34 @@
 .buy-digital-album:hover {
     text-decoration: underline;
 }
-
 .details-grey-text {
-    margin-top: 0rem;
-    font-size: .8rem;
+    /* margin-top: 0rem; */
+    font-size: min(2vmin, .8rem);
 }
-.details-ownership-info {
+/* .details-ownership-info {
     font-size: .8rem;
-}
+} */
 .album-details-banner {
     align-self: center;
     width: min(90vmin, 55rem);
     height: auto;
     object-fit: cover;
     margin: 7vmin 0;
-    border-radius: 1rem;
+    border-radius: 1vmin;
 }
 .details-band-name {
     margin-top: 0rem;
 }
 .album-details-description {
-    line-height: 1.5rem;
-    font-size: .9rem;
+    line-height: min(3vmin, 1.5rem);
+    /* font-size: .9rem; */
     overflow-wrap: anywhere;
 }
 .album-details-band-img {
-    width: 7rem;
+    width: 15vmin;
 }
 .tracks-column {
-    width: 25rem;
+    width: 40vmin;
 }
 .album-deets-country {
     font-weight: bold;
@@ -92,7 +92,7 @@
     color: red;
 }
 .user-auth-song {
-    width: 1.5rem;
+    width: min(3vmin,1.5rem);
     justify-content: end;
 }
 .cart-preview {
@@ -121,3 +121,20 @@
     flex-direction: column;
     align-items: center;
 }
+
+@media only screen and (max-width: 1080px) {
+    /* .album-details-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: minmax(0, auto);
+    } */
+
+    .album-details-container > div:first-child {
+      grid-column: 1;
+    }
+
+    .album-details-container > div:nth-child(2),
+    .album-details-container > div:nth-child(3) {
+      grid-column: 2;
+    }
+  }
