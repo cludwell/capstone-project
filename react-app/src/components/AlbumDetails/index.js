@@ -86,7 +86,7 @@ export default function AlbumDetails() {
         await dispatch(fetchUserCart())
     }
     const songUrl = album && album.Songs && album.Songs.length ? album.Songs.find(s=> s.url) : null
-    
+
     const rgbaParser = str => `rgba(${parseInt(str.slice(1, 3), 16)}, ${parseInt(str.slice(3, 5), 16)}, ${parseInt(str.slice(5), 16)}, 0.8)`
 
     return (
@@ -143,7 +143,6 @@ export default function AlbumDetails() {
                       }}
                     width={'37vmin'}
                     height={'6vmin'}
-                    albumImage={album.albumImage}
                     />
                 </>
                 ) : null}
@@ -174,7 +173,7 @@ export default function AlbumDetails() {
                 onItemClick={closeMenu}
                 modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
                 ) : null}</td>
-                {user //&& album.Band.userId === user.id
+                {user && album.Band.userId === user.id
                  ? (
                     <>
                     <td key={`edit${i}`} className='user-auth-song'>

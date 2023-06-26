@@ -88,7 +88,7 @@
     flex-direction: column;
 }
 .purchased-list {
-    font-size: 1.3rem;
+    font-size: min(2.2vmin, 1rem);
     color: red;
 }
 .user-auth-song {
@@ -96,11 +96,13 @@
     justify-content: end;
 }
 .cart-preview {
-    border-radius: .25rem;
-    margin-bottom: 1rem;
-    padding: .3rem;
-    font-size: .8rem;
-    filter: sepia(.6);
+    border-radius: .5vmin;
+    margin-bottom: min(2vmin, 1rem);
+    padding: .5vmin;
+    font-size: min(2vmin, .8rem);
+    background-color: rgb(202, 202, 202);
+    outline: solid 2px white;
+    color: black;
 }
 .cart-delete-instance {
     float: right;
@@ -111,7 +113,7 @@
     float: right;
 }
 .cart-title {
-    margin-bottom: .5rem;
+    margin-bottom: min(1vmin, .5rem);
     font-weight: bold;
 }
 .cart-preview-buttons {

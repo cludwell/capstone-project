@@ -16,6 +16,8 @@ export default function OpenModalCheckOutPreview({
   };
 
   return (
-    <button onClick={onClick} className='band-deets-user-auth cart-preview-checkout'>{buttonText}</button>
+    <button onClick={onClick}
+    className='band-deets-user-auth cart-preview-checkout'
+    style={{backgroundColor: 'limegreen'}}>{buttonText}</button>
   );
 }
