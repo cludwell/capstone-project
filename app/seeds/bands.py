@@ -93,7 +93,7 @@ def seed_bands():
         background_image='https://i.imgur.com/jiEvZfU.jpg',
         background_color='#E0CDB8',
         background_color_secondary='#E0CDB8',
-        text_color='#ffffff'
+        text_color='#000000'
     )
     band07 = Band(
         name='Juanita y los Feos', city='Madrid', state='Madrid', country='España', user_id=6,

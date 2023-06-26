@@ -86,7 +86,7 @@ export default function AlbumDetails() {
         await dispatch(fetchUserCart())
     }
     const songUrl = album && album.Songs && album.Songs.length ? album.Songs.find(s=> s.url) : null
-
+    const rgbaParser = str => `rgba(${parseInt(str.slice(1, 3), 16)}, ${parseInt(str.slice(3, 5), 16)}, ${parseInt(str.slice(5), 16)}, 0.8)`
 
     return (
         <div className='album-details-page'
@@ -118,7 +118,7 @@ export default function AlbumDetails() {
 
         <div className='album-details-container'
         style={{
-            backgroundColor: album.Band.backgroundColorSecondary ? `rgba(${parseInt(album.Band.backgroundColorSecondary.slice(1, 3), 16)}, ${parseInt(album.Band.backgroundColorSecondary.slice(3, 5), 16)}, ${parseInt(album.Band.backgroundColorSecondary.slice(5), 16)}, 0.8)` : null,
+            backgroundColor: album.Band.backgroundColorSecondary ? rgbaParser(album.Band.backgroundColorSecondary) : null,
             color: album.Band.textColor ? album.Band.textColor : null
         }}>
 

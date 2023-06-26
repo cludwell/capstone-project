@@ -33,7 +33,7 @@ export default function Header({ isLoaded }) {
     let cart = useSelector(state => state.cart.userCart)
     cart = user ? cart : []
 
-    const rgbaParser = str => `rgba(${parseInt(str.slice(1, 3), 16)}, ${parseInt(str.slice(3, 5), 16)}, ${parseInt(str.slice(5), 16)}, 0.8)`
+    const rgbaParser = str => `rgba(${parseInt(str.slice(1, 3), 16)}, ${parseInt(str.slice(3, 5), 16)}, ${parseInt(str.slice(5), 16)}, 1)`
 
     return (
         <div className='header-container'
