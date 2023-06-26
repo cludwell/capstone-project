@@ -44,10 +44,10 @@ Albums
 Songs
 
 Tables with partial CRUD
--Cart //CRD
--Wishlist //CRD
--Users //CR
--Purchases //CR
+-Cart CRD
+-Wishlist CRD
+-Users CR
+-Purchases CR
 
 ### BACKEND ROUTES
 
@@ -117,10 +117,10 @@ Wishlist
 ```
 ### FUTURE APP GOALS
 
-In the future I hope to implement embedded audio with react player and hopefully connect the cart to Paypal where users are checked out for 0 dollars, just as proof of concept, not to convey actual ownership.
+In the future I hope to implement an audio player of my own and do away with react-player.
 
-I would also like to implement some transitions for the cart preview or the profile menu dropdown
 ![Cart Preview](cart-preview.png)
+![Ad Infinitum](adinfinitum.png)
 
 
 ### ABOUT THE CREATOR
@@ -130,7 +130,13 @@ To learn more about me, please reach out and network. Looking forward to program
 'Christian Ludwell'
 
 Linked In
-https://www.linkedin.com/in/christian-ludwell-047b18247/
+*https://www.linkedin.com/in/christian-ludwell-047b18247/
 
 Github
-https://github.com/cludwell
+*https://github.com/cludwell
+
+Wellfound
+*https://wellfound.com/u/chris-ludwell
+
+Portfolio
+*https://cludwell.github.io/
