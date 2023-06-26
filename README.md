@@ -9,17 +9,19 @@ https://fancamp.onrender.com
 
 ![Landing Page](landing-preview.png)
 ![Cart Preview](cart-preview.png)
+![Fellowship](fellowship.png)
 
 ### TECHNOLOGIES
 
 Technologies used to build this app include
 
-Python
-Flask
-SqlAlchemy
-WTForms
-Javascript
-React.js/Redux.js
+*Python
+*Flask
+*SqlAlchemy
+*WTForms
+*Javascript
+*React.js/Redux.js
+*react-player
 
 
 ### LAUNCHING APP
