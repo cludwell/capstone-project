@@ -38,7 +38,7 @@ export default function Header({ isLoaded }) {
     return (
         <div className='header-container'
         style={{
-            backgroundColor: album && album.Band && album.Band.backgroundColorSecondary ? rgbaParser(album.Band.backgroundColorSecondary)
+            backgroundColor: album && album?.Band && album?.Band?.backgroundColorSecondary ? rgbaParser(album.Band.backgroundColorSecondary)
             : band && band.backgroundColorSecondary ? rgbaParser(band.backgroundColorSecondary)
             : null
         }}

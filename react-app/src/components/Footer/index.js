@@ -24,7 +24,7 @@ export default function Footer() {
         alt='linkedinlogo'
         className='linkedin-icon'
         style={{
-            filter: album && album.Band && album.Band.backgroundColorSecondary.toLowerCase() === '#ffffff' ? 'invert(1)' : null
+            filter: album && album.Band && album.Band.backgroundColorSecondary.toLowerCase() === '#000000' ? 'invert(1)' : null
         }}/>
         </Link>
         <Link to={{ pathname: 'https://github.com/cludwell'}} target='_blank'>
