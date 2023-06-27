@@ -42,9 +42,14 @@ def seed_users():
         city='Austin', state='TX', country='USA',
         genre='metal, fantasy metal', profile_pic='https://i.imgur.com/bvmKetU.jpg'
     )
+    user10 = User(
+        username='ensiferum', email='ensiferum@aa.io', password='password', name='Markus Toivonen', address='unknown',
+        city='Helsinki', state='Uusimaa', country='Finland',
+        genre='metal, fantasy metal', profile_pic='https://i.imgur.com/EwrBmun.jpg'
+    )
 
     db.session.add_all([
-        user01, user02, user03, user04, user05, user06, user07, user08, user09
+        user01, user02, user03, user04, user05, user06, user07, user08, user09, user10
         ])
     db.session.commit()
 

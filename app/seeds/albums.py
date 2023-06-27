@@ -231,8 +231,19 @@ def seed_albums():
         band_id=9, album_image='https://i.imgur.com/zhaR0Ln.jpg',
         genre='rock, folk rock, occult, psychedelic folk'
     )
+    album16 = Album(
+        name='Thalassic',
+        price=9.99,
+        # youtube='https://youtu.be/hbIofZoCX4c',
+        description=""" Thalassic is the eighth studio album by Finnish folk metal band Ensiferum. It was released on 10 July 2020 through Metal Blade Records. It is the first Ensiferum album to feature new keyboardist and clean vocalist Pekka Montin, who joined the band in February 2020.
+
+The album's title "thalassic" (which is derived from both French and Ancient Greek) means "of or relating to seas", which pertains to the theme of the album's lyrics.  """,
+        band_id=10,
+        album_image='https://i.imgur.com/fDbH5Ir.jpg',
+        genre='metal, folk metal, fantasy metal'
+    )
     db.session.add_all([
-        album01, album02, album03, album04, album05, album06, album07, album08, album09, album10, album11, album12, album13, album14, album15
+        album01, album02, album03, album04, album05, album06, album07, album08, album09, album10, album11, album12, album13, album14, album15, album16
         ])
     db.session.commit()
 

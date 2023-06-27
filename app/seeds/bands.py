@@ -131,8 +131,24 @@ def seed_bands():
         background_color_secondary='#8EBEE1',
         text_color='#ffffff'
     )
+    band10 = Band (
+        name='Ensiferum', city='Somewhere', state='Uusimaa', country='Finland', user_id=10,
+        artist_image='https://i.imgur.com/0WLKmCW.jpg',
+        banner_url='https://i.imgur.com/PhrBvZC.png',
+        description="""Ensiferum was founded in 1995 by Markus Toivonen (guitar), Sauli Savolainen (bass) and Kimmo Miettinen (drums). In the next year, Jari Mäenpää was taken into the band as singer and second guitar-player. In 1997, the first demo was released, containing three songs.
+The highly stylized logo of Ensiferum has appeared on all of their releases.
+Guitarist Markus Toivonen at Rockharz 2016
+Ex-accordionist Netta Skog at Rockharz 2016
+
+In 1998, Savolainen and Miettinen left the band and were replaced by Jukka-Pekka Miettinen (Kimmo Miettinen's little brother, then 14 years old) and Oliver Fokin. In January 1999, a second demo was recorded, which although it did not produce a recording deal, boosted the band's confidence. In November 1999 a third demo Hero in a Dream was recorded, and was successful in obtaining a record deal with Spinefarm Records. The logo that appears on all the band's releases was designed for the third demo by Tuomas Tahvanainen, who also designed the logos for the earlier demos. In 2000, the band went into the studio to work on their first album, Ensiferum, which was released in July 2001. In the same year, Meiju Enho joined them as a keyboard-player. """,
+        genres='folk metal, folk, metal, prog',
+        background_image='https://i.imgur.com/IKN3xsl.jpg',
+        background_color='#000000',
+        background_color_secondary='#000000',
+        text_color='#ffffff'
+    )
     db.session.add_all([
-       band01, band02, band03, band04, band05, band06, band07, band08, band09
+       band01, band02, band03, band04, band05, band06, band07, band08, band09, band10
        ])
     db.session.commit()
 
