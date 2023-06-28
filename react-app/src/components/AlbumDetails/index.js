@@ -161,7 +161,7 @@ export default function AlbumDetails() {
                 onItemClick={closeMenu}
                 modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
                 ) : null}</td>
-                {user //&& album.Band.userId === user.id
+                {user && album.Band.userId === user.id
                  ? (
                     <>
                     <td key={`edit${i}`} className='user-auth-song'>
