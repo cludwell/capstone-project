@@ -29,6 +29,16 @@ button {
     padding: .5vmin;
     font-weight: bold;
 }
+.fa-heart,
+.fa-trash-can,
+.fa-pen-to-square {
+    transition: .2s ease-in-out;
+}
+.fa-heart:hover,
+.fa-trash-can:hover,
+.fa-pen-to-square:hover {
+    scale: 1.4;
+}
 button:hover {
     scale: 1.08;
 }

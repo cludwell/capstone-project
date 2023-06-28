@@ -33,7 +33,7 @@ export default function BandFormPOST() {
         if (!country || country.length < 2 || country.length > 40) err.country = 'Please enter a valid country between 3 and 40 characters.'
         if (!artistImage) err.artistImage = 'Please submit a band photo'
         if (!bannerUrl) err.bannerUrl = 'Please submit a band logo for your banner'
-        if (!description || description.length < 30) err.description = 'Please enter a description of your band.'
+        if (!description || description.length < 30) err.description = 'Please enter a description of your band, at least 30 characters.'
         if (!genres || genres.length < 3) err.genres = 'Please enter some genres you could be categorized under.'
         if (backgroundColorSecondary === textColor) err.textColor = 'Text color and secondary background color must be different to read text!'
         setErrors(err)
