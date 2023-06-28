@@ -1,4 +1,3 @@
-import ReactPlayer from 'react-player';
 import './AudioPlayer.css';
 import { useState, useRef, useEffect } from 'react';
 
@@ -24,7 +23,7 @@ export default function AudioPlayer({ song }) {
         const seconds = parseInt(secs % 60)
         return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
     }
-    
+
     const togglePlayPause = () => {
         const prevValue = isPlaying
         setIsPlaying(!prevValue); // Use functional form of setState
