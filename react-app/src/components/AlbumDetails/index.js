@@ -20,6 +20,7 @@ import CheckOutModal from '../CheckOutModal'
 import OpenModalCheckOutPreview from '../OpenModalButton/OpenModalCheckoutPreview'
 import ReactPlayer from 'react-player';
 import Footer from '../Footer'
+import AudioPlayer from '../AudioPlayer'
 
 export default function AlbumDetails() {
     const dispatch = useDispatch()
@@ -130,23 +131,8 @@ export default function AlbumDetails() {
             <p className='details-band-name'>by {album.Band.name}</p>
             <div className='details-react-player'>
                 {songUrl ? (
-                    <>
-                    <div>{songUrl.trackNum}: {songUrl.name}</div>
-                    <ReactPlayer url={songUrl.url}
-                    controls={true}
-                    className='player'
-                    playsinline={true}
-                    config={{
-                        file: {
-                          attributes: {
-                            controlsList: 'nodownload'
-                          }
-                        }
-                      }}
-                    width={'37vmin'}
-                    height={'6vmin'}
-                    />
-                </>
+
+                    <AudioPlayer song={songUrl} />
                 ) : null}
             </div>
             <div className='album-details-streaming-info'>

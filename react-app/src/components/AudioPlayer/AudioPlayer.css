@@ -1,0 +1,9 @@
+.play-button {
+    background: linear-gradient(#ebebeb, #7d7d7d);
+    border: none;
+
+    color: black;
+    width: 6vmin;
+    font-size: min(3vmin, 1.8rem);
+    aspect-ratio: 1;
+}
