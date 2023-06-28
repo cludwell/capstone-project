@@ -31,12 +31,16 @@ button {
 }
 .fa-heart,
 .fa-trash-can,
-.fa-pen-to-square {
+.fa-pen-to-square,
+.fa-cart-shopping,
+.fa-bolt-lightning {
     transition: .2s ease-in-out;
 }
 .fa-heart:hover,
 .fa-trash-can:hover,
-.fa-pen-to-square:hover {
+.fa-pen-to-square:hover,
+.fa-cart-shopping:hover,
+.fa-bolt-lightning:hover {
     scale: 1.4;
 }
 button:hover {
