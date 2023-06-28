@@ -3,25 +3,33 @@ from sqlalchemy.sql import text
 
 def seed_albums():
     album01 = Album(
-        name= 'The First Four Years', price=4.99, youtube='https://youtu.be/4gpbDEWEPtM',
+        name= 'The First Four Years',
+        price=4.99,
+        youtube='https://youtu.be/4gpbDEWEPtM',
         description="The First Four Years is a compilation album by the American hardcore punk band Black Flag. It was released in 1983 on SST Records. The compilation consists of all of the group's material released before Henry Rollins became the band's vocalist in 1981. It essentially collects the extended plays Nervous Breakdown (1979), Jealous Again (1980), Six Pack (1981), and the single Louie Louie, with two tracks from various artists' compilation albums. \nTracks 1-4 are taken from Nervous Breakdown, tracks 5-9 are taken from Jealous Again, tracks 11-13 are from Six Pack, and tracks 15-16 are taken from the Louie Louie single. Tracks 10 and 14 were originally released on the New Alliance Records compilation albums Cracks in the Sidewalk (1980) and Chunks (1981).",
-        band_id=1, album_image='https://i.imgur.com/qoDd5GQ.jpg',
+        band_id=1,
+        album_image='https://i.imgur.com/qoDd5GQ.jpg',
         genre='Punk'
     )
     album02 = Album(
-        name= 'Abyss', price=9.99, youtube='https://youtu.be/1bGmjnkDTTI',
+        name= 'Abyss',
+        price=9.99,
+        youtube='https://youtu.be/1bGmjnkDTTI',
         description=
         """Less than a year after the release of their covers EP Explorers, Canadian melodic power metal quartet UNLEASH THE ARCHERS have sharpened their arrows and hit the bullseye once again with their fifth full-length album, Abyss. Featuring 10 new tracks, this adventure is a concept album and sequel to 2017's Apex, and was once again recorded with legendary producer Jacob Hansen of Hansen Studios in Denmark. Abyss succeeds in showcasing the mind-blowing technical craftmanship of the young four-piece with the perfect mix of highly complex, catchy bangers and moody, synth-infused power ballads. Pairing traditional heavy sounds in the vein of Iron Maiden and Judas Priest with fast-paced power metal, the album is once again accented by frontwoman Brittney Slayes' raw four octave mezzo-soprano, shining both in powerful anthems like the outstanding title track “Abyss” as well as the fragile intro of the epic “The Wind That Shapes The Land”, and contrasted with guttural screams on the soaring “Return To Me” or the transcendent album closer “Afterlife". The quartet from Vancouver has forged their own niche in the world of metal and cemented it with memorable live shows all over the world, and now, a lucky 13 years after their inception, they've delivered their strongest album to date.
 
         © NAPALM RECORDS
         credits
         released August 21, 2020 """,
-        band_id=2, album_image='https://i.imgur.com/q1tRxn6.jpg',
+        band_id=2,
+        album_image='https://i.imgur.com/q1tRxn6.jpg',
         genre='metal, power metal'
 
     )
     album03 = Album(
-        name= 'Apex', price=9.99, youtube='https://youtu.be/gqUPGa15Oto',
+        name= 'Apex',
+        price=9.99,
+        youtube='https://youtu.be/gqUPGa15Oto',
         description=
         """Deluxe 2CD + 10" Earbook edition available here: lnk.to/ApexAnniversary/napalmrecords
 
@@ -29,12 +37,14 @@ def seed_albums():
 
         credits
         released November 18, 2022  """,
-        band_id=2, album_image='https://i.imgur.com/XEEdAjI.jpg',
+        band_id=2,
+        album_image='https://i.imgur.com/XEEdAjI.jpg',
         genre='metal, power metal'
 
     )
     album04 = Album(
-        name= 'Canibal', price=.99,
+        name= 'Canibal',
+        price=.99,
         description=
         """Si esto ha salido adelante es por el cariño de todxs lxs que remáis cuando las cosas se ponen feas. Este disco es también vuestro. Gracias a Oli y Edu, por salvar la banda. A Mario, por el currazo que ha puesto en el diseño. A Paco, que nos presta su casa y su consejo. A Karlitos, que es familia. A cada uno de los sellos que seguís apostando por nosotrxs porque sois importantes y nos flipa lo que hacéis. A todxs las que seguís dando vida al punk contestatario y honesto desde el margen. A quienes ponéis lo común en el centro para desde ahí combatir a este monstruo caníbal que acecha dentro y fuera de nuestros círculos.
 
@@ -49,7 +59,8 @@ def seed_albums():
         Arte, diseño: Mario Riviere (www.marioriviere.com).
         Todos los temas por Accidente: Ranzio (bajo y coros), Edu (batería), Oli (batería), Miguel (guitarra y coros), Pablo (guitarra, teclados y coros) y Blanca (voz).
         """,
-        band_id=3, album_image='https://i.imgur.com/FVH3QRR.jpg',
+        band_id=3,
+        album_image='https://i.imgur.com/FVH3QRR.jpg',
         genre='pop, pop punk, leftist'
 
     )
@@ -163,7 +174,8 @@ def seed_albums():
         genre='pop, pop-punk'
     )
     album10 = Album(
-        name= 'Time Stands Still', price=9.99,
+        name= 'Time Stands Still',
+        price=9.99,
         description=
         """Available from Napalm Records!
         www.napalmrecordsamerica.com/store/unleashthearchers
@@ -176,12 +188,15 @@ def seed_albums():
         Guitar/Screams: Grant Truesdell
         Guitar/Screams: Andrew Kingsley
         Bass: Kyle Sheppard  """,
-        band_id=2, album_image='https://i.imgur.com/R4eITe1.jpg',
+        band_id=2,
+        album_image='https://i.imgur.com/R4eITe1.jpg',
         genre='metal, power metal'
 
     )
     album11 = Album(
-        name= 'Pulso', price=9.99, youtube='https://youtu.be/upnt0L2FyxQ',
+        name= 'Pulso',
+        price=9.99,
+        youtube='https://youtu.be/upnt0L2FyxQ',
         description=
         """Torpes pero intensos… define bien la actitud con la que muchos de nosotros encaramos la vida cuando empezábamos a caminar… Y así, igual que J., hemos chocado con toda esta mierda: inseguros, vulnerables, y aterrados por haber sido despojados poco a poco de nuestra espontaneidad, de nuestra energía infinita y esa rabia incendiaria de la que sacas la fuerza cuando eres un crío. Ya no somos niños, y a menudo nos atrapa el cinismo y el miedo, pero esto no ha acabado. La misma mísera realidad que nos motivó a rebelarnos entonces, sigue asfixiándonos hoy. La guerra es la paz, ya lo decían Orwell, y los RIP, y este pulso estará presente en nuestras vidas, hasta que palmemos. Le dedicamos este disco a todos los que se juegan la libertad y el pellejo luchando, sin purezas, sin egos, con perseverancia y entereza y por amor a la libertad. A los más de 40 anarquistas detenidos en los últimos meses por el Estado.
 
@@ -201,26 +216,36 @@ def seed_albums():
         ESTE DISCO ES GRATIS, PERO LA PLATAFORMA PERMITE SÓLO 200 DESCARGAS SIN COSTE. NO PAGUES POR ÉL, BÁJALO LIBREMENTE DE AQUÍ: accidentepunk.blogspot.com.es / THIS RECORD IS FREE FOR YOU DOWNLOAD IT. DO NOT PAY FOR IT. GET IT HERE: accidentepunk.blogspot.com.es
         license
         some rights reserved  """,
-        band_id=3, album_image='https://i.imgur.com/ooi5Ubv.jpg',
+        band_id=3,
+        album_image='https://i.imgur.com/ooi5Ubv.jpg',
         genre='pop, pop punk, positive'
 
     )
     album12 = Album(
-        name='Inhuman Rampage', price=9.99, youtube='https://youtu.be/rK_d5g3pBb8',
+        name='Inhuman Rampage',
+        price=9.99,
+        youtube='https://youtu.be/rK_d5g3pBb8',
         description="""Inhuman Rampage is the third studio album by British power metal band DragonForce, released first on 28 December 2005[4] in Japan, and 9 January 2006 elsewhere, through Victor Entertainment and Roadrunner Records, respectively. Its first single, "Through the Fire and Flames", has received rock radio and Fuse TV airplay, and has appeared as a playable track on the video games Guitar Hero III: Legends of Rock and Rocksmith 2014 Edition - Remastered. It is the band's first album to feature harsh vocals, which were recorded by Demoniac vocalist Lindsay Dawson; the album is also the last to feature bassist Adrian Lambert, who left the band in 2005 and was replaced by Frédéric Leclercq before the album's release.  """,
-        band_id=8, album_image='https://i.imgur.com/yDR2Q5w.png',
+        band_id=8,
+        album_image='https://i.imgur.com/yDR2Q5w.png',
         genre='metal, power metal, fantasy metal'
     )
     album13 = Album(
-        name='Sonic Firestorm', price=9.99, youtube='https://www.youtube.com/watch?v=BxF7pfW7sqI',
+        name='Sonic Firestorm',
+        price=9.99,
+        youtube='https://www.youtube.com/watch?v=BxF7pfW7sqI',
         description="""Sonic Firestorm is the second studio album by British power metal band DragonForce, released through Noise Records on 11 May 2004. It is the first album to feature bassist Adrian Lambert and drummer Dave Mackintosh. The reissue of this album was released on 22 February 2010, along with a remixed and remastered version of the band's first album, Valley of the Damned. The re-release also came with the bonus track "Cry of the Brave", which was a Japanese bonus track on the original release.  """,
-        band_id=8, album_image='https://i.imgur.com/9Aswxnh.jpg',
+        band_id=8,
+        album_image='https://i.imgur.com/9Aswxnh.jpg',
         genre='metal, power metal, fantasy metal'
     )
     album14 = Album(
-        name='Valley of the Damned', price=9.99, youtube='https://youtu.be/9iYUYznGiKU',
+        name='Valley of the Damned',
+        price=9.99,
+        youtube='https://youtu.be/9iYUYznGiKU',
         description="""Valley of the Damned is the debut studio album by British power metal band DragonForce. In 2000, while the band was still known as DragonHeart, a demo of the same name was recorded and sent to Noise Records, subsequently gaining the band a deal with the label. It was then re-recorded in late 2002 and released as a full-length studio album on 25 February 2003, following the band's obtainance of the deal with Noise and change in name to DragonForce. The album was set to be remastered and released with a bonus DVD on 24 September 2007, but was subsequently delayed and eventually released on 22 February 2010, along with the re-release of the band's second album, Sonic Firestorm.  """,
-        band_id=8, album_image='https://i.imgur.com/MqOojTu.jpg',
+        band_id=8,
+        album_image='https://i.imgur.com/MqOojTu.jpg',
         genre='metal, power metal, fantasy metal'
     )
     album15 = Album(
