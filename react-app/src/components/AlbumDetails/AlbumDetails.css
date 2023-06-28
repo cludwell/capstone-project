@@ -100,7 +100,7 @@
     margin-bottom: min(2vmin, 1rem);
     padding: .5vmin;
     font-size: min(2vmin, .8rem);
-    background-color: rgb(202, 202, 202);
+    background: linear-gradient(#ffffff, #b1b1b1);
     outline: solid 2px white;
     color: black;
 }

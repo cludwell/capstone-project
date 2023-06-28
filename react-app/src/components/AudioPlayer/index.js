@@ -5,8 +5,8 @@ import { useState, useRef, useEffect } from 'react';
 export default function AudioPlayer({ song }) {
   const [ play, setPlay ] = useState(false);
   const [ time, setTime ] = useState('0:00')
-  const [ duration, setDuration ] = useState()
   const playerRef = useRef(null);
+  const [ duration, setDuration ] = useState()
 
   useEffect(() => {
       const currentTime = () => {
@@ -28,7 +28,7 @@ export default function AudioPlayer({ song }) {
   const togglePlayPause = () => {
     setPlay(!play);
   };
-
+console.log('====================================', song)
   return (
     <div className='custom-player'>
       <button className='play-button' onClick={togglePlayPause}>
