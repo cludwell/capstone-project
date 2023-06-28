@@ -62,6 +62,7 @@ export default function AudioPlayer({ song }) {
         <input
         type='range'
         ref={progressBar}
+        className='progress-bar'
         defaultValue={0}
         value={time}
         onChange={changeRange}
