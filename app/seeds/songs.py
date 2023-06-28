@@ -2155,7 +2155,7 @@ La revuelta real
     )
     song150 = Song(
         # Valley of the Damned by Dragonforce
-        name="Revelations", album_id=14, price=.99, track_num=7
+        name="Revelations", album_id=14, price=.99, track_num=7, url='https://fancamp.s3.amazonaws.com/bf39d31e8d6f4ebea0d9f4783c9f7063.mp3'
     )
 
     song151 = Song(
