@@ -22,6 +22,12 @@ p, span, td {
 button {
     cursor: pointer;
     transition: .2s ease-in-out;
+    background: linear-gradient(rgb(97, 149, 170),rgb(50, 78, 90));
+    border-radius: .5vmin;
+    border: none;
+    margin: 1vmin;
+    padding: .5vmin;
+    font-weight: bold;
 }
 button:hover {
     scale: 1.08;

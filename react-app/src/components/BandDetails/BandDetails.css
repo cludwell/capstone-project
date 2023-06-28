@@ -38,20 +38,10 @@
     font-weight: bold;
 }
 .band-deets-user-auth {
-    background-color: rgb(97, 149, 170);
-    padding: .3rem;
-    font-weight: bold;
-    width: 8rem;
-    border-radius: .3rem;
-    border: none;
+    width: 13vmin;
     color: white;
-    margin: .5rem;
-    cursor: pointer;
-    /* transition: .2s ease-in-out; */
 }
-/* .band-deets-user-auth:hover {
-    box-shadow: 0rem 0rem .5rem black;
-} */
+
 .band-deets-bandname {
     font-weight: bold;
     overflow-wrap: anywhere;
