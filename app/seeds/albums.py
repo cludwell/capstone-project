@@ -65,7 +65,9 @@ def seed_albums():
 
     )
     album05 = Album(
-        name= 'Chapter III Downfall ', price=9.99, youtube='https://youtu.be/Qk1akD6HVDU',
+        name= 'Chapter III Downfall ',
+        price=9.99,
+        youtube='https://youtu.be/Qk1akD6HVDU',
         description=
         """Physical editions available here:
         lnk.to/ChapterIIIDownfall/napalmrecords
@@ -78,11 +80,13 @@ def seed_albums():
         license
         all rights reserved
                 """,
-        band_id=4, album_image='https://i.imgur.com/Gfh06v4.jpg',
+        band_id=4,
+        album_image='https://i.imgur.com/Gfh06v4.jpg',
         genre='metal, symphonic metal'
     )
     album06 = Album(
-        name= 'The Saberlight Chronicles', price=9.99,
+        name= 'The Saberlight Chronicles',
+        price=9.99,
         description=
         """
         Hailing from Harwich, England, Fellowship is a four-piece on a mission to take melodic power metal to new heights.
@@ -92,11 +96,13 @@ def seed_albums():
         Taking on the subject of mental health at a time in our lives where we all need a pick-me-up, the album tells a mythical story of self-worth, self-discovery and the quest for courage, all through songs so catchy you'll be singing along on the very first listen.
 
         Metal has never felt so good!""",
-        band_id=5, album_image='https://i.imgur.com/3nMIX6n.jpg',
+        band_id=5,
+        album_image='https://i.imgur.com/3nMIX6n.jpg',
         genre='metal, symphonic metal'
     )
     album07 = Album(
-        name= 'The Armor of Ire', price=9.99,
+        name= 'The Armor of Ire',
+        price=9.99,
         description=
         """
          8th vinyl pressing by No Remorse Records, limited to 500 copies on “Blood of my Enemies” 180 gram colored vinyl.
@@ -108,7 +114,9 @@ def seed_albums():
         genre='metal, fantasy metal'
     )
     album08 = Album(
-        name= 'Pesadilla Adulta', price=9.99, youtube='https://youtu.be/3iy-B0aYqJg',
+        name= 'Pesadilla Adulta',
+        price=9.99,
+        youtube='https://youtu.be/3iy-B0aYqJg',
         description=
         """
          Grabado en 'Tigruss Estudios' en abril de 2011 Por Pepe Tigruss. Mezclado en 'El Castillo Alemán' por Carlos Hernández en octubre de 2011. Masterizado por Carlos Hernández y Ruben Suarez.
@@ -131,11 +139,14 @@ def seed_albums():
         ---
 
         """,
-        band_id=7, album_image='https://i.imgur.com/9kGxTeO.jpg',
+        band_id=7,
+        album_image='https://i.imgur.com/9kGxTeO.jpg',
         genre='pop, pop-punk'
     )
     album09 = Album(
-        name= 'Nueva Numancia', price=9.99, youtube='https://youtu.be/PcjyAo0TqyE',
+        name= 'Nueva Numancia',
+        price=9.99,
+        youtube='https://youtu.be/PcjyAo0TqyE',
         description=
         """
          Beat Generation BEAT 47
@@ -170,7 +181,8 @@ def seed_albums():
         all rights reserved
 
         """,
-        band_id=7, album_image='https://i.imgur.com/b9yL1En.jpg',
+        band_id=7,
+        album_image='https://i.imgur.com/b9yL1En.jpg',
         genre='pop, pop-punk'
     )
     album10 = Album(
@@ -249,17 +261,20 @@ def seed_albums():
         genre='metal, power metal, fantasy metal'
     )
     album15 = Album(
-        name='No Holier Temple', price=9.99, youtube='https://youtu.be/hbIofZoCX4c',
+        name='No Holier Temple',
+        price=9.99,
+        youtube='https://youtu.be/hbIofZoCX4c',
         description=""" released September 20, 2012
         license
         all rights reserved """,
-        band_id=9, album_image='https://i.imgur.com/zhaR0Ln.jpg',
+        band_id=9,
+        album_image='https://i.imgur.com/zhaR0Ln.jpg',
         genre='rock, folk rock, occult, psychedelic folk'
     )
     album16 = Album(
         name='Thalassic',
         price=9.99,
-        # youtube='https://youtu.be/hbIofZoCX4c',
+        youtube='https://youtu.be/hbIofZoCX4c',
         description=""" Thalassic is the eighth studio album by Finnish folk metal band Ensiferum. It was released on 10 July 2020 through Metal Blade Records. It is the first Ensiferum album to feature new keyboardist and clean vocalist Pekka Montin, who joined the band in February 2020.
 
 The album's title "thalassic" (which is derived from both French and Ancient Greek) means "of or relating to seas", which pertains to the theme of the album's lyrics.  """,
