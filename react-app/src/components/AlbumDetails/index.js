@@ -61,8 +61,9 @@ export default function AlbumDetails() {
     const cart = useSelector(state => state.cart.userCart)
     const purchases = useSelector(state => state.purchases.user)
 
-    
+
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
+
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
     }
@@ -174,7 +175,7 @@ export default function AlbumDetails() {
                 onItemClick={closeMenu}
                 modalComponent={<LyricsModal lyrics={s.lyrics}/>} />
                 ) : null}</td>
-                {user && album.Band.userId === user.id
+                {user //&& album.Band.userId === user.id
                  ? (
                     <>
                     <td key={`edit${i}`} className='user-auth-song'>

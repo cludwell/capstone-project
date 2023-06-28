@@ -151,7 +151,8 @@ def edit_or_delete_song(album_id, song_id):
     song = Song.query.get(song_id)
     album = Album.query.get(album_id)
     band = Band.query.get(album.band_id)
-    if request.method == 'PUT' and current_user.id == band.user_id:
+    # and current_user.id == band.user_id
+    if request.method == 'PUT' :
         form = PostSongForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if not form.validate_on_submit():
@@ -178,7 +179,7 @@ def edit_or_delete_song(album_id, song_id):
             song.track_num = form.data['track_num']
             song.url = aws_url if aws_url else song.url
             song.album_id = album_id
-            # print('############################## ################################### #################################### #################################### #################################### #################################### #################################### ##################################### ####################', aws_url)
+            print('############################## ################################### #################################### #################################### #################################### #################################### #################################### ##################################### ####################', aws_url)
             try:
                 db.session.commit()
                 return song.to_dict()

@@ -2259,7 +2259,7 @@ La revuelta real
 
     song171 = Song(
         # Thalassic by Ensiferum
-        name="Midsummer Magic", album_id=16, price=.99, track_num=8
+        name="Midsummer Magic", album_id=16, price=.99, track_num=8, url='https://fancamp.s3.amazonaws.com/3f57dee4901d455ebbb7b6d1f507d31f.mp3'
     )
 
     song172 = Song(
