@@ -96,10 +96,10 @@ export default function Landing() {
             <h5 className='new-notable-title'>NEW AND NOTABLE</h5>
 
             <div className='new-and-notable-container'>
-            {Object.values(albums).map((album,i)=> (
+            {Object.values(albums).reverse().map((album,i)=> (
                 <NewAndNotable album={album} key={`a${i}`}
                 className={`new-notable-card${i}`}/>
-            )).sort((a,b)=> b.createdAt - a.createdAt).slice(0,5)}
+            )).slice(0,5)}
             </div>
             </div>
             </div>

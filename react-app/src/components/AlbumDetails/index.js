@@ -60,6 +60,8 @@ export default function AlbumDetails() {
     const wishes = useSelector(state => state.wishes.userWishes)
     const cart = useSelector(state => state.cart.userCart)
     const purchases = useSelector(state => state.purchases.user)
+
+    
     if (!album || !Object.values(album).length || !albums || !Object.values(albums).length || !users) return null
     const editAlbum = e => {
         history.push(`/albums/${album.id}/edit`)
