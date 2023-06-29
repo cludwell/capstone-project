@@ -7,9 +7,9 @@ Fancamp is a clone of bandcamp, with more of a metal music theme, built as a cap
 Fancamp is currently hosted publicly at
 https://fancamp.onrender.com
 
-![Landing Page](landing-preview.png)
-![Cart Preview](cart-preview.png)
-![Fellowship](fellowship.png)
+![Landing Page](images/landing-preview.png)
+![Cart Preview](images/cart-preview.png)
+![Fellowship](images/fellowship.png)
 
 ### TECHNOLOGIES
 
@@ -119,8 +119,8 @@ Wishlist
 
 In the future I hope to implement an audio player of my own and do away with react-player.
 
-![Cart Preview](cart-preview.png)
-![Ad Infinitum](adinfinitum.png)
+![Cart Preview](images/cart-preview.png)
+![Ad Infinitum](images/adinfinitum.png)
 
 
 ### ABOUT THE CREATOR
