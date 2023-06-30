@@ -29,7 +29,7 @@ def seed_albums():
     album03 = Album(
         name= 'Apex',
         price=9.99,
-        youtube='https://youtu.be/gqUPGa15Oto',
+        youtube='https://youtu.be/PfSL-6YExzk',
         description=
         """Deluxe 2CD + 10" Earbook edition available here: lnk.to/ApexAnniversary/napalmrecords
 
