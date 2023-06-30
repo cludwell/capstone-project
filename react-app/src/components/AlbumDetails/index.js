@@ -93,6 +93,9 @@ export default function AlbumDetails() {
 
     const rgbaParser = str => `rgba(${parseInt(str.slice(1, 3), 16)}, ${parseInt(str.slice(3, 5), 16)}, ${parseInt(str.slice(5), 16)}, 0.8)`
 
+    const bandPage = e=> {
+        history.push(`/bands/${album.Band.id}`)
+    }
     return (
         <div className='album-details-page'
         style={
@@ -108,7 +111,7 @@ export default function AlbumDetails() {
         } : null }>
 
             {album.Band && album.Band.bannerUrl ? (
-                <img src={`${album.Band.bannerUrl}`} alt='bandbannerimage' className='album-details-banner'/>
+                <img src={`${album.Band.bannerUrl}`} onClick={bandPage} alt='bandbannerimage' className='album-details-banner'/>
             ) : null}
 
             {album.youtube ? (
@@ -266,7 +269,7 @@ export default function AlbumDetails() {
             </div>
             </div>
             ) : null}
-            <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} />
+            <img className='album-details-band-img' alt='bandimagealbumdetails' src={`${album.Band.artistImage}`} onClick={bandPage}/>
             <p className='album-deets-country'>{album.Band.country}</p>
             <p className='album-deets-city'>{album.Band.city}</p>
 
@@ -307,7 +310,7 @@ export default function AlbumDetails() {
                 <div className='details-discog-created'>{a.createdAt.slice(0, -12)}</div>
 
                 </div>
-                )).slice(0,2)}
+                ))}
                 <NavLink to={`/bands/${album.bandId}`}><p className='details-more-releases'>more releases...</p></NavLink>
             </div>
 

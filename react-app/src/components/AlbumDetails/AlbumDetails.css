@@ -53,6 +53,7 @@
     object-fit: cover;
     margin: 7vmin 0;
     border-radius: 1vmin;
+    cursor: pointer;
 }
 .details-band-name {
     margin-top: 0rem;
@@ -63,7 +64,10 @@
     overflow-wrap: anywhere;
 }
 .album-details-band-img {
-    width: 15vmin;
+    width: 17vmin;
+    object-fit: cover;
+    border-radius: .5vmin;
+    cursor: pointer;
 }
 .tracks-column {
     width: 40vmin;
