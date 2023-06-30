@@ -52,7 +52,7 @@ export default function AudioPlayer({ song }) {
 
   return (
     <div className='custom-player'>
-      <button className='play-button' onClick={togglePlayPause}>
+      <button className={!isPlaying ? 'play-button' : 'play-button paused'} onClick={togglePlayPause}>
         {isPlaying ? <i className='fa-solid fa-pause' />
         : <i className='fa-solid fa-play' />}
       </button>

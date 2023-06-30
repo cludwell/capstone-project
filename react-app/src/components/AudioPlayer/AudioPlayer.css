@@ -13,3 +13,7 @@
     flex-direction: row;
     align-items: center;
   }
+
+  .paused {
+    background: linear-gradient(#7d7d7d,#ebebeb );
+  }

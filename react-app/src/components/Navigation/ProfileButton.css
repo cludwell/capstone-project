@@ -1,7 +1,6 @@
-/* .profile-button {
-    height: 2rem;
-    width: 2rem;
-} */
+.profile-button {
+    cursor: pointer;
+}
 .profile-button-picture {
     object-fit: cover;
     height: min(7vmin, 2.8rem);
