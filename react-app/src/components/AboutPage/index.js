@@ -21,7 +21,7 @@ export default function AboutPage() {
         <section className="the-creator">
         <div className="about-text">
         <h1 className="about-title">Christian Ludwell</h1>
-        <img src="https://skillicons.dev/icons?i=js,html,css,docker,express,flask,git,nodejs,postgres,postman,py,react,redux,sequelize,tailwind,vscode&perline=8"  alt="" className="skill-icons"/>
+        <img src="https://skillicons.dev/icons?i=js,html,css,docker,express,flask,git,nodejs,postgres,postman,py,react,redux,sequelize,tailwind,vscode&perline=8&theme=light"  alt="" className="skill-icons"/>
         <p>Hi! I'm Chris! I'm a Full Stack Software Engineer with a Bachelors in Geography and International Development.
         </p>
         <p>Before becoming a software engineer I was a Senior Installer doing residential solar installations. My role meant quality and safe installations, for clients and my team, all within the span of one day. It was from this work that I learned I enjoyed creative problem solving and wanted a career in which I was always learning and constantly being challenged, as well as the sense of completion that comes from seeing a project in all aspects from start to finish. </p>
