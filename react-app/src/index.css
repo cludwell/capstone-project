@@ -1,4 +1,8 @@
 /* TODO Add site wide styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
     font-family: 'Montserrat', sans-serif;
     /* overflow-wrap: anywhere; */
@@ -16,9 +20,7 @@
 body {
     margin: 0px;
 }
-p, span, td {
-    font-size: min(2.5vmin, 1rem);
-}
+
 button {
     cursor: pointer;
     transition: .2s ease-in-out;
