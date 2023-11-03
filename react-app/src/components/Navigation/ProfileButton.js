@@ -4,7 +4,7 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
-import './ProfileButton.css'
+import "./ProfileButton.css";
 import { NavLink } from "react-router-dom";
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -40,37 +40,46 @@ function ProfileButton({ user }) {
   return (
     <>
       {user ? (
-              <img
-              onClick={openMenu}
-              className="profile-button-picture profile-button" src={`${user.profilePic}`} alt="user-profile-pic" />
-             ) : (
+        <img
+          onClick={openMenu}
+          className="profile-button-picture profile-button"
+          src={`${user.profilePic}`}
+          alt="user-profile-pic"
+        />
+      ) : (
         <div className="sign-or-login">
-
-        <OpenModalButton
-        buttonText="log in"
-        onItemClick={closeMenu}
-        modalComponent={<LoginFormModal
-        />} />
-      <OpenModalButton
-        buttonText="sign up"
-        onItemClick={closeMenu}
-        modalComponent={<SignupFormModal />} />
-      </div>
+          <OpenModalButton
+            buttonText="log in"
+            onItemClick={closeMenu}
+            modalComponent={<LoginFormModal />}
+          />
+          <OpenModalButton
+            buttonText="sign up"
+            onItemClick={closeMenu}
+            modalComponent={<SignupFormModal />}
+          />
+        </div>
       )}
 
-      {/* <button onClick={openMenu} className="profile-button">
-        <i className="fas fa-user-circle" />
-      </button> */}
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
             <p>{user.username}</p>
             <p>{user.email}</p>
-            <NavLink to={`/users/${user.id}`} style={{textDecoration: "none"}}>Profile</NavLink>
+            <NavLink
+              to={`/users/${user.id}`}
+              style={{ textDecoration: "none" }}
+            >
+              Profile
+            </NavLink>
             <hr></hr>
-            <NavLink to={`/about`} style={{textDecoration: "none"}}>About Fancamp</NavLink>
+            <NavLink to={`/about`} style={{ textDecoration: "none" }}>
+              About Fancamp
+            </NavLink>
             <p>help</p>
-            <button onClick={handleLogout} className="band-deets-user-auth">sign out</button>
+            <button onClick={handleLogout} className="band-deets-user-auth">
+              sign out
+            </button>
           </>
         ) : (
           <>
