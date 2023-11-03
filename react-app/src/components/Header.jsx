@@ -1,16 +1,15 @@
-import "./Header.css";
-import Navigation from "../Navigation";
+import Navigation from "./Navigation";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import { authenticate } from "../../store/session";
-import { fetchUserCart } from "../../store/carts";
-import OpenModalCheckout from "../OpenModalButton/OpenModalCheckOut";
-import CheckOutModal from "../CheckOutModal";
-import IconLightning from "../IconLightning";
-import IconHeart from "../IconHeart";
-import IconCart from "../IconCart";
+import { authenticate } from "../store/session";
+import { fetchUserCart } from "../store/carts";
+import OpenModalCheckout from "./OpenModalButton/OpenModalCheckOut";
+import CheckOutModal from "./CheckOutModal";
+import IconLightning from "./IconLightning";
+import IconHeart from "./IconHeart";
+import IconCart from "./IconCart";
 
 export default function Header({ isLoaded }) {
   const dispatch = useDispatch();
@@ -74,8 +73,8 @@ export default function Header({ isLoaded }) {
 
         <div className="flex flex-row gap-6 sm:gap-12">
           {cart && cart.length ? (
-            <div className="transition duration-200 ease-in-out flex flex-col justify-center items-center relative">
-              <div className=" absolute bg-red-600 text-white font-bold rounded-2xl p-1 opacity-80 left-3 bottom-4 cursor-pointer">
+            <div className="transition duration-200 ease-in-out flex flex-col justify-center items-center relative cursor-pointer">
+              <div className=" absolute bg-red-600 text-white font-bold rounded-2xl p-1 opacity-80 left-3 bottom-4">
                 {cart.length}
               </div>
               <OpenModalCheckout
@@ -113,9 +112,7 @@ export default function Header({ isLoaded }) {
           </div>
           <div className="user-collection transition duration-200 ease-in-out flex flex-col justify-center content-center">
             {user && user.id ? (
-              <NavLink
-                to={`/users/${user.id}`}
-              >
+              <NavLink to={`/users/${user.id}`}>
                 <IconHeart
                   style={{
                     color:
