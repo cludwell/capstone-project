@@ -26,7 +26,7 @@ export default function Landing() {
   }, [dispatch]);
 
   const albums = useSelector((state) => state.albums.allAlbums);
-  const user = useSelector((state) => state.session.user);
+  // const user = useSelector((state) => state.session.user);
   const livestreamTimes = [
     ["today", "6:00 PM PST"],
     ["today", "10:00 PM PST"],
