@@ -19,6 +19,14 @@
 .montserrat {
     font-family: 'Montserrat', sans-serif;
 }
+.text-shadow {
+    text-shadow: black 2px 2px 0px;
+}
+.text-shadow-white {
+    text-shadow: white 2px 2px 0px;
+
+}
+
 .modal-rep{
     color: blue;
     text-decoration: underline;

@@ -43,7 +43,7 @@ export default function Header({ isLoaded }) {
 
   return (
     <div
-      className="flex flex-row justify-center items-center border-b border-gray-400 left-0 h-[min(7vmin, 2.8rem)] "
+      className="flex flex-row justify-center items-center border-b border-gray-400 left-0 h-14 "
       style={{
         backgroundColor:
           album && album?.Band && album?.Band?.backgroundColorSecondary

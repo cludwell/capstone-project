@@ -1,12 +1,11 @@
-import IconCalendar from "../IconCalendar";
-import IconClock from "../IconClock";
-import "./UpcomingLiveStream.css";
+import IconCalendar from "./IconCalendar";
+import IconClock from "./IconClock";
 import { NavLink } from "react-router-dom";
 
 export default function UpcomingLiveStream({ album, ele }) {
   return (
     <NavLink to={`/bands/${album.bandId}`}
-    className=" h-fit w-40 sm:w-52">
+    className=" h-fit w-40 sm:w-52 drop-shadow-lg">
       <div className=" bg-slate-300 rounded-lg">
         <div className="pb-2">
           <img
