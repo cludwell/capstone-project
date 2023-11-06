@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { authenticate } from "./store/session";
 import Header from "./components/Header.jsx";
-import Landing from "./components/Landing";
+import Landing from "./components/Landing.jsx";
 import AlbumDetails from "./components/AlbumDetails";
 import BandDetails from "./components/BandDetails";
 import UserDetails from "./components/UserDetails";

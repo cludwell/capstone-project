@@ -13,6 +13,9 @@
     line-height: 1rem;
 }
 
+.object-position-top{
+    object-position: 50% 25%;
+}
 .montserrat {
     font-family: 'Montserrat', sans-serif;
 }
