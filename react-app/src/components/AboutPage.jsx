@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import "./AboutPage.css";
-import Footer from "../Footer";
-import { clearAlbumState } from "../../store/albums";
-import { clearBandState } from "../../store/bands";
+import Footer from "./Footer";
+import { clearAlbumState } from "../store/albums";
+import { clearBandState } from "../store/bands";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import PortfolioIcon from "../IconPortfolio";
+import PortfolioIcon from "./IconPortfolio";
 export default function AboutPage() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,7 +16,9 @@ export default function AboutPage() {
   }, [dispatch]);
   return (
     <div className="items-center max-w-screen-xl mx-3 lg:mx-auto my-8 ">
-      <h1 className="text-2xl sm:text-3xl text-center font-serif">About the Developer</h1>
+      <h1 className="text-2xl sm:text-3xl text-center font-serif">
+        About the Developer
+      </h1>
       <section className="flex flex-row mt-8">
         <div className="about-text">
           <h1 className="text-2xl font-serif">Christian Ludwell</h1>
@@ -71,15 +72,13 @@ export default function AboutPage() {
                 className="object-cover w-10 contrast-200 drop-shadow-xl"
               />
             </Link>
-            <span className="portfolio-icon">
-              <Link
-                to={{ pathname: "https://cludwell.github.io/#" }}
-                target="_blank"
-                className=" transition ease-in-out duration-200 hover:scale-110 drop-shadow-xl"
-              >
-                <PortfolioIcon />
-              </Link>
-            </span>
+            <Link
+              to={{ pathname: "https://cludwell.github.io/#" }}
+              target="_blank"
+              className=" transition ease-in-out duration-200 hover:scale-110 drop-shadow-xl"
+            >
+              <PortfolioIcon />
+            </Link>
           </h1>
         </div>
         <img
