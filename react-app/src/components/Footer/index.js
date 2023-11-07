@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import "./Footer.css";
 import { Link } from "react-router-dom";
-import PortfolioIcon from "../PortfolioIcon";
+import PortfolioIcon from "../IconPortfolio";
 export default function Footer() {
   const album = useSelector((state) => state.albums.singleAlbum);
   const band = useSelector((state) => state.bands.singleBand);

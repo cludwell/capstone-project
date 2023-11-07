@@ -6,7 +6,7 @@ export default function PortfolioIcon() {
       height="44"
       width="44"
       id="curriculum-vitae"
-      className="portfolio-svg"
+      className=" transition duration-200 hover:scale-110 ease-in-out"
     >
       <g data-name="Curriculum Vitae-Resume-PortFolio-Application-Paper">
         <path

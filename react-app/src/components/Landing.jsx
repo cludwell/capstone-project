@@ -46,7 +46,7 @@ export default function Landing() {
         </div>
       ) : null} */}
 
-      <div className="flex flex-col sm:flex-row justify-center items-center drop-shadow-lg">
+      <div className="flex flex-col sm:flex-row justify-center mx-auto drop-shadow-lg">
         <div className="relative w-full max-w-2xl">
           <h1 className=" absolute text-white font-bold italic z-10 group-hover:z-30 w-fit left-6 bottom-3 text-2xl text-shadow">
             Introducing Juanita y los Feos
@@ -63,7 +63,7 @@ export default function Landing() {
           </NavLink>
         </div>
 
-        <div className="relative flex flex-col">
+        <div className="relative flex flex-col ">
           <NavLink to={`/albums/${albums["9"].id}`} className="relative">
             <img
               src={`${albums["9"].albumImage}`}
@@ -91,9 +91,6 @@ export default function Landing() {
                 alt="second col item"
                 className="w-full sm:w-96 h-32 object-cover rounded-lg contrast-75 hover:contrast-100 transition ease-in-out duration-200 object-position-top"
               ></img>
-              {/* <h4 className="absolute z-10 font-bold italic top-1 sm:text-lg md:text-2xl left-1 ">
-              Vancouver's Champions of Metal
-            </h4> */}
               <h4 className="absolute z-10 font-bold italic bottom-1 sm:text-lg md:text-xl left-1 text-white text-shadow">
                 UNLEASH THE ARCHERS
               </h4>

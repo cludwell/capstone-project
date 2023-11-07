@@ -1,44 +1,5 @@
-.about-page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: min(90vmin, 75rem);
-    margin: 0 auto;
-}
-.about-page-container > h1,
-.about-title {
-    font-family: 'Libre Baskerville', serif;
-}
-.the-creator {
-    display: flex;
-    flex-direction: row;
-    margin-top: 5vmin;
-}
-.github-icon,
-.linkedin-icon,
-svg {
-    width: 4vmin;
-    object-fit: cover;
-    margin: 0 1vmin;
-    transition: .2s ease-in-out;
-}
-.github-icon:hover,
-.linkedin-icon:hover,
-svg:hover {
-    scale: 1.2;
-}
-.icons {
-    text-align: center;
-}
-.about-me-image {
-    width: 40vmin;
-    max-height: 50%;
-    object-fit: cover;
-    border-radius: 1vmin;
-    box-shadow: 0rem 0rem .5rem black;
-    margin: 0 0 0 2vmin;
-}
+
+
 
 .why-bandcamp {
     display: flex;
@@ -55,6 +16,4 @@ svg:hover {
 .about-text {
     line-height: 1.4rem;
 }
-.skill-icons {
-    width: min(40vmin, 50vw);
-}
+
