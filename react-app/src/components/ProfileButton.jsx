@@ -32,7 +32,6 @@ function ProfileButton() {
     e.preventDefault();
     await dispatch(logout());
   };
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
   return (
     <div className="relative">
