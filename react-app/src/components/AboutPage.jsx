@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
 import { clearAlbumState } from "../store/albums";
 import { clearBandState } from "../store/bands";
 import { useDispatch } from "react-redux";
@@ -15,6 +14,7 @@ export default function AboutPage() {
     loadData();
   }, [dispatch]);
   return (
+    <>
     <div className="items-center max-w-screen-xl mx-3 lg:mx-auto my-8 ">
       <h1 className="text-2xl sm:text-3xl text-center font-serif">
         About the Developer
@@ -114,7 +114,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
+    </>
   );
 }

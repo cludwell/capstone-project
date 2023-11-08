@@ -7,7 +7,6 @@ import UpcomingLiveStream from "./UpcomingLiveStream";
 import { fetchUsers } from "../store/users";
 import { NavLink } from "react-router-dom";
 import { fetchWishLists } from "../store/wishlists";
-import Footer from "./Footer";
 import { clearBandState } from "../store/bands";
 
 export default function Landing() {
@@ -146,7 +145,6 @@ export default function Landing() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

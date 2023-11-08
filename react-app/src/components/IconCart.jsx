@@ -1,11 +1,17 @@
-export default function IconCart() {
+export default function IconCart({ album, band }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="currentColor"
+      stroke={
+        album && album.Band && album.Band.textColor
+          ? album.Band.textColor
+          : band && band.textColor
+          ? band.textColor
+          : "currentColor"
+      }
       className="w-6 h-6 m-0"
     >
       <path

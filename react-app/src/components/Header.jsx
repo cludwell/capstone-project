@@ -4,12 +4,13 @@ import { useDispatch } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import { authenticate } from "../store/session";
 import { fetchUserCart } from "../store/carts";
-import OpenModalCheckout from "./OpenModalButton/OpenModalCheckOut";
-import CheckOutModal from "./CheckOutModal";
+// import OpenModalCheckout from "./OpenModalButton/OpenModalCheckOut";
+// import CheckOutModal from "./CheckOutModal";
+// import IconCart from "./IconCart";
 import IconLightning from "./IconLightning";
 import IconHeart from "./IconHeart";
-import IconCart from "./IconCart";
 import ProfileButton from "./ProfileButton";
+import CartModal from "./CartModal";
 
 export default function Header({ isLoaded }) {
   const dispatch = useDispatch();
@@ -74,10 +75,10 @@ export default function Header({ isLoaded }) {
         <div className="flex flex-row gap-6 sm:gap-12">
           {cart && cart.length ? (
             <div className="transition duration-200 ease-in-out flex flex-col justify-center items-center relative cursor-pointer">
-              <div className=" absolute bg-red-600 text-white font-bold rounded-2xl p-1 opacity-80 left-3 bottom-4">
+              <div className=" absolute bg-red-600 text-white font-bold rounded-2xl p-1 opacity-80 left-3 bottom-5">
                 {cart.length}
               </div>
-              <OpenModalCheckout
+              {/* <OpenModalCheckout
                 buttonText={
                   <IconCart
                     style={{
@@ -92,37 +93,20 @@ export default function Header({ isLoaded }) {
                 }
                 onItemClick={closeMenu}
                 modalComponent={<CheckOutModal user={user} cart={cart} />}
-              />
+              /> */}
+              <CartModal user={user} album={album} band={band} />
             </div>
           ) : null}
 
           <div className="user-activity-feed transition duration-200 ease-in-out flex flex-col justify-center content-center">
             <NavLink to={`/about`}>
-              <IconLightning
-                style={{
-                  color:
-                    album && album.Band && album.Band.textColor
-                      ? album.Band.textColor
-                      : band && band.textColor
-                      ? band.textColor
-                      : null,
-                }}
-              />
+              <IconLightning album={album} band={band} />
             </NavLink>
           </div>
           <div className="user-collection transition duration-200 ease-in-out flex flex-col justify-center content-center">
             {user && user.id ? (
               <NavLink to={`/users/${user.id}`}>
-                <IconHeart
-                  style={{
-                    color:
-                      album && album.Band && album.Band.textColor
-                        ? album.Band.textColor
-                        : band && band.textColor
-                        ? band.textColor
-                        : null,
-                  }}
-                />
+                <IconHeart album={album} band={band} />
               </NavLink>
             ) : (
               <IconHeart
@@ -138,7 +122,7 @@ export default function Header({ isLoaded }) {
             )}
           </div>
 
-            <ProfileButton />
+          <ProfileButton />
         </div>
       </div>
     </div>

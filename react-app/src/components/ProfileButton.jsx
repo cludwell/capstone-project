@@ -12,10 +12,7 @@ function ProfileButton() {
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
   const user = useSelector(state => state.session.user)
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
+
 
   useEffect(() => {
     if (!showMenu) return;
@@ -32,12 +29,13 @@ function ProfileButton() {
     e.preventDefault();
     await dispatch(logout());
   };
-  const closeMenu = () => setShowMenu(false);
+
+  const closeMenu = () => setShowMenu(prev => !prev);
   return (
     <div className="relative">
       {user ? (
         <img
-          onClick={openMenu}
+          onClick={() => setShowMenu(true)}
           className="profile-button-picture profile-button transition ease-in-out duration-200 rounded-full h-14 aspect-square object-cover hover:scale-125"
           src={`${user.profilePic}`}
           alt="user-profile-pic"
@@ -67,6 +65,7 @@ function ProfileButton() {
               <NavLink
                 to={`/users/${user.id}`}
                 className="hover:bg-slate-200 flex flex-row rounded-xl p-1 transition ease-in-out duration-200 w-full py-3 my-1"
+                onClick={closeMenu}
               >
                 <IconUser />
 
@@ -75,6 +74,7 @@ function ProfileButton() {
               <NavLink
                 to={`/about`}
                 className="hover:bg-slate-200 flex flex-row rounded-xl p-1 transition ease-in-out duration-200 w-full py-3 my-1"
+                onClick={closeMenu}
               >
                 <IconInfo />
 
