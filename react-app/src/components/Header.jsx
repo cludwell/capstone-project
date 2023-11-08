@@ -1,4 +1,3 @@
-import Navigation from "./Navigation";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -10,8 +9,7 @@ import CheckOutModal from "./CheckOutModal";
 import IconLightning from "./IconLightning";
 import IconHeart from "./IconHeart";
 import IconCart from "./IconCart";
-import LoginModal from "./LoginModal";
-import SignUpModal from "./SignUpModal";
+import ProfileButton from "./ProfileButton";
 
 export default function Header({ isLoaded }) {
   const dispatch = useDispatch();
@@ -140,11 +138,7 @@ export default function Header({ isLoaded }) {
             )}
           </div>
 
-            {/* <LoginModal  />
-            <SignUpModal /> */}
-          <div className="">
-            <Navigation isLoaded={isLoaded} />
-          </div>
+            <ProfileButton />
         </div>
       </div>
     </div>
