@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import "./LoginForm.css";
 import { fetchUserCart } from "../../store/carts";
+import "./LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -18,21 +18,21 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
-      await dispatch(fetchUserCart())
-      closeModal()
+      await dispatch(fetchUserCart());
+      closeModal();
     }
   };
-  const demoUser = async e => {
-    setEmail('unleash@aa.io')
-    setPassword('password')
+  const demoUser = async (e) => {
+    setEmail("unleash@aa.io");
+    setPassword("password");
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
     } else {
-      await dispatch(fetchUserCart())
-      closeModal()
+      await dispatch(fetchUserCart());
+      closeModal();
     }
-  }
+  };
 
   return (
     <div className="login-modal">
@@ -40,13 +40,13 @@ function LoginFormModal() {
       <form onSubmit={handleSubmit} className="login-form">
         <ul>
           {errors.map((error, idx) => (
-            <li key={idx} className="errors">{error}</li>
+            <li key={idx} className="errors">
+              {error}
+            </li>
           ))}
         </ul>
-    <div className="login-form-grid">
-        <label className="login-label">
-          Email
-        </label>
+        <div className="login-form-grid">
+          <label className="login-label">Email</label>
           <input
             type="text"
             value={email}
@@ -54,9 +54,7 @@ function LoginFormModal() {
             required
             className="login-input"
           />
-        <label className="login-label">
-          Password
-        </label>
+          <label className="login-label">Password</label>
           <input
             type="password"
             value={password}
@@ -65,9 +63,13 @@ function LoginFormModal() {
             className="login-input"
           />
           <div></div>
-        <button type="submit" className="login-button">Log In</button>
-        <div></div>
-        <button className="login-button" onClick={demoUser}>Demo User</button>
+          <button type="submit" className="login-button">
+            Log In
+          </button>
+          <div></div>
+          <button className="login-button" onClick={demoUser}>
+            Demo User
+          </button>
         </div>
       </form>
     </div>

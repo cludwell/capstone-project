@@ -41,14 +41,14 @@ export default function Landing() {
   return (
     <>
       {!user ? (
-        <div className="flex flex-col absolute bg-cyan-500 text-white text-center justify-center h-10 sm:h-12 md:h-14 w-full z-10 font-bold sm:text-lg md:text-xl lg:text-2xl">
+        <div className="flex flex-col absolute bg-cyan-500 text-white text-center justify-center h-10 sm:h-12 md:h-14 w-full z-10 font-bold sm:text-lg md:text-xl lg:text-2xl ">
           We've updated our terms of use. Please sign in.
         </div>
       ) : null}
       <div className="justify-center mt-4 mx-2">
         <div className="flex flex-col sm:flex-row justify-center mx-auto drop-shadow-lg">
           <div className="relative w-full max-w-2xl">
-            <h1 className=" absolute text-white font-bold italic z-10 group-hover:z-30 w-fit left-6 bottom-3 text-2xl text-shadow">
+            <h1 className="absolute text-white font-bold italic w-fit left-6 bottom-3 text-2xl text-shadow z-10">
               Introducing Juanita y los Feos
             </h1>
             <h2 className="absolute text-white font-bold italic z-10 w-fit left-6 bottom-12 text-xl text-shadow">

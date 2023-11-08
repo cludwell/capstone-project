@@ -6,6 +6,8 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import "./ProfileButton.css";
 import { NavLink } from "react-router-dom";
+import LoginModal from "../LoginModal";
+import SignUpModal from "../SignUpModal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -48,53 +50,31 @@ function ProfileButton({ user }) {
           alt="user-profile-pic"
         />
       ) : (
-        <div className="sign-or-login">
-          <OpenModalButton
-            buttonText="log in"
-            onItemClick={closeMenu}
-            modalComponent={<LoginFormModal />}
-          />
-          <OpenModalButton
-            buttonText="sign up"
-            onItemClick={closeMenu}
-            modalComponent={<SignupFormModal />}
-          />
-        </div>
+        <>
+          <LoginModal />
+          <SignUpModal />
+        </>
       )}
 
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <p>{user.username}</p>
-            <p>{user.email}</p>
-            <NavLink
-              to={`/users/${user.id}`}
-              style={{ textDecoration: "none" }}
-            >
-              Profile
-            </NavLink>
+            <p className=" py-1 montserrat text-xl">{user.username}</p>
+            <p className=" py-1 montserrat text-xl">{user.email}</p>
+            <NavLink to={`/users/${user.id}`}>Profile</NavLink>
             <hr></hr>
-            <NavLink to={`/about`} style={{ textDecoration: "none" }}>
-              About Fancamp
-            </NavLink>
-            <p>help</p>
-            <button onClick={handleLogout} className="band-deets-user-auth">
+            <NavLink to={`/about`}>About Fancamp</NavLink>
+            <button
+              onClick={handleLogout}
+              className="bg-indigo-500 text-white font-bold uppercase p-3 rounded-lg transition duration-200  active:bg-indigo-800 active:scale-90 montserrat my-3"
+            >
               sign out
             </button>
           </>
         ) : (
           <>
-            <OpenModalButton
-              buttonText="Log In"
-              onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
-            />
-
-            <OpenModalButton
-              buttonText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
+          <LoginModal />
+          <SignUpModal />
           </>
         )}
       </div>
