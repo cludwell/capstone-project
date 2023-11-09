@@ -16,6 +16,8 @@
 .object-position-top{
     object-position: 50% 25%;
 }
+
+/* fonts */
 .montserrat {
     font-family: 'Montserrat', sans-serif;
 }
@@ -41,7 +43,21 @@
     text-shadow: white 2px 2px 0px;
 
 }
+/* transitions */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
+  .fade-in {
+    animation: fadeIn 0.5s forwards;
+  }
 
 .modal-rep{
     color: blue;

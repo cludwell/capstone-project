@@ -37,7 +37,7 @@ function ProfileButton() {
       {user ? (
         <img
           onClick={() => setShowMenu(true)}
-          className="profile-button-picture profile-button transition ease-in-out duration-200 rounded-full h-14 aspect-square object-cover hover:scale-125"
+          className="profile-button-picture profile-button transition ease-in-out duration-200 rounded-full h-14 aspect-square object-cover hover:scale-125 z-20"
           src={`${user.profilePic}`}
           alt="user-profile-pic"
         />

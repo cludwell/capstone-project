@@ -1,61 +1,5 @@
-/* .user-details-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-.user-details-header {
-    height: 20rem;
-    align-items: center;
-    /* margin: 5rem; */
-}
 
-.user-details-header-accent {
-    position: absolute;
-    background-color: skyblue;
-    left: 0rem;
-    height: 10rem;
-    width: 100%;
-    margin-top: .3rem;
-    z-index: 1;
-}
-.user-details-profile-pic {
-    height: 13rem;
-    width: 13rem;
-    /* left: 8rem; */
-    top: 5rem;
-    object-fit: cover;
-    z-index: 1;
-    margin: 5rem;
-    border-radius: .3rem;
-}
-.user-details-header {
-    display: flex;
-    flex-direction: row;
-}
-.user-details-business-card {
-    z-index: 1;
-    /* margin-left: 5rem; */
-}
 
-.user-details-location{
-    color:rgb(88, 88, 88);
-    font-weight: bold;
-}
-.user-deets-bands {
-    /* border: .1rem black solid; */
-    z-index: 2;
-    margin: 4rem;
-    font-weight: bold;
-    overflow-wrap: anywhere;
-}
-.user-details-collection-body {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    margin-left: 3rem;
-    width: 75rem;
-    flex-wrap: wrap;
-}
 .user-details-tabs {
     margin-left: 3rem;
     margin-bottom: 3rem;
@@ -71,28 +15,7 @@
     border-bottom: .3rem royalblue solid;
     cursor: pointer;
 }
-.create-band-button {
-    z-index: 1;
-    background-color: rgb(97, 149, 170);
-    padding: .3rem;
-    font-weight: bold;
-    width: 8rem;
-    border-radius: .3rem;
-    border: none;
-    color: white;
-    margin: .5rem;
-    cursor: pointer;
-    position: relative;
-    right: 3rem;
-    transition: .2s ease-in-out;
-    /* margin-left: 35rem; */
-}
+
 /* .create-band-button:hover {
     box-shadow: 0rem 0rem .5rem black;
 } */
-
-.user-selected {
-    color: black;
-    border-bottom: .2rem black solid;
-
-}

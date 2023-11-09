@@ -16,10 +16,6 @@ export default function UserDetails() {
   const history = useHistory();
   const ulRef = useRef();
 
-  const openBody = () => {
-    if (showBody) return;
-    setShowBody(true);
-  };
   useEffect(() => {
     if (!showBody) return;
     const closeBody = (e) => {
@@ -28,12 +24,7 @@ export default function UserDetails() {
     document.addEventListener("click", closeBody);
     return () => document.removeEventListener("click", closeBody);
   });
-  const ulClassName =
-    "user-details-collection-body" + (showBody ? "" : " hidden");
-  const collectionClass =
-    "user-details-tab" + (!showBody ? " user-selected" : "");
-  const wishlistClass = "user-details-tab" + (showBody ? " user-selected" : "");
-  // const closeBody = () => setShowBody(false)
+
   useEffect(() => {
     const loadData = async () => {
       await dispatch(fetchUserPurchases(userId));
@@ -55,67 +46,95 @@ export default function UserDetails() {
   };
 
   return (
-    <div className="user-details-container">
-      <div className="user-details-header-accent"></div>
-      <div className="user-details-header">
-        <img
-          src={`${user.profilePic}`}
-          className="user-details-profile-pic"
-          alt="user-details-user"
-        ></img>
+    <div className="min-h-screen flex flex-col items-center mx-2">
+      <div className=" absolute z-0 w-screen bg-sky-300 h-40 mt-1"></div>
+      <div className=" flex flex-row flex-wrap  items-center p-12 w-full max-w-screen-xl">
+        <div className="relative">
+          <img
+            src={`${user.profilePic}`}
+            className=" object-cover aspect-square rounded-2xl z-10 m-4 w-32 lg:w-64 "
+            alt="user-details-user"
+          ></img>
+          {user && loggedIn && loggedIn.id === user.id && (
+            <button
+              className=" bg-indigo-500 text-white font-bold uppercase p-3 rounded-lg transition duration-200  active:bg-indigo-800 active:scale-90 montserrat absolute z-10 bottom-1 right-1"
+              onClick={startBand}
+            >
+              Start Band
+            </button>
+          )}
+        </div>
 
-        <div className="user-details-business-card">
-          <h2 className="user-details-business-title">{user.username}</h2>
-          <p className="user-details-location">
+        <div className=" z-10">
+          <h2 className=" mulish text-2xl">{user.username}</h2>
+          <p className=" text-gray-500 font-bold montserrat">
             {user.city}, {user.state}
           </p>
-        </div>
-        <div className="user-deets-bands">
-          Member of
-          {bands && Object.values(bands).length
-            ? Object.values(bands)
+        <div className="">
+          {bands && Object.values(bands) && (
+            <div className=" mulish text-2xl ">Member of </div>
+          )}
+          <div>
+            {bands &&
+              Object.values(bands).length > 0 &&
+              Object.values(bands)
                 .filter((b) => b.userId === user.id)
                 .map((b, i) => (
                   <NavLink
-                    className="user-deets-band-iter"
+                    className=" transition ease-in-out duration-200 hover:underline text-indigo-600 visited:text-indigo-800 font-bold montserrat"
                     to={`/bands/${b.id}`}
                   >
-                    <div
-                      className="user-deets-band-iter"
-                      key={`iteratebands${i}`}
-                    >
-                      •{b.name}
-                    </div>
+                    {b.name}
                   </NavLink>
-                ))
-            : null}
+                ))}
+          </div>
         </div>
-        {user && loggedIn && loggedIn.id === user.id ? (
-          <button className=" create-band-button" onClick={startBand}>
-            Start Band
-          </button>
-        ) : null}
+        </div>
       </div>
-      <div className="user-details-tabs">
-        <span className={collectionClass} onClick={openBody}>
+      <div className=" mb-6 border-b border-gray-600 text-gray-88 w-full max-w-screen-xl ">
+        <span
+          className={`hover:border-b-4 hover:border-indigo-600 cursor-pointer font-bold  ${
+            !showBody ? " text-black border-black border-b-2" : "text-indigo-600"
+          } `}
+          onClick={() => setShowBody((prev) => !prev)}
+        >
           collection {user.Purchases.length}
         </span>
-        <span className={wishlistClass} onClick={() => setShowBody(!showBody)}>
+        <span
+          className={`hover:border-b-4 hover:border-indigo-600 cursor-pointer font-bold mx-8 ${
+            showBody ? " text-black border-black border-b-2" : "text-indigo-600 "
+          }`}
+          onClick={() => setShowBody((prev) => !prev)}
+        >
           wishlist {user.WishList.length}
         </span>
       </div>
 
-      <div className={ulClassName} ref={ulRef}>
-        {user.Purchases && user.Purchases.length && !showBody
-          ? user.Purchases.map((a, i) => (
+      <div className="max-w-screen-xl w-full" ref={ulRef}>
+        <div
+          className={`max-w-screen-xl w-full flex flex-row flex-wrap gap-4 content-start ${
+            !showBody ? "fade-in" : "hidden"
+          }`}
+        >
+          {user.Purchases &&
+            user.Purchases.length &&
+            !showBody &&
+            user.Purchases.map((a, i) => (
               <UserDetailsAlbum album={a} key={`userdetail${i}`} />
-            ))
-          : null}
-        {user.WishList && user.WishList.length && showBody
-          ? user.WishList.map((album, i) => (
+            ))}
+        </div>
+        <div
+          className={`max-w-screen-xl w-full flex flex-row flex-wrap gap-4 content-start ${
+            showBody ? "fade-in" : "hidden"
+          }`}
+        >
+          {user.WishList &&
+            user.WishList.length &&
+            showBody &&
+            user.WishList.map((album, i) => (
               <UserDetailsAlbum album={album} key={`userdetail${i}`} />
-            ))
-          : null}
+            ))}
+        </div>
       </div>
     </div>
   );
