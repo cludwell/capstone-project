@@ -9,7 +9,6 @@ import {
 import { useHistory, useParams } from "react-router-dom";
 import { fetchUserPurchases } from "../../store/purchases";
 import OpenModalButton from "../OpenModalButton";
-import LyricsModal from "../LyricsModal";
 import { NavLink } from "react-router-dom";
 import { fetchUsers } from "../../store/users";
 import WishListFormPost from "../WishListFormPost";
@@ -27,13 +26,14 @@ import {
 import CheckOutModal from "../CheckOutModal";
 import OpenModalCheckOutPreview from "../OpenModalButton/OpenModalCheckoutPreview";
 import ReactPlayer from "react-player";
-import Footer from "../Footer";
 import AudioPlayer from "../AudioPlayer";
+import LyricsModal from "../LyricsModal.jsx";
 
 export default function AlbumDetails() {
   const dispatch = useDispatch();
   const { albumId } = useParams();
   const history = useHistory();
+  const [openId, setOpenId] = useState('')
   // const [ duration, setDuration ] = useState(0)
   //modal components
   const [showMenu, setShowMenu] = useState(false);
@@ -205,14 +205,7 @@ export default function AlbumDetails() {
                         <td key={`td2${i}`}>{s.trackNum}. </td>
                         <td key={`td3${i}`}>{s.name}</td>
                         <td key={`td4${i}`}>
-                          {s.lyrics ? (
-                            <OpenModalButton
-                              key={`modallyric${i}`}
-                              buttonText={"lyrics"}
-                              onItemClick={closeMenu}
-                              modalComponent={<LyricsModal lyrics={s.lyrics} />}
-                            />
-                          ) : null}
+                          {s.lyrics ? <LyricsModal lyrics={s.lyrics}  /> : null}
                         </td>
                         {user && album.Band.userId === user.id ? (
                           <>
@@ -428,7 +421,6 @@ export default function AlbumDetails() {
           </NavLink>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

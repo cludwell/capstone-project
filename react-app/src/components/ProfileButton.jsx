@@ -28,6 +28,7 @@ function ProfileButton() {
   const handleLogout = async (e) => {
     e.preventDefault();
     await dispatch(logout());
+    setShowMenu(false)
   };
 
   const closeMenu = () => setShowMenu(prev => !prev);
@@ -47,12 +48,12 @@ function ProfileButton() {
         </>
       )}
       <div
-        className={`absolute right-0 top-20 bg-white rounded-xl drop-shadow-lg p-8 z-50  transition ease-in-out duration-400 w-96 ${
-          showMenu ? "opacity-100 h-fit scale-100" : "opacity-0 scale-0"
+        className={`absolute right-0 top-20 bg-white rounded-xl drop-shadow-lg p-8 transition ease-in-out duration-400 w-96 z-20 ${
+          showMenu ? "opacity-100 scale-100" : "opacity-0 scale-0"
         }`}
         ref={ulRef}
       >
-        {user ? (
+        {user && (
           <>
             <p className=" py-1 montserrat text-lg text-center">
               {user.username}
@@ -88,12 +89,7 @@ function ProfileButton() {
               </button>
             </div>
           </>
-        ) : (
-          <>
-            <LoginModal />
-            <SignUpModal />
-          </>
-        )}
+        ) }
       </div>
     </div>
   );

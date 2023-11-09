@@ -69,7 +69,9 @@ export default function CartModal({ user, album, band }) {
               <div className=" w-full">{item.Album.name}</div>
               <div className=" flex flex-row">
                 ${item.Album.price}
-                <IconTrash onClick={() => deleteCart(item.id)} />
+                <button onClick={() => deleteCart(item.id)}>
+                  <IconTrash />
+                </button>
               </div>
             </div>
           ))}

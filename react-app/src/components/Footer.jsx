@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <div
-      className="flex flex-row flex-wrap w-full min-h-96 bg-slate-600 mt-16 justify-center"
+      className="flex flex-row flex-wrap w-full min-h-96 bg-slate-600  justify-center pb-16"
       style={{
         backgroundColor: album?.Band?.backgroundColorSecondary
           ? rgbaParser(album.Band.backgroundColorSecondary)
@@ -30,7 +30,7 @@ export default function Footer() {
       <div className=" w-96 mt-16 mx-16">
         <p className="text-5xl ml-4">🤘</p>
         <p
-        className="my-2 font-serif"
+        className="my-2 font-serif marcellus text-xl"
           style={{
             color:
               album && album.Band && album.Band.textColor
@@ -40,10 +40,10 @@ export default function Footer() {
                 : null,
           }}
         >
-          fancamp Industries Ltd.
+          Fancamp Industries Ltd.
         </p>
         <p
-        className="my-2 font-serif"
+        className="my-2 font-serif marcellus text-xl"
           style={{
             color:
               album && album.Band && album.Band.textColor
@@ -57,7 +57,7 @@ export default function Footer() {
         </p>
       </div>
       <div className=" w-96 mt-16 mx-16">
-        <h2 className=" font-bold text-xl">SOCIALS </h2>
+        <h2 className=" font-bold text-2xl marcellus">SOCIALS </h2>
         <span className="flex flex-row gap-6 my-4">
           <Link
             to={{
