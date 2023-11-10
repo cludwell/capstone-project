@@ -1,33 +1,32 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./AlbumDetails.css";
 import { useEffect, useRef, useState } from "react";
 import {
   deleteAlbumRequest,
   fetchAlbums,
   fetchSingleAlbum,
-} from "../../store/albums";
+} from "../store/albums.js";
 import { useHistory, useParams } from "react-router-dom";
-import { fetchUserPurchases } from "../../store/purchases";
-import OpenModalButton from "../OpenModalButton";
+import { fetchUserPurchases } from "../store/purchases.js";
+import OpenModalButton from "./OpenModalButton/index.js";
 import { NavLink } from "react-router-dom";
-import { fetchUsers } from "../../store/users";
-import WishListFormPost from "../WishListFormPost";
-import { deleteWishRequest, fetchWishLists } from "../../store/wishlists";
-import { fetchBandInfo } from "../../store/bands";
-import SongFormPost from "../SongFormPost";
-import OpenModalSong from "../OpenModalButton/OpenModalSong";
-import SongFormPut from "../SongFormPut";
-import SongDeleteModal from "../SongDeleteModal";
+import { fetchUsers } from "../store/users.js";
+import WishListFormPost from "./WishListFormPost/index.js";
+import { deleteWishRequest, fetchWishLists } from "../store/wishlists.js";
+import { fetchBandInfo } from "../store/bands.js";
+import SongFormPost from "./SongFormPost/index.js";
+import OpenModalSong from "./OpenModalButton/OpenModalSong.js";
+import SongFormPut from "./SongFormPut/index.js";
+import SongDeleteModal from "./SongDeleteModal/index.js";
 import {
   deleteCartRequest,
   fetchUserCart,
   postCartRequest,
-} from "../../store/carts";
+} from "../store/carts.js";
 // import CheckOutModal from "../CheckOutModal";
 // import OpenModalCheckOutPreview from "../OpenModalButton/OpenModalCheckoutPreview";
 import ReactPlayer from "react-player";
-import AudioPlayer from "../AudioPlayer.jsx";
-import LyricsModal from "../LyricsModal.jsx";
+import AudioPlayer from "./AudioPlayer.jsx";
+import LyricsModal from "./LyricsModal.jsx";
 
 export default function AlbumDetails() {
   const dispatch = useDispatch();
@@ -127,7 +126,7 @@ export default function AlbumDetails() {
   };
   return (
     <div
-      className="album-details-page"
+      className="flex flex-col p-2"
       style={
         album.Band.backgroundImage && album.Band.tiled
           ? {
@@ -152,7 +151,7 @@ export default function AlbumDetails() {
           src={`${album.Band.bannerUrl}`}
           onClick={bandPage}
           alt="bandbannerimage"
-          className="album-details-banner"
+          className="self-center max-h-80 m-8 object-cover"
         />
       ) : null}
 
@@ -166,7 +165,7 @@ export default function AlbumDetails() {
       ) : null}
 
       <div
-        className="album-details-container"
+        className=" self-center p-8 flex flex-row flexwrap max-w-screen-lg rounded-xl"
         style={{
           backgroundColor: album.Band.backgroundColorSecondary
             ? rgbaParser(album.Band.backgroundColorSecondary)
@@ -174,29 +173,32 @@ export default function AlbumDetails() {
           color: album.Band.textColor ? album.Band.textColor : null,
         }}
       >
-        <div className="tracks-column">
-          <h2 className="album-details-title">{album.name}</h2>
-          <p className="details-band-name">by {album.Band.name}</p>
-          <div className="details-react-player">
+        <div className="w-80">
+          <h2 className="">{album.name}</h2>
+          <p className="">by {album.Band.name}</p>
+          <div className="">
             {songUrl ? <AudioPlayer song={songUrl} /> : null}
           </div>
-          <div className="album-details-streaming-info">
+          <div className="">
             {user &&
             purchases &&
             purchases.length &&
             purchases.some((p) => p.albumId === album.id) ? (
               <p>
-                <i className="fa-solid fa-heart purchased-list" />
+                <i className="fa-solid fa-heart text-red-600 text-lg" />
                 You Own This
               </p>
             ) : (
-              <h3 className="details-info buy-digital-album" onClick={buyAlbum}>
+              <h3
+                className=" text-indigo-500 hover:underline cursor-pointer"
+                onClick={buyAlbum}
+              >
                 Buy Digital Album ${album.price}
               </h3>
             )}
-            <p className="details-grey-text">Streaming + Download</p>
+            <p className=" text-gray-500 text-sm">Streaming + Download</p>
 
-            <table className="album-track-table">
+            <table className="">
               {album && album.Songs && album.Songs.length
                 ? album.Songs.sort((a, b) => a.trackNum - b.trackNum).map(
                     (s, i) => (
@@ -205,11 +207,11 @@ export default function AlbumDetails() {
                         <td key={`td2${i}`}>{s.trackNum}. </td>
                         <td key={`td3${i}`}>{s.name}</td>
                         <td key={`td4${i}`}>
-                          {s.lyrics ? <LyricsModal lyrics={s.lyrics}  /> : null}
+                          {s.lyrics ? <LyricsModal lyrics={s.lyrics} /> : null}
                         </td>
                         {user && album.Band.userId === user.id ? (
                           <>
-                            <td key={`edit${i}`} className="user-auth-song">
+                            <td key={`edit${i}`} className="px-2">
                               <OpenModalButton
                                 key={`modaleditsong${i}`}
                                 buttonText={
@@ -221,7 +223,7 @@ export default function AlbumDetails() {
                                 }
                               />
                             </td>
-                            <td key={`del${i}`} className="user-auth-song">
+                            <td key={`del${i}`} className="px-2">
                               <OpenModalButton
                                 key={`modaldeletesong${i}`}
                                 buttonText={
@@ -240,7 +242,7 @@ export default function AlbumDetails() {
                   )
                 : null}
             </table>
-            <p className="details-ownership-info">
+            <p className=" my-8">
               Includes unlimited streaming via the free fancamp app, plus
               high-quality download in MP3, FLAC and more.
             </p>
@@ -249,18 +251,17 @@ export default function AlbumDetails() {
           <p className="album-details-description">{album.description}</p>
         </div>
 
-        <div className="album-column">
+        <div className="max-w-sm mx-4">
           <img
             src={`${album.albumImage}`}
             alt="albumartwork"
-            className="album-details-artwork"
+            className=" object-cover rounded-lg max-w-sm mb-2"
           />
-          <div className="share-wishlist">
-            <span></span>
+          <div className=" flex flex-row">
 
             {!user ? (
               //if the user is not signed in, they should be prompted to sign in
-              <span className="logged-out-wishlist" onClick={pleaseLogin}>
+              <span className=" cursor-pointer" onClick={pleaseLogin}>
                 <i className="fa-regular fa-heart notwislist-list" />
                 WishList
               </span>
@@ -286,14 +287,14 @@ export default function AlbumDetails() {
               </span>
             )}
           </div>
-          <div className="details-supporters flex flex-row gap-2">
+          <div className=" flex flex-row flex-wrap gap-2 my-4">
             {album.Sales.length
               ? album.Sales.map((s, i) => (
                   <NavLink to={`/users/${s.userId}`} key={`${i}`}>
                     <img
                       src={`${s.User.profilePic}`}
                       alt={`usersupporter${i}`}
-                      className=" w-20 aspect-square object-cover gap-3 rounded-md"
+                      className=" w-16 aspect-square object-cover gap-3 rounded-md"
                     ></img>
                   </NavLink>
                 ))
@@ -301,10 +302,10 @@ export default function AlbumDetails() {
           </div>
         </div>
 
-        <div className="band-info-column">
+        <div className=" w-56">
           {user && cart && cart.length ? (
-            <div className="cart-preview">
-              <div className="cart-title">Shopping Cart</div>
+            <div className=" bg-gradient-to-b from-slate-200 to-slate-400 p-2 text-black rounded-lg outline-white outline-2 outline mb-4">
+              <div className=" font-bold text-base">Shopping Cart</div>
               {user && cart && cart.length
                 ? cart.map((c, i) => (
                     <div className="cart-instance" key={`cart${i}`}>
@@ -313,7 +314,7 @@ export default function AlbumDetails() {
                         ${c.Album.price} USD
                       </span>
                       <span
-                        className="cart-delete-instance"
+                        className=" text-blue-700 float-right"
                         onClick={() => deleteCart(c.id)}
                       >
                         <i className="fa-solid fa-trash-can"></i>
@@ -324,7 +325,7 @@ export default function AlbumDetails() {
               <hr></hr>
               <div className="cart-preview-total-row">
                 <span className="cart-preview-total">Total</span>
-                <span className="cart-preview-sum">
+                <span className=" float-right">
                   $
                   {cart
                     .reduce((acc, ele) => acc + ele.Album.price, 0)
@@ -341,22 +342,22 @@ export default function AlbumDetails() {
             </div>
           ) : null}
           <img
-            className="album-details-band-img"
+            className=" object-cover aspect-square rounded-md w-56"
             alt="bandimagealbumdetails"
             src={`${album.Band.artistImage}`}
             onClick={bandPage}
           />
-          <p className="album-deets-country">{album.Band.country}</p>
-          <p className="album-deets-city">{album.Band.city}</p>
+          <p className=" montserrat font-bold">{album.Band.country}</p>
+          <p className=" montserrat text-slate-500">{album.Band.city}</p>
 
           {user &&
             album.Band.userId === user.id &&
             album.bandId === album.Band.id && (
-              <div className="user-auth-buttons">
-                <button className="band-deets-user-auth" onClick={editAlbum}>
+              <div className="">
+                <button className="bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm" onClick={editAlbum}>
                   Edit Album
                 </button>
-                <button className="band-deets-user-auth" onClick={deleteAlbum}>
+                <button className="bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm" onClick={deleteAlbum}>
                   Delete Album
                 </button>
 
@@ -370,7 +371,7 @@ export default function AlbumDetails() {
 
           <p>
             <a
-              className="album-details-social-media"
+              className=" text-indigo-500 visited:text-indigo-700 hover:underline montserrat"
               href={`https://www.facebook.com/search/top/?q=${album.Band.name
                 .split(" ")
                 .join("%20")}`}
@@ -381,7 +382,7 @@ export default function AlbumDetails() {
 
           <p>
             <a
-              className="album-details-social-media"
+              className=" text-indigo-500 visited:text-indigo-700 hover:underline montserrat"
               href={`https://www.youtube.com/results?search_query=${album.Band.name
                 .split(" ")
                 .join("+")}`}
@@ -397,24 +398,19 @@ export default function AlbumDetails() {
           {Object.values(albums)
             .filter((a) => a.bandId === album.bandId && a.id !== album.id)
             .map((a, i) => (
-              <div className="detail-discog-card">
-                <NavLink
-                  to={`/albums/${a.id}`}
-                  style={{ textDecoration: "none" }}
-                >
+                <NavLink to={`/albums/${a.id}`} className=" my-8" key={`discog${i}`}>
                   <img
                     src={`${a.albumImage}`}
                     alt="otheralbums"
                     key={`albumart${i}`}
-                    className="details-discog-image"
+                    className=" w-56 aspect-square rounded-md"
                   ></img>
 
-                  <div className="detail-discog-link">{a.name}</div>
-                </NavLink>
+                  <div className=" font-bold montserrat">{a.name}</div>
                 <div className="details-discog-created">
                   {a.createdAt.slice(0, -12)}
                 </div>
-              </div>
+                </NavLink>
             ))}
           <NavLink to={`/bands/${album.bandId}`}>
             <p className="details-more-releases">more releases...</p>

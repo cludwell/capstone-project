@@ -129,7 +129,7 @@ export default function UserDetails() {
           }`}
         >
           {user.WishList &&
-            user.WishList.length &&
+            user.WishList.length > 0 &&
             showBody &&
             user.WishList.map((album, i) => (
               <UserDetailsAlbum album={album} key={`userdetail${i}`} />
