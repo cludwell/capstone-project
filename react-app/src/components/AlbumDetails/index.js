@@ -23,17 +23,17 @@ import {
   fetchUserCart,
   postCartRequest,
 } from "../../store/carts";
-import CheckOutModal from "../CheckOutModal";
-import OpenModalCheckOutPreview from "../OpenModalButton/OpenModalCheckoutPreview";
+// import CheckOutModal from "../CheckOutModal";
+// import OpenModalCheckOutPreview from "../OpenModalButton/OpenModalCheckoutPreview";
 import ReactPlayer from "react-player";
-import AudioPlayer from "../AudioPlayer";
+import AudioPlayer from "../AudioPlayer.jsx";
 import LyricsModal from "../LyricsModal.jsx";
 
 export default function AlbumDetails() {
   const dispatch = useDispatch();
   const { albumId } = useParams();
   const history = useHistory();
-  const [openId, setOpenId] = useState('')
+  // const [openId, setOpenId] = useState('')
   // const [ duration, setDuration ] = useState(0)
   //modal components
   const [showMenu, setShowMenu] = useState(false);
@@ -332,11 +332,11 @@ export default function AlbumDetails() {
                 </span>
               </div>
               <div className="cart-preview-buttons">
-                <OpenModalCheckOutPreview
+                {/* <OpenModalCheckOutPreview
                   buttonText={"Check Out"}
                   onItemClick={closeMenu}
                   modalComponent={<CheckOutModal user={user} cart={cart} />}
-                />
+                /> */}
               </div>
             </div>
           ) : null}
