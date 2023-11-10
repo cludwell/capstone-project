@@ -1,14 +1,12 @@
 import { NavLink, useHistory, useParams } from "react-router-dom";
-import "./BandDetails.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteBandCommand,
   fetchAllBands,
   fetchBandInfo,
-} from "../../store/bands";
-import { authenticate } from "../../store/session";
-import Footer from "../Footer";
+} from "../store/bands";
+import { authenticate } from "../store/session";
 
 export default function BandDetails() {
   const { bandId } = useParams();
@@ -46,7 +44,7 @@ export default function BandDetails() {
 
   return (
     <div
-      className="flex flex-col align-center justify-center h-screen"
+      className="flex flex-col align-center items-center min-h-screen p-2 "
       style={
         band.backgroundImage && band.tiled
           ? {
@@ -67,7 +65,7 @@ export default function BandDetails() {
       }
     >
       <div
-        className="band-details-container"
+        className="flex flex-row  max-w-screen-lg w-full rounded-xl fade-in"
         style={{
           backgroundColor: band.backgroundColorSecondary
             ? rgbaParser(band.backgroundColorSecondary)
@@ -75,52 +73,50 @@ export default function BandDetails() {
           color: band.textColor ? band.textColor : null,
         }}
       >
-        <div className="band-deets-iterated-albums">
+        <div className="flex flex-row flex-wrap content-start gap-4 mt-8 ml-8 mr-4 w-full ">
           {band && band.Albums && band.Albums.length ? (
             band.Albums.map((a, i) => (
-              <div className="band-deets-album-card" key={`card${i}`}>
-                <NavLink to={`/albums/${a.id}`}>
+              <NavLink className="w-36 sm:w-40 md:w-44 " key={`card${i}`} to={`/albums/${a.id}`}>
                   <img
                     src={`${a.albumImage}`}
                     alt="albumart"
                     key={`albumart${i}`}
-                    className="band-deets-albumart"
+                    className=" object-cover rounded-md aspect-square w-36 sm:w-40 md:w-44 "
                   ></img>
-                  <p className="band-deets-album-name">{a.name}</p>
-                </NavLink>
-              </div>
+                  <p className=" font-bold">{a.name}</p>
+              </NavLink>
             ))
           ) : (
             <h2>Nothing here yet</h2>
           )}
         </div>
-        <div className="band-details-col">
+        <div className="mt-8 mr-8 mb-8 w-52">
           <img
-            className="album-details-band-img"
+            className="aspect-square rounded-md w-fit object-cover"
             alt="bandimagealbumdetails"
             src={`${band.artistImage}`}
           />
-          <div className="band-deets-bandname">{band.name}</div>
-          <div className="album-deets-country">{band.country}</div>
-          <p className="album-deets-city">{band.city}</p>
+          <div className=" mulish font-bold">{band.name}</div>
+          <div className=" montserrat">{band.country}</div>
+          <p className=" text-slate-500">{band.city}</p>
           {user && band.userId === user.id ? (
             <>
-              <button className="band-deets-user-auth" onClick={editOnClick}>
+              <button className=" bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm" onClick={editOnClick}>
                 Edit Band
               </button>
-              <button className="band-deets-user-auth" onClick={addAlbum}>
+              <button className=" bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm" onClick={addAlbum}>
                 Add Album
               </button>
-              <button className="band-deets-user-auth" onClick={deleteBand}>
+              <button className=" bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm" onClick={deleteBand}>
                 Break Up Band
               </button>
             </>
           ) : null}
-          <p className="band-deets-desc">{band.description}</p>
-          <p>
+          <p className=" text-xs mb-4">{band.description}</p>
+          <p className=" my-2">
             {" "}
             <a
-              className="album-details-social-media"
+              className=" text-indigo-600 visited:text-indigo-800"
               href={`https://www.facebook.com/search/top/?q=${band.name
                 .split(" ")
                 .join("%20")}`}
@@ -129,9 +125,9 @@ export default function BandDetails() {
             </a>{" "}
           </p>
 
-          <p>
+          <p className=" my-2">
             <a
-              className="album-details-social-media"
+              className=" text-indigo-600 visited:text-indigo-800"
               href={`https://www.youtube.com/results?search_query=${band.name
                 .split(" ")
                 .join("+")} band`}

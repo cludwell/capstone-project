@@ -19,7 +19,7 @@ export default function UserDetailsAlbum({ album }) {
         <img
           src={`${album.Album.albumImage}`}
           alt="user-deets-album"
-          className=" object-cover rounded-lg w-36  sm:w-40 md:w-48 lg:56 aspect-square"
+          className=" object-cover rounded-md w-36  sm:w-40 md:w-48 lg:56 aspect-square"
         ></img>
         <div className="">
           <div className="font-bold montserrat text-sm sm:text-base">{album.Album.name}</div>
