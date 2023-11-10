@@ -1,12 +1,11 @@
 import { NavLink, useHistory, useParams } from "react-router-dom";
-import "./UserDetails.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import { fetchUserPurchases } from "../../store/purchases";
-import { fetchUsers } from "../../store/users";
-import UserDetailsAlbum from "../UserDetailsAlbum";
-import { fetchAllBands } from "../../store/bands";
-import { authenticate } from "../../store/session";
+import { fetchUserPurchases } from "../store/purchases";
+import { fetchUsers } from "../store/users";
+import UserDetailsAlbum from "./UserDetailsAlbum";
+import { fetchAllBands } from "../store/bands";
+import { authenticate } from "../store/session";
 
 export default function UserDetails() {
   const { userId } = useParams();
@@ -52,12 +51,13 @@ export default function UserDetails() {
         <div className="relative">
           <img
             src={`${user.profilePic}`}
-            className=" object-cover aspect-square rounded-2xl z-10 m-4 w-32 lg:w-64 "
+            className=" object-cover aspect-square rounded-2xl z-10 m-4 w-32 sm:w-36 md:w-44 lg:w-64 "
             alt="user-details-user"
           ></img>
           {user && loggedIn && loggedIn.id === user.id && (
             <button
-              className=" bg-indigo-500 text-white font-bold uppercase p-3 rounded-lg transition duration-200  active:bg-indigo-800 active:scale-90 montserrat absolute z-10 bottom-1 right-1"
+              className=" bg-indigo-500 text-white font-bold uppercase p-2 lg:p-3 rounded-lg transition duration-200  active:bg-indigo-800 active:scale-90 montserrat absolute z-10 bottom-1 right-1
+              text-xs sm:text-sm md:text-base"
               onClick={startBand}
             >
               Start Band

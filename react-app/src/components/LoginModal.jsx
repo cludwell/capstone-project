@@ -39,7 +39,7 @@ export default function LoginModal() {
         onClick={() => setOpen(true)}
         className="bg-green-500 text-white font-bold uppercase p-3 rounded-lg transition duration-200  active:bg-green-800 active:scale-90 montserrat mr-8 "
       >
-        login
+        log in
       </button>
       <Modal open={open} setOpen={setOpen}>
         <h1 className="text-center text-xl font-bold mb-6 montserrat">Login</h1>
