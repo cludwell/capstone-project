@@ -24,7 +24,7 @@ export default function DeleteSongModal({ string, song }) {
       <ModalString openId={openId} setOpenId={setOpenId} string={string}>
         <div className="w-96">
           <h2 className=" montserrat text-black">
-            Are you sure you want to delete this song? {song}
+            Are you sure you want to delete this song, {song}: {string}?
           </h2>
           <div className="flex flex-col">
             <button
