@@ -16,7 +16,7 @@ import { fetchBandInfo } from "../store/bands.js";
 import SongFormPost from "./SongFormPost/index.js";
 import OpenModalSong from "./OpenModalButton/OpenModalSong.js";
 import SongFormPut from "./SongFormPut/index.js";
-import SongDeleteModal from "./SongDeleteModal/index.js";
+// import SongDeleteModal from "./SongDeleteModal/index.js";
 import {
   deleteCartRequest,
   fetchUserCart,
@@ -27,12 +27,12 @@ import {
 import ReactPlayer from "react-player";
 import AudioPlayer from "./AudioPlayer.jsx";
 import LyricsModal from "./LyricsModal.jsx";
+import DeleteSongModal from "./DeleteSongModal.jsx";
 
 export default function AlbumDetails() {
   const dispatch = useDispatch();
   const { albumId } = useParams();
   const history = useHistory();
-  // const [openId, setOpenId] = useState('')
   // const [ duration, setDuration ] = useState(0)
   //modal components
   const [showMenu, setShowMenu] = useState(false);
@@ -126,7 +126,7 @@ export default function AlbumDetails() {
   };
   return (
     <div
-      className="flex flex-col p-2"
+      className="flex flex-col p-2 min-h-screen "
       style={
         album.Band.backgroundImage && album.Band.tiled
           ? {
@@ -151,7 +151,7 @@ export default function AlbumDetails() {
           src={`${album.Band.bannerUrl}`}
           onClick={bandPage}
           alt="bandbannerimage"
-          className="self-center max-h-80 m-8 object-cover"
+          className="self-center max-h-80 m-8 object-cover cursor-pointer fade-in max-w-screen-lg"
         />
       ) : null}
 
@@ -161,11 +161,12 @@ export default function AlbumDetails() {
           style={{ alignSelf: "center" }}
           width={"95vmin"}
           height={"50vmin"}
+          className="fade-in"
         />
       ) : null}
 
       <div
-        className=" self-center p-8 flex flex-row flexwrap max-w-screen-lg rounded-xl"
+        className=" self-center p-8 flex flex-row flexwrap max-w-screen-lg rounded-xl fade-in my-8"
         style={{
           backgroundColor: album.Band.backgroundColorSecondary
             ? rgbaParser(album.Band.backgroundColorSecondary)
@@ -196,7 +197,7 @@ export default function AlbumDetails() {
                 Buy Digital Album ${album.price}
               </h3>
             )}
-            <p className=" text-gray-500 text-sm">Streaming + Download</p>
+            <p className=" text-green-500 text-sm">Streaming + Download</p>
 
             <table className="">
               {album && album.Songs && album.Songs.length
@@ -204,8 +205,12 @@ export default function AlbumDetails() {
                     (s, i) => (
                       <tr key={`tr${i}`}>
                         <td key={`td${i}`}></td>
-                        <td key={`td2${i}`}>{s.trackNum}. </td>
-                        <td key={`td3${i}`}>{s.name}</td>
+                        <td key={`td2${i}`} className="pr-2 text-sm">
+                          {s.trackNum}.{" "}
+                        </td>
+                        <td key={`td3${i}`} className=" text-sm">
+                          {s.name}
+                        </td>
                         <td key={`td4${i}`}>
                           {s.lyrics ? <LyricsModal lyrics={s.lyrics} /> : null}
                         </td>
@@ -224,7 +229,7 @@ export default function AlbumDetails() {
                               />
                             </td>
                             <td key={`del${i}`} className="px-2">
-                              <OpenModalButton
+                              {/* <OpenModalButton
                                 key={`modaldeletesong${i}`}
                                 buttonText={
                                   <i className="fa-solid fa-trash-can"></i>
@@ -233,6 +238,10 @@ export default function AlbumDetails() {
                                 modalComponent={
                                   <SongDeleteModal album={album} song={s} />
                                 }
+                              /> */}
+                              <DeleteSongModal
+                                string={s.name}
+                                song={s.id}
                               />
                             </td>
                           </>
@@ -248,7 +257,7 @@ export default function AlbumDetails() {
             </p>
           </div>
 
-          <p className="album-details-description">{album.description}</p>
+          <p className=" break-words">{album.description}</p>
         </div>
 
         <div className="max-w-sm mx-4">
@@ -258,7 +267,6 @@ export default function AlbumDetails() {
             className=" object-cover rounded-lg max-w-sm mb-2"
           />
           <div className=" flex flex-row">
-
             {!user ? (
               //if the user is not signed in, they should be prompted to sign in
               <span className=" cursor-pointer" onClick={pleaseLogin}>
@@ -304,15 +312,13 @@ export default function AlbumDetails() {
 
         <div className=" w-56">
           {user && cart && cart.length ? (
-            <div className=" bg-gradient-to-b from-slate-200 to-slate-400 p-2 text-black rounded-lg outline-white outline-2 outline mb-4">
+            <div className=" bg-gradient-to-b from-slate-200 to-slate-400 p-2 text-black rounded-lg outline-white outline-2 outline mb-4 ">
               <div className=" font-bold text-base">Shopping Cart</div>
               {user && cart && cart.length
                 ? cart.map((c, i) => (
-                    <div className="cart-instance" key={`cart${i}`}>
-                      <div className="cart-album-name">{c.Album.name}</div>
-                      <span className="cart-album-price">
-                        ${c.Album.price} USD
-                      </span>
+                    <div className="" key={`cart${i}`}>
+                      <div className="text-sm ">{c.Album.name}</div>
+                      <span className="text-sm">${c.Album.price} USD</span>
                       <span
                         className=" text-blue-700 float-right"
                         onClick={() => deleteCart(c.id)}
@@ -323,8 +329,8 @@ export default function AlbumDetails() {
                   ))
                 : null}
               <hr></hr>
-              <div className="cart-preview-total-row">
-                <span className="cart-preview-total">Total</span>
+              <div className="mt-2">
+                <span className="font-bold">Total</span>
                 <span className=" float-right">
                   $
                   {cart
@@ -354,10 +360,16 @@ export default function AlbumDetails() {
             album.Band.userId === user.id &&
             album.bandId === album.Band.id && (
               <div className="">
-                <button className="bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm" onClick={editAlbum}>
+                <button
+                  className="bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm"
+                  onClick={editAlbum}
+                >
                   Edit Album
                 </button>
-                <button className="bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm" onClick={deleteAlbum}>
+                <button
+                  className="bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm"
+                  onClick={deleteAlbum}
+                >
                   Delete Album
                 </button>
 
@@ -398,19 +410,23 @@ export default function AlbumDetails() {
           {Object.values(albums)
             .filter((a) => a.bandId === album.bandId && a.id !== album.id)
             .map((a, i) => (
-                <NavLink to={`/albums/${a.id}`} className=" my-8" key={`discog${i}`}>
-                  <img
-                    src={`${a.albumImage}`}
-                    alt="otheralbums"
-                    key={`albumart${i}`}
-                    className=" w-56 aspect-square rounded-md"
-                  ></img>
+              <NavLink
+                to={`/albums/${a.id}`}
+                className=" my-8"
+                key={`discog${i}`}
+              >
+                <img
+                  src={`${a.albumImage}`}
+                  alt="otheralbums"
+                  key={`albumart${i}`}
+                  className=" w-56 aspect-square rounded-md"
+                ></img>
 
-                  <div className=" font-bold montserrat">{a.name}</div>
+                <div className=" font-bold montserrat">{a.name}</div>
                 <div className="details-discog-created">
                   {a.createdAt.slice(0, -12)}
                 </div>
-                </NavLink>
+              </NavLink>
             ))}
           <NavLink to={`/bands/${album.bandId}`}>
             <p className="details-more-releases">more releases...</p>

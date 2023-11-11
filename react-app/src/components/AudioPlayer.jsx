@@ -60,8 +60,8 @@ export default function AudioPlayer({ song }) {
       <button
         className={`rounded-md w-20 aspect-square my-2 mr-2 bg-gradient-to-b transition duration-200 ease-in-out text-2xl active:scale-90 text-shadow ${
           !isPlaying
-            ? "from-slate-300 to-slate-500"
-            : "to-slate-300  from-slate-500"
+            ? "from-slate-300 to-slate-700"
+            : "to-slate-300  from-slate-700"
         }`}
         onClick={togglePlayPause}
       >

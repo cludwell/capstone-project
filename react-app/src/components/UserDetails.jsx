@@ -46,12 +46,12 @@ export default function UserDetails() {
 
   return (
     <div className="min-h-screen flex flex-col items-center mx-2">
-      <div className=" absolute z-0 w-screen bg-sky-300 h-40 mt-1"></div>
-      <div className=" flex flex-row flex-wrap  items-center p-12 w-full max-w-screen-xl">
+      <div className=" absolute z-0 w-screen bg-sky-300 h-40 mt-1 fade-in"></div>
+      <div className=" flex flex-row flex-wrap  items-center py-12 w-full max-w-screen-lg fade-in">
         <div className="relative">
           <img
             src={`${user.profilePic}`}
-            className=" object-cover aspect-square rounded-2xl z-10 m-4 w-32 sm:w-36 md:w-44 lg:w-64 "
+            className=" object-cover aspect-square rounded-2xl z-10 my-4 mr-4 w-32 sm:w-36 md:w-44 lg:w-64 "
             alt="user-details-user"
           ></img>
           {user && loggedIn && loggedIn.id === user.id && (
@@ -91,7 +91,7 @@ export default function UserDetails() {
         </div>
         </div>
       </div>
-      <div className=" mb-6 border-b border-gray-600 text-gray-88 w-full max-w-screen-xl ">
+      <div className=" mb-6 border-b border-gray-600 text-gray-88 w-full max-w-screen-lg fade-in">
         <span
           className={`hover:border-b-4 hover:border-indigo-600 cursor-pointer font-bold  ${
             !showBody ? " text-black border-black border-b-2" : "text-indigo-600"
@@ -110,9 +110,9 @@ export default function UserDetails() {
         </span>
       </div>
 
-      <div className="max-w-screen-xl w-full" ref={ulRef}>
+      <div className="max-w-screen-lg w-full mb-8 fade-in" ref={ulRef}>
         <div
-          className={`max-w-screen-xl w-full flex flex-row flex-wrap gap-4 content-start ${
+          className={`max-w-screen-lg w-full flex flex-row flex-wrap gap-4 content-start ${
             !showBody ? "fade-in" : "hidden"
           }`}
         >
@@ -124,7 +124,7 @@ export default function UserDetails() {
             ))}
         </div>
         <div
-          className={`max-w-screen-xl w-full flex flex-row flex-wrap gap-4 content-start ${
+          className={`max-w-screen-lg w-full flex flex-row flex-wrap gap-4 content-start ${
             showBody ? "fade-in" : "hidden"
           }`}
         >

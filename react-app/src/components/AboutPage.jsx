@@ -15,11 +15,11 @@ export default function AboutPage() {
   }, [dispatch]);
   return (
     <>
-    <div className="items-center max-w-screen-xl mx-3 lg:mx-auto my-8 ">
-      <h1 className="text-2xl sm:text-3xl text-center font-serif">
+    <div className="items-center max-w-screen-lg mx-3 lg:mx-auto my-8 ">
+      <h1 className="text-2xl sm:text-3xl text-center font-serif fade-in">
         About the Developer
       </h1>
-      <section className="flex flex-row mt-8">
+      <section className="flex flex-row mt-8 fade-in">
         <div className="about-text">
           <h1 className="text-2xl font-serif">Christian Ludwell</h1>
           <img
@@ -87,7 +87,7 @@ export default function AboutPage() {
           className="object-cover max-h-96 w-96 rounded-xl drop-shadow-lg ml-6 my-6"
         />
       </section>
-      <section className="flex flex-row">
+      <section className="flex flex-row fade-in">
         <img
           className="h-96 object-cover rounded-xl mr-6 my-6 max-w-sm"
           src="https://i.imgur.com/YKuhXGy.png"

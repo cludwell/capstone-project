@@ -70,7 +70,7 @@ export default function CartModal({ user, album, band }) {
               <div className=" flex flex-row">
                 ${item.Album.price}
                 <button onClick={() => deleteCart(item.id)}>
-                  <IconTrash />
+                  <IconTrash color={"red"} classes={"hover:scale-110 transition ease-in-out duration-200"}/>
                 </button>
               </div>
             </div>

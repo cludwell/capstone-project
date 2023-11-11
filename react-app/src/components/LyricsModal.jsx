@@ -9,9 +9,11 @@ export default function LyricsModal({ lyrics }) {
       onClick={() => setOpenId(lyrics.slice(0,20))}>
         lyrics
       </button>
-      <ModalString openId={openId} setOpenId={setOpenId} lyrics={lyrics}>
+      <ModalString openId={openId} setOpenId={setOpenId} string={lyrics}>
+        <div className=" overflow-y-scroll">
+        <pre className="text-black marcellus w-fit max-h-[80vh] break-all ">{lyrics}</pre>
 
-        <pre className="text-black marcellus w-fit max-h-full break-all ">{lyrics}</pre>
+        </div>
       </ModalString>
     </>
   );
