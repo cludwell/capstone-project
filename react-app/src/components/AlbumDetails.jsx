@@ -13,21 +13,17 @@ import { fetchUsers } from "../store/users.js";
 import WishListFormPost from "./WishListFormPost/index.js";
 import { deleteWishRequest, fetchWishLists } from "../store/wishlists.js";
 import { fetchBandInfo } from "../store/bands.js";
-import SongFormPost from "./SongFormPost/index.js";
-import OpenModalSong from "./OpenModalButton/OpenModalSong.js";
 import SongFormPut from "./SongFormPut/index.js";
-// import SongDeleteModal from "./SongDeleteModal/index.js";
 import {
   deleteCartRequest,
   fetchUserCart,
   postCartRequest,
 } from "../store/carts.js";
-// import CheckOutModal from "../CheckOutModal";
-// import OpenModalCheckOutPreview from "../OpenModalButton/OpenModalCheckoutPreview";
 import ReactPlayer from "react-player";
 import AudioPlayer from "./AudioPlayer.jsx";
 import LyricsModal from "./LyricsModal.jsx";
 import DeleteSongModal from "./DeleteSongModal.jsx";
+import SongPostModal from "./SongPostModal.jsx";
 
 export default function AlbumDetails() {
   const dispatch = useDispatch();
@@ -360,11 +356,7 @@ export default function AlbumDetails() {
                   Delete Album
                 </button>
 
-                <OpenModalSong
-                  buttonText={"Add Song"}
-                  onItemClick={closeMenu}
-                  modalComponent={<SongFormPost albumId={albumId} />}
-                />
+                <SongPostModal albumId={album.id} />
               </div>
             )}
 

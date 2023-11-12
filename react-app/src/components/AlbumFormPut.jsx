@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./AlbumFormPost.css";
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { fetchBandInfo } from "../../store/bands";
-import { createAlbumRequest } from "../../store/albums";
-import IconExclamation from "../IconExclamation";
-export default function AlbumFormPost() {
-  const { bandId } = useParams();
+import { useHistory } from "react-router-dom";
+import { fetchBandInfo } from "../store/bands";
+import { editAlbumRequest } from "../store/albums";
+import IconExclamation from "./IconExclamation";
+export default function AlbumFormPut() {
+  // const { albumId } = useParams()
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -33,9 +32,19 @@ export default function AlbumFormPost() {
       err.albumImage = "Please enter a valid image for your album";
     if (!youtube.includes("youtu"))
       err.youtube = "Are you sure that's a youtube link?";
+
     setErrors(err);
     return err;
   }, [name, description, genre, price, albumImage, youtube]);
+  const album = useSelector((state) => state.albums.singleAlbum);
+
+  useEffect(() => {
+    setName(album && album.name ? album.name : "");
+    setDescription(album && album.description ? album.description : "");
+    setGenre(album && album.genre ? album.genre : "");
+    setPrice(album && album.price ? album.price : "");
+    setAlbumImage(album && album.albumImage ? album.albumImage : "");
+  }, [album]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,33 +52,28 @@ export default function AlbumFormPost() {
     if (Object.values(errors).length)
       return alert("Please correct input errors");
     else {
-      const newAlbum = {
+      const edittedAlbum = {
         name,
         price,
         album_image: albumImage,
         genre,
-        band_id: parseInt(bandId),
+        band_id: parseInt(album.bandId),
         description,
         youtube,
       };
-      dispatch(createAlbumRequest(newAlbum));
-      dispatch(fetchBandInfo(bandId)); //need state to refresh on bandinfo page
-      history.push(`/bands/${bandId}`);
+      dispatch(editAlbumRequest(edittedAlbum, album.id));
+      dispatch(fetchBandInfo(album.bandId));
+      history.push(`/bands/${album.bandId}`);
     }
   };
 
-  useEffect(() => {
-    dispatch(fetchBandInfo(bandId));
-  }, [dispatch, bandId]);
-
   const user = useSelector((state) => state.session.user);
-  const band = useSelector((state) => state.bands.singleBand);
 
-  if (!user || !band || user.id !== band.userId) return null;
+  if (!user) return null;
 
   return (
     <div className="album-post-form-container">
-      <h1 className="album-post-title">your new album</h1>
+      <h1 className="album-post-title">previously {album.name}</h1>
       <div className="album-post-wrapper">
         <form className="album-post-form" onSubmit={handleSubmit}>
           <label className="post-album-label">name</label>
@@ -182,7 +186,6 @@ export default function AlbumFormPost() {
             )}
           </div>
 
-          <div></div>
           <button
             type="submit"
             className="post-album-submit"

@@ -14,8 +14,8 @@ export default function SongFormPost({ albumId }) {
   const [trackNum, setTrackNum] = useState(0);
   const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState({});
-  const { closeModal } = useModal();
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const { closeModal } = useModal();
   useEffect(() => {
     const err = {};
     if (!name || name.length > 40)
@@ -49,7 +49,7 @@ export default function SongFormPost({ albumId }) {
   };
 
   return (
-    <div className="post-song-form-page">
+    <div className="">
       <h3 className="thasadith text-2xl text-cyan-500 font-bold text-center mb-8">
         Add a Song to Album
       </h3>
