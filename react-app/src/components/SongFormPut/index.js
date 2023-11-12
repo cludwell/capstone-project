@@ -66,16 +66,20 @@ export default function SongFormPut({ albumId, song }) {
   };
 
   return (
-    <div className="post-song-form-page">
-      <h3 className="post-song-title">Edit an existing song</h3>
+    <div className=" fade-in">
+      <h3 className="thasadith text-2xl text-cyan-500 font-bold text-center mb-8">
+        Edit an existing song
+      </h3>
 
-      <form className="post-song-form" onSubmit={handleSubmit}>
-        <div className="post-song-form-grid">
-          <label className="post-song-label">name</label>
-          <div className="post-song-col">
+      <form className="flex flex-col items-center" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-2 gap-3">
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Name
+          </label>
+          <div className=" ">
             <input
               type="text"
-              className="post-song-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
               value={name}
               onChange={(e) => setName(e.target.value)}
             ></input>
@@ -88,11 +92,13 @@ export default function SongFormPut({ albumId, song }) {
               <p></p>
             )}
           </div>
-          <label className="post-song-label">lyrics</label>
-          <div className="post-song-col">
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Lyrics
+          </label>
+          <div className="">
             <textarea
               type="textarea"
-              className="post-song-input post-song-lyrics"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 h-40 scroll slim-scrollbar"
               value={lyrics}
               onChange={(e) => setLyrics(e.target.value)}
             ></textarea>
@@ -105,11 +111,13 @@ export default function SongFormPut({ albumId, song }) {
               <p></p>
             )}
           </div>
-          <label className="post-song-label">price</label>
-          <div className="post-song-col">
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Price
+          </label>
+          <div className=" ">
             <input
               type="number"
-              className="post-song-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             ></input>
@@ -122,11 +130,13 @@ export default function SongFormPut({ albumId, song }) {
               <p></p>
             )}
           </div>
-          <label className="post-song-label">track number</label>
-          <div className="post-song-col">
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Track Number
+          </label>
+          <div className=" ">
             <input
               type="number"
-              className="post-song-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
               value={trackNum}
               onChange={(e) => setTrackNum(e.target.value)}
               min={0}
@@ -141,13 +151,15 @@ export default function SongFormPut({ albumId, song }) {
               <p></p>
             )}
           </div>
-          <label className="post-song-label">url</label>
-          <div className="post-song-col">
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Url
+          </label>
+          <div className=" ">
             <input
               type="file"
               name="url"
               accept="audio/*"
-              className="post-song-input"
+              className=""
               onChange={(e) => setUrl(e.target.files)}
             ></input>
             {hasSubmitted && errors.url ? (
@@ -159,12 +171,11 @@ export default function SongFormPut({ albumId, song }) {
               <p></p>
             )}
           </div>
-          X
         </div>
 
         <button
           type="submit"
-          className="post-song-submit"
+          className="bg-green-500 text-white font-bold uppercase p-3 rounded-lg transition duration-200  active:bg-green-800 active:scale-90 montserrat mt-8 w-40"
           onClick={handleSubmit}
         >
           submit song

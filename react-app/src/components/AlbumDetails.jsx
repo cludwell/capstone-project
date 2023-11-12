@@ -151,7 +151,7 @@ export default function AlbumDetails() {
           src={`${album.Band.bannerUrl}`}
           onClick={bandPage}
           alt="bandbannerimage"
-          className="self-center max-h-80 m-8 object-cover cursor-pointer fade-in max-w-screen-lg"
+          className="self-center max-h-80 m-4 object-cover cursor-pointer fade-in max-w-screen-lg rounded-xl"
         />
       ) : null}
 
@@ -161,12 +161,12 @@ export default function AlbumDetails() {
           style={{ alignSelf: "center" }}
           width={"95vmin"}
           height={"50vmin"}
-          className="fade-in"
+          className="fade-in "
         />
       ) : null}
 
       <div
-        className=" self-center p-8 flex flex-row flexwrap max-w-screen-lg rounded-xl fade-in my-8"
+        className=" self-center p-8 flex flex-row flexwrap max-w-screen-lg rounded-xl fade-in my-4"
         style={{
           backgroundColor: album.Band.backgroundColorSecondary
             ? rgbaParser(album.Band.backgroundColorSecondary)
@@ -229,20 +229,7 @@ export default function AlbumDetails() {
                               />
                             </td>
                             <td key={`del${i}`} className="px-2">
-                              {/* <OpenModalButton
-                                key={`modaldeletesong${i}`}
-                                buttonText={
-                                  <i className="fa-solid fa-trash-can"></i>
-                                }
-                                onItemClick={closeMenu}
-                                modalComponent={
-                                  <SongDeleteModal album={album} song={s} />
-                                }
-                              /> */}
-                              <DeleteSongModal
-                                string={s.name}
-                                song={s.id}
-                              />
+                              <DeleteSongModal string={s.name} song={s.id} />
                             </td>
                           </>
                         ) : null}

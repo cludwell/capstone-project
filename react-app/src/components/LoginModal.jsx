@@ -43,7 +43,7 @@ export default function LoginModal() {
       </button>
       <Modal open={open} setOpen={setOpen}>
         <h1 className="text-center text-xl font-bold mb-6 montserrat">Login</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="p-5">
           <ul>
             {errors.map((error, i) => (
               <li
@@ -55,21 +55,25 @@ export default function LoginModal() {
             ))}
           </ul>
           <div className="grid grid-cols-2 gap-4">
-            <label className=" text-cyan-700 thasadith font-bold text-xl">Email</label>
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
+              Email
+            </label>
             <input
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
-            <label className=" text-cyan-700 thasadith font-bold text-xl">Password</label>
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
+              Password
+            </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               retuired
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
           </div>
           <div className="flex flex-row justify-around mt-6">

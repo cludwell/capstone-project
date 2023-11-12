@@ -7,8 +7,8 @@ import Landing from "./components/Landing.jsx";
 import AlbumDetails from "./components/AlbumDetails";
 import BandDetails from "./components/BandDetails";
 import UserDetails from "./components/UserDetails";
-import BandFormPOST from "./components/BandFormPOST";
-import BandFormPut from "./components/BandFormPut";
+import BandFormPOST from "./components/BandFormPost.jsx";
+import BandFormPut from "./components/BandFormPut.jsx";
 import AlbumFormPost from "./components/AlbumFormPost";
 import AlbumFormPut from "./components/AlbumFormPut";
 import AboutPage from "./components/AboutPage";
@@ -32,7 +32,7 @@ function App() {
           <Route path='/bands/:bandId' exact={true} component={BandDetails} />
           <Route path='/users/:userId' exact={true} component={UserDetails} />
           <Route path='/bands/edit/:bandId' exact={true} component={BandFormPut} />
-          <Route path='/bands/new' exact={true} component={BandFormPOST} />
+          {/* <Route path='/bands/new' exact={true} component={BandFormPOST} /> */}
           <Route path='/bands/:bandId/newAlbum' exact={true} component={AlbumFormPost} />
           <Route path='/about' exact={true} component={AboutPage} />
         </Switch>

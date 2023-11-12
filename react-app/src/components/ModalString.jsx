@@ -10,7 +10,7 @@ export default function ModalString({ openId, setOpenId, children, string }) {
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`bg-white rounded-xl shadow p-6 transition-all  max-h-[90vh] duration-300 h-fit
+          className={`bg-white rounded-xl shadow p-6 transition-all  max-h-[90vh] duration-300 h-fit mx-4
           ${openId ? "scale-100 opacity-100" : "scale-125 opacity-0"}`}
         >
           {children}

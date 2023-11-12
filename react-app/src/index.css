@@ -75,16 +75,27 @@ body {
 p, span, td {
     font-size: min(2.5vmin, 1rem);
 }
-/* button {
-    cursor: pointer;
-    transition: .2s ease-in-out;
-    background: linear-gradient(rgb(97, 149, 170),rgb(50, 78, 90));
-    border-radius: .5vmin;
-    border: none;
-    margin: 1vmin;
-    padding: .5vmin;
-    font-weight: bold;
-} */
+
+/* slim scrollbar */
+.slim-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.slim-scrollbar::-webkit-scrollbar-track {
+    background: transparent; /* Track background */
+}
+
+.slim-scrollbar::-webkit-scrollbar-thumb {
+    background: #9CA3AF; /* Thumb color */
+    border-radius: 4px; /* Thumb border radius */
+    transition: background 0.2s ease; /* Smooth transition for background color */
+}
+
+.slim-scrollbar::-webkit-scrollbar-thumb:hover {
+    cursor: pointer; /* Changes cursor to pointer on hover over the thumb */
+    background: #6B7280; /* Thumb color on hover */
+}
+
 .fa-heart,
 .fa-trash-can,
 .fa-pen-to-square,

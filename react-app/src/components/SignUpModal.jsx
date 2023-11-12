@@ -107,8 +107,8 @@ export default function SignUpModal() {
               ))
             )}
           </ul>
-          <div className="grid grid-cols-2 gap-4">
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+          <div className="grid grid-cols-2 gap-4 ">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               Name
             </label>
             <input
@@ -116,9 +116,9 @@ export default function SignUpModal() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               Email
             </label>
             <input
@@ -126,9 +126,9 @@ export default function SignUpModal() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               Username
             </label>
             <input
@@ -136,9 +136,9 @@ export default function SignUpModal() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               Address
             </label>
             <input
@@ -146,9 +146,9 @@ export default function SignUpModal() {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               City
             </label>
             <input
@@ -156,9 +156,9 @@ export default function SignUpModal() {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               State
             </label>
             <input
@@ -166,9 +166,9 @@ export default function SignUpModal() {
               value={state}
               onChange={(e) => setState(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               Country
             </label>
             <input
@@ -176,9 +176,9 @@ export default function SignUpModal() {
               value={country}
               onChange={(e) => setCountry(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               Favorite Genres
             </label>
             <input
@@ -186,9 +186,9 @@ export default function SignUpModal() {
               value={genre}
               onChange={(e) => setGenre(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               Profile Pic
             </label>
             <input
@@ -198,7 +198,7 @@ export default function SignUpModal() {
               onChange={(e) => setImage(e.target.files[0])}
             />
 
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               Password
             </label>
             <input
@@ -206,9 +206,9 @@ export default function SignUpModal() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
-            <label className=" text-cyan-700 thasadith font-bold text-xl">
+            <label className=" text-cyan-500 thasadith font-bold text-xl">
               Confirm Password
             </label>
             <input
@@ -216,7 +216,7 @@ export default function SignUpModal() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              className=" rounded-lg border-solid border-cyan-500 transition ease-in-out duration-200 bg-slate-100 p-2"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
           </div>
           <button

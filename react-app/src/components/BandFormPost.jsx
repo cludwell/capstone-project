@@ -1,9 +1,8 @@
 import { useHistory } from "react-router-dom";
-import "./BandFormPOST.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { startBand } from "../../store/bands";
-import IconExclamation from "../IconExclamation";
+import { startBand } from "../store/bands";
+import IconExclamation from "./IconExclamation";
 
 export default function BandFormPOST() {
   const dispatch = useDispatch();
@@ -90,233 +89,272 @@ export default function BandFormPOST() {
   };
 
   return (
-    <div className="post-band-form-page">
-      <h3 className="post-band-title">your new band</h3>
+    <div className="flex flex-col  mx-4 items-center fade-in">
+      <div className="max-w-screen-lg my-8">
+        <h3 className="text-cyan-500 text-center font-bold thasadith text-2xl mb-8">
+          Start a New Band
+        </h3>
+        <form className=" grid grid-cols-2 gap-2">
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Name
+          </label>
 
-      <div className="post-band-form-container">
-        <form className="post-band-form" onSubmit={handleSubmit}>
-          <label className="post-band-label">name</label>
-
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="text"
-              className="post-band-text-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 w-full"
               value={name}
               onChange={(e) => setName(e.target.value)}
             ></input>
-            {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.name}</p>
+            {hasSubmitted && errors.name ? (
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.name}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">city</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            City
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="text"
-              className="post-band-text-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 w-full"
               value={city}
               onChange={(e) => setCity(e.target.value)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.city}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.city}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">state</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            State
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="text"
-              className="post-band-text-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 w-full"
               value={state}
               onChange={(e) => setState(e.target.value)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.state}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.state}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">country</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            country
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="text"
-              className="post-band-text-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 w-full"
               value={country}
               onChange={(e) => setCountry(e.target.value)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.country}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.country}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">band photo</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Band Photo
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="file"
-              className="post-band-text-input"
+              className=""
               accept="image/*"
               name="banner_url"
               onChange={(e) => setBannerUrl(e.target.files)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.bannerUrl}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.bannerUrl}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">banner or logo</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Banner or Logo
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="file"
-              className="post-band-text-input"
+              className=""
               accept="image/*"
               name="artist_image"
               onChange={(e) => setArtistImage(e.target.files)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.artistImage}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.artistImage}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">background image</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Background Image
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="file"
-              className="post-band-text-input"
+              className=""
               accept="image/*"
               name="background_image"
               onChange={(e) => setBackgroundImage(e.target.files)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.backgroundImage}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.backgroundImage}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">tile background image</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Tile Background Image
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="checkbox"
-              className="post-band-text-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 h-8 w-8"
               value={tiled}
               name="background_image"
               onChange={(e) => setTiled(e.target.value)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.tiled}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.tiled}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">background color</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Background Color
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="color"
-              className="post-band-text-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 "
               value={backgroundColor}
               onChange={(e) => setBackgroundColor(e.target.value)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.backgroundColor}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.backgroundColor}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">secondary background color</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Secondary Background Color
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="color"
-              className="post-band-text-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 "
               value={backgroundColorSecondary}
               onChange={(e) => setBackgroundColorSecondary(e.target.value)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.backgroundColorSecondary}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.backgroundColorSecondary}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">text color</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Text Color
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="color"
-              className="post-band-text-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 "
               value={textColor}
               onChange={(e) => setTextColor(e.target.value)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.textColor}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.textColor}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">description</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Description
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <textarea
-              className="post-band-input textarea"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 h-40 scroll slim-scrollbar w-full"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.description}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.description}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-band-label">genre</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Genre
+          </label>
 
-          <div className="band-post-input-col">
+          <div className=" ">
             <input
               type="text"
               className="post-band-text-input"
@@ -324,17 +362,17 @@ export default function BandFormPOST() {
               onChange={(e) => setGenres(e.target.value)}
             ></input>
             {hasSubmitted && Object.values(errors).length ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.genres}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.genres}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
-
           <div></div>
           <button
-            className="post-band-submit"
+            className="bg-green-500 text-white font-bold uppercase p-3 rounded-lg transition duration-200  active:bg-green-800 active:scale-90 montserrat mt-8 w-40"
             type="submit"
             onClick={handleSubmit}
           >
