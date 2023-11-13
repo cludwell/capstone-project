@@ -59,11 +59,7 @@
     animation: fadeIn 0.5s forwards;
   }
 
-.modal-rep{
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-}
+
 .wished-for-list {
     color: red;
     cursor: pointer;

@@ -3,7 +3,7 @@ export default function Modal({ open, setOpen, children }) {
     <div
       onClick={() => setOpen(false)}
       className={`
-        fixed inset-0 flex justify-center items-center transition-colors z-30 drop-shadow-xl duration-300
+        fixed inset-0 flex justify-center items-center transition-colors z-30 duration-300
         ${open ? "visible bg-black/40" : "invisible"}
     `}
     >

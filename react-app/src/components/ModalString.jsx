@@ -6,7 +6,7 @@ export default function ModalString({ openId, setOpenId, children, string }) {
         className={`
         !fixed !inset-0 !w-full !h-full flex justify-center transition-colors z-30 drop-shadow-xl duration-200
           ${
-            openId === string.slice(0, 20) ? "visible bg-white/40" : "invisible"
+            openId === string.slice(0, 20) ? "visible bg-black/40" : "invisible"
           }
       `}
       >

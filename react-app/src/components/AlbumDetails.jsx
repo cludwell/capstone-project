@@ -23,7 +23,9 @@ import LyricsModal from "./LyricsModal.jsx";
 import DeleteSongModal from "./DeleteSongModal.jsx";
 import SongPostModal from "./SongPostModal.jsx";
 import SongPutModal from "./SongPutModal.jsx";
-
+import SongFormPut from "./SongFormPut.jsx";
+import OpenModalButton from "./OpenModalButton/index.js";
+import IconEdit from "./IconEdit.jsx";
 export default function AlbumDetails() {
   const dispatch = useDispatch();
   const { albumId } = useParams();
@@ -212,7 +214,19 @@ export default function AlbumDetails() {
                         {user && album.Band.userId === user.id ? (
                           <>
                             <td key={`edit${i}`} className="">
-                              <SongPutModal string={`editsong${s.id}`} albumId={album.id} song={s}/>
+                              {/* <SongPutModal string={`editsong${s.id}`} albumId={album.id} song={s}/> */}
+                              <OpenModalButton
+                                key={`modaleditsong${i}`}
+                                buttonText={
+                                  <button className="bg-emerald-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-emerald-800 transition duration-200 ease-in-out text-sm text-white">
+                                    <IconEdit />
+                                  </button>
+                                }
+                                onItemClick={closeMenu}
+                                modalComponent={
+                                  <SongFormPut albumId={album.id} song={s} />
+                                }
+                              />
                             </td>
                             <td key={`del${i}`} className="">
                               <DeleteSongModal string={s.name} song={s.id} />
