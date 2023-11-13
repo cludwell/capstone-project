@@ -14,7 +14,7 @@ export default function UserDetails() {
   const [showBody, setShowBody] = useState(false);
   const history = useHistory();
   const ulRef = useRef();
-
+  const [loaded, setLoaded] = useState(false)
   useEffect(() => {
     if (!showBody) return;
     const closeBody = (e) => {
@@ -30,6 +30,7 @@ export default function UserDetails() {
       await dispatch(fetchUsers());
       await dispatch(fetchAllBands());
       await dispatch(authenticate());
+      return setLoaded(true)
     };
     loadData();
   }, [dispatch, userId]);
@@ -38,7 +39,7 @@ export default function UserDetails() {
   const user = users[userId];
   const loggedIn = useSelector((state) => state.session.user);
   const bands = useSelector((state) => state.bands.allBands);
-  if (!user || !Object.values(user).length) return null;
+  if (!loaded) return null;
 
   const startBand = (e) => {
     history.push("/bands/new");

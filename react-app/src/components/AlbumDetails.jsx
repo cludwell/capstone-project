@@ -20,14 +20,15 @@ import {
 import ReactPlayer from "react-player";
 import AudioPlayer from "./AudioPlayer.jsx";
 import LyricsModal from "./LyricsModal.jsx";
-import DeleteSongModal from "./DeleteSongModal.jsx";
 import SongDeleteModal from "./SongDeleteModal.jsx";
 import SongPostModal from "./SongPostModal.jsx";
-import SongPutModal from "./SongPutModal.jsx";
 import SongFormPut from "./SongFormPut.jsx";
 import OpenModalButton from "./OpenModalButton/index.js";
 import IconEdit from "./IconEdit.jsx";
 import IconTrash from "./IconTrash.jsx";
+
+
+
 export default function AlbumDetails() {
   const dispatch = useDispatch();
   const { albumId } = useParams();
@@ -35,6 +36,7 @@ export default function AlbumDetails() {
   // const [ duration, setDuration ] = useState(0)
   //modal components
   const [showMenu, setShowMenu] = useState(false);
+  const [loaded, setLoaded] = useState(false)
   const ulRef = useRef();
   useEffect(() => {
     if (!showMenu) return;
@@ -56,6 +58,7 @@ export default function AlbumDetails() {
       await dispatch(fetchUsers());
       await dispatch(fetchWishLists());
       await dispatch(fetchUserCart());
+      return setLoaded(true)
     };
     loadData();
   }, [dispatch, albumId]);
@@ -69,11 +72,7 @@ export default function AlbumDetails() {
   const purchases = useSelector((state) => state.purchases.user);
 
   if (
-    !album ||
-    !Object.values(album).length ||
-    !albums ||
-    !Object.values(albums).length ||
-    !users
+    !loaded
   )
     return null;
 

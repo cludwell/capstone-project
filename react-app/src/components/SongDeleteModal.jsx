@@ -14,7 +14,7 @@ export default function SongDeleteModal({ song, album}) {
     return (
         <div className="w-96">
           <h2 className=" montserrat text-black">
-            Are you sure you want to delete this song, {song.id}: {song.name}?
+            Are you sure you want to delete this song, {song.trackNum}: {song.name}?
           </h2>
           <div className="flex flex-col">
             <button

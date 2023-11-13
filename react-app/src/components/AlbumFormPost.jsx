@@ -67,129 +67,148 @@ export default function AlbumFormPost() {
   if (!user || !band || user.id !== band.userId) return null;
 
   return (
-    <div className="album-post-form-container">
-      <h1 className="album-post-title">your new album</h1>
-      <div className="album-post-wrapper">
-        <form className="album-post-form" onSubmit={handleSubmit}>
-          <label className="post-album-label">name</label>
+    <div className="flex flex-col  mx-4 my-16 items-center min-h-screen fade-in">
+      <h1 className="text-cyan-500 text-center font-bold thasadith text-2xl mb-8">
+        Your New Album
+      </h1>
+      <div className="flex flex-col justify-center">
+        <form className="grid grid-cols-2 gap-2" onSubmit={handleSubmit}>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Name
+          </label>
 
           <div className="post-album-input-col">
             <input
-              className="post-album-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 w-full"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
             ></input>
             {hasSubmitted && errors.name ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.name}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.name}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-album-label">description</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Description
+          </label>
 
           <div className="post-album-input-col">
             <textarea
-              className="post-album-input textarea"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 w-full"
               type="textarea"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
             {hasSubmitted && errors.description ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.description}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.description}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-album-label">price</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Price
+          </label>
 
           <div className="post-album-input-col">
             <input
-              className="post-album-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 w-full"
               type="number"
               min={0}
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             ></input>
             {hasSubmitted && errors.price ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.price}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.price}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-album-label">album image</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Album Image
+          </label>
 
           <div className="post-album-input-col">
             <input
-              className="post-album-input"
+              className=" "
               type="file"
               name="album_image"
               accept="image/*"
               onChange={(e) => setAlbumImage(e.target.files)}
             ></input>
             {hasSubmitted && errors.albumImage ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.albumImage}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.albumImage}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-album-label">genre</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Genre
+          </label>
 
           <div className="post-album-input-col">
             <input
-              className="post-album-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 w-full"
               type="text"
               value={genre}
               onChange={(e) => setGenre(e.target.value)}
             ></input>
             {hasSubmitted && errors.genre ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.genre}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.genre}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <label className="post-album-label">youtube</label>
+          <label className=" text-cyan-500 thasadith font-bold text-xl">
+            Youtube
+          </label>
 
           <div className="post-album-input-col">
             <input
-              className="post-album-input"
+              className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2 w-full"
               type="text"
               value={youtube}
               onChange={(e) => setYoutube(e.target.value)}
             ></input>
             {hasSubmitted && errors.youtube ? (
-              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
-              >
-                <IconExclamation />{errors.youtube}</p>
+              <p className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3">
+                <IconExclamation />
+                {errors.youtube}
+              </p>
             ) : (
               <p></p>
             )}
           </div>
 
-          <div></div>
+        </form>
           <button
             type="submit"
-            className="post-album-submit"
+            className="bg-teal-500 p-3 uppercase montserrat rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-lg text-white font-bold w-fit px-12 self-center my-12"
             onClick={handleSubmit}
           >
             Submit Album
           </button>
-        </form>
       </div>
     </div>
   );
