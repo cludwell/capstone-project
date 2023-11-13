@@ -27,8 +27,6 @@ import OpenModalButton from "./OpenModalButton/index.js";
 import IconEdit from "./IconEdit.jsx";
 import IconTrash from "./IconTrash.jsx";
 
-
-
 export default function AlbumDetails() {
   const dispatch = useDispatch();
   const { albumId } = useParams();
@@ -36,7 +34,7 @@ export default function AlbumDetails() {
   // const [ duration, setDuration ] = useState(0)
   //modal components
   const [showMenu, setShowMenu] = useState(false);
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(false);
   const ulRef = useRef();
   useEffect(() => {
     if (!showMenu) return;
@@ -58,23 +56,20 @@ export default function AlbumDetails() {
       await dispatch(fetchUsers());
       await dispatch(fetchWishLists());
       await dispatch(fetchUserCart());
-      return setLoaded(true)
+      return setLoaded(true);
     };
     loadData();
   }, [dispatch, albumId]);
 
   const album = useSelector((state) => state.albums.singleAlbum);
   const albums = useSelector((state) => state.albums.allAlbums);
-  const users = useSelector((state) => state.users);
+  // const users = useSelector((state) => state.users);
   const user = useSelector((state) => state.session.user);
   const wishes = useSelector((state) => state.wishes.userWishes);
   const cart = useSelector((state) => state.cart.userCart);
   const purchases = useSelector((state) => state.purchases.user);
 
-  if (
-    !loaded
-  )
-    return null;
+  if (!loaded) return null;
 
   const editAlbum = (e) => {
     history.push(`/albums/${album.id}/edit`);
@@ -383,8 +378,15 @@ export default function AlbumDetails() {
                 >
                   Delete Album
                 </button>
-
-                <SongPostModal albumId={album.id} />
+                <OpenModalButton
+                  buttonText={
+                    <button className="bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm">
+                     post song
+                    </button>
+                  }
+                  onItemClick={closeMenu}
+                  modalComponent={<SongPostModal albumId={album.id} />}
+                />
               </div>
             )}
 

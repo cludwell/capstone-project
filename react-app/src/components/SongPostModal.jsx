@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import ModalString from "./ModalString";
 import { useDispatch } from "react-redux";
 import { postSongRequest } from "../store/songs";
 import { fetchSingleAlbum } from "../store/albums";
 import IconExclamation from "./IconExclamation";
+import { useModal } from "../context/Modal";
 
 export default function SongPostModal({ albumId }) {
   const dispatch = useDispatch();
@@ -14,8 +14,7 @@ export default function SongPostModal({ albumId }) {
   const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [openId, setOpenId] = useState("");
-
+  const {closeModal} = useModal();
   useEffect(() => {
     const err = {};
     if (!name || name.length > 40)
@@ -42,18 +41,11 @@ export default function SongPostModal({ albumId }) {
       };
       await dispatch(postSongRequest(newSong, albumId));
       await dispatch(fetchSingleAlbum(albumId));
-      setOpenId("");
+      closeModal();
     }
   };
   return (
     <>
-      <button
-        className="bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm"
-        onClick={() => setOpenId("song-post")}
-      >
-        Post Song
-      </button>
-      <ModalString openId={openId} setOpenId={setOpenId} string={`song-post`}>
         <div className=" text-black">
           <h3 className="thasadith text-2xl text-cyan-500 font-bold text-center mb-8">
             Add a Song to Album
@@ -178,7 +170,6 @@ export default function SongPostModal({ albumId }) {
             </button>
           </form>
         </div>
-      </ModalString>
     </>
   );
 }
