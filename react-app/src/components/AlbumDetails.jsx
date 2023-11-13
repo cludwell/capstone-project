@@ -21,11 +21,13 @@ import ReactPlayer from "react-player";
 import AudioPlayer from "./AudioPlayer.jsx";
 import LyricsModal from "./LyricsModal.jsx";
 import DeleteSongModal from "./DeleteSongModal.jsx";
+import SongDeleteModal from "./SongDeleteModal.jsx";
 import SongPostModal from "./SongPostModal.jsx";
 import SongPutModal from "./SongPutModal.jsx";
 import SongFormPut from "./SongFormPut.jsx";
 import OpenModalButton from "./OpenModalButton/index.js";
 import IconEdit from "./IconEdit.jsx";
+import IconTrash from "./IconTrash.jsx";
 export default function AlbumDetails() {
   const dispatch = useDispatch();
   const { albumId } = useParams();
@@ -209,7 +211,18 @@ export default function AlbumDetails() {
                           {s.name}
                         </td>
                         <td key={`td4${i}`} className="">
-                          {s.lyrics ? <LyricsModal lyrics={s.lyrics} /> : null}
+                          {s.lyrics ? (
+                            <OpenModalButton
+                              key={`modallyric${i}`}
+                              buttonText={
+                                <button className="bg-emerald-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-emerald-800 transition duration-200 ease-in-out text-sm text-white">
+                                  Lyrics
+                                </button>
+                              }
+                              onItemClick={closeMenu}
+                              modalComponent={<LyricsModal lyrics={s.lyrics} />}
+                            />
+                          ) : null}
                         </td>
                         {user && album.Band.userId === user.id ? (
                           <>
@@ -229,7 +242,19 @@ export default function AlbumDetails() {
                               />
                             </td>
                             <td key={`del${i}`} className="">
-                              <DeleteSongModal string={s.name} song={s.id} />
+                              {/* <DeleteSongModal string={s.name} song={s.id} /> */}
+                              <OpenModalButton
+                                key={`modaldeletesong${i}`}
+                                buttonText={
+                                  <button className="bg-emerald-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-emerald-800 transition duration-200 ease-in-out text-sm text-white">
+                                    <IconTrash color={"white"} />
+                                  </button>
+                                }
+                                onItemClick={closeMenu}
+                                modalComponent={
+                                  <SongDeleteModal album={album} song={s} />
+                                }
+                              />
                             </td>
                           </>
                         ) : null}
