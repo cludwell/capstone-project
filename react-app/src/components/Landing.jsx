@@ -45,7 +45,7 @@ export default function Landing() {
         </div>
       ) : null}
       <div className="justify-center mt-4 mx-2">
-        <div className="flex flex-col sm:flex-row justify-center mx-auto drop-shadow-lg">
+        <div className="flex flex-col sm:flex-row justify-center mx-auto drop-shadow-lg fade-in">
           <div className="relative w-full max-w-2xl">
             <h1 className="absolute text-white font-bold italic w-fit left-6 bottom-3 text-2xl text-shadow z-10">
               Introducing Juanita y los Feos
@@ -101,11 +101,11 @@ export default function Landing() {
           </div>
         </div>
 
-        <h3 className=" text-center my-8 md:my-12 lg:my-16 sm:text-lg lg:text-xl">
+        <h3 className=" text-center my-8 md:my-12 lg:my-16 sm:text-lg lg:text-xl fade-in">
           ✨Fans have paid artists billions using fancamp, and $190 billion in
           the last year✨
         </h3>
-        <div className="flex flex-col items-center relative mx-auto max-w-screen-xl">
+        <div className="flex flex-col items-center relative mx-auto max-w-screen-xl fade-in">
           <div>
             <h5 className=" mb-8 sm:text-lg lg:text-xl text-cyan-500 left-2">
               UPCOMING FANCAMP LIVE STREAMS

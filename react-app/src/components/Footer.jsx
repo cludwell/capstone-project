@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <div
-      className="flex flex-row flex-wrap w-full min-h-96 bg-slate-600  justify-center pb-16"
+      className="flex flex-row flex-wrap w-full min-h-96 bg-slate-600  justify-center pb-16 fade-in"
       style={{
         backgroundColor: album?.Band?.backgroundColorSecondary
           ? rgbaParser(album.Band.backgroundColorSecondary)

@@ -7,13 +7,11 @@ import {
 } from "../store/albums.js";
 import { useHistory, useParams } from "react-router-dom";
 import { fetchUserPurchases } from "../store/purchases.js";
-import OpenModalButton from "./OpenModalButton/index.js";
 import { NavLink } from "react-router-dom";
 import { fetchUsers } from "../store/users.js";
 import WishListFormPost from "./WishListFormPost/index.js";
 import { deleteWishRequest, fetchWishLists } from "../store/wishlists.js";
 import { fetchBandInfo } from "../store/bands.js";
-import SongFormPut from "./SongFormPut/index.js";
 import {
   deleteCartRequest,
   fetchUserCart,
@@ -24,6 +22,7 @@ import AudioPlayer from "./AudioPlayer.jsx";
 import LyricsModal from "./LyricsModal.jsx";
 import DeleteSongModal from "./DeleteSongModal.jsx";
 import SongPostModal from "./SongPostModal.jsx";
+import SongPutModal from "./SongPutModal.jsx";
 
 export default function AlbumDetails() {
   const dispatch = useDispatch();
@@ -162,7 +161,7 @@ export default function AlbumDetails() {
       ) : null}
 
       <div
-        className=" self-center p-8 flex flex-row flexwrap max-w-screen-lg rounded-xl fade-in my-4"
+        className=" self-center p-8 flex flex-row flexwrap rounded-xl fade-in my-4 "
         style={{
           backgroundColor: album.Band.backgroundColorSecondary
             ? rgbaParser(album.Band.backgroundColorSecondary)
@@ -170,7 +169,7 @@ export default function AlbumDetails() {
           color: album.Band.textColor ? album.Band.textColor : null,
         }}
       >
-        <div className="w-80">
+        <div className="">
           <h2 className="">{album.name}</h2>
           <p className="">by {album.Band.name}</p>
           <div className="">
@@ -207,24 +206,15 @@ export default function AlbumDetails() {
                         <td key={`td3${i}`} className=" text-sm">
                           {s.name}
                         </td>
-                        <td key={`td4${i}`}>
+                        <td key={`td4${i}`} className="">
                           {s.lyrics ? <LyricsModal lyrics={s.lyrics} /> : null}
                         </td>
                         {user && album.Band.userId === user.id ? (
                           <>
-                            <td key={`edit${i}`} className="px-2">
-                              <OpenModalButton
-                                key={`modaleditsong${i}`}
-                                buttonText={
-                                  <i className="fa-solid fa-pen-to-square"></i>
-                                }
-                                onItemClick={closeMenu}
-                                modalComponent={
-                                  <SongFormPut albumId={album.id} song={s} />
-                                }
-                              />
+                            <td key={`edit${i}`} className="">
+                              <SongPutModal string={`editsong${s.id}`} albumId={album.id} song={s}/>
                             </td>
-                            <td key={`del${i}`} className="px-2">
+                            <td key={`del${i}`} className="">
                               <DeleteSongModal string={s.name} song={s.id} />
                             </td>
                           </>
@@ -234,13 +224,13 @@ export default function AlbumDetails() {
                   )
                 : null}
             </table>
-            <p className=" my-8">
+            <p className=" my-8 w-80">
               Includes unlimited streaming via the free fancamp app, plus
               high-quality download in MP3, FLAC and more.
             </p>
           </div>
 
-          <p className=" break-words">{album.description}</p>
+          <p className=" break-words w-80">{album.description}</p>
         </div>
 
         <div className="max-w-sm mx-4">

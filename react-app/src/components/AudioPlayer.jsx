@@ -46,12 +46,16 @@ export default function AudioPlayer({ song }) {
     setTime(progressBar.current.value);
   };
   const whilePlaying = () => {
-    progressBar.current.value = audioPlayer.current.currentTime;
+    progressBar.current.value = audioPlayer.current.currentTime
+      ? audioPlayer.current.currentTime
+      : 0;
     changePlayerTime();
     animationRef.current = requestAnimationFrame(whilePlaying);
   };
   const changeRange = () => {
-    audioPlayer.current.currentTime = progressBar.current.value;
+    audioPlayer.current.currentTime = progressBar.current.value
+      ? progressBar.current.value
+      : 0;
     changePlayerTime();
   };
 

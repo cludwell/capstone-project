@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { putSongRequest } from "../../store/songs";
 import { fetchSingleAlbum } from "../../store/albums";
-import { useModal } from "../../context/Modal";
 import IconExclamation from "../IconExclamation";
+import { useModal } from "../../context/Modal";
 
 export default function SongFormPut({ albumId, song }) {
   const dispatch = useDispatch();
@@ -13,8 +13,8 @@ export default function SongFormPut({ albumId, song }) {
   const [trackNum, setTrackNum] = useState(0);
   const [url, setUrl] = useState("");
   const [errors, setErrors] = useState({});
-  const { closeModal } = useModal();
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const { closeModal } = useModal();
 
   useEffect(() => {
     const err = {};

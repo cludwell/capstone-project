@@ -11,7 +11,7 @@ export default function LyricsModal({ lyrics }) {
       </button>
       <ModalString openId={openId} setOpenId={setOpenId} string={lyrics}>
         <div className=" overflow-y-scroll">
-        <pre className="text-black marcellus w-fit max-h-[80vh] break-all ">{lyrics}</pre>
+        <pre className="text-black marcellus w-fit max-h-[70vh] break-all ">{lyrics}</pre>
 
         </div>
       </ModalString>
