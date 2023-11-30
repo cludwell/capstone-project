@@ -11,6 +11,7 @@ import IconLightning from "./IconLightning";
 import IconHeart from "./IconHeart";
 import ProfileButton from "./ProfileButton";
 import CartModal from "./CartModal";
+import ThemeToggleButton from "../context/Theme";
 
 export default function Header({ isLoaded }) {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ export default function Header({ isLoaded }) {
 
   return (
     <div
-      className="flex flex-row justify-center items-center border-b border-gray-400 left-0 h-14 "
+      className="flex flex-row justify-center items-center border-b border-gray-400 left-0 h-14 dark:bg-slate-900"
       style={{
         backgroundColor:
           album && album?.Band && album?.Band?.backgroundColorSecondary
@@ -104,24 +105,12 @@ export default function Header({ isLoaded }) {
             </NavLink>
           </div>
           <div className="user-collection transition duration-200 ease-in-out flex flex-col justify-center content-center">
-            {user && user.id ? (
+            {user && user.id && (
               <NavLink to={`/users/${user.id}`}>
                 <IconHeart album={album} band={band} />
               </NavLink>
-            ) : (
-              <IconHeart
-                style={{
-                  color:
-                    album && album.Band && album.Band.textColor
-                      ? album.Band.textColor
-                      : band && band.textColor
-                      ? band.textColor
-                      : null,
-                }}
-              />
             )}
           </div>
-
           <ProfileButton />
         </div>
       </div>

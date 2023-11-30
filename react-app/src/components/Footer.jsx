@@ -80,7 +80,7 @@ export default function Footer() {
             <img
               src="https://i.imgur.com/KTjeA0w.png"
               alt="githubicon"
-              className="object-cover w-10 contrast-200 drop-shadow-xl"
+              className={`object-cover w-10 drop-shadow-xl `}
             />
           </Link>
           <Link

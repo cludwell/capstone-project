@@ -28,7 +28,7 @@ export function ModalProvider({ children }) {
     setOnModalClose, // function to set the callback function called when modal is closing
     closeModal, // function to close the modal
     open,
-    setOpen,
+    setOpen
   };
 
   return (
@@ -42,7 +42,7 @@ export function ModalProvider({ children }) {
 }
 
 export function Modal() {
-  const { modalRef, modalContent, closeModal, open, setOpen } =
+  const { modalRef, modalContent, closeModal, open } =
     useContext(ModalContext);
 
   // If there is no div referenced by the modalRef or modalContent is not a

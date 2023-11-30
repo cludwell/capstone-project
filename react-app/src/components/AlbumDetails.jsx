@@ -26,7 +26,7 @@ import SongFormPut from "./SongFormPut.jsx";
 import OpenModalButton from "./OpenModalButton/index.js";
 import IconEdit from "./IconEdit.jsx";
 import IconTrash from "./IconTrash.jsx";
-
+import { Link } from "react-router-dom/cjs/react-router-dom.min.js";
 export default function AlbumDetails() {
   const dispatch = useDispatch();
   const { albumId } = useParams();
@@ -402,14 +402,15 @@ export default function AlbumDetails() {
           </p>
 
           <p>
-            <a
+            <Link
               className=" text-indigo-500 visited:text-indigo-700 hover:underline montserrat"
               href={`https://www.youtube.com/results?search_query=${album.Band.name
                 .split(" ")
                 .join("+")}`}
+                target="_blank"
             >
               YouTube
-            </a>
+            </Link>
           </p>
 
           <h4>

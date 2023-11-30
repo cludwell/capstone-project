@@ -88,9 +88,9 @@ export default function AudioPlayer({ song }) {
           value={time}
           onChange={changeRange}
         ></input>
-        <span>
+        <p className="text-center">
           {calculateTime(time)} / {calculateTime(duration)}
-        </span>
+        </p>
         <audio src={song.url} ref={audioPlayer}>
           {" "}
         </audio>
