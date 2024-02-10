@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { fetchBandInfo } from "../store/bands";
 import { createAlbumRequest } from "../store/albums";
-import IconExclamation from "./IconExclamation";
+import IconExclamation from "./Icons/IconExclamation";
 export default function AlbumFormPost() {
   const { bandId } = useParams();
   const dispatch = useDispatch();

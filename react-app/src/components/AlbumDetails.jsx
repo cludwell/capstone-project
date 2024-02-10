@@ -24,8 +24,8 @@ import SongDeleteModal from "./SongDeleteModal.jsx";
 import SongPostModal from "./SongPostModal.jsx";
 import SongFormPut from "./SongFormPut.jsx";
 import OpenModalButton from "./OpenModalButton/index.js";
-import IconEdit from "./IconEdit.jsx";
-import IconTrash from "./IconTrash.jsx";
+import IconEdit from "./Icons/IconEdit.jsx";
+import IconTrash from "./Icons/IconTrash.jsx";
 import { Link } from "react-router-dom/cjs/react-router-dom.min.js";
 export default function AlbumDetails() {
   const dispatch = useDispatch();

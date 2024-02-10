@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import { useDispatch } from "react-redux";
 import { fetchUserCart } from "../store/carts";
 import { login } from "../store/session";
-import IconExclamation from "./IconExclamation";
+import IconExclamation from "./Icons/IconExclamation";
 
 export default function LoginModal() {
   const [open, setOpen] = useState(false);

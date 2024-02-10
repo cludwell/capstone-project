@@ -1,5 +1,5 @@
-import IconCalendar from "./IconCalendar";
-import IconClock from "./IconClock";
+import IconCalendar from "./Icons/IconCalendar";
+import IconClock from "./Icons/IconClock";
 import { NavLink } from "react-router-dom";
 
 export default function UpcomingLiveStream({ album, ele }) {

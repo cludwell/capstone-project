@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { postSongRequest } from "../store/songs";
 import { fetchSingleAlbum } from "../store/albums";
-import IconExclamation from "./IconExclamation";
+import IconExclamation from "./Icons/IconExclamation";
 import { useModal } from "../context/Modal";
 
 export default function SongPostModal({ albumId }) {

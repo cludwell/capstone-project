@@ -3,7 +3,7 @@ import { clearAlbumState } from "../store/albums";
 import { clearBandState } from "../store/bands";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import PortfolioIcon from "./IconPortfolio";
+import PortfolioIcon from "./Icons/IconPortfolio";
 export default function AboutPage() {
   const dispatch = useDispatch();
   useEffect(() => {

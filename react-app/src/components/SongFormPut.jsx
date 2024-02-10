@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { putSongRequest } from "../store/songs";
 import { fetchSingleAlbum } from "../store/albums";
 import { useModal } from "../context/Modal";
-import IconExclamation from "./IconExclamation";
+import IconExclamation from "./Icons/IconExclamation";
 
 export default function SongFormPut({ albumId, song }) {
   const dispatch = useDispatch();

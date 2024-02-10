@@ -7,9 +7,9 @@ import {
 } from "../store/carts";
 import { fetchWishLists, deleteWishRequest } from "../store/wishlists";
 import { postPurchaseRequest } from "../store/purchases";
-import IconCart from "./IconCart";
+import IconCart from "./Icons/IconCart";
 import Modal from "./Modal";
-import IconTrash from "./IconTrash";
+import IconTrash from "./Icons/IconTrash";
 
 export default function CartModal({ user, album, band }) {
   const dispatch = useDispatch();

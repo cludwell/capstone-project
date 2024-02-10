@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { startBand } from "../store/bands";
-import IconExclamation from "./IconExclamation";
+import IconExclamation from "./Icons/IconExclamation";
 
 export default function BandFormPOST() {
   const dispatch = useDispatch();

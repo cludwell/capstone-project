@@ -4,8 +4,8 @@ import { logout } from "../store/session";
 import { NavLink } from "react-router-dom";
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
-import IconUser from "./IconUser";
-import IconInfo from "./IconInfo";
+import IconUser from "./Icons/IconUser";
+import IconInfo from "./Icons/IconInfo";
 
 function ProfileButton() {
   const dispatch = useDispatch();

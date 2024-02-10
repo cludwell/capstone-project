@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { editBandRequest, fetchBandInfo } from "../store/bands";
-import IconExclamation from "./IconExclamation";
+import IconExclamation from "./Icons/IconExclamation";
 export default function BandFormPut() {
   const { bandId } = useParams();
   const bandState = useSelector((state) => state.bands.singleBand);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "./Modal";
-import IconExclamation from "./IconExclamation";
+import IconExclamation from "./Icons/IconExclamation";
 import { signUp } from "../store/session";
 import { fetchUserCart } from "../store/carts";
 import { useDispatch } from "react-redux";

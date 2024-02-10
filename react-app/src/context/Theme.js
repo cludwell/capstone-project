@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import IconSun from "../components/IconSun";
+import IconSun from "../components/Icons/IconSun";
 
 export const useDarkMode = () => {
   useEffect(() => {
