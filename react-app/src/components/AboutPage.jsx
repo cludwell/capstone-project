@@ -27,11 +27,11 @@ export default function AboutPage() {
               alt=""
               className="w-96 drop-shadow-xl py-auto"
             />
-            <p className="my-3 text-xs md:text-base">
+            <p className="my-3 text-sm md:text-base">
               Hi! I'm Chris! I'm a Full Stack Software Engineer with a Bachelors
               in Geography and International Development.
             </p>
-            <p className="my-3 text-xs md:text-base">
+            <p className="my-3 text-sm md:text-base">
               Before becoming a software engineer I was a Senior Installer doing
               residential solar installations. My role meant quality and safe
               installations, for clients and my team, all within the span of one
@@ -41,7 +41,7 @@ export default function AboutPage() {
               completion that comes from seeing a project in all aspects from
               start to finish.{" "}
             </p>
-            <p className="my-3 text-xs md:text-base">
+            <p className="my-3 text-sm md:text-base">
               I'm currently located in Portland, OR. But looking to relocate,
               given the right opportunity! I'm passionate about software that
               levels playing fields and changes the way we live our lives.
@@ -85,18 +85,18 @@ export default function AboutPage() {
           <img
             src="https://i.imgur.com/JVy6TbT.jpg"
             alt="selfie"
-            className="object-cover max-h-96 w-96 rounded-xl drop-shadow-lg ml-6 my-6"
+            className="object-cover max-h-96 w-96 rounded-xl drop-shadow-lg ml-6 my-6 hidden sm:block"
           />
         </section>
-        <section className="flex flex-row fade-in">
+        <section className="flex flex-col fade-in items-center lg:flex-row">
           <img
-            className="h-96 object-cover rounded-xl mr-6 my-6 max-w-sm"
+            className="object-cover rounded-xl md:mr-6 md:my-6 w-full max-w-2xl  aspect-video lg:aspect-square lg:w-96"
             src="https://i.imgur.com/YKuhXGy.png"
             alt="bandcamp-screen"
           />
           <div className="about-text">
             <h1 className=" font-serif text-2xl">Why Bandcamp</h1>
-            <p className="my-3 text-xs md:text-base">
+            <p className="my-3 text-sm md:text-base">
               I've been a huge fan of bandcamp's platform for a long time.
               They're one of the many platforms that has leveled the playing
               field between the major record companies and independent artists
@@ -109,7 +109,7 @@ export default function AboutPage() {
               records with you anywhere and never having to worry about them
               getting scratched or damaged in the heat.
             </p>
-            <p className="my-3 text-xs md:text-base">
+            <p className="my-3 text-sm md:text-base">
               In short, it's business model for enthusiasts that allows for more
               freedom for both artists and fans.
             </p>
