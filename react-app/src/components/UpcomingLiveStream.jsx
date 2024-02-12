@@ -4,16 +4,15 @@ import { NavLink } from "react-router-dom";
 
 export default function UpcomingLiveStream({ album, ele }) {
   return (
-    <NavLink to={`/bands/${album.bandId}`}
-    className=" h-fit w-40 sm:w-52 drop-shadow-lg">
+    <NavLink to={`/bands/${album.bandId}`} className=" drop-shadow-lg">
       <div className=" bg-slate-300 rounded-lg">
-        <div className="pb-2">
+        <div className="pb-2 w-56 ">
           <img
             src={`${album.Band.artistImage}`}
             alt="livestream-band"
-            className="w-40 sm:w-52 object-cover rounded-t-lg aspect-square"
+            className="w-56 aspect-square object-cover rounded-t-lg"
           ></img>
-          <div className=" mx-3 text-sm sm:text-base">
+          <div className=" mx-3 text-sm ">
             <div className="italic">{album.name.toUpperCase()}</div>
             <div className="font-bold">{album.Band.name}</div>
           </div>

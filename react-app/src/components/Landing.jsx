@@ -105,26 +105,28 @@ export default function Landing() {
           ✨Fans have paid artists billions using fancamp, and $190 billion in
           the last year✨
         </h3>
-        <div className="flex flex-col items-center relative mx-auto max-w-screen-xl fade-in">
+        <div className="flex flex-col items-center relative mx-auto max-w-screen-xl">
+
           <div>
             <h5 className=" mb-8 sm:text-lg lg:text-xl text-cyan-500 left-2">
               UPCOMING FANCAMP LIVE STREAMS
             </h5>
-            <div className="flex flex-row gap-3 p-6  ">
+            <div className="flex flex-row gap-3 p-6 overflow-x-scroll overscroll-contain snap-x snap-center overflow-clip max-w-[90vw] xl:max-w-[1100px]">
               {[
                 albums["14"],
                 albums["5"],
                 albums["7"],
                 albums["11"],
                 albums["15"],
-              ].map((album, i) =>
-                album ? (
-                  <UpcomingLiveStream
-                    ele={livestreamTimes[i]}
-                    album={album}
-                    key={`livestream${i}`}
-                  />
-                ) : null
+              ].map(
+                (album, i) =>
+                  album && (
+                    <UpcomingLiveStream
+                      ele={livestreamTimes[i]}
+                      album={album}
+                      key={`livestream${i}`}
+                    />
+                  )
               )}
             </div>
           </div>
@@ -135,7 +137,7 @@ export default function Landing() {
               NEW AND NOTABLE
             </h5>
 
-            <div className="flex flex-row gap-3 p-6 overflow-x-scroll overscroll-contain snap-x snap-center overflow-clip max-w-[90vw] lg:max-w-[1100px] ">
+            <div className="flex flex-row gap-3 p-6 overflow-x-scroll overscroll-contain snap-x snap-center overflow-clip max-w-[90vw] xl:max-w-[1100px] ">
               {Object.values(albums)
                 .reverse()
                 .map((album, i) => (
