@@ -106,7 +106,3 @@ td {
 .fa-bolt-lightning:hover {
   scale: 1.4;
 }
-
-h2 {
-  font-size: min(4vmin, 1.6rem);
-}

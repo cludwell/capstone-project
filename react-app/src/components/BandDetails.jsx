@@ -65,7 +65,7 @@ export default function BandDetails() {
       }
     >
       <div
-        className="flex flex-row  max-w-screen-lg w-full rounded-xl fade-in"
+        className="flex flex-row max-w-screen-lg w-full rounded-xl fade-in"
         style={{
           backgroundColor: band.backgroundColorSecondary
             ? rgbaParser(band.backgroundColorSecondary)

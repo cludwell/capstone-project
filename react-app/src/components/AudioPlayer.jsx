@@ -60,30 +60,23 @@ export default function AudioPlayer({ song }) {
   };
 
   return (
-    <div className="flex flex-row items-center">
+    <div className="flex flex-row items-center w-full ">
       <button
-        className={`rounded-md w-20 aspect-square my-2 mr-2 bg-gradient-to-b transition duration-200 ease-in-out text-2xl active:scale-90 text-shadow ${
+        className={`rounded-md py-6 px-8 w-fit aspect-square my-2 mr-2 bg-gradient-to-b transition duration-200 ease-in-out text-2xl active:scale-90 text-shadow ${
           !isPlaying
             ? "from-slate-300 to-slate-700"
             : "to-slate-300  from-slate-700"
         }`}
         onClick={togglePlayPause}
       >
-        {isPlaying ? (
-          <i className="fa-solid fa-pause" />
-        ) : (
-          <i className="fa-solid fa-play" />
-        )}
+        <i className={`fa-solid ${isPlaying ? "fa-pause" : "fa-play"}`} />
       </button>
-
-      <div>
-        <div>
+      <div className="">
           {song.trackNum}: {song.name}
-        </div>
         <input
           type="range"
           ref={progressBar}
-          className="progress-bar"
+          className="progress-bar w-full "
           defaultValue={0}
           value={time}
           onChange={changeRange}

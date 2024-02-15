@@ -200,15 +200,14 @@ export default function AlbumFormPost() {
               <p></p>
             )}
           </div>
-
         </form>
-          <button
-            type="submit"
-            className="bg-teal-500 p-3 uppercase montserrat rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-lg text-white font-bold w-fit px-12 self-center my-12"
-            onClick={handleSubmit}
-          >
-            Submit Album
-          </button>
+        <button
+          type="submit"
+          className="bg-teal-500 p-3 uppercase montserrat rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-lg text-white font-bold w-fit px-12 self-center my-12"
+          onClick={handleSubmit}
+        >
+          Submit Album
+        </button>
       </div>
     </div>
   );

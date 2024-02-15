@@ -27,6 +27,7 @@ import OpenModalButton from "./OpenModalButton/index.js";
 import IconEdit from "./Icons/IconEdit.jsx";
 import IconTrash from "./Icons/IconTrash.jsx";
 import { Link } from "react-router-dom/cjs/react-router-dom.min.js";
+
 export default function AlbumDetails() {
   const dispatch = useDispatch();
   const { albumId } = useParams();
@@ -63,7 +64,6 @@ export default function AlbumDetails() {
 
   const album = useSelector((state) => state.albums.singleAlbum);
   const albums = useSelector((state) => state.albums.allAlbums);
-  // const users = useSelector((state) => state.users);
   const user = useSelector((state) => state.session.user);
   const wishes = useSelector((state) => state.wishes.userWishes);
   const cart = useSelector((state) => state.cart.userCart);
@@ -117,6 +117,9 @@ export default function AlbumDetails() {
   const bandPage = (e) => {
     history.push(`/bands/${album.Band.id}`);
   };
+  const modalButtonStyling =
+    "bg-emerald-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-emerald-800 transition duration-200 ease-in-out text-sm text-white flex justify-center ";
+
   return (
     <div
       className="flex flex-col p-2 min-h-screen "
@@ -139,27 +142,28 @@ export default function AlbumDetails() {
           : null
       }
     >
-      {album.Band && album.Band.bannerUrl ? (
+      {album.Band && album.Band.bannerUrl && (
         <img
           src={`${album.Band.bannerUrl}`}
           onClick={bandPage}
-          alt="bandbannerimage"
-          className="self-center max-h-80 m-4 object-cover cursor-pointer fade-in max-w-screen-lg rounded-xl"
+          alt={`band logo banner ${album.Band.name}`}
+          className="self-center max-h-80 w-full m-[3vmin] object-cover cursor-pointer fade-in max-w-screen-lg rounded-xl"
         />
-      ) : null}
+      )}
 
-      {album.youtube ? (
-        <ReactPlayer
-          url={album.youtube}
-          style={{ alignSelf: "center" }}
-          width={"95vmin"}
-          height={"50vmin"}
-          className="fade-in "
-        />
-      ) : null}
+      {album.youtube && (
+        <div className="fade-in self-center">
+          <ReactPlayer
+            url={album.youtube}
+            width={"90vmin"}
+            height={"50vmin"}
+            className="fade-in py-[3vmin]"
+          />
+        </div>
+      )}
 
       <div
-        className=" self-center p-8 flex flex-row flexwrap rounded-xl fade-in my-4 "
+        className="self-center p-[2vmin] flex flex-row rounded-xl fade-in max-w-screen-lg gap-1"
         style={{
           backgroundColor: album.Band.backgroundColorSecondary
             ? rgbaParser(album.Band.backgroundColorSecondary)
@@ -167,12 +171,12 @@ export default function AlbumDetails() {
           color: album.Band.textColor ? album.Band.textColor : null,
         }}
       >
-        <div className="">
-          <h2 className="">{album.name}</h2>
+        <div className=" w-2/3" id="track-info-col">
+          <h2 className=" sm:text-lg md:text-xl lg:text-2xl font-bold">
+            {album.name}
+          </h2>
           <p className="">by {album.Band.name}</p>
-          <div className="">
-            {songUrl ? <AudioPlayer song={songUrl} /> : null}
-          </div>
+          <div className="">{songUrl && <AudioPlayer song={songUrl} />}</div>
           <div className="">
             {user &&
             purchases &&
@@ -192,7 +196,7 @@ export default function AlbumDetails() {
             )}
             <p className=" text-green-500 text-sm">Streaming + Download</p>
 
-            <table className="">
+            <table className=" w-full">
               {album && album.Songs && album.Songs.length
                 ? album.Songs.sort((a, b) => a.trackNum - b.trackNum).map(
                     (s, i) => (
@@ -205,27 +209,26 @@ export default function AlbumDetails() {
                           {s.name}
                         </td>
                         <td key={`td4${i}`} className="">
-                          {s.lyrics ? (
+                          {s.lyrics && (
                             <OpenModalButton
                               key={`modallyric${i}`}
                               buttonText={
-                                <button className="bg-emerald-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-emerald-800 transition duration-200 ease-in-out text-sm text-white">
+                                <button className={modalButtonStyling}>
                                   Lyrics
                                 </button>
                               }
                               onItemClick={closeMenu}
                               modalComponent={<LyricsModal lyrics={s.lyrics} />}
                             />
-                          ) : null}
+                          )}
                         </td>
                         {user && album.Band.userId === user.id ? (
                           <>
                             <td key={`edit${i}`} className="">
-                              {/* <SongPutModal string={`editsong${s.id}`} albumId={album.id} song={s}/> */}
                               <OpenModalButton
                                 key={`modaleditsong${i}`}
                                 buttonText={
-                                  <button className="bg-emerald-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-emerald-800 transition duration-200 ease-in-out text-sm text-white">
+                                  <button className={modalButtonStyling}>
                                     <IconEdit />
                                   </button>
                                 }
@@ -236,11 +239,10 @@ export default function AlbumDetails() {
                               />
                             </td>
                             <td key={`del${i}`} className="">
-                              {/* <DeleteSongModal string={s.name} song={s.id} /> */}
                               <OpenModalButton
                                 key={`modaldeletesong${i}`}
                                 buttonText={
-                                  <button className="bg-emerald-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-emerald-800 transition duration-200 ease-in-out text-sm text-white">
+                                  <button className={modalButtonStyling}>
                                     <IconTrash color={"white"} />
                                   </button>
                                 }
@@ -257,20 +259,20 @@ export default function AlbumDetails() {
                   )
                 : null}
             </table>
-            <p className=" my-8 w-80">
+            <p className=" my-8 ">
               Includes unlimited streaming via the free fancamp app, plus
               high-quality download in MP3, FLAC and more.
             </p>
           </div>
 
-          <p className=" break-words w-80">{album.description}</p>
+          <p className=" break-words ">{album.description}</p>
         </div>
 
-        <div className="max-w-sm mx-4">
+        <div className="w-2/3 mx-4" id="album-image-col">
           <img
             src={`${album.albumImage}`}
             alt="albumartwork"
-            className=" object-cover rounded-lg max-w-sm mb-2"
+            className=" object-cover rounded-lg w-full mb-2"
           />
           <div className=" flex flex-row">
             {!user ? (
@@ -316,24 +318,24 @@ export default function AlbumDetails() {
           </div>
         </div>
 
-        <div className=" w-56">
+        <div className=" w-1/3 sm:text-xs">
           {user && cart && cart.length ? (
             <div className=" bg-gradient-to-b from-slate-200 to-slate-400 p-2 text-black rounded-lg outline-white outline-2 outline mb-4 ">
               <div className=" font-bold text-base">Shopping Cart</div>
               {user && cart && cart.length
-                ? cart.map((c, i) => (
+                && cart.map((c, i) => (
                     <div className="" key={`cart${i}`}>
-                      <div className="text-sm ">{c.Album.name}</div>
-                      <span className="text-sm">${c.Album.price} USD</span>
+                      <div className="">{c.Album.name}</div>
+                      <span className="">${c.Album.price} USD</span>
                       <span
-                        className=" text-blue-700 float-right"
+                        className=" text-blue-700 float-right cursor-pointer"
                         onClick={() => deleteCart(c.id)}
                       >
                         <i className="fa-solid fa-trash-can"></i>
                       </span>
                     </div>
                   ))
-                : null}
+                }
               <hr></hr>
               <div className="mt-2">
                 <span className="font-bold">Total</span>
@@ -381,7 +383,7 @@ export default function AlbumDetails() {
                 <OpenModalButton
                   buttonText={
                     <button className="bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm">
-                     post song
+                      post song
                     </button>
                   }
                   onItemClick={closeMenu}
@@ -407,7 +409,7 @@ export default function AlbumDetails() {
               href={`https://www.youtube.com/results?search_query=${album.Band.name
                 .split(" ")
                 .join("+")}`}
-                target="_blank"
+              target="_blank"
             >
               YouTube
             </Link>
