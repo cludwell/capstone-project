@@ -147,7 +147,7 @@ export default function AlbumDetails() {
           src={`${album.Band.bannerUrl}`}
           onClick={bandPage}
           alt={`band logo banner ${album.Band.name}`}
-          className="self-center max-h-80 w-full m-[3vmin] object-cover cursor-pointer fade-in max-w-screen-lg rounded-xl"
+          className="self-center max-h-80 w-full m-[3vmin] object-contain cursor-pointer fade-in max-w-screen-lg rounded-xl"
         />
       )}
 
@@ -163,7 +163,7 @@ export default function AlbumDetails() {
       )}
 
       <div
-        className="self-center p-[2vmin] flex flex-row rounded-xl fade-in max-w-screen-lg gap-1"
+        className="self-center p-[2vmin] flex flex-row rounded-xl fade-in max-w-screen-lg gap-1 text-xs sm:text-sm md:text-base"
         style={{
           backgroundColor: album.Band.backgroundColorSecondary
             ? rgbaParser(album.Band.backgroundColorSecondary)
@@ -310,7 +310,7 @@ export default function AlbumDetails() {
                     <img
                       src={`${s.User.profilePic}`}
                       alt={`usersupporter${i}`}
-                      className=" w-16 aspect-square object-cover gap-3 rounded-md"
+                      className=" w-16 aspect-square object-cover gap-3 rounded-md cursor-pointer"
                     ></img>
                   </NavLink>
                 ))
@@ -318,24 +318,27 @@ export default function AlbumDetails() {
           </div>
         </div>
 
-        <div className=" w-1/3 sm:text-xs">
+        <div className=" w-1/3 text-xs md:text-sm">
           {user && cart && cart.length ? (
-            <div className=" bg-gradient-to-b from-slate-200 to-slate-400 p-2 text-black rounded-lg outline-white outline-2 outline mb-4 ">
+            <div className=" bg-gradient-to-b from-slate-200 to-slate-400 p-2 text-black rounded-lg outline-white outline-2 outline mb-4 hidden md:block">
               <div className=" font-bold text-base">Shopping Cart</div>
-              {user && cart && cart.length
-                && cart.map((c, i) => (
-                    <div className="" key={`cart${i}`}>
-                      <div className="">{c.Album.name}</div>
-                      <span className="">${c.Album.price} USD</span>
-                      <span
-                        className=" text-blue-700 float-right cursor-pointer"
-                        onClick={() => deleteCart(c.id)}
-                      >
-                        <i className="fa-solid fa-trash-can"></i>
-                      </span>
-                    </div>
-                  ))
-                }
+              {user &&
+                cart &&
+                cart.length &&
+                cart.map((c, i) => (
+                  <div className="" key={`cart${i}`}>
+                    <div className="">{c.Album.name}</div>
+                    <span className="text-xs md:text-sm">
+                      ${c.Album.price} USD
+                    </span>
+                    <span
+                      className=" text-blue-700 float-right cursor-pointer"
+                      onClick={() => deleteCart(c.id)}
+                    >
+                      <i className="fa-solid fa-trash-can"></i>
+                    </span>
+                  </div>
+                ))}
               <hr></hr>
               <div className="mt-2">
                 <span className="font-bold">Total</span>
@@ -346,18 +349,11 @@ export default function AlbumDetails() {
                     .toFixed(2)}
                 </span>
               </div>
-              <div className="cart-preview-buttons">
-                {/* <OpenModalCheckOutPreview
-                  buttonText={"Check Out"}
-                  onItemClick={closeMenu}
-                  modalComponent={<CheckOutModal user={user} cart={cart} />}
-                /> */}
-              </div>
             </div>
           ) : null}
           <img
-            className=" object-cover aspect-square rounded-md w-56"
-            alt="bandimagealbumdetails"
+            className=" object-cover aspect-square rounded-md w-56 mb-2"
+            alt="band sidebar"
             src={`${album.Band.artistImage}`}
             onClick={bandPage}
           />
@@ -415,27 +411,27 @@ export default function AlbumDetails() {
             </Link>
           </p>
 
-          <h4>
-            <NavLink to={`/bands/${album?.bandId}`}>discography</NavLink>
-          </h4>
+          <NavLink to={`/bands/${album?.bandId}`} className="my-4 font-bold">
+            discography
+          </NavLink>
 
           {Object.values(albums)
             .filter((a) => a.bandId === album.bandId && a.id !== album.id)
             .map((a, i) => (
               <NavLink
                 to={`/albums/${a.id}`}
-                className=" my-8"
+                className=""
                 key={`discog${i}`}
               >
                 <img
                   src={`${a.albumImage}`}
                   alt="otheralbums"
                   key={`albumart${i}`}
-                  className=" w-56 aspect-square rounded-md"
+                  className=" w-56 aspect-square rounded-md my-4  cursor-pointer"
                 ></img>
 
-                <div className=" font-bold montserrat">{a.name}</div>
-                <div className="details-discog-created">
+                <div className=" font-bold montserrat cursor-pointer">{a.name}</div>
+                <div className="details-discog-created cursor-pointer">
                   {a.createdAt.slice(0, -12)}
                 </div>
               </NavLink>

@@ -12,10 +12,31 @@ export default function AudioPlayer({ song }) {
   const animationRef = useRef();
 
   useEffect(() => {
-    const seconds = Math.floor(audioPlayer.current.duration);
-    setDuration(seconds);
-    progressBar.current.max = seconds;
-  }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
+    const audio = audioPlayer.current;
+
+    // Function to set duration
+    const setAudioData = () => {
+      const seconds = Math.floor(audio.duration);
+      setDuration(seconds);
+      progressBar.current.max = seconds;
+    };
+
+    // Function to handle time update
+    const setAudioTime = () => {
+      setTime(audio.currentTime);
+      progressBar.current.value = audio.currentTime;
+    };
+
+    // Adding event listeners
+    audio.addEventListener("loadedmetadata", setAudioData);
+    audio.addEventListener("timeupdate", setAudioTime);
+
+    return () => {
+      audio.removeEventListener("loadedmetadata", setAudioData);
+      audio.removeEventListener("timeupdate", setAudioTime);
+    };
+  }, []);
+
 
   const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60);
@@ -72,7 +93,7 @@ export default function AudioPlayer({ song }) {
         <i className={`fa-solid ${isPlaying ? "fa-pause" : "fa-play"}`} />
       </button>
       <div className="">
-          {song.trackNum}: {song.name}
+        {song.trackNum}: {song.name}
         <input
           type="range"
           ref={progressBar}
