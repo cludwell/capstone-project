@@ -54,6 +54,13 @@
   }
 }
 
+/* new and notable line clamp */
+.line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 13; /* Number of lines you want */
+  overflow: hidden;
+}
 .fade-in {
   animation: fadeIn 0.5s forwards;
 }
@@ -100,7 +107,7 @@ td {
   transition: 0.2s ease-in-out;
 }
 .fa-heart:hover,
-.fa-trash-can:hover,
+/* .fa-trash-can:hover, */
 .fa-pen-to-square:hover,
 .fa-cart-shopping:hover,
 .fa-bolt-lightning:hover {
