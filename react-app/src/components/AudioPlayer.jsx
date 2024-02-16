@@ -90,7 +90,7 @@ export default function AudioPlayer({ song }) {
         }`}
         onClick={togglePlayPause}
       >
-        <i className={`fa-solid ${isPlaying ? "fa-pause" : "fa-play"}`} />
+        <i className={`fa-solid text-white ${isPlaying ? "fa-pause" : "fa-play"} `} />
       </button>
       <div className="">
         {song.trackNum}: {song.name}

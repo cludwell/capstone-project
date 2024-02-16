@@ -65,7 +65,7 @@ export default function BandDetails() {
       }
     >
       <div
-        className="flex flex-row max-w-screen-lg w-full rounded-xl fade-in"
+        className="flex flex-row max-w-screen-lg w-full rounded-xl fade-in my-12"
         style={{
           backgroundColor: band.backgroundColorSecondary
             ? rgbaParser(band.backgroundColorSecondary)
@@ -76,14 +76,18 @@ export default function BandDetails() {
         <div className="flex flex-row flex-wrap content-start gap-4 mt-8 ml-8 mr-4 w-full ">
           {band && band.Albums && band.Albums.length ? (
             band.Albums.map((a, i) => (
-              <NavLink className="w-36 sm:w-40 md:w-44 " key={`card${i}`} to={`/albums/${a.id}`}>
-                  <img
-                    src={`${a.albumImage}`}
-                    alt="albumart"
-                    key={`albumart${i}`}
-                    className=" object-cover rounded-md aspect-square w-36 sm:w-40 md:w-44 "
-                  ></img>
-                  <p className=" font-bold">{a.name}</p>
+              <NavLink
+                className="w-36 sm:w-40 md:w-44 "
+                key={`card${i}`}
+                to={`/albums/${a.id}`}
+              >
+                <img
+                  src={`${a.albumImage}`}
+                  alt="albumart"
+                  key={`albumart${i}`}
+                  className=" object-cover rounded-md aspect-square w-36 sm:w-40 md:w-44 "
+                ></img>
+                <p className=" font-bold">{a.name}</p>
               </NavLink>
             ))
           ) : (
@@ -101,13 +105,22 @@ export default function BandDetails() {
           <p className=" text-slate-500">{band.city}</p>
           {user && band.userId === user.id ? (
             <>
-              <button className=" bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm" onClick={editOnClick}>
+              <button
+                className=" bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm"
+                onClick={editOnClick}
+              >
                 Edit Band
               </button>
-              <button className=" bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm" onClick={addAlbum}>
+              <button
+                className=" bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm"
+                onClick={addAlbum}
+              >
                 Add Album
               </button>
-              <button className=" bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm" onClick={deleteBand}>
+              <button
+                className=" bg-teal-500 w-full my-1 p-1 uppercase mulish rounded-lg active:scale-95 active:bg-teal-800 transition duration-200 ease-in-out text-sm"
+                onClick={deleteBand}
+              >
                 Break Up Band
               </button>
             </>
@@ -120,6 +133,8 @@ export default function BandDetails() {
               href={`https://www.facebook.com/search/top/?q=${band.name
                 .split(" ")
                 .join("%20")}`}
+              target="_blank"
+              rel="noreferrer"
             >
               Facebook
             </a>{" "}
@@ -131,6 +146,8 @@ export default function BandDetails() {
               href={`https://www.youtube.com/results?search_query=${band.name
                 .split(" ")
                 .join("+")} band`}
+              target="_blank"
+              rel="noreferrer"
             >
               YouTube
             </a>
