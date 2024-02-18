@@ -8,7 +8,7 @@ import IconLightning from "./Icons/IconLightning";
 import IconHeart from "./Icons/IconHeart";
 import ProfileButton from "./ProfileButton";
 import CartModal from "./CartModal";
-import ThemeToggleButton from "../context/Theme";
+// import ThemeToggleButton from "../context/Theme";
 
 export default function Header({ isLoaded }) {
   const dispatch = useDispatch();
@@ -80,11 +80,16 @@ export default function Header({ isLoaded }) {
             </div>
           ) : null}
 
-          <div className="user-activity-feed transition duration-200 ease-in-out flex flex-col justify-center content-center">
-            <NavLink to={`/about`}>
-              <IconLightning album={album} band={band} />
-            </NavLink>
-          </div>
+          <NavLink
+            to={`/about`}
+            className="group transition duration-200 ease-in-out flex flex-col justify-center content-center relative"
+          >
+            <IconLightning album={album} band={band} />
+            <div className="bg-white rounded-xl shadow-xl border-[1.5px] w-28 border-slate-300 absolute top-12 transition-all opacity-0 p-3 -translate-x-1/2 left-1/2 group-hover:opacity-100 group-hover:z-40">
+              About the developer
+            </div>
+          </NavLink>
+
           <div className="user-collection transition duration-200 ease-in-out flex flex-col justify-center content-center">
             {user && user.id && (
               <NavLink to={`/users/${user.id}`}>

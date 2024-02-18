@@ -30,7 +30,7 @@ export default function Footer() {
       <div className=" w-96 mt-16 mx-16">
         <p className="text-5xl ml-4">🤘</p>
         <p
-        className="my-2 font-serif marcellus text-xl"
+          className="my-2 font-serif marcellus text-xl"
           style={{
             color:
               album && album.Band && album.Band.textColor
@@ -43,7 +43,7 @@ export default function Footer() {
           Fancamp Industries Ltd.
         </p>
         <p
-        className="my-2 font-serif marcellus text-xl"
+          className="my-2 font-serif marcellus text-xl"
           style={{
             color:
               album && album.Band && album.Band.textColor
@@ -69,7 +69,11 @@ export default function Footer() {
             <img
               src="https://i.imgur.com/iiYBy1G.png"
               alt="linkedinlogo"
-              className="object-cover w-12 drop-shadow-xl"
+              className={`object-cover w-12 drop-shadow-xl ${
+                album?.Band?.backgroundColorSecondary === "#000000"
+                  ? "contrast-0"
+                  : "contrast-200"
+              }`}
             />
           </Link>
           <Link
@@ -80,7 +84,11 @@ export default function Footer() {
             <img
               src="https://i.imgur.com/KTjeA0w.png"
               alt="githubicon"
-              className={`object-cover w-10 contrast-200`}
+              className={`object-cover w-10  ${
+                album?.Band?.backgroundColorSecondary === "#000000"
+                  ? "contrast-0"
+                  : "contrast-200"
+              }`}
             />
           </Link>
           <Link

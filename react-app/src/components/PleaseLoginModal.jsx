@@ -1,5 +1,3 @@
-import LoginModal from "./LoginModal";
-import SignUpModal from "./SignUpModal";
 
 export default function PleaseLoginModal() {
   return (
@@ -8,10 +6,10 @@ export default function PleaseLoginModal() {
         Please log in or sign up to create a wishlist!
       </h1>
 
-      <div className=" flex justify-center mt-10">
+      {/* <div className=" flex justify-center mt-10" >
         <LoginModal />
         <SignUpModal />
-      </div>
+      </div> */}
     </div>
   );
 }
