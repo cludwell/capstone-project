@@ -9,7 +9,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { fetchUserPurchases } from "../store/purchases.js";
 import { NavLink } from "react-router-dom";
 import { fetchUsers } from "../store/users.js";
-import WishListFormPost from "./WishListFormPost/index.js";
+import WishListFormPost from "./WishListFormPost.jsx";
 import { deleteWishRequest, fetchWishLists } from "../store/wishlists.js";
 import { fetchBandInfo } from "../store/bands.js";
 import {
@@ -222,7 +222,7 @@ export default function AlbumDetails() {
                             />
                           )}
                         </td>
-                        {user && album.Band.userId === user.id ? (
+                        {user && album.Band.userId === user.id && (
                           <>
                             <td key={`edit${i}`} className="">
                               <OpenModalButton
@@ -253,7 +253,7 @@ export default function AlbumDetails() {
                               />
                             </td>
                           </>
-                        ) : null}
+                        )}
                       </tr>
                     )
                   )
@@ -292,14 +292,11 @@ export default function AlbumDetails() {
                 You Own This
               </span>
             ) : user && !wishes.some((w) => w.albumId === album.id) ? (
-              <>
                 <WishListFormPost album={album} />
-                WishList
-              </>
             ) : (
-              <span onClick={deleteWish}>
-                <i className="fa-solid fa-heart wished-for-list" />
-                WishList
+              <span onClick={deleteWish} className="cursor-pointer">
+                <i className="fa-solid fa-heart text-red-700" />
+                {" "}Wishlist
               </span>
             )}
           </div>

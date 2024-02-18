@@ -106,10 +106,3 @@ td {
 .fa-bolt-lightning {
   transition: 0.2s ease-in-out;
 }
-.fa-heart:hover,
-/* .fa-trash-can:hover, */
-.fa-pen-to-square:hover,
-.fa-cart-shopping:hover,
-.fa-bolt-lightning:hover {
-  scale: 1.4;
-}

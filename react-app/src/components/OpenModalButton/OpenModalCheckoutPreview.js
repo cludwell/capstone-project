@@ -1,11 +1,11 @@
-import React from 'react';
-import { useModal } from '../../context/Modal';
+import React from "react";
+import { useModal } from "../../context/Modal";
 
 export default function OpenModalCheckOutPreview({
   modalComponent, // component to render inside the modal
   buttonText, // text of the button that opens the modal
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
-  onModalClose // optional: callback function that will be called once the modal is closed
+  onModalClose, // optional: callback function that will be called once the modal is closed
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
@@ -16,8 +16,12 @@ export default function OpenModalCheckOutPreview({
   };
 
   return (
-    <button onClick={onClick}
-    className='band-deets-user-auth cart-preview-checkout'
-    style={{backgroundColor: 'limegreen'}}>{buttonText}</button>
+    <button
+      onClick={onClick}
+      className="band-deets-user-auth cart-preview-checkout"
+      style={{ backgroundColor: "limegreen" }}
+    >
+      {buttonText}
+    </button>
   );
 }
