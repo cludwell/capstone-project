@@ -197,67 +197,68 @@ export default function AlbumDetails() {
             <p className=" text-green-500 text-sm">Streaming + Download</p>
 
             <table className=" w-full">
-              {album && album.Songs && album.Songs.length
-                ? album.Songs.sort((a, b) => a.trackNum - b.trackNum).map(
-                    (s, i) => (
-                      <tr key={`tr${i}`}>
-                        <td key={`td${i}`}></td>
-                        <td key={`td2${i}`} className="pr-2 text-sm">
-                          {s.trackNum}.{" "}
-                        </td>
-                        <td key={`td3${i}`} className=" text-sm">
-                          {s.name}
-                        </td>
-                        <td key={`td4${i}`} className="">
-                          {s.lyrics && (
+              {album &&
+                album.Songs &&
+                album.Songs.length &&
+                album.Songs.sort((a, b) => a.trackNum - b.trackNum).map(
+                  (s, i) => (
+                    <tr key={`tr${i}`}>
+                      <td key={`td${i}`}></td>
+                      <td key={`td2${i}`} className="pr-2 text-sm">
+                        {s.trackNum}.{" "}
+                      </td>
+                      <td key={`td3${i}`} className=" text-sm">
+                        {s.name}
+                      </td>
+                      <td key={`td4${i}`} className="">
+                        {s.lyrics && (
+                          <OpenModalButton
+                            key={`modallyric${i}`}
+                            buttonText={
+                              <button className={modalButtonStyling}>
+                                Lyrics
+                              </button>
+                            }
+                            onItemClick={closeMenu}
+                            modalComponent={<LyricsModal lyrics={s.lyrics} />}
+                          />
+                        )}
+                      </td>
+                      {user && album.Band.userId === user.id && (
+                        <>
+                          <td key={`edit${i}`} className="">
                             <OpenModalButton
-                              key={`modallyric${i}`}
+                              key={`modaleditsong${i}`}
                               buttonText={
                                 <button className={modalButtonStyling}>
-                                  Lyrics
+                                  <IconEdit />
                                 </button>
                               }
                               onItemClick={closeMenu}
-                              modalComponent={<LyricsModal lyrics={s.lyrics} />}
+                              modalComponent={
+                                <SongFormPut albumId={album.id} song={s} />
+                              }
                             />
-                          )}
-                        </td>
-                        {user && album.Band.userId === user.id && (
-                          <>
-                            <td key={`edit${i}`} className="">
-                              <OpenModalButton
-                                key={`modaleditsong${i}`}
-                                buttonText={
-                                  <button className={modalButtonStyling}>
-                                    <IconEdit />
-                                  </button>
-                                }
-                                onItemClick={closeMenu}
-                                modalComponent={
-                                  <SongFormPut albumId={album.id} song={s} />
-                                }
-                              />
-                            </td>
-                            <td key={`del${i}`} className="">
-                              <OpenModalButton
-                                key={`modaldeletesong${i}`}
-                                buttonText={
-                                  <button className={modalButtonStyling}>
-                                    <IconTrash color={"white"} />
-                                  </button>
-                                }
-                                onItemClick={closeMenu}
-                                modalComponent={
-                                  <SongDeleteModal album={album} song={s} />
-                                }
-                              />
-                            </td>
-                          </>
-                        )}
-                      </tr>
-                    )
+                          </td>
+                          <td key={`del${i}`} className="">
+                            <OpenModalButton
+                              key={`modaldeletesong${i}`}
+                              buttonText={
+                                <button className={modalButtonStyling}>
+                                  <IconTrash color={"white"} />
+                                </button>
+                              }
+                              onItemClick={closeMenu}
+                              modalComponent={
+                                <SongDeleteModal album={album} song={s} />
+                              }
+                            />
+                          </td>
+                        </>
+                      )}
+                    </tr>
                   )
-                : null}
+                )}
             </table>
             <p className=" my-8 ">
               Includes unlimited streaming via the free fancamp app, plus

@@ -8,8 +8,12 @@ import IconExclamation from "./Icons/IconExclamation";
 export default function LoginModal() {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
+  const { email, password } = userData;
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = async (e) => {
@@ -22,10 +26,15 @@ export default function LoginModal() {
       setOpen(false);
     }
   };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
   const demoUser = async (e) => {
-    setEmail("unleash@aa.io");
-    setPassword("password");
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(login("unleash@aa.io", "password"));
     if (data) {
       setErrors(data);
     } else {
@@ -48,20 +57,25 @@ export default function LoginModal() {
             {errors.map((error, i) => (
               <li
                 key={`error${i}`}
-                className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3"
+                className=" w-full bg-red-300 text-red-950 rounded-2xl my-3 flex flex-row p-3 fade-in"
               >
                 <IconExclamation /> {error}
               </li>
             ))}
           </ul>
           <div className="grid grid-cols-2 gap-4">
-            <label className=" text-cyan-500 thasadith font-bold text-xl">
+            <label
+              className=" text-cyan-500 thasadith font-bold text-xl"
+              htmlFor="email"
+            >
               Email
             </label>
             <input
               type="text"
+              name="email"
+              id="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleChange}
               required
               className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
@@ -70,9 +84,11 @@ export default function LoginModal() {
             </label>
             <input
               type="password"
+              name="password"
+              id="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              retuired
+              onChange={handleChange}
+              required
               className=" rounded-lg focus:outline-double focus:outline-cyan-500 focus:outline-[4px] focus:border-white border-solid border-[1.5px] border-slate-300 transition-all ease-in-out duration-200 bg-slate-100 p-2"
             />
           </div>
@@ -84,7 +100,7 @@ export default function LoginModal() {
               Log In
             </button>
             <button
-              className="bg-indigo-500 text-white font-bold uppercase p-3 rounded-lg transition duration-200  active:bg-indigo-800 active:scale-90 montserrat bg-"
+              className="bg-indigo-500 text-white font-bold uppercase p-3 rounded-lg transition duration-200  active:bg-indigo-800 active:scale-90 montserrat"
               onClick={demoUser}
             >
               Demo User

@@ -23,23 +23,23 @@ export default function AboutPage() {
           <div className="about-text">
             <h1 className="text-2xl font-serif">Christian Ludwell</h1>
             <img
-              src="https://skillicons.dev/icons?i=androidstudio,aws,cs,css,docker,eclipse,express,html,flask,git,java,js,nodejs,nextjs,postgres,postman,prisma,py,react,redux,sqlite,sequelize,tailwind,ts,visualstudio,vscode&perline=10&theme=light"
+              src="https://skillicons.dev/icons?i=androidstudio,aws,cs,css,docker,eclipse,express,html,flask,git,java,js,nodejs,nextjs,postgres,postman,prisma,py,react,redux,sqlite,sequelize,tailwind,ts,visualstudio,vscode&perline=9&theme=light"
               alt=""
-              className="w-96 drop-shadow-xl py-auto"
+              className="w-96 drop-shadow-xl my-4 mx-auto"
             />
             <p className="my-3 text-sm md:text-base">
               Hi! I'm Chris! I'm a Full Stack Software Engineer with a Bachelors
               in Geography and International Development.
             </p>
             <p className="my-3 text-sm md:text-base">
-              Before becoming a software engineer I was a Senior Installer doing
-              residential solar installations. My role meant quality and safe
+              Before becoming a software engineer I was a Senior Solar Installer
+              doing residential installations. My role meant quality and safe
               installations, for clients and my team, all within the span of one
               day. It was from this work that I learned I enjoyed creative
               problem solving and wanted a career in which I was always learning
               and constantly being challenged, as well as the sense of
               completion that comes from seeing a project in all aspects from
-              start to finish.{" "}
+              start to finish.
             </p>
             <p className="my-3 text-sm md:text-base">
               I'm currently located in Portland, OR. But looking to relocate,
