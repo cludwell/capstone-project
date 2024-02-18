@@ -4,9 +4,6 @@ import { useDispatch } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import { authenticate } from "../store/session";
 import { fetchUserCart } from "../store/carts";
-// import OpenModalCheckout from "./OpenModalButton/OpenModalCheckOut";
-// import CheckOutModal from "./CheckOutModal";
-// import IconCart from "./IconCart";
 import IconLightning from "./Icons/IconLightning";
 import IconHeart from "./Icons/IconHeart";
 import ProfileButton from "./ProfileButton";
@@ -79,22 +76,6 @@ export default function Header({ isLoaded }) {
               <div className=" absolute bg-red-600 text-white font-bold rounded-2xl p-1 opacity-80 left-3 bottom-5">
                 {cart.length}
               </div>
-              {/* <OpenModalCheckout
-                buttonText={
-                  <IconCart
-                    style={{
-                      color:
-                        album && album.Band && album.Band.textColor
-                          ? album.Band.textColor
-                          : band && band.textColor
-                          ? band.textColor
-                          : null,
-                    }}
-                  />
-                }
-                onItemClick={closeMenu}
-                modalComponent={<CheckOutModal user={user} cart={cart} />}
-              /> */}
               <CartModal user={user} album={album} band={band} />
             </div>
           ) : null}

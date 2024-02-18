@@ -54,6 +54,11 @@
   }
 }
 
+.overflow-pre {
+  white-space: pre-wrap; /* Allows the text to wrap */
+  word-wrap: break-word; /* Breaks the word to prevent overflow */
+}
+
 /* new and notable line clamp */
 .line-clamp {
   display: -webkit-box;

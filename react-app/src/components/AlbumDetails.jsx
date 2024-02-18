@@ -23,10 +23,11 @@ import LyricsModal from "./LyricsModal.jsx";
 import SongDeleteModal from "./SongDeleteModal.jsx";
 import SongPostModal from "./SongPostModal.jsx";
 import SongFormPut from "./SongFormPut.jsx";
-import OpenModalButton from "./OpenModalButton/index.js";
+import OpenModalButton from "./_OpenModalButton.jsx";
 import IconEdit from "./Icons/IconEdit.jsx";
 import IconTrash from "./Icons/IconTrash.jsx";
 import { Link } from "react-router-dom/cjs/react-router-dom.min.js";
+import PleaseLoginModal from "./PleaseLoginModal.jsx";
 
 export default function AlbumDetails() {
   const dispatch = useDispatch();
@@ -87,7 +88,6 @@ export default function AlbumDetails() {
     await dispatch(fetchUsers());
     await dispatch(fetchWishLists());
   };
-  const pleaseLogin = (e) => alert("Please log in to create a wishlist!");
   const buyAlbum = async (e) => {
     if (!user) return alert("Please sign in to add items to cart!");
     if (cart.some((c) => c.albumId === album.id))
@@ -163,7 +163,7 @@ export default function AlbumDetails() {
       )}
 
       <div
-        className="self-center p-[2vmin] flex flex-row rounded-xl fade-in max-w-screen-lg gap-1 text-xs sm:text-sm md:text-base"
+        className="self-center p-[2vmin] flex flex-row rounded-xl fade-in max-w-screen-lg gap-1 text-xs sm:text-sm md:text-base mb-24"
         style={{
           backgroundColor: album.Band.backgroundColorSecondary
             ? rgbaParser(album.Band.backgroundColorSecondary)
@@ -277,10 +277,15 @@ export default function AlbumDetails() {
           <div className=" flex flex-row">
             {!user ? (
               //if the user is not signed in, they should be prompted to sign in
-              <span className=" cursor-pointer" onClick={pleaseLogin}>
-                <i className="fa-regular fa-heart notwislist-list" />
-                WishList
-              </span>
+              <OpenModalButton
+                buttonText={
+                  <span className=" cursor-pointer">
+                    <i className="fa-regular fa-heart" /> WishList
+                  </span>
+                }
+                onItemClick={closeMenu}
+                modalComponent={<PleaseLoginModal />}
+              />
             ) : //
             user &&
               purchases &&
@@ -292,50 +297,45 @@ export default function AlbumDetails() {
                 You Own This
               </span>
             ) : user && !wishes.some((w) => w.albumId === album.id) ? (
-                <WishListFormPost album={album} />
+              <WishListFormPost album={album} />
             ) : (
               <span onClick={deleteWish} className="cursor-pointer">
-                <i className="fa-solid fa-heart text-red-700" />
-                {" "}Wishlist
+                <i className="fa-solid fa-heart text-red-700" /> Wishlist
               </span>
             )}
           </div>
           <div className=" flex flex-row flex-wrap gap-2 my-4">
-            {album.Sales.length
-              ? album.Sales.map((s, i) => (
-                  <NavLink to={`/users/${s.userId}`} key={`${i}`}>
-                    <img
-                      src={`${s.User.profilePic}`}
-                      alt={`usersupporter${i}`}
-                      className=" w-16 aspect-square object-cover gap-3 rounded-md cursor-pointer"
-                    ></img>
-                  </NavLink>
-                ))
-              : null}
+            {album.Sales.length &&
+              album.Sales.map((s, i) => (
+                <NavLink to={`/users/${s.userId}`} key={`${i}`}>
+                  <img
+                    src={`${s.User.profilePic}`}
+                    alt={`usersupporter${i}`}
+                    className=" w-16 aspect-square object-cover gap-3 rounded-md cursor-pointer"
+                  ></img>
+                </NavLink>
+              ))}
           </div>
         </div>
 
         <div className=" w-1/3 text-xs md:text-sm">
-          {user && cart && cart.length ? (
+          {user && cart && cart.length && (
             <div className=" bg-gradient-to-b from-slate-200 to-slate-400 p-2 text-black rounded-lg outline-white outline-2 outline mb-4 hidden md:block">
               <div className=" font-bold text-base">Shopping Cart</div>
-              {user &&
-                cart &&
-                cart.length &&
-                cart.map((c, i) => (
-                  <div className="" key={`cart${i}`}>
-                    <div className="">{c.Album.name}</div>
-                    <span className="text-xs md:text-sm">
-                      ${c.Album.price} USD
-                    </span>
-                    <span
-                      className=" text-blue-700 float-right cursor-pointer"
-                      onClick={() => deleteCart(c.id)}
-                    >
-                      <i className="fa-solid fa-trash-can"></i>
-                    </span>
-                  </div>
-                ))}
+              {cart.map((c, i) => (
+                <div className="mb-2" key={`cart${i}`}>
+                  <div className=" ">{c.Album.name}</div>
+                  <span className="text-xs md:text-sm">
+                    ${c.Album.price} USD
+                  </span>
+                  <span
+                    className=" text-blue-700 float-right cursor-pointer  "
+                    onClick={() => deleteCart(c.id)}
+                  >
+                    <IconTrash color={"currentColor"} classes={" "} />
+                  </span>
+                </div>
+              ))}
               <hr></hr>
               <div className="mt-2">
                 <span className="font-bold">Total</span>
@@ -347,7 +347,7 @@ export default function AlbumDetails() {
                 </span>
               </div>
             </div>
-          ) : null}
+          )}
           <img
             className=" object-cover aspect-square rounded-md w-56 mb-2"
             alt="band sidebar"
@@ -415,11 +415,7 @@ export default function AlbumDetails() {
           {Object.values(albums)
             .filter((a) => a.bandId === album.bandId && a.id !== album.id)
             .map((a, i) => (
-              <NavLink
-                to={`/albums/${a.id}`}
-                className=""
-                key={`discog${i}`}
-              >
+              <NavLink to={`/albums/${a.id}`} className="" key={`discog${i}`}>
                 <img
                   src={`${a.albumImage}`}
                   alt="otheralbums"
@@ -427,7 +423,9 @@ export default function AlbumDetails() {
                   className=" w-56 aspect-square rounded-md my-4  cursor-pointer"
                 ></img>
 
-                <div className=" font-bold montserrat cursor-pointer">{a.name}</div>
+                <div className=" font-bold montserrat cursor-pointer">
+                  {a.name}
+                </div>
                 <div className="details-discog-created cursor-pointer">
                   {a.createdAt.slice(0, -12)}
                 </div>
