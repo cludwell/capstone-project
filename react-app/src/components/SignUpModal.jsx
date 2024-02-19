@@ -21,6 +21,8 @@ export default function SignUpModal() {
   const [genre, setGenre] = useState("");
   const [image, setImage] = useState("");
   const [hasSubmitted, setHasSubmitted] = useState(false);
+
+
   const validate = () => {
     const err = [];
     if (!name || name.length < 3 || name.length > 50)
